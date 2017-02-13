@@ -1,0 +1,55 @@
+:host * {
+  font-weight: 400;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:host section {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 20px;
+}
+
+:host md-card {
+  text-align: center;
+}
+
+
+:host md-card-title,
+:host md-card-subtitle {
+  text-align: left;
+}
+
+:host button {
+  background-color: lightyellow; /* Light yellow */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 350px;
+  margin: 10px 0;
+}
+
+:host button img {
+  vertical-align: middle;
+  margin: 10px;
+}
+
+:host button:hover {
+  background-color: yellow;
+}
+.button {
+  background-color: lightyellow; /* Light yellow */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

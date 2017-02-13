@@ -1,0 +1,70 @@
+
+
+<section [ngSwitch]="isAuth">
+  <h1  *ngSwitchCase="false">{{title}}</h1>
+  <h3  *ngSwitchCase="false">Choose your Federated Identity Provider</h3>
+
+  <md-card *ngSwitchCase="false">
+
+<!--
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+      <p>
+        <label> Enter email address
+          <input type="text" name="email" (ngModel)="email" required>
+        </label>
+      </p>
+      <p>
+        <label> Password
+          <input type="password" name="password" (ngModel)="password" required>
+        </label>
+      </p>
+
+
+      <button md-raised-button (click)="loginUser " [disabled]="!formData.valid">
+        <img width="30" src="../../images/dot-to-dot.png" />Use My DOT-to-DOT Account
+      </button>
+      <p>
+         <a routerLink="/register">Don't have an account?</a>
+      </p>
+    </form>
+-->
+    <button md-raised-button (click)="login('google')">
+      <img width="30" src="../../images/google-logo.png" />Use My Google Account
+    </button>
+
+    <button md-raised-button (click)="login('facebook')">
+      <img width="30" src="../../images/facebook-logo.png" />Use My Facebook Account
+    </button>
+
+    <button md-raised-button (click)="login('twitter')">
+      <img width="30" src="../../images/twitter-logo.png" />Use My Twitter Account
+    </button>
+
+
+
+
+
+
+  </md-card>
+
+  <md-card *ngSwitchCase="true">
+    <h1>Log Out</h1>
+    <md-card-header>
+      <img md-card-avatar [src]="user.avatar || 'avatar.png'">
+      <md-card-title>{{ user.name }}</md-card-title>
+      <md-card-subtitle>{{ user.email || '(no email)' }}</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="../../images/dot-to-dot.png" style=" width:100px" />
+    <md-card-content>
+      <p>You are logged in using <strong>{{ user.provider }}</strong></p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-raised-button (click)="logout()">
+        Logout
+      </button>
+    </md-card-actions>
+  </md-card>
+
+
+</section>
+

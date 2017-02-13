@@ -1,3 +1,19 @@
+<header class="bar">
 <h1>
-  {{title}}
+  <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px" /> {{title}}
 </h1>
+<nav [ngSwitch]="isAuth">
+  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a *ngSwitchCase="true" routerLink="/login" routerLinkActive="active">Logout</a>
+  <a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a>
+  <a *ngSwitchCase="false" routerLink="/register" routerLinkActive="active">Sign up</a>
+  <a *ngSwitchCase="true" routerLink="/projects" routerLinkActive="active">Projects</a>
+  <a *ngSwitchCase="true" routerLink="/users" routerLinkActive="active"> Users</a>
+  <a *ngSwitchCase="true" routerLink="/users-profiles" routerLinkActive="active">Profile</a>
+  <a *ngSwitchCase="true" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+
+</nav>
+
+</header>
+
+<router-outlet></router-outlet>
