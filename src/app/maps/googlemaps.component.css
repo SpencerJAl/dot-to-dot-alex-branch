@@ -1,0 +1,13 @@
+.sebm-google-map-container {
+  height: 560px;
+  zoom: 1;
+
+
+}
+
+
+.dot-to-dot{
+  icon: url("../../images/dot-to-dot-marker.png");
+  color:yellow;
+  background-color: aqua;
+}

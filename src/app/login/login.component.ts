@@ -6,7 +6,8 @@ import {AppRouting} from "../app.routing";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+
 })
 
 
@@ -55,11 +56,13 @@ export class LoginComponent implements OnInit {
       this.isAuth = true;
       this.authColor = 'primary';
       this.user = this._getUserInfo(user)
+      localStorage.setItem('currentUser', JSON.stringify(this.user));
     }
     else {
       this.isAuth = false;
       this.authColor = 'warn';
       this.user = {};
+      localStorage.removeItem('currentUser');
     }
   }
 
@@ -81,6 +84,7 @@ export class LoginComponent implements OnInit {
       case 'twitter': return AuthProviders.Twitter;
       case 'facebook': return AuthProviders.Facebook;
       case 'google': return AuthProviders.Google;
+
 
 
     }

@@ -12,6 +12,10 @@ import {ProjectsComponent} from './projects/projects.component';
 import {UsersComponent} from './users/users.component';
 import {UsersProfilesComponent} from './users-profiles/users-profiles.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {GoogleMapsComponent} from'./maps/googlemaps.component';
+
+import {AuthGuard} from './login/auth.guard';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent
 
@@ -29,24 +33,35 @@ const appRoutes: Routes = [
   {
     path:'projects',
     component: ProjectsComponent,
+    canActivate: [AuthGuard],
+
     data: { title: 'Projects' }
   },
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [AuthGuard],
     data: {title: 'Users'}
   },
   {
     path:'users-profiles',
     component:UsersProfilesComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Profile' }
   },
   {
     path:'dashboard',
     component:DashboardComponent,
-    data: { title: 'dashboard' }
+    canActivate: [AuthGuard],
+    data: { title: 'Dashboard' }
   }
-
+  ,
+  {
+    path:'maps',
+    component:GoogleMapsComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'maps' }
+  }
 
 ];
 
