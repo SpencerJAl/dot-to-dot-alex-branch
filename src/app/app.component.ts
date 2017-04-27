@@ -1,6 +1,7 @@
 ///<reference path="../../node_modules/angularfire2/auth/auth.d.ts"/>
 import { Component } from '@angular/core';
 import { AngularFire, AuthProviders } from 'angularfire2';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {LoginComponent} from './login/login.component';
 import {AppRouting} from './app.routing';
 
@@ -69,4 +70,5 @@ export class AppComponent {
       case 'google': return AuthProviders.Google;
     }
   }
+
 }

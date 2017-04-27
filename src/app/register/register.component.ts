@@ -13,8 +13,16 @@ export class RegisterComponent implements OnInit {
   title = 'Register for DOT-to-DOT';
   isAuth = false;
   authColor = 'warn';
-  user = { email: '',
-    password: ''};
+  user = {
+    fullname: '',
+    email: '',
+  password: ''
+
+  };
+  dbPostData(fullname, email, password){
+    firebase.database().ref('/').push(this.user);
+
+  }
 /*
   constructor(public af: AngularFire) {
     this.af.auth.subscribe(
