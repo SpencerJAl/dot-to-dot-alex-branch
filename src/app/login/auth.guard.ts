@@ -3,14 +3,26 @@
  */
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {FirebaseObjectObservable} from 'angularfire2';
+import {AF} from '../providers/af';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+  public user: FirebaseObjectObservable<any>;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private afService: AF) {
+    this.afService.af.auth.subscribe(
+      (auth) => {
+        if (auth != null) {
+          this.user = this.afService.af.database.object('users/' + auth.uid);
+
+        }
+      });
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('currentUser')) {
+    if ('user'){
+
       // logged in so return true
       return true;
     }

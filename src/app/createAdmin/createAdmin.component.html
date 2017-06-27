@@ -1,0 +1,30 @@
+<section>
+  <md-card>
+
+    <div class="modal-dialog"  >
+      <div class="loginmodal-container" >
+        <h1> Create a new admin</h1>
+        <form (submit)="registerAdmin($event, name.value, email.value, password.value)"class="form-signin">
+          <div class="form-group">
+            <label for="name" class="sr-only" >Name</label>
+            <input  #name type="text" id="name" placeholder="Name" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="email"  class="sr-only" >email </label>
+            <input #email type="email" id="email" placeholder="Email address" class="form-control">
+          </div>
+
+          <div class = "form-group">
+            <label for="inputPassword" class="sr-only">password</label>
+            <input #password type="password" id="inputPassword" placeholder="Password" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-md btn-primary btn-block">Register</button>
+        </form>
+
+      </div>
+    </div>
+  </md-card>
+</section>
+<p>note, admins are able to act as normal users</p>

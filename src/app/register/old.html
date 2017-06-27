@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+<section [ngSwitch]="isAuth">
+
+
+
+  <md-card *ngSwitchCase="false">
+
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+      <p>
+        <label> Enter email address
+          <input type="text" name="email" (ngModel)="email" requred>
+        </label>
+      </p>
+      <p>
+        <label> Password
+          <input type="password" name="password" (ngModel)="password" required>
+        </label>
+      </p>
+
+      <button md-raised-button (click)=" signupUser" [disabled]="!formData.valid" style= "background-color: lightyellow; text-align: center" >
+        <img width="38" src="../../images/dot-to-dot.png"   />Create DOT-to-DOT Account
+      </button>
+      <p>
+
+      </p>
+    </form>

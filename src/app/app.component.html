@@ -2,17 +2,39 @@
 <h1>
   <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px" /> {{title}}
 </h1>
-<nav [ngSwitch]="isAuth">
-  <a routerLink="/" routerLinkActive="active">Home</a>
-  <a *ngSwitchCase="true" routerLink="/login" routerLinkActive="active">Logout</a>
-  <a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a>
-  <a *ngSwitchCase="false" routerLink="/register" routerLinkActive="active">Sign up</a>
-  <a *ngSwitchCase="true" routerLink="/projects" routerLinkActive="active">Projects</a>
-  <a *ngSwitchCase="true" routerLink="/users" routerLinkActive="active"> Users</a>
-  <a *ngSwitchCase="true" routerLink="/users-profiles" routerLinkActive="active">Profile</a>
-  <a *ngSwitchCase="true" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-  <a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Maps</a>
+<nav [ngSwitch]="isLoggedIn" class="navbar navbar-default">
+  <div class="container-fluid">
 
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+
+      <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
+      <li><a *ngSwitchCase="false" routerLink="/register" routerLinkActive="active">Sign up</a></li>
+      <li><a *ngSwitchCase="true" [routerLink]="['/projects',12]" routerLinkActive="active">My Projects</a></li>
+
+      <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Dashboard</a></li>
+
+      <li><a *ngSwitchCase="true" routerLink="/adminDashboard" routerLinkActive="active">admin Dashboard</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/createAdmin" routerLinkActive="active">create Admin</a></li>
+
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a>1</a></li>
+          <li><a>2</a></li>
+          <li><a>3</a></li>
+        </ul>
+      </li>
+      <li><a *ngSwitchCase="true" routerLink="/login" routerLinkActive="active">Logout</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/myProfile" routerLinkActive="active">my profile</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/createProject" routerLinkActive="active">New Project</a></li>
+
+    </ul>
+  </div>
 </nav>
 
 </header>

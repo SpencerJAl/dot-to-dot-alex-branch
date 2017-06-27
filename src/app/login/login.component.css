@@ -53,3 +53,47 @@
   display: inline-block;
   font-size: 16px;
 }
+
+.sebm-google-map-container {
+  height: 560px;
+  zoom: 1;
+
+
+}
+
+
+.dot-to-dot{
+  icon: url("../../images/dot-to-dot-marker.png");
+  color:yellow;
+  background-color: aqua;
+}
+
+
+.gardening{
+  background: green;
+  width: 200px;
+  height:200px;
+  border-radius:50%
+}
+.gaming{
+  background: blue;
+  width: 200px;
+  height:200px;
+  border-radius:50%
+}
+.cooking {
+  background: red;
+  width: 200px;
+  height:200px;
+  border-radius:50%
+}
+.gardenings{
+  background: green;
+
+}
+.gamings{
+  background: blue;
+}
+.cookings {
+  background: red;
+}

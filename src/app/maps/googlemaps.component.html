@@ -1,6 +1,35 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 
+
+<div class="ui-g">
+
+  <div col-sm-12><h1 align="center ">Welcome to Dot to Dot {{this.afService.displayName}} </h1></div>
+
+  <div class="col-sm-3">
+    <h2>Messages for <a href="# " [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>
+    <div #scrollMe class="bs-example" id="messages">
+      <div *ngFor="let message of messages | async">
+        <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
+          <p>{{ message.message }}</p>
+          <div class="author">
+            {{ message.displayName }}
+          </div>
+          <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <figure class="highlight">
+      <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+      <a class="send-message" (click)="sendMessage()">SEND</a>
+    </figure>
+  </div>
+
+  <div class ="col-sm-6">
+
 <script>
 
   const mapStyle = [
@@ -221,7 +250,7 @@
 
 </script>
 <md-card >
-<sebm-google-map [latitude]="lat" [longitude]="lng"  [styles]="mapStyle"  [zoom]="zoom">
+<sebm-google-map  [latitude]="startLat" [longitude]="startLng"  [styles]="mapStyle"  [zoom]="zoom">
   <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></sebm-google-map-marker>
   <sebm-google-map-polyline  [title]="'DOT-to-DOT site'">
 
@@ -231,7 +260,39 @@
        <sebm-google-map-polyline-point [latitude]="55.880958" [longitude]="-4.274254"> </sebm-google-map-polyline-point>
        <sebm-google-map-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </sebm-google-map-polyline-point>
   </sebm-google-map-polyline>
-</sebm-google-map>
 
- <p-gmap #gmap [style]="{'width':'100%','height':'320px'}" [options]="options" ></p-gmap>
+  <sebm-google-map-marker [latitude]="startLat" [longitude]="startLng"></sebm-google-map-marker>
+
+  <sebm-google-map-marker
+    *ngFor="let m of markers | async"
+    (markerClick)="test(m)"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+  >
+    <sebm-google-map-info-window>
+      <p><strong>{{m.name}}</strong></p>
+      <br>
+      <p><u>Summary</u></p>
+      <p>{{m.summary}}</p>
+      <br>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
 </md-card>
+    </div>
+    <div class="col-sm-3">
+      <h2>Project Members</h2>
+      <md-card>
+        <div *ngFor=" let p of profiles;">
+          <md-card>
+            <div>
+              <p class="member">{{p.name}}</p>
+              <p *ngFor="let j of p.hobbies" class="{{j.name}}"></p>
+              <a href="#" [routerLink]="['/userProfile',p.name]">profile</a>
+            </div>
+          </md-card>
+        </div>
+      </md-card>
+    </div>
+
+  </div>

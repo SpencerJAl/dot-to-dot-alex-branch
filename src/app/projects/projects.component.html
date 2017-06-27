@@ -1,3 +1,14 @@
-<p>
-  projects works!
-</p>
+<div>
+<md-card>
+<h1 align="center">{{(project | async)?.name}}</h1>
+
+<h2 align="center">Description</h2>
+<p align="center">{{(project | async)?.description}}</p>
+
+<h2 align="center">Summary</h2>
+<p align="center">{{(project | async)?.summary}}</p>
+
+
+<button (click)="join() " align="center">Join project</button>
+</md-card>
+</div>

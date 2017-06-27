@@ -1,9 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 
 import { SebmGoogleMap } from 'angular2-google-maps/core';
 import { AgmCoreModule , GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
 import {GMapModule, Message} from 'primeng/primeng';
 import{Ng2MapModule} from 'ng2-map';
+import {GeocodingService} from "../services/geocoding.service";
+import {GeolocationService} from "../services/geolocation.service";
+import {MapsService} from "../services/maps.service";
+import {ProjectService} from "../services/localProject.service";
+import {UserService} from "../services/localUser.service";
+import {FirebaseListObservable} from "angularfire2/index";
+import {AF} from "../providers/af";
+
 
 @Component({
   selector: 'googlemaps-root',
@@ -19,20 +27,98 @@ export class GoogleMapsComponent implements OnInit {
   label: string = 'STEAMpunks HQ';
 
   options: any;
-
-  overlays: any[];
-
-  dialogVisible: boolean;
-
-  markerTitle: string;
-
-  selectedPosition: any;
-
-  infoWindow: any;
-
   draggable: boolean;
+  startLat: number;
+  startLng: number=3;
+  center:any;
+  message:string;
+  warning:boolean;
+  examp:string;
+  peoples: people[];
+  markers: FirebaseListObservable<any>;
+  messagething:{};
+  markerKeys;
 
-  msgs: Message[] = [];
+
+
+
+
+  ////////////////////////message variables///////////////////////////
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  public newMessage: string;
+  public messages: FirebaseListObservable<any>;
+///////////////////////////////////////////////////////////////////////
+
+
+
+ constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService) {
+   this.zoom=18;
+   this.markers = this.afService.projects;
+   this.peoples=this._userService.getUsers();
+   this.messages = this.afService.messages;
+   this.markerKeys=Object.keys(this.afService.projects);
+   console.log("marker key is"+this.markerKeys[4]);
+   
+
+
+ }
+
+
+
+
+//////////////////////////dashboard component/////////////////////////////////////
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom(): void {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch(err) { }
+  }
+
+  sendMessage(){
+    this.afService.sendMessage(this.newMessage);
+    this.newMessage = '';
+
+  }
+
+  isYou(email) {
+    if(email == this.afService.email)
+      return true;
+    else
+      return false;
+  }
+
+  isMe(email) {
+    if(email == this.afService.email)
+      return false;
+    else
+      return true;
+  }
+  /////////////////////////////////////////////
+
+
+
+
+
+  /**
+   *
+   */
+
+
+  profiles: people[]=[];
+  test(m){
+    var people=m;
+    console.log(m.id);
+    this.afService.getProjectMessages(m.id);
+    this.messages=this.afService.messages;
+    this.profiles=this.peoples;
+    this.messagething=m;
+
+
+  }
+
 
   ngOnInit() {
     this.options = {
@@ -40,6 +126,40 @@ export class GoogleMapsComponent implements OnInit {
       zoom: 16,
       style: mapStyle
     }
+    this.messagething={name:"general", id:3};
+
+
+    if (navigator.geolocation) {
+      this.geolocation.getCurrentPosition().forEach(
+        (position: Position) => {
+            // New center object: triggers OnChanges.
+            this.center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            this.startLat=position.coords.latitude;
+            this.startLng=position.coords.longitude;
+            this.zoom = 11;
+        }
+      ).then(() => console.log('Geolocation service: completed.')).catch(
+        (error: PositionError) => {
+          if (error.code > 0) {
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                this.message = 'permission denied';
+                break;
+              case error.POSITION_UNAVAILABLE:
+                this.message = 'position unavailable';
+                break;
+              case error.TIMEOUT:
+                this.message = 'position timeout';
+                break;
+            }
+            this.warning = true;
+          }
+        });
+    } else {
+      this.message = "browser doesn't support geolocation";
+      this.warning = true;
+    }
+
 
 
   }
@@ -262,3 +382,34 @@ export const mapStyle = [
     ]
   }
 ]
+
+//marker
+interface marker{
+  name?:string;
+  lat: number;
+  lng: number;
+  draggable:boolean;
+  people:[{name:string}];
+  posts:[{
+    displayName:string,
+    email:string,
+    message:string,
+    timestamp:number
+  }];
+  type:string;
+}
+
+//people
+interface people{
+  name:string;
+  age:number;
+  hobbies:[{name:string}];
+  summary:string;
+  description:string;
+}
+interface mess{
+  displayName:string;
+  email:string;
+  message:string;
+  timestamp:number;
+}

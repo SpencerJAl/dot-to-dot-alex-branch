@@ -9,7 +9,7 @@ import { AngularFireModule,
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AgmCoreModule , SebmGoogleMap  } from 'angular2-google-maps/core';
+import { AgmCoreModule , SebmGoogleMap, SebmGoogleMapMarker  } from 'angular2-google-maps/core';
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,7 +19,7 @@ import { UsersComponent } from './users/users.component';
 import { UsersProfilesComponent } from './users-profiles/users-profiles.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {GoogleMapsComponent} from './maps/googlemaps.component'
+import {GoogleMapsComponent} from './maps/googlemaps.component';
 import {CoreModule} from './app.core.modules';
 import {AlertService} from'./services/alert.service';
 import { Ng2MapModule} from 'ng2-map';
@@ -30,7 +30,22 @@ import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuard} from "./login/auth.guard";
-import {GMapModule} from 'primeng/primeng';
+import {MapsService} from "./services/maps.service";
+import {GeolocationService} from "./services/geolocation.service";
+import {GeocodingService} from "./services/geocoding.service";
+import {AF} from "./providers/af";
+import {CreateProjectComponent} from "./createProject/createProject.component";
+import {AccountSetupComponent} from "./accountSetup/accountSetup.component";
+import {ProjectService} from "./services/localProject.service";
+import {UserService} from "./services/localUser.service";
+import {GetProjects} from "./localStorage/projects";
+import {MyProfileComponent} from "./myProfile/myProfile.component";
+import {CreateAdminComponent} from "./createAdmin/createAdmin.component";
+import {AdminDashboardComponent} from "./adminDashboard/adminDashboard.component";
+import {ProjectRequestComponent} from "./projectRequest/projectRequest.component";
+import {AdminComponent} from "./admin/admin.component";
+import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
+//import {GMapModule} from 'primeng/primeng';
 
 export let MD_MODULES: any = [
   MdToolbarModule,
@@ -65,14 +80,22 @@ export const firebaseAuthConfig = {
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    CreateProjectComponent,
+    AccountSetupComponent,
+    MyProfileComponent,
+    CreateAdminComponent,
+    AdminDashboardComponent,
+    ProjectRequestComponent,
+    AdminComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     CoreModule,
-    GMapModule,
+    //GMapModule,
     AppRouting,
     Ng2MapModule,
     AgmCoreModule.forRoot({
@@ -85,8 +108,8 @@ export const firebaseAuthConfig = {
         apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",
         authDomain: "project--1058925460034076790.firebaseapp.com",
         databaseURL: "https://project--1058925460034076790.firebaseio.com",
-        storageBucket: "project--1058925460034076790.appspot.com",
-        messagingSenderId: "779470844821"
+        storageBucket: "project--1058925460034076790.appspot.com"
+        //messagingSenderId: "779470844821"
       },
       {
         //method: AuthMethods.Popup,
@@ -100,7 +123,18 @@ export const firebaseAuthConfig = {
     AngularFireModule.initializeApp(CoreModule.firebaseConfig),
     */
   ],
-  providers: [FIREBASE_PROVIDERS, AuthGuard],
+  providers: [
+    FIREBASE_PROVIDERS,
+    AF,
+    AngularFire,
+    AuthGuard,
+    MapsService,
+    GeolocationService,
+    GeocodingService,
+    ProjectService,
+    UserService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

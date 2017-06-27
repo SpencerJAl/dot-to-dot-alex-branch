@@ -1,0 +1,17 @@
+<md-card >
+  <h1>Log Out</h1>
+  <md-card-header>
+    <img md-card-avatar [src]="user.photoURL || 'avatar.png'">
+    <md-card-title>{{ user.name }}</md-card-title>
+    <md-card-subtitle>{{ user.email || '(no email)' }}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="../../images/dot-to-dot.png" style=" width:100px" />
+  <md-card-content>
+    <p>You are logged in using <strong>{{ user.providerData}}</strong></p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-raised-button (click)="logout()">
+      Logout
+    </button>
+  </md-card-actions>
+</md-card>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AF} from "../providers/af";
+import {Router} from "@angular/router";
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { AppComponent} from '../app.component';
 import {AppRouting} from "../app.routing";
@@ -13,17 +15,33 @@ export class RegisterComponent implements OnInit {
   title = 'Register for DOT-to-DOT';
   isAuth = false;
   authColor = 'warn';
-  user = {
-    fullname: '',
-    email: '',
-  password: ''
+  public error: any;
 
-  };
+  constructor(private afService: AF, private router: Router) { }
+
+  register(event, name, email, password) {
+    event.preventDefault();
+    this.afService.registerUser(email, password).then((user) => {
+      this.afService.saveUserInfoFromForm(user.uid, name, email).then(() => {
+        this.router.navigate(['/accountSetup']);
+      })
+        .catch((error) => {
+          this.error = error;
+        });
+    })
+      .catch((error) => {
+        this.error = error;
+        console.log(this.error);
+      });
+  }
+
+  /*
   dbPostData(fullname, email, password){
     firebase.database().ref('/').push(this.user);
 
   }
-/*
+  //the stuff above this was initially not commented out
+
   constructor(public af: AngularFire) {
     this.af.auth.subscribe(
       user => this._changeState(user),

@@ -1,70 +1,73 @@
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{error}}
+</div>
 
 
 <section [ngSwitch]="isAuth">
-  <h1  *ngSwitchCase="false">{{title}}</h1>
-  <h3  *ngSwitchCase="false">Choose your Federated Identity Provider</h3>
 
   <md-card *ngSwitchCase="false">
+  <div class="modal-dialog"  >
+    <div class="loginmodal-container" >
+      <h1>Login to Your Account
+      </h1><br>
+      <hr>
 
+      <form class="form-signin" (submit)="loginWithEmail($event, email.value, password.value)">
+        <div class="form-group">
+        <label for="email" class="sr-only">Email address</label>
+        <input #email type="email" id="email" class="form-control" placeholder="Email address">
+          </div>
+        <div class="form-group">
+          <label for="password" class="sr-only">Password</label>
+          <input #password type="password" id="password" class="form-control" placeholder="Password" required="">
+          </div>
 
-    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-      <p>
-        <label> Enter email address
-          <input type="text" name="email" (ngModel)="email" required>
-        </label>
-      </p>
-      <p>
-        <label> Password
-          <input type="password" name="password" (ngModel)="password" required>
-        </label>
-      </p>
+        <button class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+      <hr>
 
-
-      <button md-raised-button (click)="loginUser " [disabled]="!formData.valid">
-        <img width="30" src="../../images/dot-to-dot.png" />Use My DOT-to-DOT Account
+      <button class="login loginmodal-submit" (click)="loginWithGoogle()">
+        <img width="30" src="../../images/google-logo.png" />Login With Google
       </button>
-      <p>
-         <a routerLink="/register">Don't have an account?</a>
-      </p>
-    </form>
-
-    <button md-raised-button (click)="login('google')">
-      <img width="30" src="../../images/google-logo.png" />Use My Google Account
-    </button>
-
-    <button md-raised-button (click)="login('facebook')">
-      <img width="30" src="../../images/facebook-logo.png" />Use My Facebook Account
-    </button>
-
-    <button md-raised-button (click)="login('twitter')">
-      <img width="30" src="../../images/twitter-logo.png" />Use My Twitter Account
-    </button>
-
-
-
-
-
-
-  </md-card>
+      <hr>
+      <button class="login loginmodal-submit" (click)="loginWithTwitter()">
+        <img width="30" src="../../images/twitter-logo.png" />Login With Twitter
+      </button>
+      <hr>
+      <button class="login loginmodal-submit" (click)="loginWithFacebook()">
+        <img width="30" src="../../images/facebook-logo.png" />Login With Facebook
+      </button>
+      <hr>
+      <a [routerLink]="['/register']" style="cursor: pointer;">Register Now</a>
+    </div>
+  </div>
+    </md-card>
 
   <md-card *ngSwitchCase="true">
-    <h1>Log Out</h1>
-    <md-card-header>
-      <img md-card-avatar [src]="user.avatar || 'avatar.png'">
-      <md-card-title>{{ user.name }}</md-card-title>
-      <md-card-subtitle>{{ user.email || '(no email)' }}</md-card-subtitle>
-    </md-card-header>
-    <img md-card-image src="../../images/dot-to-dot.png" style=" width:100px" />
-    <md-card-content>
-      <p>You are logged in using <strong>{{ user.provider }}</strong></p>
-    </md-card-content>
-    <md-card-actions>
-      <button md-raised-button (click)="logout()">
+  <div class="modal-dialog" >
+    <div class="loginmodal-container" >
+
+      <h1>Log Out</h1>
+      <!-- <md-card-header>
+         <img md-card-avatar [src]="user.photoURL || 'avatar.png'">
+         <md-card-title>{{ user.name }}</md-card-title>
+         <md-card-subtitle>{{ user.email || '(no email)' }}</md-card-subtitle>
+       </md-card-header>
+       <img md-card-image src="../../images/dot-to-dot.png" style=" width:100px" />
+       <md-card-content>
+         <p>You are logged in using <strong>{{ user.providerData}}</strong></p>
+       </md-card-content>
+       <md-card-actions>
+         <button md-raised-button (click)="logout()">
+           Logout
+         </button>
+       </md-card-actions> -->
+      <button class="login loginmodal-submit" (click)="logout()">
         Logout
       </button>
-    </md-card-actions>
+    </div>
+  </div>
   </md-card>
-
-
 </section>
-

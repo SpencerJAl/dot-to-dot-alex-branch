@@ -14,7 +14,16 @@ import {UsersProfilesComponent} from './users-profiles/users-profiles.component'
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {GoogleMapsComponent} from'./maps/googlemaps.component';
 
+
 import {AuthGuard} from './login/auth.guard';
+import {CreateProjectComponent} from "./createProject/createProject.component";
+import {AccountSetupComponent} from "./accountSetup/accountSetup.component";
+import {MyProfileComponent} from "./myProfile/myProfile.component";
+import {AdminDashboardComponent} from "./adminDashboard/adminDashboard.component";
+import {CreateAdminComponent} from "./createAdmin/createAdmin.component";
+import {ProjectRequestComponent} from "./projectRequest/projectRequest.component";
+import {AdminComponent} from "./admin/admin.component";
+import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent
@@ -26,16 +35,34 @@ const appRoutes: Routes = [
     data: { title: 'Log In' }
   },
   {
+    path:'logout',
+    component:LoginComponent,
+    data: { title: 'logout' }
+  },
+  {
     path:'register',
     component: RegisterComponent,
     data: { title: 'Sign up' }
   },
   {
-    path:'projects',
-    component: ProjectsComponent,
+    path:'accountSetup',
+    component: AccountSetupComponent,
+    data: { title: 'Setup account' },
     canActivate: [AuthGuard],
 
+  },
+  {
+    path:'projects/:id',
+    component: ProjectsComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Projects' }
+  },
+  {
+    path:'createProject',
+    component: CreateProjectComponent,
+    canActivate: [AuthGuard],
+
+    data: { title: 'CreateProject' }
   },
   {
     path: 'users',
@@ -44,7 +71,7 @@ const appRoutes: Routes = [
     data: {title: 'Users'}
   },
   {
-    path:'users-profiles',
+    path:'userProfile/:id',
     component:UsersProfilesComponent,
     canActivate: [AuthGuard],
     data: { title: 'Profile' }
@@ -61,7 +88,38 @@ const appRoutes: Routes = [
     component:GoogleMapsComponent,
     canActivate: [AuthGuard],
     data: { title: 'maps' }
-  }
+  },
+  {
+    path:'myProfile',
+    component:MyProfileComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'My profile' }
+  },
+  {
+    path:'editProfile',
+    component:ProfileEditComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'My profile' }
+  },
+      {
+        path: 'adminDashboard',
+        component: AdminDashboardComponent,
+        canActivate: [AuthGuard],
+        data: {title: 'My profile'}
+      },
+      {
+        path: 'createAdmin',
+        component: CreateAdminComponent,
+        data: {title: 'Create admin'}
+      },
+      {
+        path: 'projectRequest/:id',
+        component: ProjectRequestComponent,
+        data: {title: 'Project Request'}
+      },
+    
+
+  
 
 ];
 

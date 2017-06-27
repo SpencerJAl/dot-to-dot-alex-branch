@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { AppComponent} from '../app.component';
 import {AppRouting} from "../app.routing";
+import {Router} from "@angular/router";
+import {AF} from "../providers/af";
 
 @Component({
   selector: 'app-login',
@@ -13,13 +15,109 @@ import {AppRouting} from "../app.routing";
 
 
 
-export class LoginComponent implements OnInit {
-  title = 'Log in';
-  isAuth = false;
-  authColor = 'warn';
-  user = {};
+export class LoginComponent implements OnInit{
+  public error: any;
+  user ={};
+  isAuth: boolean;
 
-  constructor(public af: AngularFire) {
+  ngOnInit() {
+    this.isAuth= this.afService.isAuth();
+  }
+
+  constructor(private afService: AF, private router: Router) {
+
+  }
+
+  /**
+   * calls the service to log the user into the system via there dotToDot Account
+   * @param event
+   * @param email
+   * @param password
+     */
+  loginWithEmail(event, email, password){
+    event.preventDefault();
+    this.afService.loginWithEmail(email, password).then((success) => {
+
+      console.log("display name is"+ success.auth.displayName);
+        this.router.navigate(['/dashboard']);
+
+    })
+      .catch((error: any) => {
+        if (error) {
+          this.error = error;
+          console.log(this.error);
+        }
+      });
+  }
+
+  /**
+   * calls the angularfire request to log the user into the system using a google account
+   */
+  loginWithGoogle() {
+    this.afService.loginWithGoogle().then((data) => {
+      // Send them to the homepage if they are logged in
+
+      console.log(data);
+      this.user = this._getUserInfo(data);
+      this.afService.addUserInfo();
+      this.router.navigate(['']);
+    })
+  }
+
+  /**
+   * calls the angularfire request to log the user into the system using a twitter account
+   */
+  loginWithTwitter(){
+    this.afService.loginWithTwitter().then((data) => {
+      // Send them to the homepage if they are logged in
+      console.log(data);
+      this.user = this._getUserInfo(data);
+      this.afService.addUserInfo();
+      this.router.navigate(['']);
+    })
+  }
+
+  /**
+   * calls the angularefire request to log the user into the system using a facebook account
+   */
+  loginWithFacebook(){
+    this.afService.loginWithFacebook().then((data) => {
+      // Send them to the homepage if they are logged in
+      console.log(data);
+      this.user = this._getUserInfo(data);
+      this.afService.addUserInfo();
+      this.router.navigate(['']);
+    })
+  }
+
+  /**
+   * logs the user out of the system
+   */
+  logout() {
+    this.afService.logout();
+    this.isAuth=false;
+  }
+
+  /**
+   * adds user information to the database
+   * @param user
+   * @returns {any}
+   * @private
+     */
+  private _getUserInfo(user: any): any {
+    if(!user) {
+      return {};
+    }
+    let data = user.auth.providerData[0];
+    return {
+      name: data.displayName,
+      avatar: data.photoURL,
+      email: data.email,
+      provider: data.providerId
+    };
+  }
+
+  /*constructor(public af: AngularFire) {
     this.af.auth.subscribe(
       user => this._changeState(user),
       error => console.trace(error)
@@ -94,4 +192,5 @@ export class LoginComponent implements OnInit {
 
 
   }
+  */
 }
