@@ -45,6 +45,7 @@ import {AdminDashboardComponent} from "./adminDashboard/adminDashboard.component
 import {ProjectRequestComponent} from "./projectRequest/projectRequest.component";
 import {AdminComponent} from "./admin/admin.component";
 import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
+import {MyProjectsComponent} from "./myProjects/myProjects.component";
 //import {GMapModule} from 'primeng/primeng';
 
 export let MD_MODULES: any = [
@@ -88,7 +89,8 @@ export const firebaseAuthConfig = {
     AdminDashboardComponent,
     ProjectRequestComponent,
     AdminComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    MyProjectsComponent
   ],
   imports: [
     BrowserModule,

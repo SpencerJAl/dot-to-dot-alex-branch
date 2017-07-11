@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
-
+  
   constructor(public afService: AF) {
     this.messages = this.afService.messages;
   }

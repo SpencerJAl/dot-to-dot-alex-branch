@@ -14,18 +14,18 @@ export class ProjectsComponent implements OnInit {
 
   error:any;
   project:FirebaseObjectObservable<any>;
-
+  id:string;
+  
+  
+  
   //this is currently a work around because of problems subscribing for some reason, will be fixed later
   projects:FirebaseListObservable<any>;
-
+  messages:{};
   constructor(private afService: AF, private router: Router,af:AngularFire, private route: ActivatedRoute ){
    this.project=af.database.object('projects/'+ this.route.snapshot.params['id']);
   }
   
-
-  id:string;
-  private sub: any;
-
+  
   ngOnInit() {
     this.id= this.route.snapshot.params['id'];
       console.log("params are" +this.id);

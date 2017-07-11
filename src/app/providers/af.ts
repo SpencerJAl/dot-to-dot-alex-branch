@@ -269,6 +269,11 @@ export class AF {
     return this.af.database.list('registeredUsers/'+id);
   }
   join(id){
+    console.log("users id is " + this.userID)
+    this.af.database.list('registeredUsers/'+this.userID+'/joinedProjects').push({
+      id:id,
+    });
+
     return this.af.database.list('projects/'+id+'/members').push(
       {
         id:this.userID,
@@ -320,15 +325,12 @@ export class AF {
   //////////////////////project create//////////////////
 
   //////////////////////////////////end of project create////////////
-
-
-
   /**
    * checks if the user is authenticated
    */
+
   isAuth(){
     return this.loggedIn;
   }
-
 
 }
