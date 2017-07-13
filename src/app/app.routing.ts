@@ -24,6 +24,8 @@ import {CreateAdminComponent} from "./createAdmin/createAdmin.component";
 import {ProjectRequestComponent} from "./projectRequest/projectRequest.component";
 import {AdminComponent} from "./admin/admin.component";
 import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
+import {MyProjectsComponent} from "./myProjects/myProjects.component";
+import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent
@@ -40,6 +42,12 @@ const appRoutes: Routes = [
     data: { title: 'logout' }
   },
   {
+    path: 'accountStatus',
+    component: AccountStatusComponent,
+    data: { title: 'logout' }
+
+  },
+  {
     path:'register',
     component: RegisterComponent,
     data: { title: 'Sign up' }
@@ -50,6 +58,11 @@ const appRoutes: Routes = [
     data: { title: 'Setup account' },
     canActivate: [AuthGuard],
 
+  },
+  {
+    path:'myProjects',
+    component:MyProjectsComponent,
+    data: {title: 'My Projects'}
   },
   {
     path:'projects/:id',
@@ -117,9 +130,9 @@ const appRoutes: Routes = [
         component: ProjectRequestComponent,
         data: {title: 'Project Request'}
       },
-    
 
-  
+
+
 
 ];
 

@@ -10,16 +10,15 @@
 
       <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
       <li><a *ngSwitchCase="false" routerLink="/register" routerLinkActive="active">Sign up</a></li>
-      <li><a *ngSwitchCase="true" [routerLink]="['/projects',12]" routerLinkActive="active">My Projects</a></li>
+      <li><a *ngSwitchCase="true" routerLink="/myProjects" routerLinkActive="active">My Projects</a></li>
 
       <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Dashboard</a></li>
 
-      <li><a *ngSwitchCase="true" routerLink="/adminDashboard" routerLinkActive="active">admin Dashboard</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/createAdmin" routerLinkActive="active">create Admin</a></li>
-
-
+      <li><a *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">admin Dashboard</a></li>
+      <li><a *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">create Admin</a></li>
 
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account<span class="caret"></span></a>

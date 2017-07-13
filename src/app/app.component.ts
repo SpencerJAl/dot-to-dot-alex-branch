@@ -20,6 +20,9 @@ export class AppComponent {
   isAuth = false;
   authColor = 'warn';
   user = {};
+  usertype;
+  isadmin=false;
+  
   public  isLoggedIn: boolean;
 
   constructor(private afService: AF, private router: Router) {
@@ -38,9 +41,14 @@ export class AppComponent {
         {
           console.log("Successfully Logged in.");
 
+          afService.user.subscribe((u)=>{
+            if(u.type=="admin"){
+             this.isadmin=true;
+            }
+          });
 
           this.user=afService.user;
-          
+          afService.user.subscribe((u)=>{this.usertype=u.type})
           // Set the Display Name and Email so we can attribute messages to them
           if(auth.google)
           {

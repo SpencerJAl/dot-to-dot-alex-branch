@@ -22,11 +22,24 @@ export class AdminDashboardComponent implements OnInit {
     this.users=af.database.list('registeredUsers/');
     this.projectRequests= af.database.list('projectRequests/');
   }
-  remove(m){
+  remove(id){
     console.log("remove works");
+    this.af.database.object('registeredUsers/'+id).set({
+      status:"deleted"
+    });
   }
-  archive(m){
+  
+  archive(id){
     console.log("archive works");
-    console.log("id is "+m);
+    console.log("id is "+id);
+    this.af.database.object('registeredUsers/'+id).update({
+      status:"archived"
+    });
+  }
+  
+  promote(id){
+    this.af.database.object('registeredUsers/'+id).update({
+      type:"admin"
+    });
   }
 }

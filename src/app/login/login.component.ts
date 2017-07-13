@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit{
   public error: any;
   user ={};
   isAuth: boolean;
-
+  userType:string;
+  userStatus:string;
   ngOnInit() {
     this.isAuth= this.afService.isAuth();
   }
@@ -39,7 +40,30 @@ export class LoginComponent implements OnInit{
     this.afService.loginWithEmail(email, password).then((success) => {
 
       console.log("display name is"+ success.auth.displayName);
-        this.router.navigate(['/dashboard']);
+
+
+
+      this.afService.user.subscribe((u)=>{
+        this.userType=u.type;
+        this.userStatus=u.status;
+        if(u.status=='archived'){
+
+          this.router.navigate(['/userStatus']);
+          this.afService.logout();
+        }
+        if(u.type=="admin"){
+          console.log("user is " + this.userType );
+          this.router.navigate(['/adminDashboard']);
+        }
+        else if (u.type=="user") {
+          this.router.navigate(['/maps']);
+          console.log("user is " + this.userType );
+        }
+      })
+
+
+
+
 
     })
       .catch((error: any) => {
