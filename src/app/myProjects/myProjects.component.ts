@@ -17,8 +17,13 @@ import {Router} from "@angular/router";
 
 
 export class MyProjectsComponent implements OnInit {
-
+  
   constructor(private afService: AF, private router: Router) {
+    
   }
-  ngOnInit(){}
+  
+  ngOnInit(){
+    
+  }
+  
 }

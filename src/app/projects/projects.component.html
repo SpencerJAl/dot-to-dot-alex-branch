@@ -1,23 +1,53 @@
 <div>
-<md-card>
-<h1 align="center">{{(project | async)?.name}}</h1>
+  <md-card>
+    <h1 align="center">{{(project | async)?.name}}</h1>
+    <h2 align="center">Description</h2>
+    <p align="center">{{(project | async)?.description}}</p>
 
-<h2 align="center">Description</h2>
-<p align="center">{{(project | async)?.description}}</p>
+    <h2 align="center">Summary</h2>
+    <p align="center">{{(project | async)?.summary}}</p>
 
-<h2 align="center">Summary</h2>
-<p align="center">{{(project | async)?.summary}}</p>
+    <h2>news and events</h2>
+    <div *ngIf="messages==null" >
 
-  <h2>news and events</h2>
-  <div>
+      <div *ngFor=" let m of messages|async">
+        <p align="center" >{{m.title}}</p>
+        <p>{{m.datePosted}}</p>
+        <p>{{m.message}}</p>
+        <p>{{m.attenders}}</p>
+      </div>
 
-    <div *ngFor=" let m of messages|async">
-      <p>{{m.title}}           {{m.date}}</p>
-      <p>{{m.message}}</p>
+      <p>this actually works</p>
+
     </div>
+    <button> </button>
+    <button (click)="join() " align="center">Join project</button>
+  </md-card>
+</div>
 
+<div *ngIf="userID==project.owner">
+<form (submit)="postUpdate($event, title.value, datePosted.value, message.value, type.value)" class="form-signin">
+  <div class = "form-group">
+    <label for="title" class="sr-only">Title</label>
+    <input #title type="text" id="title" class="form-control" placeholder="Name" required="">
   </div>
-  <button > </button>
-<button (click)="join() " align="center">Join project</button>
-</md-card>
+
+  <div class = "form-group">
+    <label class="sr-only">Message</label>
+    <textarea
+      #projectDescription
+      rows = "5"
+      cols = "80"
+      class="form-control"
+      placeholder="Profile Description"
+    ></textarea>
+  </div>
+
+  <div class = "form-group">
+  <label class="sr-only">Message</label>
+  update <input type="radio" >  event <input type="radio" >
+  </div>
+  <button  class="btn btn-md btn-primary btn-block" type="submit">update</button>
+
+</form>
 </div>

@@ -9,8 +9,9 @@
         <div>
           <p class="member">{{u.name}}</p>
           <a href="#" [routerLink]="['/userProfile',u.name]">view profile</a>
-          <button (click)="remove(u)">Delete</button>
-          <button (click)="remove(u)">archive</button>
+          <button (click)="remove(u.id)">Delete</button>
+          <button (click)="archive(u.id)">archive</button>
+          <button (click)="promote(u.id)" >promote</button>
         </div>
       </md-card>
     </div>

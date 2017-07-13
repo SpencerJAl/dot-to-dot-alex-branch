@@ -25,6 +25,7 @@ import {ProjectRequestComponent} from "./projectRequest/projectRequest.component
 import {AdminComponent} from "./admin/admin.component";
 import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
 import {MyProjectsComponent} from "./myProjects/myProjects.component";
+import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent
@@ -39,6 +40,12 @@ const appRoutes: Routes = [
     path:'logout',
     component:LoginComponent,
     data: { title: 'logout' }
+  },
+  {
+    path: 'accountStatus',
+    component: AccountStatusComponent,
+    data: { title: 'logout' }
+
   },
   {
     path:'register',

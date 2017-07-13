@@ -49,8 +49,6 @@ export class ProjectRequestComponent implements OnInit {
 
   test(){
     alert("The project is " + this.proj.name);
-
-
   }
 
 }

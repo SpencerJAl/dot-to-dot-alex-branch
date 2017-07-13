@@ -15,21 +15,32 @@ export class ProjectsComponent implements OnInit {
   error:any;
   project:FirebaseObjectObservable<any>;
   id:string;
-  
-  
-  
+  isMember:boolean;
+
   //this is currently a work around because of problems subscribing for some reason, will be fixed later
   projects:FirebaseListObservable<any>;
-  messages:{};
+  projectData:{};
+  messages:FirebaseListObservable<any>;
+  userID;
+
   constructor(private afService: AF, private router: Router,af:AngularFire, private route: ActivatedRoute ){
    this.project=af.database.object('projects/'+ this.route.snapshot.params['id']);
+    this.messages=af.database.list('projects/'+ this.route.snapshot.params['id']+'messages');
+    this.project.subscribe((p)=>{
+      this.projectData=p;
+      //for (m in p.members){
+       // console.log (m.id)
+     // }
+    });
+    this.userID=afService.userID;
   }
-  
-  
+
   ngOnInit() {
     this.id= this.route.snapshot.params['id'];
       console.log("params are" +this.id);
   }
+
+  //FUNCTION CALL TO MAKE USER JOIN A PROJECT
   join(){
     this.afService.join(this.id).then(()=>{
       this.router.navigate(['/']);
@@ -38,5 +49,7 @@ export class ProjectsComponent implements OnInit {
       console.log(this.error);
     });
   }
+
+  postUpdate(){}
 
 }

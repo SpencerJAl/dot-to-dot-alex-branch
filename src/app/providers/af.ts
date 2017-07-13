@@ -18,8 +18,8 @@ export class AF {
   public projects: FirebaseListObservable<any>;
   public ownedProjects: FirebaseListObservable<any>;
   public loggedIn:boolean=false;
-  public project: FirebaseObjectObservable<any>
-  public projectRequests: FirebaseListObservable<any>
+  public project: FirebaseObjectObservable<any>;
+  public projectRequests: FirebaseListObservable<any>;
  // uid: string;
 
   /**
@@ -184,7 +184,7 @@ export class AF {
       console.log("project deleted" +p.key);
 
       this.af.database.object('projects/'+p.uid).update({
-        key
+        id:key,
       }).then(()=>{this.projectDecline(delID);});
     });
 
@@ -325,6 +325,9 @@ export class AF {
   //////////////////////project create//////////////////
 
   //////////////////////////////////end of project create////////////
+
+
+
   /**
    * checks if the user is authenticated
    */

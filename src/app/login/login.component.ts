@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit{
   user ={};
   isAuth: boolean;
   userType:string;
-
+  userStatus:string;
   ngOnInit() {
     this.isAuth= this.afService.isAuth();
   }
@@ -41,20 +41,28 @@ export class LoginComponent implements OnInit{
 
       console.log("display name is"+ success.auth.displayName);
 
+
+
       this.afService.user.subscribe((u)=>{
         this.userType=u.type;
+        this.userStatus=u.status;
+        if(u.status=='archived'){
+
+          this.router.navigate(['/userStatus']);
+          this.afService.logout();
+        }
         if(u.type=="admin"){
           console.log("user is " + this.userType );
           this.router.navigate(['/adminDashboard']);
         }
         else if (u.type=="user") {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/maps']);
           console.log("user is " + this.userType );
         }
       })
 
-      
-      
+
+
 
 
     })
