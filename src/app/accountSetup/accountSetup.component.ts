@@ -8,20 +8,38 @@ import {AF} from "../providers/af";
 })
 export class AccountSetupComponent {
   error:any;
+  interests={};
 
   constructor(private afService: AF, private router: Router) { }
+
+
+  options = [
+    {name:'Art', value:'Art', checked:true},
+    {name:'Technology', value:'Technology', checked:false},
+    {name:'Gardening', value:'Gardening', checked:true},
+    {name:'Cooking', value:'Cooking', checked:true},
+    {name:'Trades', value:'Trades', checked:true},
+  ];
+
+  get selectedOptions() { // right now: ['1','3']
+    return this.options
+      .filter(opt => opt.checked)
+      .map(opt => opt.value)
+  }
 
   register($event, description, summary){
     event.preventDefault();
     console.log("description is"+description);
     console.log("summary is "+summary);
     console.log("call works");
-    this.afService.createProfile(description, summary).then(()=>{
+    this.afService.createProfile(description, summary, this.selectedOptions).then(()=>{
       this.router.navigate(['/']);
     })
       .catch((error) => {
         this.error = error;
       });
   }
+
+
 
 }

@@ -140,20 +140,22 @@ export class AF {
   /**
    * This section is specifically here to handel logged in a logged in users account data.
    */
-  createProfile(userDescription, userSummary ){
+  createProfile(userDescription, userSummary,  userInterests){
     return this.af.database.object('registeredUsers/' + this.userID).update({
       description:userDescription,
       summary:userSummary,
+      interests:userInterests,
     });
   }
 
   myProfile(){
     return this.user;
   }
-  editProfile(userDescription, userSummary){
+  editProfile(userDescription, userSummary, userInterests){
     return this.af.database.object('registeredUsers/' + this.userID).update({
       description:userDescription,
       summary:userSummary,
+      interests:userInterests,
     });
   }
   /////////////////////////////////////////////////////////////////////////

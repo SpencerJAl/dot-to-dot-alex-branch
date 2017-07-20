@@ -21,11 +21,26 @@ export class ProfileEditComponent implements OnInit {
   constructor(private afService: AF, private router: Router) {
     this.user=this.afService.user;
   }
+
+  options = [
+    {name:'Art', value:'Art', checked:false},
+    {name:'Technology', value:'Technology', checked:false},
+    {name:'Gardening', value:'Gardening', checked:false},
+    {name:'Cooking', value:'Cooking', checked:false},
+    {name:'Trades', value:'Trades', checked:false},
+  ];
+
+  get selectedOptions() { // right now: ['1','3']
+    return this.options
+      .filter(opt => opt.checked)
+      .map(opt => opt.value)
+  }
+
   ngOnInit(){
   }
 
   edit($event, description, summary){
-    this.afService.editProfile(description, summary).then(()=> {
+    this.afService.editProfile(description, summary, this.selectedOptions).then(()=> {
       this.router.navigate(['/']);
     })
       .catch((error) => {
