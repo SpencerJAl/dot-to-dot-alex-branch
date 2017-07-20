@@ -1,7 +1,7 @@
 import {OnInit, Component} from "@angular/core";
 import {Router, ActivatedRoute} from "@angular/router";
 import {AF} from "../providers/af";
-import {FirebaseObjectObservable, AngularFire} from "angularfire2/index";
+import {FirebaseObjectObservable, AngularFireDatabase} from "angularfire2/database";
 /**
  * Created by James on 08/06/2017.
  */
@@ -18,8 +18,8 @@ export class ProjectRequestComponent implements OnInit {
 
 
 
-  constructor(private afService: AF,private af:AngularFire, private router: Router, private route: ActivatedRoute) {
-    this.project=af.database.object('projectRequests/'+ this.route.snapshot.params['id']);
+  constructor(private afService: AF,private af:AngularFireDatabase, private router: Router, private route: ActivatedRoute) {
+    this.project=af.object('projectRequests/'+ this.route.snapshot.params['id']);
 
     this.project.subscribe((p)=>{
       this.proj=p;

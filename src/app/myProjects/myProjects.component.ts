@@ -3,7 +3,7 @@
  * Created by James on 11/07/2017.
  */
 import {OnInit, Component} from "@angular/core";
-import {FirebaseObjectObservable} from "angularfire2/index";
+import {FirebaseObjectObservable} from "angularfire2/database";
 import {AF} from "../providers/af";
 import {Router} from "@angular/router";
 /**
@@ -17,13 +17,13 @@ import {Router} from "@angular/router";
 
 
 export class MyProjectsComponent implements OnInit {
-  
+
   constructor(private afService: AF, private router: Router) {
-    
+
   }
-  
+
   ngOnInit(){
-    
+
   }
-  
+
 }

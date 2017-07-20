@@ -13,7 +13,7 @@
 .bs-example {
   position: relative;
   padding: 15px 15px 15px;
-  margin: 0 -15px 0px;
+  margin: 0 -15px 0;
   border-color: #e5e5e5 #eee #eee;
   border-style: solid;
   border-width: 1px 0;
@@ -42,7 +42,7 @@
 
 .message-text {
   display: block;
-  padding: 9.5px;
+  padding: 9px;
   margin: 0 0 10px;
   font-size: 13px;
   line-height: 1.42857143;
@@ -105,7 +105,7 @@ p {
 }
 
 .bs-example+.highlight, .bs-example+.zero-clipboard+.highlight {
-  margin: 0px -15px 15px;
+  margin: 0 -15px 15px;
   border-width: 0 0 1px;
   border-radius: 0;
 }
@@ -115,4 +115,119 @@ p {
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
+}
+
+
+
+.container {
+  width: 70%;
+  height: 200%;
+  margin: auto;
+}
+.content {
+  position: absolute;
+  margin: 300px auto;
+  width: 70%;
+  height: 500px;
+  background: transparent;
+}
+
+.far {
+  margin: 0 30px 0 0 !important;
+}
+.account p {
+  font-size: 16px;
+  text-shadow: none;
+}
+.avatar {
+  float: left;
+  width: 68px;
+  height: 68px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 4px 20px 0 4px;
+  box-shadow: 0 0 3px 0px rgba(0,0,0,0.2);
+}
+.account {
+  line-height: 0;
+  color: #333;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+  top: 190px;
+  width: 300px;
+  height: 80px;
+  border-radius: 40px;
+  background: #eee;
+  box-shadow: 0 0 30px 0px rgba(0,0,0,0.4);
+}
+.education {
+
+  float: left;
+  width: 600px;
+  height: 80px;
+  border-radius: 40px;
+  background: #1A237E  ;
+  color:#fff;
+  margin: 0 0 30px;
+  box-shadow: 0 3px 0 0 #777;
+}
+
+.science {
+  padding: 0 0 0 30px;
+  color: #000;
+
+  float: right;
+  width: 570px;
+  height: 80px;
+  border-radius: 40px;
+  background: #FFEB3B;
+  margin: 0 0 30px;
+  box-shadow: 0 3px 0 0 #000;
+}
+
+.artAndDesign {
+
+  float: left;
+  width: 600px;
+  height: 80px;
+  border-radius: 40px;
+  background: #0000cc ;
+  color:#fff;
+  margin: 0 0 30px;
+  box-shadow: 0 3px 0 0 #777;
+}
+.health {
+  padding: 0 0 0 30px;
+  color: #fff;
+  float: right;
+  width: 570px;
+  height: 80px;
+  border-radius: 40px;
+  background: #26A69A;
+  margin: 0 0 30px;
+  box-shadow: 0 3px 0 0 #000;
+}
+
+.craftAndWorkshop {
+  padding: 0 0 0 30px;
+  color: #fff;
+  float: right;
+  width: 570px;
+  height: 80px;
+  border-radius: 40px;
+  background: #ff0000;
+  margin: 0 0 30px;
+  box-shadow: 0 3px 0 0 #000;
+}
+
+.swag {
+  float: right;
+  margin: 4px 4px 0 0;
+}
+.swag2 {
+  float: right;
+  margin: 4px 4px 0 0;
+  opacity: 0.1;
 }

@@ -1,5 +1,5 @@
 import {OnInit, Component} from "@angular/core";
-import {FirebaseObjectObservable} from "angularfire2/index";
+import {FirebaseObjectObservable} from "angularfire2/database";
 import {AF} from "../providers/af";
 import {Router} from "@angular/router";
 /**

@@ -19,7 +19,20 @@
             rows = "3"
             cols = "80"
             placeholder="{{(user| async).summary}}"></textarea>
-    <label>interests</label>
+
+    <div class="form-group">
+      <label>Interests </label>
+      <div *ngFor="let option of options">
+        <label>
+          <input type="checkbox"
+                 name="options"
+                 value="{{option.value}}"
+                 [(ngModel)]="option.checked"/>
+          {{option.name}}
+        </label>
+      </div>
+    </div>
+
     <button type="submit" class="btn btn-md btn-primary btn-block">Register</button>
   </form>
 </md-card>

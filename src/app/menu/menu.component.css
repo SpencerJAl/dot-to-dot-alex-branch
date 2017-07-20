@@ -1,5 +1,10 @@
-a{
-  text-decoration: none;
+.bar nav{
+  background-color: yellow;
+
+}
+.bar nav a:hover{
+  background-color: lightgoldenrodyellow;
+  font-weight: bold;
 }
 
 
@@ -54,4 +59,3 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-

@@ -28,7 +28,7 @@ import {MyProjectsComponent} from "./myProjects/myProjects.component";
 import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent
+  { path: '', component:HomeComponent,
 
   },
   {
@@ -92,15 +92,15 @@ const appRoutes: Routes = [
   {
     path:'dashboard',
     component:DashboardComponent,
-    canActivate: [AuthGuard],
+
     data: { title: 'Dashboard' }
   }
   ,
   {
     path:'maps',
     component:GoogleMapsComponent,
-    canActivate: [AuthGuard],
-    data: { title: 'maps' }
+
+    data: { title: 'Home' }
   },
   {
     path:'myProfile',

@@ -1,11 +1,14 @@
 ///<reference path="../../node_modules/angularfire2/auth/auth.d.ts"/>
-import { Component } from '@angular/core';
-import { AngularFire, AuthProviders } from 'angularfire2';
-import { FirebaseListObservable} from 'angularfire2';
+import { Component, } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable ,FirebaseObjectObservable} from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 import {LoginComponent} from './login/login.component';
 import {AppRouting} from './app.routing';
 import {AF} from "./providers/af";
 import {Router} from "@angular/router";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -22,20 +25,20 @@ export class AppComponent {
   user = {};
   usertype;
   isadmin=false;
-  
+
   public  isLoggedIn: boolean;
 
   constructor(private afService: AF, private router: Router) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
     // This is just a small thing that Firebase does that makes it easy to use.
-    this.afService.af.auth.subscribe(
+    this.afService.afAuth.authState.subscribe(
       (auth) => {
         if(auth == null) {
           console.log("Not Logged in.");
 
           this.isLoggedIn = false;
-          this.router.navigate(['login']);
+          this.router.navigate(['']);
         }
         else
         {
@@ -50,7 +53,8 @@ export class AppComponent {
           this.user=afService.user;
           afService.user.subscribe((u)=>{this.usertype=u.type})
           // Set the Display Name and Email so we can attribute messages to them
-          if(auth.google)
+          /*
+          if(authogle)
           {
             this.afService.displayName = auth.google.displayName;
             this.afService.email = auth.google.email;
@@ -74,7 +78,8 @@ export class AppComponent {
             this.afService.email = auth.auth.email;
             //this.user = this._getUserInfo(auth.auth);
 
-          }
+          }*/
+          this.afService.displayName =auth.displayName;
 
           this.isLoggedIn = true;
           this.router.navigate(['']);
@@ -145,5 +150,7 @@ export class AppComponent {
       case 'google': return AuthProviders.Google;
     }
   }*/
+
+
 
 }

@@ -1,15 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule,
-  FIREBASE_PROVIDERS,
+
+///****************** FIREBASE **********************************//
+import { AngularFireModule} from 'angularfire2';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+/*import {  FIREBASE_PROVIDERS, AngularFireModule
   AngularFire,
   AuthMethods,
-  AuthProviders
-} from 'angularfire2';
+  AuthProviders} from 'angularfire2/';*/
+
+
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AgmCoreModule , SebmGoogleMap, SebmGoogleMapMarker  } from 'angular2-google-maps/core';
+import { AgmCoreModule , AgmMap, AgmMarker   } from '@agm/core';
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,15 +25,17 @@ import { UsersComponent } from './users/users.component';
 import { UsersProfilesComponent } from './users-profiles/users-profiles.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {GoogleMapsComponent} from './maps/googlemaps.component';
+//import {GoogleMapsComponent} from './maps/googlemaps.component';
 import {CoreModule} from './app.core.modules';
 import {AlertService} from'./services/alert.service';
 import { Ng2MapModule} from 'ng2-map';
 
 // MATERIAL DESIGN MODULES
-import { MdToolbarModule } from '@angular2-material/toolbar';
-import { MdButtonModule } from '@angular2-material/button';
-import { MdCardModule } from '@angular2-material/card';
+// import { MdToolbarModule  } from '@angular2-material/toolbar';
+// import { MdButtonModule } from '@angular2-material/button';
+//  import { MdCardModule } from '@angular2-material/card';
+import {MdMenuModule ,MdToolbarModule, MdButtonModule, MdCardModule, MdIconModule} from '@angular/material';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuard} from "./login/auth.guard";
 import {MapsService} from "./services/maps.service";
@@ -47,15 +55,23 @@ import {AdminComponent} from "./admin/admin.component";
 import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
 import {MyProjectsComponent} from "./myProjects/myProjects.component";
 import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
+import { MenuComponent } from './menu/menu.component';
+import {GoogleMapsComponent} from "./maps/googlemaps.component";
+import { NotificationsComponent } from './notifications/notifications.component';
+import { ProjectFilterComponent } from './project-filter/project-filter.component';
+
 //import {GMapModule} from 'primeng/primeng';
+
 
 export let MD_MODULES: any = [
   MdToolbarModule,
   MdButtonModule,
-  MdCardModule
+  MdCardModule,
+  MdMenuModule,
+  MdIconModule
 ];
 
-/*
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",
   authDomain: "project--1058925460034076790.firebaseapp.com",
@@ -64,13 +80,15 @@ export const firebaseConfig = {
   messagingSenderId: "779470844821"
 }
 
- */
+/*
 export const firebaseAuthConfig = {
   provider: AuthProviders.Password,
-  method: AuthMethods.Password
+  method:  AuthMethods.Password
 }
 
+*/
 
+//  GoogleMapsComponent,
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +110,10 @@ export const firebaseAuthConfig = {
     AdminComponent,
     ProfileEditComponent,
     MyProjectsComponent,
-    AccountStatusComponent
+    AccountStatusComponent,
+    MenuComponent,
+    NotificationsComponent,
+    ProjectFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -102,35 +123,32 @@ export const firebaseAuthConfig = {
     //GMapModule,
     AppRouting,
     Ng2MapModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBJioRbIuJMQr14RqtvlIA587lm-HMHFD0' //google maps api key
 
     }),//google maps
-
-    AngularFireModule.initializeApp(
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+   /* AngularFireModule.initializeApp(
       {
         apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",
         authDomain: "project--1058925460034076790.firebaseapp.com",
         databaseURL: "https://project--1058925460034076790.firebaseio.com",
         storageBucket: "project--1058925460034076790.appspot.com"
         //messagingSenderId: "779470844821"
-      },
-      {
-        //method: AuthMethods.Popup,
-        method: AuthMethods.Redirect,
-        //provider: AuthProvide,
-        //method: AuthMethods.Password
-      }
-    ),
+      }*/
+
     ...MD_MODULES
     /*,
     AngularFireModule.initializeApp(CoreModule.firebaseConfig),
     */
   ],
   providers: [
-    FIREBASE_PROVIDERS,
+    //FIREBASE_PROVIDERS,
     AF,
-    AngularFire,
+    //AngularFire,
     AuthGuard,
     MapsService,
     GeolocationService,

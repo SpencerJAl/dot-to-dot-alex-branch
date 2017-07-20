@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {AF} from "../providers/af";
-import {FirebaseListObservable} from "angularfire2/index";
+import {FirebaseListObservable} from "angularfire2/database";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
-  
+
   constructor(public afService: AF) {
     this.messages = this.afService.messages;
   }

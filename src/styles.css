@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 body{
   font-family: Calibri, sans-serif;
+  color:black;;
 }
 .bar {
   background-color: lightyellow;
@@ -8,8 +11,10 @@ body{
 
 .bar nav{
   background-color: yellow;
+
 }
 .bar nav a:hover{
   background-color: lightgoldenrodyellow;
   font-weight: bold;
 }
+

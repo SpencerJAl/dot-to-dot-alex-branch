@@ -6,11 +6,12 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  AngularFireModule,
-  AuthMethods,
-  AuthProviders
-} from "angularfire2";
+  AngularFireModule
 
+} from "angularfire2";
+import { AngularFireDatabase, FirebaseListObservable ,FirebaseObjectObservable} from 'angularfire2/database';
+import { AngularFireAuth, AUTH_PROVIDERS } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 const firebaseConfig = {
   apiKey: "AIzaSyBNHhjucR3zi7snRmJOC1w9OQLTyUnKec8",
   authDomain: "steampunks-158812.firebaseapp.com",
@@ -24,10 +25,7 @@ const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig,{
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
-    })
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   exports: [
     BrowserModule,

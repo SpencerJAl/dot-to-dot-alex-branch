@@ -1,35 +1,5 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-
-
-<div class="ui-g">
-
-  <div col-sm-12><h1 align="center ">Welcome to Dot to Dot {{this.afService.displayName}} </h1></div>
-
-  <div class="col-sm-3">
-    <h2>Messages for <a href="# " [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>
-    <div #scrollMe class="bs-example" id="messages">
-      <div *ngFor="let message of messages | async">
-        <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
-          <p>{{ message.message }}</p>
-          <div class="author">
-            {{ message.displayName }}
-          </div>
-          <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <figure class="highlight">
-      <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
-      <a class="send-message" (click)="sendMessage()">SEND</a>
-    </figure>
-  </div>
-
-  <div class ="col-sm-6">
-
 <script>
 
   const mapStyle = [
@@ -249,50 +219,176 @@
   ];
 
 </script>
-<md-card >
-<sebm-google-map  [latitude]="startLat" [longitude]="startLng"  [styles]="mapStyle"  [zoom]="zoom">
-  <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></sebm-google-map-marker>
-  <sebm-google-map-polyline  [title]="'DOT-to-DOT site'">
+<!--
 
-       <sebm-google-map-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </sebm-google-map-polyline-point>
-       <sebm-google-map-polyline-point [latitude]="55.880849" [longitude]="-4.27493"> </sebm-google-map-polyline-point>
-       <sebm-google-map-polyline-point [latitude]="55.880736" [longitude]="-4.274394"> </sebm-google-map-polyline-point>
-       <sebm-google-map-polyline-point [latitude]="55.880958" [longitude]="-4.274254"> </sebm-google-map-polyline-point>
-       <sebm-google-map-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </sebm-google-map-polyline-point>
-  </sebm-google-map-polyline>
+<div class="ui-g">
 
-  <sebm-google-map-marker [latitude]="startLat" [longitude]="startLng"></sebm-google-map-marker>
+  <div col-sm-12><h1 align="center ">Welcome to Dot to Dot {{this.afService.displayName}} </h1></div>
 
-  <sebm-google-map-marker
-    *ngFor="let m of markers | async"
-    (markerClick)="test(m)"
-    [latitude]="m.lat"
-    [longitude]="m.lng"
-  >
-    <sebm-google-map-info-window>
-      <p><strong>{{m.name}}</strong></p>
-      <br>
-      <p><u>Summary</u></p>
-      <p>{{m.summary}}</p>
-      <br>
-    </sebm-google-map-info-window>
-  </sebm-google-map-marker>
-</sebm-google-map>
-</md-card>
-    </div>
-    <div class="col-sm-3">
-      <h2>Project Members</h2>
-      <md-card>
-        <div *ngFor=" let p of profiles;">
-          <md-card>
-            <div>
-              <p class="member">{{p.name}}</p>
-              <p *ngFor="let j of p.hobbies" class="{{j.name}}"></p>
-              <a href="#" [routerLink]="['/userProfile',p.name]">profile</a>
-            </div>
-          </md-card>
+  <div class="col-sm-3 mypadding">
+    <h2>Messages for <a href="# " [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>
+    <div #scrollMe class="bs-example" id="messages">
+      <div *ngFor="let message of messages | async">
+        <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
+          <p>{{ message.message }}</p>
+          <div class="author">
+            {{ message.displayName }}
+          </div>
+          <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+          </div>
         </div>
-      </md-card>
+      </div>
+
     </div>
+
+    <figure class="highlight">
+      <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+      <a class="send-message" (click)="sendMessage()">SEND</a>
+    </figure>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="container mypadding">
+      <h2>Project Alerts</h2>
+      <div class="messgageContent">
+        <div class="science">
+          <img src="../../images/science.png" alt="avatar" class="avatar swag">
+          <h2>Come to our event on the 22nd?</h2>
+        </div>
+        <div class="health">
+          <img src="../../images/health.png" alt="avatar" class="avatar swag">
+          <h2>We're demonstrating  how to cook using only purple  vegetables </h2>
+        </div>
+        <div class="education">
+          <img src="../../images/education.png" alt="avatar" class="avatar swag">
+          <h2>Learn how to  make a  website on the 25th</h2>
+        </div>
+        <div class="artAndDesign">
+          <img src="../../images/art.png" alt="avatar" class="avatar swag">
+          <h2>Learn how to do technical drawing 28th</h2>
+        </div>
+
+        <div class="craftAndWorkshop">
+          <img src="../../images/craft.png" alt="avatar" class="avatar swag">
+          <h2>Learn how use the 3d Printer 30th </h2>
+        </div>
+        <div class="health">
+          <img src="../../images/health.png" alt="avatar" class="avatar swag">
+          <h2>Join us  for  a nature  walk along the  canal 28th </h2>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
 
   </div>
+  <div class ="col-sm-8 ">
+    --->
+
+   <agm-map  [latitude]="startLat" [longitude]="startLng"  [styles]="mapStyle"  [zoom]="zoom">
+      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
+      <agm-polyline  [title]="'DOT-to-DOT site'">
+
+        <agm-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </agm-polyline-point>
+        <agm-polyline-point [latitude]="55.880849" [longitude]="-4.27493"> </agm-polyline-point>
+        <agm-polyline-point [latitude]="55.880736" [longitude]="-4.274394"> </agm-polyline-point>
+        <agm-polyline-point [latitude]="55.880958" [longitude]="-4.274254"> </agm-polyline-point>
+        <agm-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </agm-polyline-point>
+      </agm-polyline>
+
+      <agm-marker [latitude]="startLat" [longitude]="startLng"></agm-marker>
+
+      <agm-marker
+        *ngFor="let m of markers | async"
+        (markerClick)="test(m)"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+      >
+        <agm-info-window>
+          <p><strong>{{m.name}}</strong></p>
+          <br>
+          <p><u>Summary</u></p>
+          <p>{{m.summary}}</p>
+          <br>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+
+<!--
+</div>
+  <div class="col-sm-2 " >
+          <h2>Filter Projects</h2>
+          <div class="toggles ">
+            <div>
+            <h3>Art and Design</h3>
+            </div>
+            <div class="toggle-border">
+              <input type="checkbox" id="one" checked/>
+              <label for="one">
+                <div class="artHandle"></div>
+              </label>
+            </div>
+            <div>
+                <h3>Craft and Workshops</h3>
+            </div>
+            <div class="toggle-border">
+              <input type="checkbox" id="two" checked />
+              <label for="two">
+                <div class="craftHandle"></div>
+              </label>
+            </div>
+            <div>
+            <h3> Education</h3>
+            </div>
+            <div class="toggle-border">
+              <input type="checkbox" id="three" checked />
+              <label for="three">
+                <div class="eduHandle"></div>
+              </label>
+
+            </div>
+             <div><h3> Health</h3>
+            </div>
+            <div class="toggle-border">
+              <input type="checkbox" id="four" checked />
+              <label for="four">
+                <div class="healthHandle"></div>
+              </label>
+            </div>
+
+            <div>
+              <h3>Science</h3>
+            </div>
+            <div class="toggle-border">
+              <input type="checkbox" id="five" checked />
+              <label for="five">
+                <div class="scienceHandle"></div>
+              </label>
+            </div>
+
+          </div>
+
+              <h3>Project Members</h3>
+
+            <div *ngFor=" let p of profiles;">
+
+                <div>
+                  <p class="member">{{p.name}}</p>
+                  <p *ngFor="let j of p.hobbies" class="{{j.name}}"></p>
+                  <a href="#" [routerLink]="['/userProfile',p.name]">profile</a>
+                </div>
+
+            </div>
+
+  </div>
+
+
+
+
+</div>
+
+-->

@@ -1,0 +1,95 @@
+<!--
+<nav [ngSwitch]="isLoggedIn" class="bar navbar-default">
+  <ul class="nav navbar-nav">
+    <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
+    <li><a *ngSwitchCase="false" routerLink="/register" routerLinkActive="active">Sign up</a></li>
+    <li><a *ngSwitchCase="true" routerLink="/login" routerLinkActive="active">Logout</a></li>
+    <li><a *ngSwitchCase="true" routerLink="/createProject" routerLinkActive="active">Create</a></li>
+    <li>
+
+    <div *ngSwitchCase="true" class="dropdown" dropdown>
+      <a  dropdown-open>Account Management</a>
+      <ul class="dropdown-menu">
+        <li><a *ngSwitchCase="true" routerLink="/myProfile" routerLinkActive="active">Profile</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/myProjects" routerLinkActive="active">My Projects</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Dashboard</a></li>
+      </ul>
+    </div>
+    </li>
+
+    <li>
+    <div class="dropdown" dropdown >
+
+      <a dropdown-open>Administration</a>
+      <ul class="dropdown-menu">
+
+        <li><a *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</a></li>
+        <li><a *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</a></li>
+      </ul>
+    </div>
+    </li>
+
+  </ul>
+<nav> -->
+
+<nav [ngSwitch]="isLoggedIn" class="bar navbar-default">
+    <div class="container-fluid">
+
+      <ul class="bar navbar-nav">
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/login" routerLinkActive="active" >Login</a></li>
+        <li><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active">Sign up</a></li>
+        <li><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Logout</a></li>
+        <li><a *ngSwitchCase = "true" routerLink="/createProject" routerLinkActive="active">Create</a></li>
+
+      </ul>
+    </div>
+<!--- ******************************************************************************************  -->
+<!--- ************************        User Account Drop Down Menu    ***************************  -->
+<!--- ******************************************************************************************  -->
+    <div *ngSwitchCase= "true" class="dropdown" dropdown>
+      <a *ngSwitchCase= "true" dropdown-open>Account Management</a>
+      <ul class="dropdown-menu">
+        <li><a *ngSwitchCase= "true" routerLink="/myProfile" routerLinkActive="active">Profile</a></li>
+        <li><a *ngSwitchCase= "true"  routerLink="/myProjects" routerLinkActive="active">My Projects</a></li>
+        <li><a *ngSwitchCase= "true"  routerLink="/maps" routerLinkActive="active">Dashboard</a></li>
+      </ul>
+    </div>
+
+  <!--- ******************************************************************************************  -->
+  <!--- ************************      Administration Drop Down Menu    ***************************  -->
+  <!--- ******************************************************************************************  -->
+  <div *ngIf="isadmin"  class="dropdown" dropdown >
+
+    <a *ngIf="isadmin"  dropdown-open>Administration</a>
+    <ul class="dropdown-menu">
+
+      <li><a *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</a></li>
+      <li><a *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</a></li>
+    </ul>
+  </div>
+
+  <!--
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+          </ul>
+        </li>
+
+        <li><a *ngSwitchCase="true" routerLink="/myProfile" routerLinkActive="active">my profile</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/createProject" routerLinkActive="active">New Project</a></li>
+        <li><a *ngSwitchCase="true" [routerLink]="['/projects',12]" routerLinkActive="active">My Projects</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/users" routerLinkActive="active">My account</a></li>
+        <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Dashboard</a></li>
+      </ul>
+      -->
+
+  </nav>
+
+
+
+

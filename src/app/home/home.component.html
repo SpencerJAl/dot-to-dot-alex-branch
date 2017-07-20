@@ -1,5 +1,275 @@
-<img src="../../images/dot-to-dot-splash.png"/>
-<p>
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<script>
 
-  DOT-to-DOT is a user responsive, open and reliable donation space characterised by a non-cash model (volunteering time and materials in kind). DOT-TO-DOT is a mobile-friendly website and app with a service package of eco-design, urban consultancy and civic workshops. It also offers social rewards like a e-DIY library, video training workshops, and local-made souvenirs. This technology puts "backers in frontline" by connected them in social networks (Facebook, Twitter  etc). It reduces operational costs by operating online; accepting donation from any currency with tailored donation plans; and prohibiting hidden administrative fees.
-</p>
+  const mapStyle = [
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#ebe3cd"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#523735"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#f5f1e6"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#c9b2a6"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#dcd2be"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#ae9e90"
+        }
+      ]
+    },
+    {
+      "featureType": "landscape.natural",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#93817c"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#a5b076"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#447530"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#f5f1e6"
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#fdfcf8"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#f8c967"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#e9bc62"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway.controlled_access",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#e98d58"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway.controlled_access",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#db8555"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#806b63"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#8f7d77"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.line",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#ebe3cd"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.station",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#dfd2ae"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#b9d3c2"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#92998d"
+        }
+      ]
+    }
+  ];
+
+</script>
+
+<div class="ui-g">
+
+
+  <!--
+    <div class="col-sm-3 mypadding">
+      <h2>Messages for <a href="# " [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>
+      <div #scrollMe class="bs-example" id="messages">
+        <div *ngFor="let message of messages | async">
+          <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
+            <p>{{ message.message }}</p>
+            <div class="author">
+              {{ message.displayName }}
+            </div>
+            <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <figure class="highlight">
+        <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        <a class="send-message" (click)="sendMessage()">SEND</a>
+      </figure>
+    </div>
+  -->
+
+
+  <!------------ section for project  notifications  ---------------->
+  <div class="col-sm-2">
+    <app-notifications></app-notifications>
+
+  </div>
+
+  <!----- Map section ------>
+
+  <div class ="col-sm-8 mypadding ">
+
+    <googlemaps-root></googlemaps-root>
+  </div>
+
+
+  <!--------------------   filter section ---------------------------->
+  <div class="col-sm-2 " >
+
+    <app-project-filter></app-project-filter>
+  </div>
+
+
+
+
+</div>
+

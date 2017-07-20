@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuthModule} from 'angularfire2/auth';
+
+import {FirebaseListObservable, AngularFireDatabase} from "angularfire2/database";
 import { AppComponent} from '../app.component';
 import {AppRouting} from "../app.routing";
 import {Router} from "@angular/router";
@@ -56,7 +58,7 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['/adminDashboard']);
         }
         else if (u.type=="user") {
-          this.router.navigate(['/maps']);
+          this.router.navigate(['/dashboard']);
           console.log("user is " + this.userType );
         }
       })
@@ -84,7 +86,25 @@ export class LoginComponent implements OnInit{
       console.log(data);
       this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
-      this.router.navigate(['']);
+
+      this.afService.user.subscribe((u)=>{
+        this.userType=u.type;
+        this.userStatus=u.status;
+        if(u.status=='archived'){
+
+          this.router.navigate(['/userStatus']);
+          this.afService.logout();
+        }
+        if(u.type=="admin"){
+          console.log("user is " + this.userType );
+          this.router.navigate(['/adminDashboard']);
+        }
+        else if (u.type=="user") {
+          this.router.navigate(['/dashboard']);
+          console.log("user is " + this.userType );
+        }
+      })
+
     })
   }
 
@@ -97,7 +117,23 @@ export class LoginComponent implements OnInit{
       console.log(data);
       this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
-      this.router.navigate(['']);
+      this.afService.user.subscribe((u)=>{
+        this.userType=u.type;
+        this.userStatus=u.status;
+        if(u.status=='archived'){
+
+          this.router.navigate(['/userStatus']);
+          this.afService.logout();
+        }
+        if(u.type=="admin"){
+          console.log("user is " + this.userType );
+          this.router.navigate(['/adminDashboard']);
+        }
+        else if (u.type=="user") {
+          this.router.navigate(['/dashboard']);
+          console.log("user is " + this.userType );
+        }
+      })
     })
   }
 
@@ -110,7 +146,23 @@ export class LoginComponent implements OnInit{
       console.log(data);
       this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
-      this.router.navigate(['']);
+      this.afService.user.subscribe((u)=>{
+        this.userType=u.type;
+        this.userStatus=u.status;
+        if(u.status=='archived'){
+
+          this.router.navigate(['/userStatus']);
+          this.afService.logout();
+        }
+        if(u.type=="admin"){
+          console.log("user is " + this.userType );
+          this.router.navigate(['/adminDashboard']);
+        }
+        else if (u.type=="user") {
+          this.router.navigate(['/dashboard']);
+          console.log("user is " + this.userType );
+        }
+      })
     })
   }
 
@@ -134,7 +186,7 @@ export class LoginComponent implements OnInit{
     }
     let data = user.auth.providerData[0];
     return {
-      name: data.displayName,
+      name: data.name,
       avatar: data.photoURL,
       email: data.email,
       provider: data.providerId

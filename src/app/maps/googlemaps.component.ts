@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 
-import { SebmGoogleMap } from 'angular2-google-maps/core';
-import { AgmCoreModule , GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
+
+import { AgmCoreModule , AgmMap, AgmMarker  } from '@agm/core';
+import { GoogleMapsAPIWrapper } from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
 import{Ng2MapModule} from 'ng2-map';
 import {GeocodingService} from "../services/geocoding.service";
@@ -9,7 +10,9 @@ import {GeolocationService} from "../services/geolocation.service";
 import {MapsService} from "../services/maps.service";
 import {ProjectService} from "../services/localProject.service";
 import {UserService} from "../services/localUser.service";
-import {FirebaseListObservable} from "angularfire2/index";
+
+import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
+
 import {AF} from "../providers/af";
 
 
@@ -51,14 +54,14 @@ export class GoogleMapsComponent implements OnInit {
 
 
 
- constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService) {
+ constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
    this.zoom=18;
    this.markers = this.afService.projects;
    this.peoples=this._userService.getUsers();
    this.messages = this.afService.messages;
    this.markerKeys=Object.keys(this.afService.projects);
    console.log("marker key is"+this.markerKeys[4]);
-   
+
 
 
  }
@@ -113,8 +116,15 @@ export class GoogleMapsComponent implements OnInit {
     console.log(m.id);
     this.afService.getProjectMessages(m.id);
     this.messages=this.afService.messages;
-    this.profiles=this.peoples;
+    //this.profiles=this.peoples;
     this.messagething=m;
+    this.profiles=[];
+    for (let i of m.members){
+      this.af.object('registeredUsers/'+i.id).subscribe((user)=>{
+        this.profiles.push(user);
+      })
+
+    }
 
 
   }
