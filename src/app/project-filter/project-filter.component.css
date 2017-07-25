@@ -10,7 +10,7 @@
 .toggles {
   width: 200px;
   margin: 12px auto;
-  background: 1px solid black;
+
 }
 
 .toggle-border {
@@ -90,11 +90,11 @@ input[type="checkbox"]:checked + label {
   position: absolute;
   top: -15px;
   left: 0px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/science.png");
+  background-image: url("../../images/science3.png");
   background-size: contain;
   background-position: center;
 
@@ -109,11 +109,11 @@ input[type="checkbox"]:checked + label {
   position: absolute;
   top: -15px;
   left: 0px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/art.png");
+  background-image: url("../../images/art2.png");
   background-size: contain;
   background-position: center;
 
@@ -127,11 +127,11 @@ input[type="checkbox"]:checked + label {
   position: absolute;
   top: -15px;
   left: 0px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/education.png");
+  background-image: url("../../images/education2.png");
   background-size: contain;
   background-position: center;
 
@@ -146,11 +146,11 @@ input[type="checkbox"]:checked + label {
   position: absolute;
   top: -15px;
   left: 0px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/craft.png");
+  background-image: url("../../images/craft3.png");
   background-size: contain;
   background-position: center;
 
@@ -165,11 +165,11 @@ input[type="checkbox"]:checked + label {
   position: absolute;
   top: -15px;
   left: 0px;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/health.png");
+  background-image: url("../../images/health2.png");
   background-size: contain;
   background-position: center;
 

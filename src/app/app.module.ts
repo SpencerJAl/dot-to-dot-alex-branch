@@ -34,7 +34,37 @@ import { Ng2MapModule} from 'ng2-map';
 // import { MdToolbarModule  } from '@angular2-material/toolbar';
 // import { MdButtonModule } from '@angular2-material/button';
 //  import { MdCardModule } from '@angular2-material/card';
-import {MdMenuModule ,MdToolbarModule, MdButtonModule, MdCardModule, MdIconModule} from '@angular/material';
+import {MdAutocompleteModule,
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdChipsModule,
+  MdCoreModule,
+  MdDatepickerModule,
+  MdDialogModule,
+  MdExpansionModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdNativeDateModule,
+  MdPaginatorModule,
+  MdProgressBarModule,
+  MdProgressSpinnerModule,
+  MdRadioModule,
+  MdRippleModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  MdSortModule,
+  MdTableModule,
+  MdTabsModule,
+  MdToolbarModule,
+  MdTooltipModule,} from '@angular/material';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuard} from "./login/auth.guard";
@@ -59,16 +89,43 @@ import { MenuComponent } from './menu/menu.component';
 import {GoogleMapsComponent} from "./maps/googlemaps.component";
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProjectFilterComponent } from './project-filter/project-filter.component';
+import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
 
 //import {GMapModule} from 'primeng/primeng';
 
 
 export let MD_MODULES: any = [
-  MdToolbarModule,
   MdButtonModule,
+  MdButtonToggleModule,
   MdCardModule,
+  MdCheckboxModule,
+  MdChipsModule,
+  MdCoreModule,
+  MdDatepickerModule,
+  MdDialogModule,
+  MdExpansionModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdListModule,
   MdMenuModule,
-  MdIconModule
+  MdNativeDateModule,
+  MdPaginatorModule,
+  MdProgressBarModule,
+  MdProgressSpinnerModule,
+  MdRadioModule,
+  MdRippleModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  MdSortModule,
+  MdTableModule,
+  MdTabsModule,
+  MdToolbarModule,
+  MdTooltipModule,
 ];
 
 
@@ -113,7 +170,9 @@ export const firebaseAuthConfig = {
     AccountStatusComponent,
     MenuComponent,
     NotificationsComponent,
-    ProjectFilterComponent
+    ProjectFilterComponent,
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

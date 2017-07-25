@@ -20,8 +20,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
-
+        "styles.css",
+        "app/myModulesStyle.sass"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

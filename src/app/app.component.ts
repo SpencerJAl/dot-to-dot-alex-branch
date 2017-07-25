@@ -9,6 +9,7 @@ import {AF} from "./providers/af";
 import {Router} from "@angular/router";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {SearchComponent} from "./search/search.component"
 
 @Component({
   selector: 'app-root',
