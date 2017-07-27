@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {AF} from "../providers/af";
 import {Router} from "@angular/router";
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import {AngularFireAuth, AUTH_PROVIDERS } from 'angularfire2/auth';
+import{ AngularFireDatabase} from 'angularfire2/database';
 import { AppComponent} from '../app.component';
 import {AppRouting} from "../app.routing";
-import {EmailPasswordCredentials} from "angularfire2/auth";
+//import { EmailPasswordCredentials } from "angularfire2/auth";
 
 @Component({
   selector: 'app-register',

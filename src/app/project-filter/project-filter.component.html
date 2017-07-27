@@ -1,0 +1,62 @@
+<h2>Filter Projects</h2>
+<div class="toggles ">
+  <div>
+    <h3>Art and Design</h3>
+  </div>
+  <div class="toggle-border">
+    <input type="checkbox" id="one" checked/>
+    <label for="one">
+      <div class="artHandle"></div>
+    </label>
+  </div>
+  <div>
+    <h3>Craft and Workshops</h3>
+  </div>
+  <div class="toggle-border">
+    <input type="checkbox" id="two" checked />
+    <label for="two">
+      <div class="craftHandle"></div>
+    </label>
+  </div>
+  <div>
+    <h3> Education</h3>
+  </div>
+  <div class="toggle-border">
+    <input type="checkbox" id="three" checked />
+    <label for="three">
+      <div class="eduHandle"></div>
+    </label>
+
+  </div>
+  <div><h3> Health</h3>
+  </div>
+  <div class="toggle-border">
+    <input type="checkbox" id="four" checked />
+    <label for="four">
+      <div class="healthHandle"></div>
+    </label>
+  </div>
+
+  <div>
+    <h3>Science</h3>
+  </div>
+  <div class="toggle-border">
+    <input type="checkbox" id="five" checked />
+    <label for="five">
+      <div class="scienceHandle"></div>
+    </label>
+  </div>
+
+</div>
+
+<h3>Project Members</h3>
+
+<div *ngFor=" let p of profiles;">
+
+  <div>
+    <p class="member">{{p.name}}</p>
+    <p *ngFor="let j of p.hobbies" class="{{j.name}}"></p>
+    <a href="#" [routerLink]="['/userProfile',p.name]">profile</a>
+  </div>
+
+</div>

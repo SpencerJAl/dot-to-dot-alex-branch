@@ -1,41 +1,75 @@
 <header class="bar">
-<h1>
-  <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px" /> {{title}}
-</h1>
-<nav [ngSwitch]="isLoggedIn" class="navbar navbar-default">
-  <div class="container-fluid">
+ <div class="ui-g">
 
-    <ul class="nav navbar-nav">
-      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+   <div class="col-sm-3 "><img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px" /></div>
+   <div class="col-sm-6 "><h1 align="centre"> Welcome to {{title}} {{this.afService.displayName}}</h1> </div>
+   <div class="col-sm-3 "><app-search></app-search></div>
+</div>
 
-      <li><a *ngSwitchCase="false" routerLink="/login" routerLinkActive="active" >Login</a></li>
-      <li><a *ngSwitchCase="false" routerLink="/register" routerLinkActive="active">Sign up</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/myProjects" routerLinkActive="active">My Projects</a></li>
 
-      <li><a *ngSwitchCase="true" routerLink="/maps" routerLinkActive="active">Dashboard</a></li>
 
-      <li><a *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">admin Dashboard</a></li>
-      <li><a *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">create Admin</a></li>
 
-    </ul>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a>1</a></li>
-          <li><a>2</a></li>
-          <li><a>3</a></li>
-        </ul>
-      </li>
-      <li><a *ngSwitchCase="true" routerLink="/login" routerLinkActive="active">Logout</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/myProfile" routerLinkActive="active">my profile</a></li>
-      <li><a *ngSwitchCase="true" routerLink="/createProject" routerLinkActive="active">New Project</a></li>
 
-    </ul>
-  </div>
-</nav>
+
+
+
+
+        <div  [ngSwitch]="isLoggedIn" class="primary" >
+             <md-toolbar color="primary">
+
+               <md-toolbar-row>
+                 <button md-button ><a routerLink="/" routerLinkActive="active"><img src="../images/home.svg" alt="Home" /></a></button>
+                 <button md-button [md-menu-trigger-for]="aboutMenu"><img src="../images/info.svg" alt="Information" /></button>
+                 <button md-button><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" ><img src="../images/login.svg" alt="Login" /></a></button>
+                 <button md-button><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"><img src="../images/register.svg" alt="Register" /></a></button>
+                 <button md-button><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active"><img src="../images/login.svg" alt="Log Out" /></a></button>
+                 <button md-button><a *ngSwitchCase = "true" routerLink="/createProject" routerLinkActive="active"><img src="../images/document.svg" alt="Create Project" /></a></button>
+                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu"><img src="../images/usermenu.svg" alt="Manage Account" /></button>
+                 <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu"><img src="../images/worker.svg" alt="Administration" /></button>
+               </md-toolbar-row>
+             </md-toolbar>
+
+
+
+
+            <md-menu #userMenu="mdMenu">
+               <button md-menu-item> <a   routerLink="/myProfile" routerLinkActive="active">Profile</a> </button>
+               <button md-menu-item> <a   routerLink="/myProjects" routerLinkActive="active">My Projects</a></button>
+               <button md-menu-item> <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></button>
+             </md-menu>
+
+
+
+
+
+           <md-menu #addMenu="mdMenu">
+              <button md-menu-item> <a *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</a></button>
+              <button md-menu-item> <a *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</a><</button>
+            </md-menu>
+
+          <md-menu #aboutMenu="mdMenu">
+            <button  md-menu-item> <a  routerLink="/whatIs" routerLinkActive="active">What is DOT TO DOT </a></button>
+            <button  md-menu-item> <a  routerLink="/aboutUs" routerLinkActive="active">About us</a></button>
+            <button  md-menu-item> <a  routerLink="/partners" routerLinkActive="active">Partners</a></button>
+            <button  md-menu-item> <a  routerLink="/FAQ" routerLinkActive="active">FAQ</a></button>
+          </md-menu>
+        </div>
+
+
+
+
+
+
+
+
 
 </header>
 
+
+
+
+
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

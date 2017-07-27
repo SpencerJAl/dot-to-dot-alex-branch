@@ -1,33 +1,34 @@
 
 <div class="ui-g">
 
-  <div class="ui-g-3">
 
-    <div #scrollMe class="bs-example" id="messages">
-      <div *ngFor="let message of messages | async">
-        <div class="bubble" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)">
-          <p>{{ message.message }}</p>
-          <div class="author">
-            {{ message.displayName }}
-          </div>
-          <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
-          </div>
-        </div>
-      </div>
 
-    </div>
-
-    <figure class="highlight">
-      <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
-      <a class="send-message" (click)="sendMessage()">SEND</a>
-    </figure>
-  </div>
-
-  <div class ="ui-g-3">
+  <div class ="ui-g-7">
     <googlemaps-root></googlemaps-root>
   </div>
 
   <div class="ui-g-4">col1</div>
   <div class="ui-g-4">col2</div>
   <div class="ui-g-4">col3</div>
+</div>
+
+<div class="ui-g">
+  <h1> test</h1>
+  <div class="container">
+    <div *ngFor="let message of messages | async">
+      <div class="content" [class.you]="science(message.email)" [class.me]="health(message.email)">
+        <img src="http://www.croop.cl/UI/twitter/images/carl.jpg" alt="avatar" class="avatar">
+        <p>{{ message.message }}</p>
+      </div>
+     </div>
+  </div>
+
+
+
+    <figure class="highlight">
+      <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+      <a class="send-message" (click)="sendMessage()">SEND</a>
+    </figure>
+
+
 </div>

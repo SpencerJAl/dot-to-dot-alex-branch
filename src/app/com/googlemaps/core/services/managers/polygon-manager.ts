@@ -28,7 +28,9 @@ export class PolygonManager {
       visible: path.visible,
       zIndex: path.zIndex,
     });
-    this._polygons.set(path, polygonPromise);
+
+    //disabled this as it was s topping  app compiling
+   // this._polygons.set(path, polygonPromise);
   }
 
   updatePolygon(polygon: SebmGoogleMapPolygon): Promise<void> {

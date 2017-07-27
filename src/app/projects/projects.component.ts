@@ -3,7 +3,7 @@ import { AppComponent} from '../app.component';
 import {AppRouting} from "../app.routing";
 import {AF} from "../providers/af";
 import {Router, ActivatedRoute} from "@angular/router";
-import {FirebaseListObservable, FirebaseObjectObservable, AngularFire} from "angularfire2/index";
+import {FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase} from "angularfire2/database";
 
 @Component({
   selector: 'app-projects',
@@ -23,9 +23,9 @@ export class ProjectsComponent implements OnInit {
   messages:FirebaseListObservable<any>;
   userID;
 
-  constructor(private afService: AF, private router: Router,af:AngularFire, private route: ActivatedRoute ){
-   this.project=af.database.object('projects/'+ this.route.snapshot.params['id']);
-    this.messages=af.database.list('projects/'+ this.route.snapshot.params['id']+'messages');
+  constructor(private afService: AF, private router: Router,af:AngularFireDatabase, private route: ActivatedRoute ){
+   this.project=af.object('projects/'+ this.route.snapshot.params['id']);
+    this.messages=af.list('projects/'+ this.route.snapshot.params['id']+'messages');
     this.project.subscribe((p)=>{
       this.projectData=p;
       //for (m in p.members){

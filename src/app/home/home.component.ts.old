@@ -1,0 +1,45 @@
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+
+import { SebmGoogleMap } from 'angular2-google-maps/core';
+import { AgmCoreModule , GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
+import {GMapModule, Message} from 'primeng/primeng';
+import{Ng2MapModule} from 'ng2-map';
+import {GeocodingService} from "../services/geocoding.service";
+import {GeolocationService} from "../services/geolocation.service";
+import {MapsService} from "../services/maps.service";
+import {ProjectService} from "../services/localProject.service";
+import {UserService} from "../services/localUser.service";
+import {FirebaseListObservable, AngularFire} from "angularfire2/index";
+import {AF} from "../providers/af";
+
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+    zoom: number = 18;
+    lat: number = 55.8808026;
+    lng: number = -4.2745011;
+    label: string = 'STEAMpunks HQ';
+
+    options: any;
+    draggable: boolean;
+    startLat: number;
+    startLng: number=3;
+    center:any;
+    message:string;
+    warning:boolean;
+    examp:string;
+    peoples: people[];
+    markers: FirebaseListObservable<any>;
+    messagething:{};
+    markerKeys;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
