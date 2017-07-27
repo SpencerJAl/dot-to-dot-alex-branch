@@ -29,7 +29,7 @@ import { RegisterComponent } from './register/register.component';
 import {CoreModule} from './app.core.modules';
 import {AlertService} from'./services/alert.service';
 import { Ng2MapModule} from 'ng2-map';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // MATERIAL DESIGN MODULES
 // import { MdToolbarModule  } from '@angular2-material/toolbar';
 // import { MdButtonModule } from '@angular2-material/button';
@@ -91,8 +91,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ProjectFilterComponent } from './project-filter/project-filter.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
+import { ProjectSummaryComponent} from './project-summary/project-summary.component';
 
-//import {GMapModule} from 'primeng/primeng';
+import {GMapModule, ChartModule } from 'primeng/primeng';
 
 
 export let MD_MODULES: any = [
@@ -172,7 +173,8 @@ export const firebaseAuthConfig = {
     NotificationsComponent,
     ProjectFilterComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    ProjectSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -180,9 +182,10 @@ export const firebaseAuthConfig = {
     HttpModule,
     CoreModule,
     //GMapModule,
+    ChartModule,
     AppRouting,
     Ng2MapModule,
-
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBJioRbIuJMQr14RqtvlIA587lm-HMHFD0' //google maps api key
 

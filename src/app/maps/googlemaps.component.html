@@ -289,7 +289,7 @@
   <div class ="col-sm-8 ">
     --->
 
-   <agm-map  [latitude]="startLat" [longitude]="startLng"  [styles]="mapStyle"  [zoom]="zoom">
+   <agm-map  [latitude]="startLat" [longitude]="startLng"  [styles]="mapStyle"  [zoom]="zoom" [mapTypeControl]="true"  >
       <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
       <agm-polyline  [title]="'DOT-to-DOT site'">
 

@@ -26,6 +26,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
 import {MyProjectsComponent} from "./myProjects/myProjects.component";
 import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
+import {ProjectSummaryComponent} from "./project-summary/project-summary.component";
 
 const appRoutes: Routes = [
   { path: '', component:HomeComponent,
@@ -131,6 +132,11 @@ const appRoutes: Routes = [
         data: {title: 'Project Request'}
       },
 
+  {
+    path: 'projectsummary',
+    component: ProjectSummaryComponent,
+    data: {title: 'Project Summary'}
+  },
 
 
 

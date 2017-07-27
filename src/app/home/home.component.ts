@@ -19,6 +19,10 @@ import {NotificationsComponent}from "../notifications/notifications.component";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
+
+
+
 export class HomeComponent implements OnInit {
   zoom: number = 18;
   lat: number = 55.8808026;
@@ -135,6 +139,7 @@ export class HomeComponent implements OnInit {
 
 
     if (navigator.geolocation) {
+      //noinspection TypeScriptUnresolvedFunction
       this.geolocation.getCurrentPosition().forEach(
         (position: Position) => {
           // New center object: triggers OnChanges.

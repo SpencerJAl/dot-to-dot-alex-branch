@@ -1,27 +1,36 @@
+<div class="ui-g">
+  <div class="ui-grid-row">
+    <!------------ section for project  notifications  ---------------->
 
 
-  <!------------ section for project  notifications  ---------------->
-  <div class="col-sm-2">
-    <app-notifications></app-notifications>
+    <!----- Map section ------>
+    <div class ="col-sm-12 ">
+     <!-- <div class="mapOverLay ">
 
+          <app-notifications></app-notifications>
+
+
+
+
+
+
+          <app-project-filter></app-project-filter>
+
+      </div> --->
+
+      <googlemaps-root>
+      </googlemaps-root>
+    </div>
   </div>
 
-  <!----- Map section ------>
 
-  <div class ="col-sm-8 mypadding ">
+    <!--------------------   filter section ---------------------------->
 
-    <googlemaps-root></googlemaps-root>
+
+  <!--------------------   project summary section ---------------------------->
+  <div class="ui-grid-row">
+      <app-project-summary></app-project-summary>
   </div>
-
-
-  <!--------------------   filter section ---------------------------->
-  <div class="col-sm-2 " >
-
-    <app-project-filter></app-project-filter>
-  </div>
-
-
-
 
 </div>
 

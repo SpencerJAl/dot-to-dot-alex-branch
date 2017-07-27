@@ -94,7 +94,7 @@ input[type="checkbox"]:checked + label {
   height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/science3.png");
+  background-image: url("../../images/SCIENCE.png");
   background-size: contain;
   background-position: center;
 
@@ -113,7 +113,7 @@ input[type="checkbox"]:checked + label {
   height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/art2.png");
+  background-image: url("../../images/ART AND DESIGN.png");
   background-size: contain;
   background-position: center;
 
@@ -131,7 +131,7 @@ input[type="checkbox"]:checked + label {
   height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/education2.png");
+  background-image: url("../../images/EDUCATION.png");
   background-size: contain;
   background-position: center;
 
@@ -150,7 +150,7 @@ input[type="checkbox"]:checked + label {
   height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/craft3.png");
+  background-image: url("../../images/craft.png");
   background-size: contain;
   background-position: center;
 
@@ -169,7 +169,7 @@ input[type="checkbox"]:checked + label {
   height: 48px;
   border: 1px solid #e5e5e5;
 
-  background-image: url("../../images/health2.png");
+  background-image: url("../../images/HEALTH.png");
   background-size: contain;
   background-position: center;
 
