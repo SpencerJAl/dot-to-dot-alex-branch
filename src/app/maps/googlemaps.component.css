@@ -2,6 +2,7 @@
   height: 660px;
   zoom: 1;
   margin: 10px;
+  position: relative;
 
 
 
@@ -12,4 +13,15 @@
   icon: url("../../images/dot-to-dot-marker.png");
   color:yellow;
   background-color: aqua;
+}
+
+.google-map-overlay {
+  width  : 500px;
+  height : 380px;
+  background: white;
+  position: absolute;
+  opacity: 0.5;/*add this*/
+  top: 0px;
+  left: 0px;
+  z-index: 99;
 }

@@ -1,5 +1,5 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
+<!-- the component as the initial center of the map:
 <script>
 
   const mapStyle = [
@@ -218,7 +218,7 @@
     }
   ];
 
-</script>
+</script>  -->
 <!--
 
 <div class="ui-g">
@@ -285,12 +285,14 @@
 
 
 
-  </div>
-  <div class ="col-sm-8 ">
-    --->
+  </div>  --->
+  <div class ="sebm-google-map-container">
 
-   <agm-map  [latitude]="startLat" [longitude]="startLng"  [styles]="mapStyle"  [zoom]="zoom" [mapTypeControl]="true"  >
-      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
+
+   <agm-map  [latitude]="startLat" [longitude]="startLng"  [zoom]="zoom" [mapTypeControl]="true" options="map.options" >
+
+     <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
+     <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
       <agm-polyline  [title]="'DOT-to-DOT site'">
 
         <agm-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </agm-polyline-point>
@@ -317,9 +319,9 @@
         </agm-info-window>
       </agm-marker>
     </agm-map>
-
+  </div>
 <!--
-</div>
+
   <div class="col-sm-2 " >
           <h2>Filter Projects</h2>
           <div class="toggles ">

@@ -1,4 +1,66 @@
 
-mapOverLay{
+.mapOverLay{
   display: inline-block;
+}
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#floating-panel {
+  position: absolute;
+  top: 265px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 1px;
+  border: 1px solid #999;
+  border-radius: 25px ;
+  text-align: left;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+#floating-panel {
+  background-color:  rgba(255, 255, 255, 0.2);
+
+
+  border: 1px solid #999;
+  left: 135px;
+  width: 300px;
+  padding: 5px;
+  position: absolute;
+  top: 265px;
+  z-index: 5;
+}
+
+#floating-panel2 {
+  position: absolute;
+  border-radius: 5px ;
+  top: 265px;
+  left: 85%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+#floating-panel2 {
+  background-color:  rgba(255, 255, 255, 0.10);
+
+  border: 1px solid #999;
+  left: 85%;
+  padding: 5px;
+  position: absolute;
+  top: 265px;
+  z-index: 5;
 }

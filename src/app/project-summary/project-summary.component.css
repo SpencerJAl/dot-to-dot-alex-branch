@@ -1,0 +1,12 @@
+.myCard{
+  width: 18%;
+  font-size: small;
+  margin: 1px;
+  padding: 1% ;
+  display: inline-block;
+
+}
+
+.myCardList{
+  display: block;
+}

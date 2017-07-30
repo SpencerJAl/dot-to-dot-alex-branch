@@ -1,33 +1,42 @@
 <div class="ui-g">
   <div class="ui-grid-row">
-    <!------------ section for project  notifications  ---------------->
+
 
 
     <!----- Map section ------>
-    <div class ="col-sm-12 ">
-     <!-- <div class="mapOverLay ">
+    <div class ="col-sm-12 sebm-google-map-container ">
 
-          <app-notifications></app-notifications>
+      <!------------ section for project  notifications  ---------------->
+      <div id="floating-panel">
+
+        <app-notifications></app-notifications>
+      </div>
 
 
-
-
-
+      <!--------------------   filter section ---------------------------->
+        <div id="floating-panel2" >
 
           <app-project-filter></app-project-filter>
+        </div>
 
-      </div> --->
+      <div id="map">
 
-      <googlemaps-root>
-      </googlemaps-root>
+
+
+
+
+        <googlemaps-root>
+
+        </googlemaps-root>
+      </div>
     </div>
   </div>
 
 
-    <!--------------------   filter section ---------------------------->
 
 
-  <!--------------------   project summary section ---------------------------->
+<div class="ui-grid-row" ><p> </p></div>
+  <!--------------------   project summarys section ---------------------------->
   <div class="ui-grid-row">
       <app-project-summary></app-project-summary>
   </div>

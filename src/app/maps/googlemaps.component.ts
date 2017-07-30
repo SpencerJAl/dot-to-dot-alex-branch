@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
-
+import {DirectionsMapDirective} from "./googlemaps.directions";
 
 import { AgmCoreModule , AgmMap, AgmMarker ,AgmInfoWindow, AgmKmlLayer, AgmDataLayer, MapTypeStyle } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
@@ -16,6 +16,7 @@ import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database
 import {AF} from "../providers/af";
 import {google} from '@agm/core/services/google-maps-types';
 
+
 @Component({
   selector: 'googlemaps-root',
   templateUrl: 'googlemaps.component.html',
@@ -27,7 +28,7 @@ export class GoogleMapsComponent implements OnInit {
   zoom: number = 18;
   lat: number = 55.8808026;
   lng: number = -4.2745011;
-  label: string = 'STEAMpunks HQ';
+  label: string = 'DOt-to-DOT Maryhill station';
 
   options: any;
   draggable: boolean;
@@ -42,7 +43,7 @@ export class GoogleMapsComponent implements OnInit {
   messagething:{};
   markerKeys;
 
-   myStyle:MapTypeStyle;
+  myStyle: MapTypeStyle;
 
 
 
@@ -134,7 +135,7 @@ export class GoogleMapsComponent implements OnInit {
     this.options = {
       center: {lat: 55.8808026, lng: -4.2745011},
       zoom: 16,
-      style: mapStyle
+      style: mapStyle.silver,
 
     }
     this.messagething={name:"general", id:3};
