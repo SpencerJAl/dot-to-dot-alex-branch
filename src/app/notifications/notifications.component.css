@@ -1,3 +1,122 @@
+.content{
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #357ae8;
+  color:white;
+  margin-top: 10px;
+  width:100%;
+}
+
+.content h1{
+  font-size: medium;
+}
+.bs-example {
+  position: relative;
+  padding: 15px 15px 15px;
+  margin: 0 -15px 0;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  background-color: #E1E2E3;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+  height: 440px;
+  overflow-y: scroll;
+}
+#messages {
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.author {
+  font-size: 12px;
+}
+.send-message {
+  color: #ffffff;
+  background-color: #4184f3;
+  text-decoration: none;
+  padding: 10px 20px 10px 20px;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.message-text {
+  display: block;
+  padding: 9px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 90%;
+}
+
+p {
+  font-size: 16px;
+}
+
+.bubble{
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #B2B2B2;
+  display: inline-block;
+  padding: 10px 18px;
+  position: relative;
+  vertical-align: top;
+}
+
+.bubble::before {
+  background-color: #F2F2F2;
+  content: "\00a0";
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 11px;
+  transform:             rotate( 29deg ) skew( -35deg );
+  -moz-transform:    rotate( 29deg ) skew( -35deg );
+  -ms-transform:     rotate( 29deg ) skew( -35deg );
+  -o-transform:      rotate( 29deg ) skew( -35deg );
+  -webkit-transform: rotate( 29deg ) skew( -35deg );
+  width:  20px;
+}
+
+.me {
+  display: inherit;
+  margin: 5px 45px 5px 20px;
+}
+
+.me::before {
+  box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+  left: -9px;
+}
+
+.you {
+  display: inherit;
+  margin: 5px 20px 5px 45px;
+}
+
+.you::before {
+  box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+  right: -9px;
+}
+
+.bs-example+.highlight, .bs-example+.zero-clipboard+.highlight {
+  margin: 0 -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0;
+}
+.highlight {
+  padding: 9px 14px;
+  margin: 2px;
+  background:transparent;
+  border: 0px solid #e1e1e8;
+  border-radius: 4px;
+}
+
 .mypadding {
 
   margin: 7px auto;
@@ -20,19 +139,20 @@
 /******** Messaging Style with avatars ********/
 /**********************************************/
 .container {
-  width: 350px;
+  width: 100%;
   height: 620px;
   margin: 5px;
+
 }
 .messgageContent {
   position: absolute;
   margin: 10px auto;
-  width: 96%;
+  width: 98%;
   background: transparent;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 560px;
-
+  max-height: 580px;
+  overflow-x: hidden;
 }
 
 .far {
@@ -65,63 +185,43 @@
   background: #eee;
   box-shadow: 0 0 30px 0px rgba(0,0,0,0.4);
 }
-.education {
+
+.loz {
   padding: 0 0 0 30px;
   float:left;
-    width: 250px;
+  width: 250px;
   height: auto;
   border-radius: 40px;
-  background:  rgb(49,172,255);
   color:#000;
   margin: 0 0 30px;
   box-shadow: 0 3px 0 0 #000;
+}
+
+.education {
+  background:  rgb(49,172,255);
 }
 
 .science {
-  padding: 0 0 0 30px;
-  color: #000;
-  float: left;
-    width: 250px;
-  height: auto;
-  border-radius: 40px;
+
   background: rgb(255,13,218);
-  margin: 0 0 30px;
-  box-shadow: 0 3px 0 0 #000;
+
 }
 
 .artAndDesign {
-  padding: 0 0 0 30px;
-  float: left;
-    width: 250px;
-  height: auto;
-  border-radius: 40px;
+
   background:  rgb(255,238,15) ;
-  color:#000;
-  margin: 0 0 30px;
-  box-shadow: 0 3px 0 0 #777;
+
 }
 .health {
-  padding: 0 0 0 30px;
-  color: #000;
-  float: left;
-    width: 250px;
-  height: auto;
-  border-radius: 40px;
+
   background: rgb(166,252,5);
-  margin: 0 0 30px;
-  box-shadow: 0 3px 0 0 #000;
+
 }
 
 .craftAndWorkshop {
-  padding: 0 0 0 30px;
-  color: #000;
-  float: left;
-    width: 250px;
-  height: auto;
-  border-radius: 40px;
+
   background: rgb(237,45,40);
-  margin: 0 0 30px;
-  box-shadow: 0 3px 0 0 #000;
+
 }
 
 .swag {

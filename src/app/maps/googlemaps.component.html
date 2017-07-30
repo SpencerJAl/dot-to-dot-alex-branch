@@ -289,7 +289,7 @@
   <div class ="sebm-google-map-container">
 
 
-   <agm-map  [latitude]="startLat" [longitude]="startLng"  [zoom]="zoom" [mapTypeControl]="true" options="map.options" >
+   <agm-map  [latitude]="startLat" [longitude]="startLng" [styles]="style"  [zoom]="zoom" [mapTypeControl]="true" options="map.options" >
 
      <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>

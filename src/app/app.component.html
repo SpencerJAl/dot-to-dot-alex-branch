@@ -1,5 +1,5 @@
 <header class="bar">
-  <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px ; left:50% ; alignment: center " />
+  <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px ; left:50%" />
  <!----<div class="ui-g">
 
    <div class="col-sm-3 "><img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px" /></div>
@@ -20,14 +20,15 @@
              <md-toolbar color="primary">
 
                <md-toolbar-row>
-                 <button md-button ><a routerLink="/" routerLinkActive="active"><img src="../images/home.svg" alt="Home" /></a></button>
-                 <button md-button [md-menu-trigger-for]="aboutMenu"><img src="../images/info.svg" alt="Information" /></button>
-                 <button md-button><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" ><img src="../images/login.svg" alt="Login" /></a></button>
-                 <button md-button><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"><img src="../images/register.svg" alt="Register" /></a></button>
-                 <button md-button><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active"><img src="../images/login.svg" alt="Log Out" /></a></button>
-                 <button md-button><a *ngSwitchCase = "true" routerLink="/createProject" routerLinkActive="active"><img src="../images/document.svg" alt="Create Project" /></a></button>
-                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu"><img src="../images/usermenu.svg" alt="Manage Account" /></button>
-                 <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu"><img src="../images/worker.svg" alt="Administration" /></button>
+                 <button md-button ><a routerLink="/" routerLinkActive="active">Home</a></button>
+                 <button md-button [md-menu-trigger-for]="aboutMenu">About</button>
+
+                 <button md-button><a *ngSwitchCase = "true" routerLink="/createProject" routerLinkActive="active">Create Project</a></button>
+                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">Manage Account</button>
+                 <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration</button>
+                 <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
+                 <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
+                 <button md-button style="alignment: right"><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
                </md-toolbar-row>
              </md-toolbar>
 

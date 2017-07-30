@@ -1,32 +1,60 @@
-<div class="container mypadding ">
-  <h2>Recent Activity</h2>
-  <div class="messgageContent">
-    <div class="science">
-      <img src="../../images/SCIENCE.png" alt="avatar" class="avatar swag">
-      <p>Come to our event on the 22nd?</p>
-    </div>
-    <div class="health">
-      <img src="../../images/HEALTH.png" alt="avatar" class="avatar swag">
-      <p>We're demonstrating  how to cook using only purple  vegetables </p>
-    </div>
-    <div class="education">
-      <img src="../../images/EDUCATION.png" alt="avatar" class="avatar swag">
-      <p>Learn how to  make a  website on the 25th</p>
-    </div>
-    <div class="artAndDesign">
-      <img src="../../images/ART%20AND%20DESIGN.png" alt="avatar" class="avatar swag">
-      <p>Learn how to do technical drawing 28th</p>
-    </div>
 
-    <div class="craftAndWorkshop">
-      <img src="../../images/craft.png" alt="avatar" class="avatar swag">
-      <p>Learn how use the 3d Printer 30th </p>
-    </div>
-    <div class="health">
-      <img src="../../images/HEALTH.png" alt="avatar" class="avatar swag">
-      <p>Join us  for  a nature  walk along the  canal 28th </p>
 
-    </div>
+   <md-tab-group>
+     <md-tab label="Recent Activity" >
+       <div class="container mypadding ">
+         <div class="messgageContent">
+            <div class="loz science">
+              <img src="../../images/SCIENCE.png" alt="avatar" class="avatar swag">
+              <p>Come to our event on the 22nd?</p>
+            </div>
+            <div class="loz health">
+              <img src="../../images/HEALTH.png" alt="avatar" class="avatar swag">
+              <p>We're demonstrating  how to cook using only purple  vegetables </p>
+            </div>
+            <div class="loz education">
+              <img src="../../images/EDUCATION.png" alt="avatar" class="avatar swag">
+              <p>Learn how to  make a  website on the 25th</p>
+            </div>
+            <div class="loz artAndDesign">
+              <img src="../../images/ART%20AND%20DESIGN.png" alt="avatar" class="avatar swag">
+              <p>Learn how to do technical drawing 28th</p>
+            </div>
 
-  </div>
-</div>
+            <div class="loz craftAndWorkshop">
+              <img src="../../images/craft.png" alt="avatar" class="avatar swag">
+              <p>Learn how use the 3d Printer 30th </p>
+            </div>
+            <div class="loz health">
+              <img src="../../images/HEALTH.png" alt="avatar" class="avatar swag">
+              <p>Join us  for  a nature  walk along the  canal 28th </p>
+
+            </div>
+          </div>
+         </div>
+    </md-tab>
+     <md-tab label="{{messagething.name}}">
+     <!-- <h2>Messages for <a href="#" [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>-->
+      <div  class="bs-example" id="messages">
+        <div *ngFor="let message of messages | async">
+          <div class="bubble health" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
+            <img src="../../images/HEALTH.png" class="avatar"/>
+            <p>{{ message.message }}</p>
+            <div class="author">
+              {{ message.displayName }}
+            </div>
+            <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <figure class="highlight">
+        <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        <a class="send-message" (click)="sendMessage()">SEND</a>
+      </figure>
+    </md-tab>
+   </md-tab-group>
+
+
