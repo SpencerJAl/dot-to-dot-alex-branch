@@ -25,3 +25,11 @@ body{
   font-size: x-small;
   colour:black;
 }
+
+.centerImage
+{
+  text-align:center;
+  display:block;
+  margin-left: auto;
+  margin-right: auto
+}

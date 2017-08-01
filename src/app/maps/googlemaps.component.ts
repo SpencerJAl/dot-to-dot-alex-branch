@@ -42,8 +42,8 @@ export class GoogleMapsComponent implements OnInit {
   markers: FirebaseListObservable<any>;
   messagething:{};
   markerKeys;
+  style: any = laura;
 
-  myStyle: MapTypeStyle;
 
 
 

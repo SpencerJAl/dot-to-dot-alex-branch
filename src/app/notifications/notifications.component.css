@@ -8,7 +8,8 @@
 }
 
 .content h1{
-  font-size: medium;
+  font-size: small;
+  font-weight: 200;
 }
 .bs-example {
   position: relative;
@@ -44,7 +45,7 @@
   display: block;
   padding: 9px;
   margin: 0 0 10px;
-  font-size: 13px;
+  font-size: 10px;
   line-height: 1.42857143;
   color: #333;
   word-break: break-all;
@@ -56,7 +57,7 @@
 }
 
 p {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 .bubble{
@@ -64,7 +65,7 @@ p {
   border-radius: 5px;
   box-shadow: 0 0 6px #B2B2B2;
   display: inline-block;
-  padding: 10px 18px;
+  padding: 10px 10px;
   position: relative;
   vertical-align: top;
 }
@@ -151,8 +152,8 @@ p {
   background: transparent;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 580px;
-  overflow-x: hidden;
+  max-height: 590px;
+
 }
 
 .far {
@@ -189,12 +190,16 @@ p {
 .loz {
   padding: 0 0 0 30px;
   float:left;
-  width: 250px;
+  width: auto;
+  max-width: 300px;
+  min-width: 30px;
   height: auto;
   border-radius: 40px;
   color:#000;
   margin: 0 0 30px;
   box-shadow: 0 3px 0 0 #000;
+  margin-right: auto;
+  margin-left:auto;
 }
 
 .education {

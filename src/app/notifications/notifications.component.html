@@ -38,7 +38,7 @@
       <div  class="bs-example" id="messages">
         <div *ngFor="let message of messages | async">
           <div class="bubble health" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
-            <img src="../../images/HEALTH.png" class="avatar"/>
+            <img src="../../images/0ld%20icons/user.svg" class="avatar"/>
             <p>{{ message.message }}</p>
             <div class="author">
               {{ message.displayName }}
