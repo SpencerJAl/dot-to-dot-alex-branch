@@ -1,0 +1,17 @@
+#my_project{
+  width:45%;
+  float:left;
+  margin-left: 2.5%;
+}
+#joined_project {
+  width:45%;
+  float:left;
+  margin-left: 5%;
+  margin-right:2.5%;
+  margin-top:-22px;
+}
+
+.projectlist{
+  background-color: yellow !important;
+}
+

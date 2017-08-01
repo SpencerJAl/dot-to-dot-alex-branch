@@ -36,9 +36,9 @@
 
 
             <md-menu #userMenu="mdMenu">
-               <button md-menu-item> <a   routerLink="/myProfile" routerLinkActive="active">Profile</a> </button>
-               <button md-menu-item> <a   routerLink="/myProjects" routerLinkActive="active">My Projects</a></button>
-               <button md-menu-item> <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></button>
+               <button md-menu-item routerLink="/myProfile" routerLinkActive="active">Profile </button>
+               <button md-menu-item routerLink="/myProjects" routerLinkActive="active">My Projects</button>
+               <button md-menu-item routerLink="/dashboard" routerLinkActive="active">Dashboard</button>
              </md-menu>
 
 
@@ -46,15 +46,15 @@
 
 
            <md-menu #addMenu="mdMenu">
-              <button md-menu-item> <a *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</a></button>
-              <button md-menu-item> <a *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</a><</button>
+              <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>
+              <button md-menu-item *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</button>
             </md-menu>
 
           <md-menu #aboutMenu="mdMenu">
-            <button  md-menu-item> <a  routerLink="/whatIs" routerLinkActive="active">What is DOT TO DOT </a></button>
-            <button  md-menu-item> <a  routerLink="/aboutUs" routerLinkActive="active">About us</a></button>
-            <button  md-menu-item> <a  routerLink="/partners" routerLinkActive="active">Partners</a></button>
-            <button  md-menu-item> <a  routerLink="/FAQ" routerLinkActive="active">FAQ</a></button>
+            <button  md-menu-item  routerLink="/whatIs" routerLinkActive="active">What is DOT TO DOT </button>
+            <button  md-menu-item  routerLink="/aboutUs" routerLinkActive="active">About us</button>
+            <button  md-menu-item  routerLink="/partners" routerLinkActive="active">Partners</button>
+            <button  md-menu-item  routerLink="/FAQ" routerLinkActive="active">FAQ</button>
           </md-menu>
         </div>
 
