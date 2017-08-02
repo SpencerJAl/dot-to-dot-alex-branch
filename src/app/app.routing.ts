@@ -27,7 +27,7 @@ import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
 import {MyProjectsComponent} from "./myProjects/myProjects.component";
 import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
 import {ProjectSummaryComponent} from "./project-summary/project-summary.component";
-
+import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
 const appRoutes: Routes = [
   { path: '', component:HomeComponent,
 
@@ -137,7 +137,11 @@ const appRoutes: Routes = [
     component: ProjectSummaryComponent,
     data: {title: 'Project Summary'}
   },
-
+  {
+    path: 'supplier',
+    component: RecycledSupplierComponent,
+    data: {title: 'Waste Supplier'}
+  },
 
 
 ];

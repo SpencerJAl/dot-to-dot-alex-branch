@@ -92,7 +92,7 @@ import { ProjectFilterComponent } from './project-filter/project-filter.componen
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { ProjectSummaryComponent} from './project-summary/project-summary.component';
-
+import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
 import {GMapModule, ChartModule } from 'primeng/primeng';
 
 
@@ -182,7 +182,8 @@ export const firebaseAuthConfig = {
     ProjectFilterComponent,
     FooterComponent,
     SearchComponent,
-    ProjectSummaryComponent
+    ProjectSummaryComponent,
+    RecycledSupplierComponent
   ],
   imports: [
     BrowserModule,

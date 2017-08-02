@@ -1,0 +1,80 @@
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{error}}
+</div>
+
+<div class="modal-dialog"  >
+  <div class="" >
+    <h1>Add a new Supplier</h1>
+    <form (submit)="createSupplier($event, supplierName.value, supplierDescription.value, supplierSummary.value, location.value)" class="example-form">
+      <div class = "form-group">
+      <!---<div class = "form-group">
+        <label for="supplierName" class="sr-only">Name</label>
+        <input #supplierName type="text" id="supplierName" class="form-control" placeholder="Name" required="">
+      </div>--->
+      <md-input-container class="example-full-width">
+        <input  mdInput #supplierName id="supplierName" placeholder="Company"  value="">
+      </md-input-container>
+        </div>
+      <div class = "form-group">
+      <md-input-container class="example-full-width">
+        <input mdInput  #location  id ="location" maxlength="7" placeholder="Postal Code" value="">
+        <md-hint align="end">enter your postcode</md-hint>
+      </md-input-container>
+        </div>
+     <!--- <div class = "form-group">
+        <label for="location" class="sr-only">Postcode</label>
+        <input type="text" id ="location" class="form-control" placeholder="Postcode">
+      </div> --->
+      <div class = "form-group">
+      <md-input-container class="example-full-width">
+           <textarea mdInput
+                     rows = "5"
+                       cols = "80"
+                       #supplierDescription
+                        placeholder="Supplier Description">
+
+           </textarea>
+
+      </md-input-container>
+        </div>
+      <div class = "form-group">
+      <md-input-container class="example-full-width">
+           <textarea   mdInput #supplierSummary
+                       rows = "3"
+                       cols = "80"
+
+                       placeholder="Supplies">
+
+           </textarea>
+
+      </md-input-container>
+      </div>
+        <!---
+      <div class = "form-group">
+        <label class="sr-only">Supplier Description</label>
+        <textarea
+          #supplierDescription
+          rows = "5"
+          cols = "80"
+          class="form-control"
+          placeholder="Profile Description"
+        ></textarea>
+      </div>
+
+      <div class = "form-group">
+        <label class="sr-only">Supplier Summary</label>
+        <textarea
+          #supplierSummary
+          rows = "3"
+          cols = "80"
+          class="form-control"
+          placeholder="Supplier Summary"
+        ></textarea>
+      </div>--->
+      <button  class="btn btn-md btn-primary btn-block md-raised-button" type="submit">Save Supplier</button>
+
+    </form>
+  </div>
+</div>

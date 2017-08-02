@@ -8,7 +8,7 @@
 }
 
 .content h1{
-  font-size: small;
+  font-size: medium;
   font-weight: 200;
 }
 .bs-example {
@@ -57,7 +57,7 @@
 }
 
 p {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .bubble{
@@ -130,11 +130,11 @@ p {
   color:white;
   margin-top: 10px;
   width:300px;
-  font-size: small;
+  font-size: medium;
 }
 
 .content h1{
-  font-size: small;
+  font-size: medium;
 }
 /**********************************************/
 /******** Messaging Style with avatars ********/
@@ -190,7 +190,7 @@ p {
 .loz {
   padding: 0 0 0 30px;
   float:left;
-  width: auto;
+  width: 250px;
   max-width: 300px;
   min-width: 30px;
   height: auto;

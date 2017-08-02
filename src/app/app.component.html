@@ -23,8 +23,8 @@
                  <button md-button ><a routerLink="/" routerLinkActive="active">Home</a></button>
                  <button md-button [md-menu-trigger-for]="aboutMenu">About</button>
 
-                 <button md-button><a *ngSwitchCase = "true" routerLink="/createProject" routerLinkActive="active">Create Project</a></button>
-                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">Manage Account</button>
+                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="createMenu">Create</button>
+                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">User Admin</button>
                  <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration</button>
                  <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
                  <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
@@ -43,7 +43,10 @@
 
 
 
-
+          <md-menu #createMenu="mdMenu">
+            <button md-menu-item  routerLink="/supplier" routerLinkActive="active">Add Waste Supplier</button>
+            <button md-menu-item  routerLink="/createProject" routerLinkActive="active">Create New Project</button>
+          </md-menu>
 
            <md-menu #addMenu="mdMenu">
               <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>
