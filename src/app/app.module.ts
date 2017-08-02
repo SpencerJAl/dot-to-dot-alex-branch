@@ -94,6 +94,7 @@ import { SearchComponent } from './search/search.component';
 import { ProjectSummaryComponent} from './project-summary/project-summary.component';
 import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
 import {GMapModule, ChartModule } from 'primeng/primeng';
+import { MyCompComponent } from './my-comp/my-comp.component';
 
 
 export let MD_MODULES: any = [
@@ -183,7 +184,8 @@ export const firebaseAuthConfig = {
     FooterComponent,
     SearchComponent,
     ProjectSummaryComponent,
-    RecycledSupplierComponent
+    RecycledSupplierComponent,
+    MyCompComponent
   ],
   imports: [
     BrowserModule,
