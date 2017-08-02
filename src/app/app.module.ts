@@ -129,7 +129,7 @@ export let MD_MODULES: any = [
   MdTooltipModule,
 ];
 
-
+/*      live
 export const firebaseConfig = {
   apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",
   authDomain: "project--1058925460034076790.firebaseapp.com",
@@ -137,7 +137,15 @@ export const firebaseConfig = {
   storageBucket: "project--1058925460034076790.appspot.com",
   messagingSenderId: "779470844821"
 }
-
+*/
+export const firebaseConfig = {
+  apiKey: "AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo",
+  authDomain: "project--5383574466381407389.firebaseapp.com",
+  databaseURL: "https://project--5383574466381407389.firebaseio.com",
+  projectId: "project--5383574466381407389",
+  storageBucket: "project--5383574466381407389.appspot.com",
+  messagingSenderId: "627281333849"
+};
 /*
 export const firebaseAuthConfig = {
   provider: AuthProviders.Password,

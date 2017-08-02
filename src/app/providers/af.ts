@@ -19,10 +19,15 @@ export class AF {
   public email: string;
   public userID: string;
   public projects: FirebaseListObservable<any>;
+
+  public ownedSuppliers: FirebaseListObservable<any>;
   public ownedProjects: FirebaseListObservable<any>;
   public loggedIn:boolean=false;
   public project: FirebaseObjectObservable<any>;
   public projectRequests: FirebaseListObservable<any>;
+  public suppliers: FirebaseObjectObservable<any>;
+  public supplier: FirebaseListObservable<any>;
+  public supplierRequests: FirebaseListObservable<any>;
  // uid: string;
 
   /**
@@ -295,6 +300,47 @@ export class AF {
     );
   }
   ////////////////////////////////////////////////////////////////////////
+/////////////// Waste Suppliers//////////////////////////////////////////
+
+
+  sendSupplierRequest(supplierName, supplierDisc, supplierSum, lat, lng){
+    var supplier = {
+      name: supplierName,
+      description:supplierDisc,
+      summary:supplierSum,
+      owner: this.userID,
+      lat:lat,
+      lng:lng
+    }
+    return this.supplierRequests.push(supplier);
+  }
+
+  saveSupplierID(uid){
+    return this.af.object('supplierRequests/' + uid).update( {id: uid} );
+  }
+  saveSupplierInfoFromForm(supplierName, supplierDisc, supplierSum, lat, lng){
+    alert("thing passed is: " + supplierName);
+    var supplier = {
+      name: supplierName,
+      description:supplierDisc,
+      summary:supplierSum,
+      owner: this.userID,
+      lat:lat,
+      lng:lng
+    }
+    return this.supplier.push(supplier);
+    /*return this.af.object('suppliers/'+supplierName).set({
+     name: supplierName,
+     owner: this.email,
+     });*/
+  }
+
+  saveSupplierToUser(supplierID){
+    var thing={
+      name:supplierID
+    }
+    return this.ownedSuppliers.push(thing);
+  }
 
 
   /**
