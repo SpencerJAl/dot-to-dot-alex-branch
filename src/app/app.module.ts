@@ -29,7 +29,9 @@ import { RegisterComponent } from './register/register.component';
 import {CoreModule} from './app.core.modules';
 import {AlertService} from'./services/alert.service';
 import { Ng2MapModule} from 'ng2-map';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import 'hammerjs';
 // MATERIAL DESIGN MODULES
 // import { MdToolbarModule  } from '@angular2-material/toolbar';
 // import { MdButtonModule } from '@angular2-material/button';
@@ -130,7 +132,7 @@ export let MD_MODULES: any = [
   MdTooltipModule,
 ];
 
-      
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",
   authDomain: "project--1058925460034076790.firebaseapp.com",
