@@ -8,6 +8,9 @@
 <div class="loginmodal-container" >
   <h1>Create A project</h1>
 <form (submit)="createProject($event, projectName.value, projectDescription.value, projectSummary.value, location.value)" class="form-signin">
+
+  <input type="file">
+
   <div class = "form-group">
     <label for="projectName" class="sr-only">Name</label>
     <input #projectName type="text" id="projectName" class="form-control" placeholder="Name" required="">
@@ -39,7 +42,22 @@
     placeholder="Project Summary"
     ></textarea>
   </div>
-  <button  class="btn btn-md btn-primary btn-block" type="submit">Register</button>
+
+  <div class="form-group">
+    <label>Interests </label>
+    <div *ngFor="let option of options">
+      <label>
+        <input type="radio"
+               name="options"
+               value="{{option.name}}"
+               (change)="interestHandler($event)"
+        />
+        {{option.name}}
+      </label>
+    </div>
+  </div>
+
+  <button  class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
 
 </form>
 </div>
