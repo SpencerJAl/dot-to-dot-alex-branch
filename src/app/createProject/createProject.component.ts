@@ -15,9 +15,28 @@ export class CreateProjectComponent implements OnInit {
 
   error:any;
   center: google.maps.LatLng;
+
+  options = [
+    {name:'Art', value:'Art & Design', checked:true},
+    {name:'Science', value:'Science', checked:false},
+    {name:'Health', value:'Health', checked:true},
+    {name:'Craft', value:'Craft & Workshop', checked:true},
+    {name:'Education', value:'Education', checked:true},
+  ];
   constructor(private afService: AF,private GC:GeocodingService, private router: Router) { }
 
+  get selectedOptions() { // right now: ['1','3']
+    return this.options
+      .filter(opt => opt.checked)
+      .map(opt => opt.value)
+  }
+
+  selectedtype:any
+  interestHandler(event: any){
+    this.selectedtype=event.target.value;
+  }
   createProject(event, projectName, desc, sum, loc) {
+    console.log("interest is " + this.selectedtype);
     event.preventDefault();
     this.GC.codeAddress(loc).forEach((results: google.maps.GeocoderResult[])=>{
       this.center = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
@@ -25,7 +44,7 @@ export class CreateProjectComponent implements OnInit {
       console.log("long is : "+ this.center.lng());
     }).then(()=>
     {
-      this.afService.sendProjectRequest(projectName, desc, sum, this.center.lat(), this.center.lng()).then((project) => {
+      this.afService.sendProjectRequest(projectName, desc, sum, this.selectedtype, this.center.lat(), this.center.lng()).then((project) => {
         console.log("project id is" + project.key);
         this.afService.saveProjectID(project.key);
         this.afService.saveProjectToUser(project.key).then(()=> {

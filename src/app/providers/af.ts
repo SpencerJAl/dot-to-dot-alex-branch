@@ -232,12 +232,13 @@ export class AF {
    * this section of code is to handel projects
    */
 
-  sendProjectRequest(projectName, projectDisc, projectSum, lat, lng){
+  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng){
     var project = {
       name: projectName,
       description:projectDisc,
       summary:projectSum,
       owner: this.userID,
+      type:projectType,
       lat:lat,
       lng:lng
     }
