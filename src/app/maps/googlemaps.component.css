@@ -8,6 +8,17 @@
 
 }
 
+.example-card {
+  width: 200px;
+  background-color: #000000;
+  color:white;
+}
+
+.example-header-image {
+  background-image: url('../../images/tesco.jpg');
+  background-size: cover;
+}
+
 
 .dot-to-dot{
   icon: url("../../images/dot-to-dot-marker.png");

@@ -1,12 +1,16 @@
+@import '../notifications/notifications.component.css' ;
+
 .myCard{
   width: 18%;
   font-size: small;
-  margin: 1px;
+  margin: auto;
   padding: 1% ;
   display: inline-block;
+
 
 }
 
 .myCardList{
   display: block;
 }
+
