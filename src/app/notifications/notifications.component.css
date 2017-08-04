@@ -141,18 +141,18 @@ p {
 /**********************************************/
 .container {
   width: 100%;
-  height: 620px;
+  height: 530px;
   margin: 5px;
 
 }
 .messgageContent {
   position: absolute;
   margin: 10px auto;
-  width: 98%;
+  width: 100%;
   background: transparent;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 590px;
+  max-height: 540px;
 
 }
 
@@ -190,7 +190,7 @@ p {
 .loz {
   padding: 0 0 0 30px;
   float:left;
-  width: 250px;
+  width: 245px;
   max-width: 300px;
   min-width: 30px;
   height: auto;

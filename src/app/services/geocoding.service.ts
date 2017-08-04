@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 
+
 /**
  * GeocodingService class.
  * https://developers.google.com/maps/documentation/javascript/
@@ -17,7 +18,7 @@ import { Observable } from 'rxjs/Observable';
     this.geocoder = new google.maps.Geocoder();
   }
 
-  /**
+  /**:
    * Reverse geocoding by location.
    *
    * Wraps the Google Maps API geocoding service into an observable.

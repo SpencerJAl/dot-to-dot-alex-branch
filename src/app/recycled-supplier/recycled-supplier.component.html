@@ -5,22 +5,33 @@
 </div>
 
 <div class="modal-dialog"  >
-  <div class="" >
-    <h1>Add a new Supplier</h1>
-    <form (submit)="createSupplier($event, supplierName.value, supplierDescription.value, supplierSummary.value, location.value)" class="example-form">
+  <div class="example-form" >
+    <h1>Add a new waste supplier</h1>
+
+
+    <form (submit)="createSupplier($event, supplierName.value, address.value, address2.value, supplierDescription.value, supplierSummary.value, location.value)" class="example-form">
       <div class = "form-group">
       <!---<div class = "form-group">
         <label for="supplierName" class="sr-only">Name</label>
         <input #supplierName type="text" id="supplierName" class="form-control" placeholder="Name" required="">
       </div>--->
       <md-input-container class="example-full-width">
-        <input  mdInput #supplierName id="supplierName" placeholder="Company"  value="">
+        <input  mdInput #supplierName id="supplierName" placeholder="Name or Company"  value="">
       </md-input-container>
         </div>
       <div class = "form-group">
+
+        <p>
+          <md-input-container class="example-full-width">
+            <textarea #address1 mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+          </md-input-container>
+          <md-input-container class="example-full-width">
+            <textarea #address2 mdInput placeholder="Address 2"></textarea>
+          </md-input-container>
+        </p>
       <md-input-container class="example-full-width">
-        <input mdInput  #location  id ="location" maxlength="7" placeholder="Postal Code" value="">
-        <md-hint align="end">enter your postcode</md-hint>
+        <input mdInput  #location id ="location" maxlength="7" placeholder="Postal Code" value="">
+        <!---<md-hint align="end">enter your postcode</md-hint>--->
       </md-input-container>
         </div>
      <!--- <div class = "form-group">
@@ -72,9 +83,16 @@
           class="form-control"
           placeholder="Supplier Summary"
         ></textarea>
-      </div>--->
+      </div>
+
       <button  class="btn btn-md btn-primary btn-block md-raised-button" type="submit">Save Supplier</button>
 
+      <button  class="md-raised-button" type="submit">Save Supplier</button>    --->
+      <button md-raised-button type="submit">Save Supplier</button>
     </form>
+  <div>
+    <p>&nbsp;</p>
+  </div>
+
   </div>
 </div>

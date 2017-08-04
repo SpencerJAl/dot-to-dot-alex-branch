@@ -25,8 +25,8 @@ export class AF {
   public loggedIn:boolean=false;
   public project: FirebaseObjectObservable<any>;
   public projectRequests: FirebaseListObservable<any>;
-  public suppliers: FirebaseObjectObservable<any>;
-  public supplier: FirebaseListObservable<any>;
+  public suppliers: FirebaseListObservable<any>;
+  public supplier: FirebaseObjectObservable<any>;
   public supplierRequests: FirebaseListObservable<any>;
  // uid: string;
 
@@ -254,6 +254,7 @@ export class AF {
       name: projectName,
       description:projectDisc,
       summary:projectSum,
+
       owner: this.userID,
       lat:lat,
       lng:lng
@@ -304,9 +305,11 @@ export class AF {
 /////////////// Waste Suppliers//////////////////////////////////////////
 
 
-  sendSupplierRequest(supplierName, supplierDisc, supplierSum, lat, lng){
+  sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng){
     var supplier = {
       name: supplierName,
+      address: address,
+      address2: address2,
       description:supplierDisc,
       summary:supplierSum,
       owner: this.userID,
@@ -319,17 +322,19 @@ export class AF {
   saveSupplierID(uid){
     return this.af.object('supplierRequests/' + uid).update( {id: uid} );
   }
-  saveSupplierInfoFromForm(supplierName, supplierDisc, supplierSum, lat, lng){
+  saveSupplierInfoFromForm(supplierName, supplierAddress, supplierAddress2, supplierDisc, supplierSum, lat, lng){
     alert("thing passed is: " + supplierName);
     var supplier = {
       name: supplierName,
+      address: supplierAddress,
+      adreess2:supplierAddress2,
       description:supplierDisc,
       summary:supplierSum,
       owner: this.userID,
       lat:lat,
       lng:lng
     }
-    return this.supplier.push(supplier);
+    return this.suppliers.push(supplier);
     /*return this.af.object('suppliers/'+supplierName).set({
      name: supplierName,
      owner: this.email,
@@ -343,6 +348,19 @@ export class AF {
     return this.ownedSuppliers.push(thing);
   }
 
+  getSupplierMessages(id){
+    this.messages=this.af.list('suppliers/'+id+'/messages');
+    return this.af.list('suppliers/'+id+'/messages');
+  }
+
+  getAllSuppliers(){
+    return this.suppliers;
+  }
+  getSupplier(id){
+    console.log("id is" +id);
+    this.supplier=this.af.object('suppliers/'+id);
+    return this.supplier;
+  }
 
   /**
    *creates a user profile in the database

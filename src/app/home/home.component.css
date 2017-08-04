@@ -15,7 +15,7 @@ html, body {
 }
 #floating-panel {
   position: absolute;
-  top: 265px;
+  top: 305px;
   left: 25%;
   z-index: 5;
   background-color: #fff;
@@ -34,11 +34,11 @@ html, body {
 
 
   border: 0px solid #999;
-  left: 135px;
+  left: 15px;
   width: 320px;
   padding: 5px;
   position: absolute;
-  top: 265px;
+  top: 305px;
   z-index: 5;
   overflow-x:hidden;
 
