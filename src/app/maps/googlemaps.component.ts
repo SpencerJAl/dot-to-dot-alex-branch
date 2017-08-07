@@ -56,7 +56,7 @@ export class GoogleMapsComponent implements OnInit {
 
 
  constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
-   this.zoom=18;
+   this.zoom=11;
    this.markers = this.afService.projects;
    this.peoples=this._userService.getUsers();
    this.messages = this.afService.messages;
