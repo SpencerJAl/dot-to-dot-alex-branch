@@ -1,79 +1,53 @@
 <header class="bar">
-  <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px"  class="centerImage"/>
- <!----<div class="ui-g">
 
+  <img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px"  class="centerImage"/>
+
+  <!----<div class="ui-g">
    <div class="col-sm-3 "><img src="../images/dot-to-dot.png" alt="DOT-to-DOT logo" style="width: 80px; height: 90px" /></div>
    <div class="col-sm-6 "><h1 align="centre"> Welcome to {{title}} {{this.afService.displayName}}</h1> </div>
    <div class="col-sm-3 "><app-search></app-search></div>
-</div>
--->
+   </div>
+   -->
+
+  <div  [ngSwitch]="isLoggedIn" class="primary" >
+
+    <md-toolbar color="primary">
+      <button md-button ><a routerLink="/" routerLinkActive="active">Home</a></button>
+      <button md-button [md-menu-trigger-for]="aboutMenu">About</button>
+      <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="createMenu">Create</button>
+      <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">User</button>
+      <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration</button>
+      <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
+      <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
+      <button md-button style="alignment: right"><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
+    </md-toolbar>
 
 
+    <md-menu xPosition="after" #userMenu="mdMenu">
+      <button md-menu-item routerLink="/myProfile" routerLinkActive="active">Profile </button>
+      <button md-menu-item routerLink="/myProjects" routerLinkActive="active">My Projects</button>
+      <button md-menu-item routerLink="/dashboard" routerLinkActive="active">Dashboard</button>
+    </md-menu>
 
+    <md-menu #createMenu="mdMenu">
+      <button md-menu-item  routerLink="/supplier" routerLinkActive="active">Add Waste Supplier</button>
+      <button md-menu-item  routerLink="/createProject" routerLinkActive="active">Create New Project</button>
+    </md-menu>
 
+    <md-menu #addMenu="mdMenu">
+      <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>
+      <button md-menu-item *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</button>
+    </md-menu>
 
-
-
-
-
-        <div  [ngSwitch]="isLoggedIn" class="primary" >
-             <md-toolbar color="primary">
-
-               <md-toolbar-row>
-                 <button md-button ><a routerLink="/" routerLinkActive="active">Home</a></button>
-                 <button md-button [md-menu-trigger-for]="aboutMenu">About</button>
-
-                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="createMenu">Create</button>
-                 <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">User Admin</button>
-                 <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration</button>
-                 <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
-                 <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
-                 <button md-button style="alignment: right"><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
-               </md-toolbar-row>
-             </md-toolbar>
-
-
-
-
-            <md-menu #userMenu="mdMenu">
-               <button md-menu-item routerLink="/myProfile" routerLinkActive="active">Profile </button>
-               <button md-menu-item routerLink="/myProjects" routerLinkActive="active">My Projects</button>
-               <button md-menu-item routerLink="/dashboard" routerLinkActive="active">Dashboard</button>
-             </md-menu>
-
-
-
-          <md-menu #createMenu="mdMenu">
-            <button md-menu-item  routerLink="/supplier" routerLinkActive="active">Add Waste Supplier</button>
-            <button md-menu-item  routerLink="/createProject" routerLinkActive="active">Create New Project</button>
-          </md-menu>
-
-           <md-menu #addMenu="mdMenu">
-              <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>
-              <button md-menu-item *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</button>
-            </md-menu>
-
-          <md-menu #aboutMenu="mdMenu">
-            <button  md-menu-item  routerLink="/whatIs" routerLinkActive="active">What is DOT TO DOT </button>
-            <button  md-menu-item  routerLink="/aboutUs" routerLinkActive="active">About us</button>
-            <button  md-menu-item  routerLink="/partners" routerLinkActive="active">Partners</button>
-            <button  md-menu-item  routerLink="/FAQ" routerLinkActive="active">FAQ</button>
-          </md-menu>
-        </div>
-
-
-
-
-
-
-
-
+    <md-menu #aboutMenu="mdMenu">
+      <button  md-menu-item  routerLink="/whatIs" routerLinkActive="active">What is DOT TO DOT </button>
+      <button  md-menu-item  routerLink="/aboutUs" routerLinkActive="active">About us</button>
+      <button  md-menu-item  routerLink="/partners" routerLinkActive="active">Partners</button>
+      <button  md-menu-item  routerLink="/FAQ" routerLinkActive="active">FAQ</button>
+    </md-menu>
+  </div>
 
 </header>
-
-
-
-
 
 <router-outlet></router-outlet>
 
