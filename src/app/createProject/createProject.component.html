@@ -4,6 +4,87 @@
   {{error}}
 </div>
 
+
+
+
+  <script>
+json ={
+"items": [
+{
+"type": "input",
+"props": {
+"title": "Project Title",
+"helpText": "enter the name of your project"
+},
+"config": {
+"required": false,
+"type": "text"
+}
+},
+{
+"type": "multipleChoices",
+"props": {
+"title": "Project Type",
+"helpText": "please select your projects category"
+},
+"config": {
+"required": true,
+"direction": "vertical"
+},
+"options": [
+{
+"value": "Science"
+},
+{
+"value": "Art and Design"
+},
+{
+"value": "Craft and Workshop"
+},
+{
+"value": "Health"
+},
+{
+"value": "Education"
+}
+]
+},
+{
+"type": "textarea",
+"props": {
+"title": "Project Summary",
+"helpText": ""
+},
+"config": {
+"required": true,
+"placeholder": "Summary"
+}
+},
+{
+"type": "textarea",
+"props": {
+"title": "Details",
+"helpText": ""
+},
+"config": {
+"required": false,
+"placeholder": "Details of Project"
+}
+},
+{
+"type": "input",
+"props": {
+"title": "Money Target",
+"helpText": "the amout f money the porject requires to start"
+},
+"config": {
+"required": false,
+"type": "number"
+}
+}
+]
+}
+</script>
 <div class="modal-dialog"  >
 <div class="loginmodal-container" >
   <h1>Create A project</h1>

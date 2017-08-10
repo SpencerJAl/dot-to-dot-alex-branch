@@ -2,7 +2,7 @@
 
       <md-tab-group>
         <md-tab label="Latest Projects">
-        <div>
+        <div  ng-controller="">
           <md-card class="myCard health">
 
             <img md-card-image src="../../images/A.png" alt="Project Title" />
@@ -11,39 +11,41 @@
             </md-card-title>
             <md-card-content>
              <p>Mobile green and  art spaces created in vacant or under-utilised  glasgow land to enliven communities.</p>
-
+              <p-chart type="doughnut" [data]="data"></p-chart>
+              <md-card-actions>Donate</md-card-actions>
+              <p> &nbsp;</p>
             </md-card-content>
-            <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
-                          <md-card-actions>Donate</md-card-actions> -->
+
+
           </md-card>
           <md-card class="myCard education">
-
             <img md-card-image src="../../images/B.png" alt="Project Image" />
             <md-card-title>
               Corner Garden
             </md-card-title>
-            <p></p>
             <md-card-content>
+            <p>The corner gardens design consists of  blah  blah .....</p>
+            <p> blah  blah .....</p>
+              <p-chart type="Doughnut" [data]="data"></p-chart>
+              <md-card-actions>Donate</md-card-actions>
+              <p> &nbsp;</p>
 
             </md-card-content>
             <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
                           <md-card-actions>Donate</md-card-actions> -->
           </md-card>
           <md-card class="myCard craftAndWorkshop">
-
             <img md-card-image src="../../images/C.png" alt="Project Image" />
             <md-card-title>
               REPLASTICO
             </md-card-title>
             <md-card-content>
-
               REPLASTICO©  is a pioneering “local plastic workshop” that connects wearable craft design, plastic waste and network of makers at home. It transforms plastic waste into a social value where each product can be manufactured from any home locally. It is a creative solution for low income and low-skilled people.
-              ​​
-              Team: Laura Petruskeviciute & Cristian Suau
-              ​
-              ​
-              ​
-              ​
+              ​​Team: Laura Petruskeviciute & Cristian Suau
+
+              <p-chart type="Doughnut" [data]="data"></p-chart>
+              <md-card-actions>Donate</md-card-actions>
+              <p> &nbsp;</p>
             </md-card-content>
             <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
                           <md-card-actions>Donate</md-card-actions> -->
@@ -56,6 +58,9 @@
             </md-card-title>
             <md-card-content>
 
+              <p-chart type="Doughnut" [data]="data"></p-chart>
+              <md-card-actions>Donate</md-card-actions>
+              <p> &nbsp;</p>
             </md-card-content>
             <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
                           <md-card-actions>Donate</md-card-actions> -->
@@ -110,7 +115,7 @@
               <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
                             <md-card-actions>Donate</md-card-actions> -->
             </md-card>
-            <md-card class="myCard education">
+            <md-card class="myCard">
 
               <img md-card-image src="../../images/1.png" alt="Project Image" />
               <md-card-title>
@@ -121,7 +126,7 @@
               <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
                             <md-card-actions>Donate</md-card-actions> -->
             </md-card>
-            <md-card class="myCard craftAndWorkshop ">
+            <md-card class="myCard ">
 
               <img md-card-image src="../../images/3.png" alt="Project Image" />
               <md-card-title>
@@ -132,7 +137,7 @@
               <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
                             <md-card-actions>Donate</md-card-actions> -->
             </md-card>
-            <md-card class="myCard artAndDesign">
+            <md-card class="myCard ">
 
               <img md-card-image src="../../images/4.png" alt="Project Image" />
               <md-card-title>

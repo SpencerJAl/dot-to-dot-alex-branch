@@ -4,13 +4,19 @@
   width: 18%;
   font-size: small;
   margin: auto;
-  padding: 1% ;
+  padding: 2% ;
   display: inline-block;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 500px;
+  max-height: 500px;
 
 
 }
 
 .myCardList{
+  margin-top: 0%;
   display: block;
 }
 

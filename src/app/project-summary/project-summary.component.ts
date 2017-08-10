@@ -3,6 +3,8 @@ import {DonutChart} from './donutchart';
 import{ ChartModule} from 'primeng/primeng';
 import {PageEvent} from '@angular/material';
 
+
+
 @Component({
   selector: 'app-project-summary',
   templateUrl: './project-summary.component.html',
