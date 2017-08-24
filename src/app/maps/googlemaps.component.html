@@ -279,7 +279,7 @@
 
       </div>
 
-    </div>
+    </div>S
 
 
 
@@ -290,7 +290,9 @@
 
 
    <agm-map  [latitude]="startLat" [longitude]="startLng" [styles]="style"  [zoom]="zoom" [mapTypeControl]="true" options="map.options" >
-
+     <!-- 'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'-->
+     <agm-kml-layer [url]="'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'" [zIndex]="6"></agm-kml-layer>
+     <agm-kml-layer [url]="'http://localhost:4200/images/previoususe.kml'" [zIndex]="6"></agm-kml-layer>
      <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
 
@@ -303,7 +305,7 @@
              <div md-card-avatar class=""></div>
              <md-card-title>Dawsholm Recycling Centre</md-card-title>
              <md-card-subtitle>Contact the manager</md-card-subtitle>
-           </md-card-header>
+           </md-card-header>33a
            <img md-card-image src="../../images/e_waste_rc.jpg">
            <md-card-content>
              <p><u>Supplies</u></p>
@@ -343,6 +345,8 @@
        </agm-info-window>
      </agm-marker>
      //55.887076, -4.2863025
+
+
      <agm-marker [latitude]="55.887076" [longitude]="-4.2863025" [iconUrl]="'../../images/waste.png'"  [title]="Tesco">
        <agm-info-window>
          <md-card class="example-card">
@@ -396,7 +400,7 @@
         <agm-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </agm-polyline-point>
       </agm-polyline>
 
-      <agm-marker [latitude]="startLat" [longitude]="startLng"></agm-marker>
+
 
       <agm-marker
         *ngFor="let m of markers | async "

@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>PREVIOUS USE </name>
+    <Style id="icon-1249-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1249-poi-factory.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1249-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1249-poi-factory.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1249">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1249-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1249-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1249-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1249-poi-factory.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1249-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1249-poi-factory.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1249-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1249-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1249-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>103 Sydney St</name>
+      <description><![CDATA[Stables and Cattle & Sheep Pens, built 1908 for Brechin Bros butchers, Thomson Sandilands, architects(2750pounds). A two storey red brick block on an L plan, with semicircular windows on the upper floor and prominent louvered roof ventilators.Originally there were 13 stalls.]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2302176,55.8589045,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>87-89 Sydney St</name>
+      <description>Soap Works, built from 1853 for Alexander Whitelaw</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.230565,55.8585372,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>67 Sydney St</name>
+      <description>Engineering Works founded in 1889 by John Deas. Reconstructed in 1912 after fire</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2309472,55.857905,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>51 Sydney St</name>
+      <description><![CDATA[Stables, builts 1897 for R & D Kelso, official merchant ]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2311725,55.8570439,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>42 Sydney St</name>
+      <description><![CDATA[Wright's Workshop founded in 1834 by William Lightbody wright and contractor]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2304375,55.8561345,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>39 Melbourne St</name>
+      <description>Cold Store built 1913-1914 for the UNion Cold Storage Co</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2301638,55.8570233,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11 Graham Square</name>
+      <description>Weaving Factory  built 1825 for G.Grant Jun, as a powerloom factory, and occupied by them until 1845</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.227162,55.8561604,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>38 Graham Square</name>
+      <description>Workshop built in 1897 for John Wallace</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2274402,55.8562,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11 Brandon St</name>
+      <description><![CDATA[Stables & Stores built in 1896 for Mair & Dougall, bottlers. Demolished in 1967]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2240006,55.8558716,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Bellgrove Street Station</name>
+      <description>Built in 1883-9. Cattle lairage was provided in connection with the nearby cattle market </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2248734,55.8567744,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>79 Sword St</name>
+      <description>Box Factory built in 1889 for J. Pratt</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2232075,55.8554286,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>107 Reidvale St</name>
+      <description>Cabinet Works, built in 1900 for James Inglis</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2217838,55.8568459,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>52 Bellfield St</name>
+      <description>Ropeworks , built in 1884 for Andrew Brown</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2197402,55.8569686,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Slatefield St</name>
+      <description><![CDATA[Slatefield Brewery, built 1881-4 for Gillespie, Gray & Co]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2180834,55.8552019,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>753 Duke St</name>
+      <description><![CDATA[Greenvale Chemical Works, founded i  1849 by C.F. Parsons & Co. Demolished 1967-8]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2115671,55.85824,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>847 Duke St</name>
+      <description><![CDATA[Glenpark Tan Works, built from 1864 for Martin & Millar tanners. Rebuilt in 1884-5]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2056324,55.8579153,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>25 Gateside St</name>
+      <description>Engineering Works built in 1849</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2108365,55.8579288,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Glenpark St</name>
+      <description><![CDATA[Avon Steel Works, built 1869 for M.W. Robertson & Co ]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2103305,55.857348,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>130 Glenpark St</name>
+      <description><![CDATA[Glasgow Oil & Chemical Works built 1883 for Hannay, Gourlie & Hinshelwood , chemical manufacturers, drysalters and oil refiners]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2096779,55.8569431,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>34 Glenpark St</name>
+      <description>Workshop</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2096359,55.8573234,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Millerston & Gallowgate]]></name>
+      <description>Crown Firecalay Works, founded 1860. Demolished 1965</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2152255,55.8541338,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>1064 Gallowgate</name>
+      <description><![CDATA[Contractor's Depot built 1889-1911.]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2073086,55.8532796,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>49 Holywell St</name>
+      <description>Parkhead Factory , built from 1865-6 </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2078086,55.8521594,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>130 Camlachie St</name>
+      <description>Camlachie Distillery , built from 1853</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2104564,55.8532362,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>100 Camlachie St</name>
+      <styleUrl>#icon-1249-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2132867,55.8538139,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>125 Fielden St</name>
+      <description>Crownpoint Box Factory , built in 1875. Closed in 1969</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2161619,55.8498878,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>177 Crownpoint Rd</name>
+      <description>Express Oil Works , built 1890</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.221689,55.8525686,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Campbellfield St 57-59</name>
+      <description>Campbellfield Bedstead built 1873 </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2187607,55.8531794,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>169 Crownpoint Rd</name>
+      <description>Factory built 1874</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2219598,55.852533,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>111 Crownpoint Rd</name>
+      <description>Engineerung Works built 1862</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2227169,55.8523865,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Cubie St</name>
+      <description>Telephone Exchange built 1910</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2233943,55.8524953,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>218 Orr St</name>
+      <description>Workshops, built 1880</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2259313,55.853699,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>151 Moncur St</name>
+      <description>Star Engine Works  built 1880 . Demolished 1965</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2359835,55.8545967,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>381 London Rd</name>
+      <description>Pleasance LEather , bulit 1861.</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2336904,55.8521129,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>234 Stevenson St</name>
+      <description>Grocery Warehouse  built 1914</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2310729,55.8527833,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>75 Tobago St</name>
+      <description><![CDATA[Store & Stable built 1905]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2308688,55.8523087,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>51 Tobago St</name>
+      <description>Calton Works built 1850. Demolished 1968-9</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2313861,55.8515953,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>9 Arcadia St</name>
+      <description>Workshop , built 1889</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2306651,55.8513582,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>352 Abercromby St</name>
+      <description>Warehouse, built 1892-3</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2301045,55.8508356,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>340 Abercromby St</name>
+      <description>Warehouse , built 1888</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2298343,55.8509932,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>328 Abercromby St</name>
+      <description>Workshop, built 1896</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2297213,55.8512046,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>274 Abercromby St</name>
+      <description>Bakery, built 1906-7 </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2294485,55.8515481,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>246 Abercromby St</name>
+      <description>Calton Brass Foundry, built 1876</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2290116,55.8520901,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>100 Stamford St</name>
+      <description>Chocolate works, built 1899</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2116181,55.8503581,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>AERATED WATER FACTORY</name>
+      <description>AERATED WATER FACTORY BUILT 1907. Demolished 1969.</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2331695,55.852559,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>72 Tobago St</name>
+      <description>Tramway Stables , built in 1877-83. Converted into Tobacco factory in 1901</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2310459,55.8516929,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>13-19 Arcadia St</name>
+      <description><![CDATA[Warehouse & Stables , built 1891. Demolished 1965]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2306214,55.8510836,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>41-3 Arcadia St.</name>
+      <description>Warehouse, built 1892-3</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2307876,55.8508245,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Glasgow Green Station</name>
+      <description><![CDATA[Glasgow Green Station built 1896 for Glasgoe Central Railway. Closed & demolished in  1953]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2334082,55.8513862,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>26 Bain St</name>
+      <description>Clay Pipe Factory , built in 1824 </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2356625,55.8548552,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[233 London Rd & Stevenson St.]]></name>
+      <description>Rumford Works( Ironmongery), built 1892</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2370694,55.85392,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>3-5 Charlotte Lane South</name>
+      <description>Bedding Factory built 1887</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2416935,55.8542061,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>57-9 Charlotte St. </name>
+      <description>Preserve Works , built 1780</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2400842,55.8542121,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>77-81 Charlotte St.</name>
+      <description>Camp Coffee Works, built 1891-1908</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2404168,55.8533991,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>153 Gryeendyke St.</name>
+      <description>Workshop, built 1894 </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2395692,55.853622,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>283 Orr St</name>
+      <description>Victoria Steam Chair Works, built 1876-7</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2267039,55.8541265,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>47 Wesleyan St.</name>
+      <description>Wire Works , built 1859 </description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2256915,55.8539953,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>20 Orr Place</name>
+      <description>Beehive Thread Works, built 1886</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.225375,55.8543055,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>2-8 Orr Place</name>
+      <description>Acme Machine WORKS , BUILT 1886</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2259651,55.8545765,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Railway Bridges </name>
+      <description>Railway Bridges, built 1875 and 1894</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2014121,55.8573344,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>North British Bottles Works</name>
+      <description>North British Bottles Works,  built 1904</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1715591,55.8533329,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Carntyne Station </name>
+      <description>Carntyne Station , built 1871</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1783612,55.8547722,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Carntyne Dyewood Mills</name>
+      <description>Carntyne Dyewood Mills, built 1883</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1831248,55.8532426,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parkhead Forge</name>
+      <styleUrl>#icon-1249-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.186837,55.8533088,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Shipbuilding Yard </name>
+      <description>Shipbuilding Yard , built from 1912. Dismantled in 1965</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3075686,55.8628047,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stables</name>
+      <description>Stables, built 1907</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3105619,55.8634248,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Warehouse </name>
+      <description>Warehouse , built 1904</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3114632,55.8637319,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Shipbuilding Yard </name>
+      <description>Shipbuilding Yard, built from 1912</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3115597,55.8645086,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Meadowside Granary </name>
+      <description>Meadowside Granary , built 1911-13</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3255179,55.8699447,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Linthouse Shipbuilding Yard </name>
+      <description>Linthouse Shipbuilding Yard , founded 1869</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3325561,55.8670672,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Clyde Foundry</name>
+      <description>Clyde Foundry, built 1922.Demolished 1967</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.315862,55.8575904,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Govan Ropeworks</name>
+      <description>Govan Ropeworks, built from 1890. Was closed 1967 and demolished 1969</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3180721,55.854989,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[City of Glasgow Pickle & Sauce Works ]]></name>
+      <description><![CDATA[City of Glasgow Pickle & Sauce Works , built 1892]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3210333,55.8579517,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Moorepark Boiler Works</name>
+      <description>Moorepark Boiler Works, founded 1884</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3168169,55.8548324,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Keppoch Iron Works</name>
+      <description>Keppoch Iron Works, built 1885</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2521665,55.8845547,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Clydsdale Iron Works </name>
+      <description><![CDATA[Keppoch Iron Works, built 1901. Closed 1968 & demolished 1969]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2486941,55.8861973,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Saracen Foundry </name>
+      <description>Saracen Foundry , built 1869.Demolished 1967</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2546969,55.8863386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Possil Station </name>
+      <description>Possil Station , built 1897 closed 1964</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2595785,55.8909837,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Clydsdale Iron Works </name>
+      <description><![CDATA[Keppoch Iron Works, built 1901. Closed 1968 & demolished 1969]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2504375,55.8867148,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Possilpark Tram Depot</name>
+      <description>Possilpark Tram Depot, built 1900</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2483669,55.8867026,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Oil Mills &Chemical Works ]]></name>
+      <description><![CDATA[Oil Mills &Chemical Works, built 1889]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2532271,55.8859808,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Phoenix Chemical Works</name>
+      <description>Phoenix Chemical Works, built from 1886</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2685217,55.8837722,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Firhill Ironworks</name>
+      <description>Firhill Ironworks, built from 1866</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2714179,55.8832428,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Glasgow Rubber Works </name>
+      <description>Glasgow Rubber Works , built 1876</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2787042,55.8866475,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Wheel & Axle Depot]]></name>
+      <description><![CDATA[Wheel & Axle Depot, built 1903. Much of it has been demolished]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1890526,55.8557086,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Crane Works</name>
+      <description>Crane Works,built 1903-4</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1872421,55.855674,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Stockingfield Aqueduct </name>
+      <description>Stockingfield Aqueduct Stockingfield Aqueduct , built 1790</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2864812,55.89239,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Laundry 
+
+</name>
+      <description>Laundry, built 1909-10</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2770344,55.8877678,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Moorepark Boiler Works 
+</name>
+      <description>Moorepark Boiler Works , built in 1884</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.317002,55.8539803,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[City of Glasgow Pickle & Sauce Works]]></name>
+      <styleUrl>#icon-1249-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3206766,55.858194,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Clyde Foundry
+</name>
+      <description>Clyde Foundry, built 1922</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3163207,55.8570785,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Govan Ropeworks 
+
+</name>
+      <description>Govan Ropeworks, built 1890. Demolished 1969</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3181232,55.8549092,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Carntyne Foundry & Engineering Works 
+
+]]></name>
+      <description><![CDATA[Carntyne Foundry & Engineering Works founded 1875]]></description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1901469,55.8540382,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Parkhead Forge
+</name>
+      <description>Parkhead Forge, founded 1837</description>
+      <styleUrl>#icon-1249</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1907384,55.853235,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

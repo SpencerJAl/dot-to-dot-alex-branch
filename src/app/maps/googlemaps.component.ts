@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 import {DirectionsMapDirective} from "./googlemaps.directions";
 
-import { AgmCoreModule , AgmMap, AgmMarker ,AgmInfoWindow, AgmKmlLayer, AgmDataLayer, MapTypeStyle } from '@agm/core';
+import { AgmCoreModule , AgmMap, AgmMarker ,AgmInfoWindow, AgmKmlLayer,KmlLayerManager, AgmDataLayer, MapTypeStyle} from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
 import{Ng2MapModule} from 'ng2-map';
@@ -28,12 +28,17 @@ export class GoogleMapsComponent implements OnInit {
   zoom: number = 18;
   lat: number = 55.8808026;
   lng: number = -4.2745011;
+  kmlFood: string = '../../images/dot.kml';
+  myLayer: AgmKmlLayer ;
+ // myLayerMan: KmlLayerManager = new KmlLayerManager(google, NgZone) ;
+
+
   label: string = 'DOt-to-DOT Maryhill station';
 
   options: any;
   draggable: boolean;
-  startLat: number;
-  startLng: number=3;
+  startLat: number= 55.8808026;
+  startLng: number = -4.2745011;
   center:any;
   message:string;
   warning:boolean;
@@ -61,6 +66,7 @@ export class GoogleMapsComponent implements OnInit {
    this.peoples=this._userService.getUsers();
    this.messages = this.afService.messages;
    this.markerKeys=Object.keys(this.afService.projects);
+
    console.log("marker key is"+this.markerKeys[4]);
 
 
@@ -711,7 +717,7 @@ interface marker{
   posts:[{
     displayName:string,
     email:string,
-    message:string,
+    message:string,rve
     timestamp:number
   }];
   type:string;

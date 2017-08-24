@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>LOCAL FOOD NETWORK</name>
+    <Style id="icon-1405-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1405-rec-vista.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1405-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1405-rec-vista.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1405">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1405-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1405-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1405-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1405-rec-vista.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1405-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1405-rec-vista.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1405-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1405-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1405-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>The Concrete Garden </name>
+      <description>The Concrete Garden http://possilparkconcretegarden.blogspot.co.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.25728359999994,55.8874335,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Woodlands Community Garden </name>
+      <description>Woodlands Community Garden http://www.woodlandscommunitygarden.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.27096819999997,55.8705609,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Elder Farm Community Garden</name>
+      <styleUrl>#icon-1405-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.32690600000001,55.863985,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>South Seeds</name>
+      <description>http://southseeds.org/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.25794519999999,55.8401295,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>HIDDEN GARDEN</name>
+      <description>http://thehiddengardens.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.26709430000005,55.840671,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Willowbank community Garden</name>
+      <description>http://guwillowbankgarden.blogspot.co.uk/p/contact.html</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.27620390000004,55.8712175,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Battlefield Community Project</name>
+      <description>http://www.battlefieldcommunityproject.org/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2647284,55.8241457,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>David Cargill Growing Project
+</name>
+      <description>A partnership comprising Urban Roots, Fair Deal and the David Cargill Centre.People with additional support needs gardening group.</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2672068,55.8243732,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Blyth-Spirit Community
+</name>
+      <styleUrl>#icon-1405-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2666113,55.8602909,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Camstradden Community Garden
+</name>
+      <description>Pineview Housing Association</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3562548,55.9168231,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[The Childrens' Garden (Glasgow Botanics)]]></name>
+      <description>http://www.weegarden.co.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2906117,55.8795057,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Coach House Trust - Alderman Road</name>
+      <styleUrl>#icon-1405-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3584555,55.8904167,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Coach House Trust - Belmont Lane</name>
+      <description>www.thecht.co.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2819214,55.8770638,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dennistoun Diggers
+</name>
+      <description>http://www.dennistoundiggers.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2227827,55.8617285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Drumchapel LIFE</name>
+      <description>UNDER DEVELOPMENThttp://www.drumchapellife.co.uk/News</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3698603,55.9116596,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Drumchapel LIFE Phoenix Centre</name>
+      <description>http://www.drumchapellife.co.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3783683,55.9177054,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dumbarton Road Corridor Environment Trust
+</name>
+      <description>http://dumbartonroad.wordpress.com/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3535686,55.8784285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>East Pollokshields Quad
+</name>
+      <description>Community space looked after by local people in PollokshieldsPart of Ready, Steady Grow Pollokshields</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2733061,55.8387292,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>G3 Growers</name>
+      <description>http://www.annexecommunities.org.uk/content/the_back_garden/  http://g3growers.blogspot.co.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2818838,55.8644333,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Gorbals Healthy Living Network
+</name>
+      <styleUrl>#icon-1405-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2544127,55.8502358,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Greyfriars Garden
+</name>
+      <styleUrl>#icon-1405-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2412028,55.86016,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Heart of Scotstoun Community Garden
+</name>
+      <description>http://heartofscotstoun.org/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3537536,55.8785217,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Kinning Park Complex Community Garden
+</name>
+      <description>ocated in the grounds of Kinning Park Complex, open to anyone in the local community. http://www.kinningparkcomplex.org/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2869291,55.8507974,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Lambhill Stables
+</name>
+      <description>http://www.lambhillstables.org/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.265348,55.8971621,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Montford Green Community Garden</name>
+      <description>Kings Park and Bankhead residents group</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.232609,55.8226744,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Nan McKay Hall Garden</name>
+      <description>Developed with Urban Roots - is productive community garden benefiting users of the Nan Mackay Hall (http://www.nanmckay.co.uk) and the local community.</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2814225,55.8457757,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Northmuir Community Garden
+</name>
+      <description>www.facebook.com/NorthmuirGarden</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3563446,55.916052,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>North Glasgow Community Food Initiative</name>
+      <description>http://www.ngcfi.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2215556,55.8691892,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>North Kelvinside Meadow
+</name>
+      <description>http://northkelvinmeadow.com/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2869264,55.8821145,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Old Castle Rd Community Garden
+</name>
+      <description>Cathcart Community Council (http://www.glasgowsouthandeastwoodextra.co.uk/news/local-headlines/boost-to-spruce-up-empty-sites-1-1834671)</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2589349,55.8171744,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pacitti Community Garden</name>
+      <description>http://pacitticommunitygarden.com/ 10-14 Stanley Street, G41 1JA</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2805059,55.8525101,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Partick Community Growing Project</name>
+      <description>http://www.partickha.org.uk/latest-news/category/partick-community-growing-project/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3057689,55.8702637,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Playbusters - Crownpoint Community Garden</name>
+      <description>http://www.playbusters.org.uk/articles/article.php?articleID=148</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.221573,55.853707,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Playbusters - Parkhead Community Garden
+</name>
+      <description>http://www.playbusters.org.uk/articles/article.php?articleID=119</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1948301,55.8499844,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pollokshaws East Edible Platform 
+
+</name>
+      <description><![CDATA[Locavore, meaning 'eater of local food', is a social enterprise which exists to take forward projects which contribute to the creation of sustainable local food economies. This is one of our edible train station platform projects. If your in the area drop by and pick up some fresh herbs or strawberries in season!To find out more get in touch:Locavore Shop & Deli,66 Nithsdale Road,0141 328 3303www.glasgowlocavore.org]]></description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2865026,55.8242768,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pollokshaws Community Garden</name>
+      <description>Part of Pollokshaws Area Network. Supported by Urban Roots.</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2965421,55.8241532,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Reform G43 Community Garden</name>
+      <description>ReForm G43 Facebook Group (https://www.facebook.com/ReFormG43)Supported by Urban Roots</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2994416,55.8216746,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Shettleston Community Growing Project
+</name>
+      <description>http://shettlestongrowing.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1722539,55.8481052,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>St Enoch Centre Aquaponics and Roof Garden</name>
+      <description><![CDATA[Locavore, meaning 'eater of local food', is a social enterprise which exists to take forward projects which contribute to the creation of sustainable local food economies. Within the St Enoch Centre we have installed four aquaponics systems which grow fresh herbs and salad alongside fish. It's a great example of a way in which urban agriculture could develop. The system was installed in August 2013, we're still monitoring the it's success.On the roog there is also a garden for staff which include bee hives from Johnys Garden.Both projects can be visited by appointment. Get in touch to find out more.Locavore Shop & Deli66 Nithsdale Road,0141 328 3303www.glasgowlocavore.org]]></description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2527926,55.8565908,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - Castlemilk Stable Garden</name>
+      <description>http://www.urbanroots.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2215073,55.8078263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - The Circus Community Garden</name>
+      <description>http://www.urbanroots.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2357552,55.8309689,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - Glenmore Avenue Community Garden
+</name>
+      <description>http://www.urbanroots.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2342317,55.8280132,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - Ibrox Flower Field</name>
+      <description>https://www.facebook.com/IbroxFlowerField</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3115222,55.851764,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - Oaktree Community Garden</name>
+      <description>http://www.urbanroots.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2217594,55.8101807,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - Polmadie Plots</name>
+      <description>http://www.urbanroots.org.uk/ market garden and community allotments</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2422462,55.8315895,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - Priesthill Community Hall Garden</name>
+      <description>http://www.urbanroots.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3467879,55.8170199,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Urban Roots - St Brigids Community Garden</name>
+      <description>http://www.urbanroots.org.uk/</description>
+      <styleUrl>#icon-1405</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2365921,55.8295287,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

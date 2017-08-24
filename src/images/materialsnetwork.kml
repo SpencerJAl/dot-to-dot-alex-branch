@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>MATERIALS NETWORK</name>
+    <Style id="icon-503-000000-nodesc-normal">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-000000-nodesc-highlight">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-000000-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-000000-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-000000-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-009D57-nodesc-normal">
+      <IconStyle>
+        <color>ff579d00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-009D57-nodesc-highlight">
+      <IconStyle>
+        <color>ff579d00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-009D57-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-009D57-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-009D57-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-0BA9CC-nodesc-normal">
+      <IconStyle>
+        <color>ffcca90b</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-0BA9CC-nodesc-highlight">
+      <IconStyle>
+        <color>ffcca90b</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-0BA9CC-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-0BA9CC-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-0BA9CC-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-777777-nodesc-normal">
+      <IconStyle>
+        <color>ff777777</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-777777-nodesc-highlight">
+      <IconStyle>
+        <color>ff777777</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-777777-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-777777-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-777777-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-795046-nodesc-normal">
+      <IconStyle>
+        <color>ff465079</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-795046-nodesc-highlight">
+      <IconStyle>
+        <color>ff465079</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-795046-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-795046-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-795046-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-7C3592-nodesc-normal">
+      <IconStyle>
+        <color>ff92357c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-7C3592-nodesc-highlight">
+      <IconStyle>
+        <color>ff92357c</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-7C3592-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-7C3592-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-7C3592-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-9FC3FF-nodesc-normal">
+      <IconStyle>
+        <color>ffffc39f</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-9FC3FF-nodesc-highlight">
+      <IconStyle>
+        <color>ffffc39f</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-9FC3FF-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-9FC3FF-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-9FC3FF-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-CDDC39-normal">
+      <IconStyle>
+        <color>ff39dccd</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-CDDC39-highlight">
+      <IconStyle>
+        <color>ff39dccd</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-CDDC39">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-CDDC39-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-CDDC39-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-CDDC39-nodesc-normal">
+      <IconStyle>
+        <color>ff39dccd</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-CDDC39-nodesc-highlight">
+      <IconStyle>
+        <color>ff39dccd</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-CDDC39-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-CDDC39-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-CDDC39-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-DB4436-nodesc-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-DB4436-nodesc-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-DB4436-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-DB4436-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-F8971B-nodesc-normal">
+      <IconStyle>
+        <color>ff1b97f8</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-F8971B-nodesc-highlight">
+      <IconStyle>
+        <color>ff1b97f8</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-F8971B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-F8971B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-F8971B-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-FFFFFF-nodesc-normal">
+      <IconStyle>
+        <color>ffffffff</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-FFFFFF-nodesc-highlight">
+      <IconStyle>
+        <color>ffffffff</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-FFFFFF-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-FFFFFF-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-FFFFFF-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Dumpit</name>
+      <styleUrl>#icon-503-CDDC39-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2766911,55.7760285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Junk Me</name>
+      <styleUrl>#icon-503-CDDC39-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2273543,55.805341,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Lift N Shift Rubbish Removal</name>
+      <description>Details from Google MapsGlasgow, United Kingdomwww.wasteremovals.webs.com07752 726269</description>
+      <styleUrl>#icon-503-CDDC39</styleUrl>
+      <Point>
+        <coordinates>
+          -4.191406,55.8580557,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Patersons Waste Management Ltd</name>
+      <styleUrl>#icon-503-CDDC39-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1385059,55.8385882,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>PG Products</name>
+      <styleUrl>#icon-503-FFFFFF-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.4350138,55.8527864,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Smurfit Kappa Recycling</name>
+      <styleUrl>#icon-503-FFFFFF-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2824176,55.8489161,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Paper Shredding Services</name>
+      <styleUrl>#icon-503-FFFFFF-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3101832,55.8543942,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Clyde Recycling Ltd</name>
+      <styleUrl>#icon-503-9FC3FF-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1921032,55.8437758,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Electrical Waste Recycling Group</name>
+      <styleUrl>#icon-503-009D57-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.25072,55.887557,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Dawsholm Recycling Centre</name>
+      <styleUrl>#icon-503-009D57-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.31128,55.895702,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Shanks Waste</name>
+      <styleUrl>#icon-503-009D57-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1398977,55.8652127,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Polmadie Recycling Centre</name>
+      <styleUrl>#icon-503-009D57-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.245412,55.833077,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Yooz Building & DIY Reuse Centre]]></name>
+      <styleUrl>#icon-503-F8971B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.008282,55.821001,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>West Coast Reclamation</name>
+      <styleUrl>#icon-503-F8971B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.4362181,55.8482242,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Glasgow Play Resource Association</name>
+      <styleUrl>#icon-503-F8971B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2655304,55.8340969,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Love Salvage Limited</name>
+      <styleUrl>#icon-503-F8971B-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.315679,55.860263,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Carrick Container Services</name>
+      <styleUrl>#icon-503-7C3592-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.306706,55.855114,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Container Hire Services</name>
+      <styleUrl>#icon-503-7C3592-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.154883,55.86796,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Glasgow Wood Recycling</name>
+      <styleUrl>#icon-503-795046-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.345403,55.873499,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Reclaimed Timber & Salvage Co]]></name>
+      <styleUrl>#icon-503-795046-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.551407,55.886748,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pallet World Ltd</name>
+      <styleUrl>#icon-503-0BA9CC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.389802,55.87769,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Craig Elder Pallets (Glasgow) Ltd</name>
+      <styleUrl>#icon-503-0BA9CC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.31524,55.857138,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>United Pallets</name>
+      <styleUrl>#icon-503-0BA9CC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1361894,55.893627,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[A Rattray & Sons]]></name>
+      <styleUrl>#icon-503-0BA9CC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.290892,55.849796,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Abacus Ltd</name>
+      <styleUrl>#icon-503-0BA9CC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.139134,55.866498,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>stewart metals ltd</name>
+      <styleUrl>#icon-503-777777-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.1096278,55.8940045,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Paisley Auto Breakers</name>
+      <styleUrl>#icon-503-777777-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.391949,55.840858,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Renfrew Car Breakers</name>
+      <styleUrl>#icon-503-777777-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.3896817,55.88645,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>National Tyres and Autocare</name>
+      <styleUrl>#icon-503-777777-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.311882,55.870218,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Burnfield Builders & Demolishers Ltd]]></name>
+      <styleUrl>#icon-503-000000-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2101415,55.864551,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>George Hunter Demolishers Ltd t/a Hunter Demolition</name>
+      <styleUrl>#icon-503-000000-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2603714,55.917477,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMI Demolition Ltd</name>
+      <styleUrl>#icon-503-000000-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.337685,55.870599,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Nicholsons | Skip Hire | Demolition Contractors | Scrap Metals | Asbestos Removal</name>
+      <styleUrl>#icon-503-000000-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2596564,55.8915297,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Envirodem</name>
+      <styleUrl>#icon-503-000000-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2178354,55.8412401,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Crates Online Limited</name>
+      <styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2688898,55.8654161,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Tennent Caledonian Breweries</name>
+      <styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.230307,55.860269,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Diageo</name>
+      <styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.249693,55.875103,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Diageo</name>
+      <styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -4.26613,55.866593,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>EVENTS/ORGANIZATIONS</name>
+    <Style id="icon-1009-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1009-biz-dating.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1009-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/1009-biz-dating.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1009">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1009-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1009-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>MOBILELAND</name>
+      <description>http://mobilelandglasgow.wordpress.com/</description>
+      <styleUrl>#icon-1009</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2546245,55.8478432,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>GOVANHILL BATHS</name>
+      <description>http://www.govanhillbaths.com/contact/</description>
+      <styleUrl>#icon-1009</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2638682,55.837707,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>LOCAVORE</name>
+      <description>FOOD GROWING http://www.glasgowlocavore.org/</description>
+      <styleUrl>#icon-1009</styleUrl>
+      <Point>
+        <coordinates>
+          -4.2719104,55.8371187,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
