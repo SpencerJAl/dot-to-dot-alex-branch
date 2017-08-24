@@ -290,9 +290,13 @@
 
 
    <agm-map  [latitude]="startLat" [longitude]="startLng" [styles]="style"  [zoom]="zoom" [mapTypeControl]="true" options="map.options" >
-     <!-- 'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'-->
-     <agm-kml-layer [url]="'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'" [zIndex]="6"></agm-kml-layer>
-     <agm-kml-layer [url]="'http://localhost:4200/images/previoususe.kml'" [zIndex]="6"></agm-kml-layer>
+     <!-- 'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'
+     <agm-kml-layer [url]="'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'" [zIndex]="6"></agm-kml-layer>-->
+     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="7"></agm-kml-layer>
+     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'" [zIndex]="3"></agm-kml-layer>
+     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'" [zIndex]="4"></agm-kml-layer>
+     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/food.kml'" [zIndex]="5"></agm-kml-layer>
+     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/event.kml'" [zIndex]="6"></agm-kml-layer>
      <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
 
