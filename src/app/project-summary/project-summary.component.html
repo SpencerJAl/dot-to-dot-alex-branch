@@ -17,6 +17,7 @@
             </md-card-content>
 
 
+
           </md-card>
           <md-card class="myCard education">
             <img md-card-image src="../../images/B.png" alt="Project Image" />
@@ -171,6 +172,24 @@
 
             </md-card>
 
+        </md-tab>
+
+        <md-tab label="live Projects">
+
+          <div class='md-padding' layout="row" layout-wrap>
+          <md-card class="myCard health" *ngFor="let project of projects|async">
+
+            <img md-card-image src="../../images/B.png" alt="Project Image" />
+
+            <md-card-title href="#" [routerLink]="['/projects',project.id]">
+            {{project.name}}
+            </md-card-title>
+
+            <md-card-content>
+              {{project.summary}}
+            </md-card-content>
+          </md-card>
+          </div>
         </md-tab>
       </md-tab-group>
 
