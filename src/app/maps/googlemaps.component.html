@@ -286,17 +286,25 @@
 
 
   </div>  --->
-  <div class ="sebm-google-map-container">
+<div class="panel">
+  <button (click)="showPrevious = !showPrevious">{{showPrevious ? 'hide Previous Use' : 'show Previous Use'}}</button>
+  <button (click)="showWaste = !showWaste">{{showWaste ? 'hide Materials Network' : 'show Materials Network'}}</button>
+  <button (click)="showFood = !showFood">{{showFood ? 'hide Food Network' : 'show Food Network'}}</button>
+  <button (click)="showEvent = !showEvent">{{showEvent ? 'hide Events' : 'show Events'}} </button>
+  <button (click)="showSites = !showSites">{{showSites ? 'hide Sites' : 'show Sites'}}</button>
+</div>
+  <div class ="sebm-google-map-container"   >
 
 
    <agm-map  [latitude]="startLat" [longitude]="startLng" [styles]="style"  [zoom]="zoom" [mapTypeControl]="true" options="map.options" >
      <!-- 'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'
-     <agm-kml-layer [url]="'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'" [zIndex]="6"></agm-kml-layer>-->
-     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="7"></agm-kml-layer>
-     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'" [zIndex]="3"></agm-kml-layer>
-     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'" [zIndex]="4"></agm-kml-layer>
-     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/food.kml'" [zIndex]="5"></agm-kml-layer>
-     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/event.kml'" [zIndex]="6"></agm-kml-layer>
+     <agm-kml-layer [url]="'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'" [zIndex]="6"></agm-kml-layer>
+     <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="2"  ></agm-kml-layer>-->
+     <agm-kml-layer  *ngIf="showPrevious" [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'" [zIndex]="3" ></agm-kml-layer>
+     <agm-kml-layer  *ngIf="showWaste"  [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'" [zIndex]="4"></agm-kml-layer>
+     <agm-kml-layer  *ngIf="showFood"  [url]="'https://clydeelectronics.co.uk/kmlfiles/food.kml'" [zIndex]="5"></agm-kml-layer>
+     <agm-kml-layer  *ngIf="showEvent" [url]="'https://clydeelectronics.co.uk/kmlfiles/event.kml'" [zIndex]="6"></agm-kml-layer>
+     <agm-kml-layer *ngIf="showSites"  [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="7"></agm-kml-layer>
      <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
 
@@ -416,11 +424,17 @@
 
       >
         <agm-info-window>
-          <p><strong>{{m.name}}</strong></p>
-          <br>
-          <p><u>Summary</u></p>
-          <p>{{m.summary}}</p>
-          <br>
+          <md-card class="example-card">
+            <md-card-header>
+              <md-card-title>
+                <p><strong>{{m.name}}</strong></p>
+              </md-card-title>
+            </md-card-header>
+            <md-card-content>
+              <p><u>Summary</u></p>
+              <p>{{m.summary}}</p>
+            </md-card-content>
+          </md-card>
         </agm-info-window>
       </agm-marker>
     </agm-map>
