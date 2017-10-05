@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {DonutChart} from './donutchart';
 import{ ChartModule} from 'primeng/primeng';
 import {PageEvent} from '@angular/material';
+import {AF} from "../providers/af";
+import {FirebaseListObservable} from "angularfire2/database";
 
 
 
@@ -13,12 +15,13 @@ import {PageEvent} from '@angular/material';
 
 
 export class ProjectSummaryComponent implements OnInit {
-  donut:DonutChart;
+  donut: DonutChart;
   pageEvent: PageEvent;
-  constructor() {
-    this.donut = new DonutChart(100,200,30,40,3,5);
+  projects: FirebaseListObservable<any>;
+  constructor(afService: AF) {
+    this.donut = new DonutChart(100, 200, 30, 40, 3, 5);
+    this.projects = afService.projects;
   }
-
   ngOnInit() {
 
   }

@@ -6,11 +6,12 @@
   margin: auto;
   padding: 2% ;
   display: inline-block;
-  margin-top: 0px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   min-height: 500px;
   max-height: 500px;
+  vertical-align: top;
 
 
 }
