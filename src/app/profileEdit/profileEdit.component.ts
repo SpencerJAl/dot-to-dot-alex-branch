@@ -1,33 +1,33 @@
 /**
  * Created by James on 21/06/2017.
  */
-import {OnInit, Component} from "@angular/core";
-import {Router} from "@angular/router";
-import {AF} from "../providers/af";
-import {FirebaseObjectObservable} from "angularfire2/database";
+import {OnInit, Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AF} from '../providers/af';
+import {FirebaseObjectObservable} from 'angularfire2/database';
 /**
  * Created by James on 22/05/2017.
  */
 @Component({
-  selector: 'profileEdit-root',
+  selector: 'app-profile-edit-root',
   templateUrl: 'profileEdit.component.html',
-  styleUrls: ['profileEdit.component.css']
+  styleUrls: ['profileEdit.component.scss']
 })
 
 
 export class ProfileEditComponent implements OnInit {
-  error:any;
-  user: FirebaseObjectObservable<any>
+  error: any;
+  user: FirebaseObjectObservable<any>;
   constructor(private afService: AF, private router: Router) {
-    this.user=this.afService.user;
+    this.user = this.afService.user;
   }
 
   options = [
-    {name:'Art', value:'Art', checked:false},
-    {name:'Technology', value:'Technology', checked:false},
-    {name:'Gardening', value:'Gardening', checked:false},
-    {name:'Cooking', value:'Cooking', checked:false},
-    {name:'Trades', value:'Trades', checked:false},
+    {name: 'Art', value: 'Art', checked: false},
+    {name: 'Technology', value: 'Technology', checked: false},
+    {name: 'Gardening', value: 'Gardening', checked: false},
+    {name: 'Cooking', value: 'Cooking', checked: false},
+    {name: 'Trades', value: 'Trades', checked: false},
   ];
 
   get selectedOptions() { // right now: ['1','3']

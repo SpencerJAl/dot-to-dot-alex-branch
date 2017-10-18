@@ -416,3 +416,15 @@ export class AF {
   }
 
 }
+
+export interface project{
+
+  name: string;
+    description:string;
+    summary:string;
+    type;string;
+    owner: string;
+    lat:number;
+    lng:number;
+
+}

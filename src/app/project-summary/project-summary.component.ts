@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {DonutChart} from './donutchart';
-import{ ChartModule} from 'primeng/primeng';
+import { ChartModule} from 'primeng/primeng';
 import {PageEvent} from '@angular/material';
-import {AF} from "../providers/af";
-import {FirebaseListObservable} from "angularfire2/database";
+import {AF} from '../providers/af';
+import {FirebaseListObservable} from 'angularfire2/database';
 
 
 
 @Component({
   selector: 'app-project-summary',
   templateUrl: './project-summary.component.html',
-  styleUrls: ['./project-summary.component.css']
+  styleUrls: ['./project-summary.component.scss']
 })
 
 

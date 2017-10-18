@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-createAdmin',
   templateUrl: './createAdmin.component.html',
-  styleUrls: ['./createAdmin.component.css']
+  styleUrls: ['./createAdmin.component.scss']
 })
 export class CreateAdminComponent {
 

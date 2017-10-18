@@ -97,7 +97,8 @@ import { ProjectSummaryComponent} from './project-summary/project-summary.compon
 import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
 import {GMapModule, ChartModule } from 'primeng/primeng';
 import { MyCompComponent } from './my-comp/my-comp.component';
-import { ScienceFilterPipe } from './map/science-filter.pipe';
+import { ScienceFilterPipe , SearchPipe } from './map/science-filter.pipe';
+import { FilterProjectPipe } from './filter-project.pipe';
 
 
 export let MD_MODULES: any = [
@@ -194,7 +195,9 @@ export const firebaseAuthConfig = {
     ProjectSummaryComponent,
     RecycledSupplierComponent,
     MyCompComponent,
-    ScienceFilterPipe
+    ScienceFilterPipe,
+    SearchPipe,
+    FilterProjectPipe
   ],
   imports: [
     BrowserModule,

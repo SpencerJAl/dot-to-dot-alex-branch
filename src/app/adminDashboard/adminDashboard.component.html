@@ -4,7 +4,9 @@
 <div class="col-sm-3">
   <h2>Users</h2>
   <md-card>
-    <div *ngFor=" let u of users |async">
+
+    <label>Search: <input ng-model="searchText"></label>
+    <div *ngFor=" let u of users |async|search:searchText">
       <md-card>
         <div>
           <p class="member">{{u.name}}</p>

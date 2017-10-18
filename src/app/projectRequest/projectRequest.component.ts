@@ -8,7 +8,7 @@ import {FirebaseObjectObservable, AngularFireDatabase} from "angularfire2/databa
 @Component({
   selector: 'app-projectRequest',
   templateUrl: './projectRequest.component.html',
-  styleUrls: ['./projectRequest.component.css']
+  styleUrls: ['./projectRequest.component.scss']
 })
 export class ProjectRequestComponent implements OnInit {
 

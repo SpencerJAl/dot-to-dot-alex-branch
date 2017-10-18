@@ -7,7 +7,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-users-profiles',
   templateUrl: './users-profiles.component.html',
-  styleUrls: ['./users-profiles.component.css']
+  styleUrls: ['./users-profiles.component.scss']
 })
 export class UsersProfilesComponent implements OnInit {
   id:string;

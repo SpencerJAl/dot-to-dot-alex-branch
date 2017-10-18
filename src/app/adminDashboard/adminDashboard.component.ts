@@ -8,7 +8,7 @@ import {AF} from "../providers/af";
 @Component({
   selector: 'app-adminDashboard',
   templateUrl: './adminDashboard.component.html',
-  styleUrls: ['./adminDashboard.component.css']
+  styleUrls: ['./adminDashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
 

@@ -16,7 +16,7 @@ import {register} from 'ts-node/dist';
 @Component({
   selector: 'app-myProjects',
   templateUrl: './myProjects.component.html',
-  styleUrls: ['./myProjects.component.css']
+  styleUrls: ['./myProjects.component.scss']
 })
 
 /* Created by Alexander on 12/07/2017 */

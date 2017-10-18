@@ -6,7 +6,7 @@ import {GeocodingService} from "../services/geocoding.service";
 @Component({
   selector: 'app-recycled-supplier',
   templateUrl: './recycled-supplier.component.html',
-  styleUrls: ['./recycled-supplier.component.css']
+  styleUrls: ['./recycled-supplier.component.scss']
 })
 export class RecycledSupplierComponent implements OnInit {
 

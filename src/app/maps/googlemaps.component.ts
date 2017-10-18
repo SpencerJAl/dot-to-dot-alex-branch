@@ -1,26 +1,26 @@
 import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
-import {DirectionsMapDirective} from "./googlemaps.directions";
+import {DirectionsMapDirective} from './googlemaps.directions';
 
 import { AgmCoreModule , AgmMap, AgmMarker ,AgmInfoWindow, AgmKmlLayer,KmlLayerManager, AgmDataLayer, MapTypeStyle} from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
 import{Ng2MapModule} from 'ng2-map';
-import {GeocodingService} from "../services/geocoding.service";
-import {GeolocationService} from "../services/geolocation.service";
-import {MapsService} from "../services/maps.service";
-import {ProjectService} from "../services/localProject.service";
-import {UserService} from "../services/localUser.service";
+import {GeocodingService} from '../services/geocoding.service';
+import {GeolocationService} from '../services/geolocation.service';
+import {MapsService} from '../services/maps.service';
+import {ProjectService} from '../services/localProject.service';
+import {UserService} from '../services/localUser.service';
 
-import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
-import {AF} from "../providers/af";
+import {AF} from '../providers/af';
 import {google} from '@agm/core/services/google-maps-types';
 
 
 @Component({
   selector: 'googlemaps-root',
   templateUrl: 'googlemaps.component.html',
-  styleUrls: ['googlemaps.component.css']
+  styleUrls: ['googlemaps.component.scss']
 })
 
 
@@ -67,7 +67,7 @@ export class GoogleMapsComponent implements OnInit {
    this.messages = this.afService.messages;
    this.markerKeys=Object.keys(this.afService.projects);
 
-   console.log("marker key is"+this.markerKeys[4]);
+   console.log('marker key is'+this.markerKeys[4]);
 
 
 
@@ -144,7 +144,7 @@ export class GoogleMapsComponent implements OnInit {
       style: mapStyle.silver,
 
     }
-    this.messagething={name:"general", id:3};
+    this.messagething={name:'general', id:3};
 
 
     if (navigator.geolocation) {
@@ -486,220 +486,220 @@ export const mapStyle = {
 
 export const laura=[
   {
-    "elementType": "geometry",
-    "stylers": [
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#f5f5f5"
+        'color': '#f5f5f5'
       }
     ]
   },
   {
-    "elementType": "labels.icon",
-    "stylers": [
+    'elementType': 'labels.icon',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#616161"
+        'color': '#616161'
       }
     ]
   },
   {
-    "elementType": "labels.text.stroke",
-    "stylers": [
+    'elementType': 'labels.text.stroke',
+    'stylers': [
       {
-        "color": "#f5f5f5"
+        'color': '#f5f5f5'
       }
     ]
   },
   {
-    "featureType": "administrative.land_parcel",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'administrative.land_parcel',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#bdbdbd"
+        'color': '#bdbdbd'
       }
     ]
   },
   {
-    "featureType": "administrative.neighborhood",
-    "stylers": [
+    'featureType': 'administrative.neighborhood',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "poi",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'poi',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#eeeeee"
+        'color': '#eeeeee'
       }
     ]
   },
   {
-    "featureType": "poi",
-    "elementType": "labels.text",
-    "stylers": [
+    'featureType': 'poi',
+    'elementType': 'labels.text',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'poi',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#757575"
+        'color': '#757575'
       }
     ]
   },
   {
-    "featureType": "poi.business",
-    "stylers": [
+    'featureType': 'poi.business',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "poi.park",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'poi.park',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#e5e5e5"
+        'color': '#e5e5e5'
       }
     ]
   },
   {
-    "featureType": "poi.park",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'poi.park',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#9e9e9e"
+        'color': '#9e9e9e'
       }
     ]
   },
   {
-    "featureType": "road",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'road',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#ffffff"
+        'color': '#ffffff'
       }
     ]
   },
   {
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [
+    'featureType': 'road',
+    'elementType': 'labels',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "road",
-    "elementType": "labels.icon",
-    "stylers": [
+    'featureType': 'road',
+    'elementType': 'labels.icon',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "road.arterial",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'road.arterial',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#757575"
+        'color': '#757575'
       }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'road.highway',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#dadada"
+        'color': '#dadada'
       }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'road.highway',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#616161"
+        'color': '#616161'
       }
     ]
   },
   {
-    "featureType": "road.local",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'road.local',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#9e9e9e"
+        'color': '#9e9e9e'
       }
     ]
   },
   {
-    "featureType": "transit",
-    "stylers": [
+    'featureType': 'transit',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "transit.line",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'transit.line',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#e5e5e5"
+        'color': '#e5e5e5'
       }
     ]
   },
   {
-    "featureType": "transit.station",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'transit.station',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#eeeeee"
+        'color': '#eeeeee'
       }
     ]
   },
   {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
+    'featureType': 'water',
+    'elementType': 'geometry',
+    'stylers': [
       {
-        "color": "#c9c9c9"
+        'color': '#c9c9c9'
       }
     ]
   },
   {
-    "featureType": "water",
-    "elementType": "labels.text",
-    "stylers": [
+    'featureType': 'water',
+    'elementType': 'labels.text',
+    'stylers': [
       {
-        "visibility": "off"
+        'visibility': 'off'
       }
     ]
   },
   {
-    "featureType": "water",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    'featureType': 'water',
+    'elementType': 'labels.text.fill',
+    'stylers': [
       {
-        "color": "#9e9e9e"
+        'color': '#9e9e9e'
       }
     ]
   }

@@ -1,24 +1,24 @@
-import {Component} from "@angular/core";
-import {Router} from "@angular/router";
-import {AF} from "../providers/af";
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AF} from '../providers/af';
 @Component({
   selector: 'app-accountSetup',
   templateUrl: './accountSetup.component.html',
-  styleUrls: ['./accountSetup.component.css']
+  styleUrls: ['./accountSetup.component.scss']
 })
 export class AccountSetupComponent {
-  error:any;
-  interests={};
+  error: any;
+  interests= {};
 
   constructor(private afService: AF, private router: Router) { }
 
 
   options = [
-    {name:'Art', value:'Art & Design', checked:true},
-    {name:'Science', value:'Science', checked:false},
-    {name:'Health', value:'Health', checked:true},
-    {name:'Craft', value:'Craft & Workshop', checked:true},
-    {name:'Education', value:'Education', checked:true},
+    {name: 'Art', value: 'Art & Design', checked: true},
+    {name: 'Science', value: 'Science', checked: false},
+    {name: 'Health', value: 'Health', checked: true},
+    {name: 'Craft', value: 'Craft & Workshop', checked: true},
+    {name: 'Education', value: 'Education', checked: true},
   ];
 
   get selectedOptions() { // right now: ['1','3']
@@ -29,8 +29,8 @@ export class AccountSetupComponent {
 
   register($event, description, summary){
     event.preventDefault();
-    console.log("description is"+description);
-    console.log("summary is "+summary);
+    console.log("description is" + description);
+    console.log("summary is " + summary);
     console.log("call works");
     this.afService.createProfile(description, summary, this.selectedOptions).then(()=>{
       this.router.navigate(['/']);

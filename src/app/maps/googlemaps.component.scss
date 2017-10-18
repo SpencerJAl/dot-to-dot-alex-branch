@@ -1,7 +1,9 @@
+
+
 .sebm-google-map-container {
   height: 660px;
   zoom: 1;
-  margin: 10px;
+  margin: 0px;
   position: relative;
 
 
@@ -32,7 +34,57 @@
   background: white;
   position: absolute;
   opacity: 0.5;/*add this*/
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 99;
 }
+
+.education {
+  background:  rgb(49,172,255);
+
+}
+
+.science {
+
+  background: rgb(255,13,218);
+
+
+}
+
+.artAndDesign {
+
+  background:  rgb(255,238,15) ;
+
+
+}
+.health {
+
+  background: rgb(166,252,5);
+
+
+}
+
+.craftAndWorkshop {
+
+  background: rgb(237,45,40);
+
+
+}
+
+.myImage{
+  width: 190px;
+
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.myCard{
+  width: 200px;
+  font-size: small;
+  margin: auto;
+  padding: 2% ;
+  display: inline-block;
+
+
+  vertical-align: top;
+}
+

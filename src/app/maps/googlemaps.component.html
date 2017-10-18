@@ -292,6 +292,11 @@
   <button (click)="showFood = !showFood">{{showFood ? 'hide Food Network' : 'show Food Network'}}</button>
   <button (click)="showEvent = !showEvent">{{showEvent ? 'hide Events' : 'show Events'}} </button>
   <button (click)="showSites = !showSites">{{showSites ? 'hide Sites' : 'show Sites'}}</button>
+  <button (click)="filterSci = !filterSci">{{filterSci ? 'hide Sci' : 'show Sci'}}</button>
+  <button (click)="filterCraft = !filterCraft">{{filterCraft ? 'hide Craft' : 'show Craft'}}</button>
+  <button (click)="filterArt = !filterArt">{{filterArt ? 'hide Art' : 'show Art'}}</button>
+  <button (click)="filterHealth = !filterHealth">{{filterHealth ? 'hide Health' : 'show Health'}}</button>
+  <button (click)="filterEdu = !filterEdu">{{filterEdu ? 'hide Education' : 'show Education'}}</button>
 </div>
   <div class ="sebm-google-map-container"   >
 
@@ -312,25 +317,19 @@
      /// 55.8954916, -4.3114119
      <agm-marker [latitude]="55.8954916" [longitude]="-4.3114119" [iconUrl]="'../../images/waste.png'"  [title]="Dawsholm">
        <agm-info-window>
-         <md-card class="example-card">
+         <md-card class="example-card" >
            <md-card-header>
              <div md-card-avatar class=""></div>
              <md-card-title>Dawsholm Recycling Centre</md-card-title>
              <md-card-subtitle>Contact the manager</md-card-subtitle>
-           </md-card-header>33a
+           </md-card-header>
            <img md-card-image src="../../images/e_waste_rc.jpg">
            <md-card-content>
              <p><u>Supplies</u></p>
              <p>e-Waste</p>
            </md-card-content>
-           <md-card-actions>
-             <button md-button>LIKE</button>
-             <button md-button>SHARE</button>
-           </md-card-actions>
-         </md-card> <br>
-         <p><u>Supplies</u></p>
-         <p>e-Waste</p>
-         <br>
+
+         </md-card>
        </agm-info-window>
 
      </agm-marker>
@@ -349,11 +348,7 @@
              <p><u>Supplies</u></p>
              <p>e-Waste</p>
            </md-card-content>
-           <md-card-actions>
-             <button md-button>LIKE</button>
-             <button md-button>SHARE</button>
-           </md-card-actions>
-         </md-card>
+          </md-card>
        </agm-info-window>
      </agm-marker>
      //55.887076, -4.2863025
@@ -373,11 +368,7 @@
                Used plastic  bags
              </p>
            </md-card-content>
-           <md-card-actions>
-             <button md-button>LIKE</button>
-             <button md-button>SHARE</button>
-           </md-card-actions>
-         </md-card>
+          </md-card>
        </agm-info-window>
      </agm-marker>
      //55.8761694, -4.2714038
@@ -395,11 +386,7 @@
               Used plastic  bags
              </p>
            </md-card-content>
-           <md-card-actions>
-             <button md-button>LIKE</button>
-             <button md-button>SHARE</button>
-           </md-card-actions>
-         </md-card>
+          </md-card>
         </agm-info-window>
      </agm-marker>
 
@@ -413,9 +400,10 @@
       </agm-polyline>
 
 
-
+      <div    *ngIf="filterSci" >
       <agm-marker
-        *ngFor="let m of markers | async "
+
+        *ngFor="let m of markers | async |search:'science'"
 
         (markerClick)="test(m)"
         [latitude]="m.lat"
@@ -424,20 +412,160 @@
 
       >
         <agm-info-window>
-          <md-card class="example-card">
+          <md-card class="myCard {{m.type}}" >
             <md-card-header>
+              <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+
               <md-card-title>
                 <p><strong>{{m.name}}</strong></p>
               </md-card-title>
             </md-card-header>
+
+            <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
             <md-card-content>
+
+
               <p><u>Summary</u></p>
               <p>{{m.summary}}</p>
             </md-card-content>
           </md-card>
         </agm-info-window>
       </agm-marker>
-    </agm-map>
+      </div>
+     <div    *ngIf="filterCraft" >
+       <agm-marker
+
+         *ngFor="let m of markers | async |search:'craft'"
+
+         (markerClick)="test(m)"
+         [latitude]="m.lat"
+         [longitude]="m.lng"
+         [iconUrl]="m.icon"
+
+       >
+         <agm-info-window>
+           <md-card class="myCard {{m.type}}" >
+             <md-card-header>
+               <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+
+               <md-card-title>
+                 <p><strong>{{m.name}}</strong></p>
+               </md-card-title>
+             </md-card-header>
+
+             <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+             <md-card-content>
+
+
+               <p><u>Summary</u></p>
+               <p>{{m.summary}}</p>
+             </md-card-content>
+           </md-card>
+         </agm-info-window>
+       </agm-marker>
+     </div>
+
+     <div    *ngIf="filterArt" >
+       <agm-marker
+
+         *ngFor="let m of markers | async |search:'artAndDesign'"
+
+         (markerClick)="test(m)"
+         [latitude]="m.lat"
+         [longitude]="m.lng"
+         [iconUrl]="m.icon"
+
+       >
+         <agm-info-window>
+           <md-card class="myCard {{m.type}}" >
+             <md-card-header>
+               <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+
+               <md-card-title>
+                 <p><strong>{{m.name}}</strong></p>
+               </md-card-title>
+             </md-card-header>
+
+             <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+             <md-card-content>
+
+
+               <p><u>Summary</u></p>
+               <p>{{m.summary}}</p>
+             </md-card-content>
+           </md-card>
+         </agm-info-window>
+       </agm-marker>
+     </div>
+
+
+     <div    *ngIf="filterHealth" >
+       <agm-marker
+
+         *ngFor="let m of markers | async |search:'health'"
+
+         (markerClick)="test(m)"
+         [latitude]="m.lat"
+         [longitude]="m.lng"
+         [iconUrl]="m.icon"
+
+       >
+         <agm-info-window>
+           <md-card class="myCard {{m.type}}" >
+             <md-card-header>
+               <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+
+               <md-card-title>
+                 <p><strong>{{m.name}}</strong></p>
+               </md-card-title>
+             </md-card-header>
+
+             <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+             <md-card-content>
+
+
+               <p><u>Summary</u></p>
+               <p>{{m.summary}}</p>
+             </md-card-content>
+           </md-card>
+         </agm-info-window>
+       </agm-marker>
+     </div>
+
+     <div    *ngIf="filterEdu" >
+       <agm-marker
+
+         *ngFor="let m of markers | async |search:'education'"
+
+         (markerClick)="test(m)"
+         [latitude]="m.lat"
+         [longitude]="m.lng"
+         [iconUrl]="m.icon"
+
+       >
+         <agm-info-window>
+           <md-card class="myCard {{m.type}}" >
+             <md-card-header>
+               <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+
+               <md-card-title>
+                 <p><strong>{{m.name}}</strong></p>
+               </md-card-title>
+             </md-card-header>
+
+             <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+             <md-card-content>
+
+
+               <p><u>Summary</u></p>
+               <p>{{m.summary}}</p>
+             </md-card-content>
+           </md-card>
+         </agm-info-window>
+       </agm-marker>
+     </div>
+
+   </agm-map>
   </div>
 <!--
 
