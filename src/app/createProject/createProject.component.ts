@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AF} from '../providers/af';
 import {GeocodingService} from '../services/geocoding.service';
+import {FileUpload} from "../objects/file";
+import {UploadFileService} from "../services/uploadFile.servive";
 
 @Component({
   selector: 'app-create-project',
@@ -23,6 +25,11 @@ export class CreateProjectComponent implements OnInit {
   error: any;
   center: google.maps.LatLng;
 
+  selectedFiles: FileList;
+  currentFileUpload: FileUpload;
+  progress: {percentage: number} = {percentage: 0};
+
+
   options = [
     {name: 'Art', value: 'Art & Design', checked: true},
     {name: 'Science', value: 'Science', checked: false},
@@ -31,7 +38,7 @@ export class CreateProjectComponent implements OnInit {
     {name: 'Education', value: 'Education', checked: true},
   ];
   _selectedType: any;
-  constructor(private afService: AF, private GC: GeocodingService, private router: Router) { }
+  constructor(private afService: AF, private GC: GeocodingService, private router: Router, private uploadService: UploadFileService) { }
 
   get selectedOptions() { // right now: ['1','3']
     return this.options
@@ -56,7 +63,7 @@ export class CreateProjectComponent implements OnInit {
         console.log('project id is' + project.key);
         this.afService.saveProjectID(project.key);
         this.afService.saveProjectToUser(project.key).then(() => {
-
+          this.upload(project.key, 'profilepic');
           this.router.navigate(['']);
         })
           .catch((error) => {
@@ -78,4 +85,13 @@ export class CreateProjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload(id, name) {
+    const file = this.selectedFiles.item(0);
+    this.currentFileUpload = new FileUpload(file);
+    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress, '/projects', id, name);
+  }
 }

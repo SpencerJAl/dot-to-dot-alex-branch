@@ -98,6 +98,7 @@ import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.c
 import {GMapModule, ChartModule } from 'primeng/primeng';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { ScienceFilterPipe , SearchPipe } from './map/science-filter.pipe';
+import {UploadFileService} from "./services/uploadFile.servive";
 //import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -239,7 +240,8 @@ export const firebaseAuthConfig = {
     GeolocationService,
     GeocodingService,
     ProjectService,
-    UserService
+    UserService,
+    UploadFileService,
 
   ],
   bootstrap: [AppComponent]

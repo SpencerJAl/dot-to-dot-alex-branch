@@ -245,7 +245,11 @@ export class AF {
   }
 
   saveProjectID(uid) {
-    return this.af.object('projectRequests/' + uid).update( {id: uid} );
+    const pic = '/projects/' + uid + 'profilepic';
+    return this.af.object('projectRequests/' + uid).update( {
+      id: uid,
+      picture: pic
+    } );
   }
   saveProjectInfoFromForm(projectName, projectDisc, projectSum, lat, lng) {
     alert('thing passed is: ' + projectName);

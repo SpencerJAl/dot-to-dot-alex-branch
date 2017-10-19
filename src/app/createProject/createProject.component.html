@@ -90,7 +90,17 @@ json ={
   <h1>Create A project</h1>
 <form (submit)="createProject($event, projectName.value, projectDescription.value, projectSummary.value, location.value)" class="form-signin">
 
-  <input type="file">
+  <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+    <div class="progress-bar progress-bar-info progress-bar-striped"
+         role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+         aria-valuemin="0" aria-valuemax="100"
+         [ngStyle]="{width:progress.percentage+'%'}">
+      {{progress.percentage}}%</div>
+  </div>
+
+  <label class="btn btn-default"> <input type="file"
+                                         (change)="selectFile($event)">
+  </label>
 
   <div class = "form-group">
     <label for="projectName" class="sr-only">Name</label>
@@ -143,3 +153,9 @@ json ={
 </form>
 </div>
 </div>
+
+
+
+
+
+
