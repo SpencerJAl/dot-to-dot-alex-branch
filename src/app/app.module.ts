@@ -98,7 +98,7 @@ import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.c
 import {GMapModule, ChartModule } from 'primeng/primeng';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { ScienceFilterPipe , SearchPipe } from './map/science-filter.pipe';
-import { FilterProjectPipe } from './filter-project.pipe';
+//import { FilterProjectPipe } from './filter-project.pipe';
 
 
 export let MD_MODULES: any = [
@@ -197,7 +197,7 @@ export const firebaseAuthConfig = {
     MyCompComponent,
     ScienceFilterPipe,
     SearchPipe,
-    FilterProjectPipe
+    //FilterProjectPipe
   ],
   imports: [
     BrowserModule,

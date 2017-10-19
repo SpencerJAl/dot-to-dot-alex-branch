@@ -2,10 +2,8 @@
  * Created by James on 17/05/2017.
  */
 
-import {Injectable} from "@angular/core";
-//import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
-
-import { AngularFireDatabase, FirebaseListObservable ,FirebaseObjectObservable} from 'angularfire2/database';
+import {Injectable} from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
@@ -22,7 +20,7 @@ export class AF {
 
   public ownedSuppliers: FirebaseListObservable<any>;
   public ownedProjects: FirebaseListObservable<any>;
-  public loggedIn:boolean=false;
+  public loggedIn: boolean = false;
   public project: FirebaseObjectObservable<any>;
   public projectRequests: FirebaseListObservable<any>;
   public suppliers: FirebaseListObservable<any>;
@@ -39,16 +37,15 @@ export class AF {
       (auth) => {
         if (auth != null) {
           this.user = this.af.object('registeredUsers/' + auth.uid);
-          this.userID=auth.uid ;
-          this.ownedProjects=this.af.list('registeredUsers/'+auth.uid+'/ownedProjects');
-          this.loggedIn=true;
-        }
-        else{
-          this.loggedIn=false;
+          this.userID = auth.uid ;
+          this.ownedProjects = this.af.list('registeredUsers/' + auth.uid + '/ownedProjects');
+          this.loggedIn = true;
+        } else {
+          this.loggedIn = false;
           this.projects = this.af.list('projects');
         }
       });
-    this.projectRequests=this.af.list('projectRequests');
+    this.projectRequests = this.af.list('projectRequests');
     this.messages = this.af.list('messages');
     this.users = this.af.list('users');
     this.projects = this.af.list('projects');
@@ -75,16 +72,16 @@ export class AF {
     return this.af.object('registeredUsers/' + this.userID).set({
       name: name,
       email: email,
-      type:"user",
-      id:uid
+      type: 'user',
+      id: uid
     });
   }
   saveAdminInfoFromForm(uid, name, email) {
     return this.af.object('registeredUsers/' + this.userID).set({
       name: name,
       email: email,
-      type: "admin",
-      id:uid
+      type: 'admin',
+      id: uid
     });
   }
 
@@ -157,54 +154,54 @@ export class AF {
   /**
    * This section is specifically here to handel logged in a logged in users account data.
    */
-  createProfile(userDescription, userSummary,  userInterests){
+  createProfile(userDescription, userSummary,  userInterests) {
     return this.af.object('registeredUsers/' + this.userID).update({
-      description:userDescription,
-      summary:userSummary,
-      interests:userInterests,
+      description: userDescription,
+      summary: userSummary,
+      interests: userInterests,
     });
   }
 
-  myProfile(){
+  myProfile() {
     return this.user;
   }
-  editProfile(userDescription, userSummary, userInterests){
+  editProfile(userDescription, userSummary, userInterests) {
     return this.af.object('registeredUsers/' + this.userID).update({
-      description:userDescription,
-      summary:userSummary,
-      interests:userInterests,
+      description: userDescription,
+      summary: userSummary,
+      interests: userInterests,
     });
   }
   /////////////////////////////////////////////////////////////////////////
 
   ////////////////////////admin stuff///////////////////////////
-  getProjectRequests(id){
-    console.log("id is" +id);
-    this.project=this.af.object('projectsRequests/'+id);
+  getProjectRequests(id) {
+    console.log('id is' + id);
+    this.project = this.af.object('projectsRequests/' + id);
     return this.project;
   }
-  projectApprove(project, delID){
+  projectApprove(project, delID) {
 
 
-    var proj = {
+    const proj = {
       name: project.name,
-      description:project.description,
+      description: project.description,
       summary: project.summary,
       owner: project.owner,
-      lat:project.lat,
-      lng:project.lng
+      lat: project.lat,
+      lng: project.lng
     }
-    var key;
-    console.log("project name is "+ project.name);
+    let key;
+    console.log('project name is ' + project.name);
 
-    return this.af.list('projects').push(proj).then((p)=>{
-      key=p.key;
+    return this.af.list('projects').push(proj).then((p) => {
+      key = p.key;
 
-      console.log("project deleted" +p.key);
+      console.log('project deleted' + p.key);
 
-      this.af.object('projects/'+p.uid).update({
-        id:key,
-      }).then(()=>{this.projectDecline(delID);});
+      this.af.object('projects/' + p.uid).update({
+        id: key,
+      }).then(() => {this.projectDecline(delID); });
     });
 
     /*return this.af.list('projects/').push(project).then((p)=>{
@@ -216,15 +213,15 @@ export class AF {
     }); */
   }
 
-  projectDecline(id){
-    console.log("project declined is" + id);
-    return this.af.list('projectRequests/').remove(id).then(()=>{
-      console.log("project deleted"+ id);
+  projectDecline(id) {
+    console.log('project declined is' + id);
+    return this.af.list('projectRequests/').remove(id).then(() => {
+      console.log('project deleted' + id);
     });
   }
-  deleteUser(){}
-  archiveUsers(){}
-  getUsers(){
+  deleteUser() {}
+  archiveUsers() {}
+  getUsers() {
     return this.users;
   }
   /////////////////////////////project////////////////////////////////////
@@ -233,31 +230,33 @@ export class AF {
    */
 
   sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng){
-    var project = {
+    const icontype = '../../images/' + projectType + '.jpg';
+    const project = {
       name: projectName,
-      description:projectDisc,
-      summary:projectSum,
+      description: projectDisc,
+      summary: projectSum,
       owner: this.userID,
-      type:projectType,
-      lat:lat,
-      lng:lng
+      type: projectType,
+      lat: lat,
+      lng: lng,
+      icon: icontype
     }
     return this.projectRequests.push(project);
   }
 
-  saveProjectID(uid){
+  saveProjectID(uid) {
     return this.af.object('projectRequests/' + uid).update( {id: uid} );
   }
-  saveProjectInfoFromForm(projectName, projectDisc, projectSum, lat, lng){
-    alert("thing passed is: " + projectName);
-    var project = {
+  saveProjectInfoFromForm(projectName, projectDisc, projectSum, lat, lng) {
+    alert('thing passed is: ' + projectName);
+    const project = {
       name: projectName,
-      description:projectDisc,
-      summary:projectSum,
+      description: projectDisc,
+      summary: projectSum,
 
       owner: this.userID,
-      lat:lat,
-      lng:lng
+      lat: lat,
+      lng: lng
     }
     return this.projects.push(project);
     /*return this.af.object('projects/'+projectName).set({
@@ -266,38 +265,38 @@ export class AF {
      });*/
   }
 
-  saveProjectToUser(projectID){
-    var thing={
-      name:projectID
+  saveProjectToUser(projectID) {
+    const thing = {
+      name: projectID
     }
     return this.ownedProjects.push(thing);
   }
 
-  getProjectMessages(id){
-    this.messages=this.af.list('projects/'+id+'/messages');
-    return this.af.list('projects/'+id+'/messages');
+  getProjectMessages(id) {
+    this.messages = this.af.list('projects/' + id + '/messages');
+    return this.af.list('projects/' + id + '/messages');
   }
 
-  getAllProjects(){
+  getAllProjects() {
     return this.projects;
   }
-  getProject(id){
-    console.log("id is" +id);
-    this.project=this.af.object('projects/'+id);
+  getProject(id) {
+    console.log('id is' + id);
+    this.project = this.af.object('projects/' + id);
     return this.project;
   }
-  getUser(id){
-    return this.af.list('registeredUsers/'+id);
+  getUser(id) {
+    return this.af.list('registeredUsers/' + id);
   }
-  join(id){
-    console.log("users id is " + this.userID)
-    this.af.list('registeredUsers/'+this.userID+'/joinedProjects').push({
-      id:id,
+  join(id) {
+    console.log('users id is ' + this.userID);
+    this.af.list('registeredUsers/' + this.userID + '/joinedProjects').push({
+      id: id,
     });
 
-    return this.af.list('projects/'+id+'/members').push(
+    return this.af.list('projects/' + id + '/members').push(
       {
-        id:this.userID,
+        id: this.userID,
       }
     );
   }
@@ -306,34 +305,34 @@ export class AF {
 
 
   sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng){
-    var supplier = {
+    const supplier = {
       name: supplierName,
       address: address,
       address2: address2,
-      description:supplierDisc,
-      summary:supplierSum,
+      description: supplierDisc,
+      summary: supplierSum,
       owner: this.userID,
-      lat:lat,
-      lng:lng
+      lat: lat,
+      lng: lng
     }
     return this.supplierRequests.push(supplier);
   }
 
-  saveSupplierID(uid){
+  saveSupplierID(uid) {
     return this.af.object('supplierRequests/' + uid).update( {id: uid} );
   }
   saveSupplierInfoFromForm(supplierName, supplierAddress, supplierAddress2, supplierDisc, supplierSum, lat, lng){
-    alert("thing passed is: " + supplierName);
-    var supplier = {
+    alert('thing passed is: ' + supplierName);
+    const supplier = {
       name: supplierName,
       address: supplierAddress,
-      adreess2:supplierAddress2,
-      description:supplierDisc,
-      summary:supplierSum,
+      adreess2: supplierAddress2,
+      description: supplierDisc,
+      summary: supplierSum,
       owner: this.userID,
-      lat:lat,
-      lng:lng
-    }
+      lat: lat,
+      lng: lng
+    };
     return this.suppliers.push(supplier);
     /*return this.af.object('suppliers/'+supplierName).set({
      name: supplierName,
@@ -342,31 +341,31 @@ export class AF {
   }
 
   saveSupplierToUser(supplierID){
-    var thing={
-      name:supplierID
+    const thing = {
+      name: supplierID
     }
     return this.ownedSuppliers.push(thing);
   }
 
-  getSupplierMessages(id){
-    this.messages=this.af.list('suppliers/'+id+'/messages');
-    return this.af.list('suppliers/'+id+'/messages');
+  getSupplierMessages(id) {
+    this.messages = this.af.list('suppliers/' + id + '/messages');
+    return this.af.list('suppliers/' + id + '/messages');
   }
 
-  getAllSuppliers(){
+  getAllSuppliers() {
     return this.suppliers;
   }
-  getSupplier(id){
-    console.log("id is" +id);
-    this.supplier=this.af.object('suppliers/'+id);
+  getSupplier(id) {
+    console.log('id is' + id);
+    this.supplier = this.af.object('suppliers/' + id);
     return this.supplier;
   }
 
   /**
    *creates a user profile in the database
    */
-  addUserInfo(){
-    //We saved their auth info now save the rest to the db.
+  addUserInfo() {
+    // We saved their auth info now save the rest to the db.
     this.users.push({
       email: this.email,
       displayName: this.displayName
@@ -378,7 +377,7 @@ export class AF {
    * @param text
    */
   sendMessage(text) {
-    var message = {
+    const message = {
       message: text,
       displayName: this.displayName,
       email: this.email,
@@ -389,10 +388,10 @@ export class AF {
   }
 
   private _getUserInfo(user: any): any {
-    if(!user) {
+    if (!user) {
       return {};
     }
-    let data = user.auth.providerData[0];
+    const data = user.auth.providerData[0];
     return {
       name: data.displayName,
       avatar: data.photoURL,
@@ -411,20 +410,20 @@ export class AF {
    * checks if the user is authenticated
    */
 
-  isAuth(){
+  isAuth() {
     return this.loggedIn;
   }
 
 }
 
-export interface project{
+export interface project {
 
   name: string;
-    description:string;
-    summary:string;
-    type;string;
-    owner: string;
-    lat:number;
-    lng:number;
+  description: string;
+  summary: string;
+  type: string;
+  owner: string;
+  lat: number;
+  lng: number;
 
 }

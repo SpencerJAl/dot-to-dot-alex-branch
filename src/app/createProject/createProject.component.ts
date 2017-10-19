@@ -27,9 +27,10 @@ export class CreateProjectComponent implements OnInit {
     {name: 'Art', value: 'Art & Design', checked: true},
     {name: 'Science', value: 'Science', checked: false},
     {name: 'Health', value: 'Health', checked: true},
-    {name: 'Craft', value: 'Craft & Workshop', checked: true},
+    {name: 'Craft and workshop', value: 'Craft & Workshop', checked: true},
     {name: 'Education', value: 'Education', checked: true},
   ];
+  _selectedType: any;
   constructor(private afService: AF, private GC: GeocodingService, private router: Router) { }
 
   get selectedOptions() { // right now: ['1','3']
@@ -38,7 +39,7 @@ export class CreateProjectComponent implements OnInit {
       .map (opt => opt.value);
   }
 
-  _selectedType: any;
+
   protected interestHandler(event: any) {
     this._selectedType = event.target.value;
   }
