@@ -31,11 +31,11 @@ export class CreateProjectComponent implements OnInit {
 
 
   options = [
-    {name: 'Art', value: 'Art & Design', checked: true},
-    {name: 'Science', value: 'Science', checked: false},
-    {name: 'Health', value: 'Health', checked: true},
-    {name: 'Craft and workshop', value: 'Craft & Workshop', checked: true},
-    {name: 'Education', value: 'Education', checked: true},
+    {name: 'Art', value: 'artAndDesign', checked: true},
+    {name: 'Science', value: 'science', checked: false},
+    {name: 'Health', value: 'health', checked: true},
+    {name: 'Craft and workshop', value: 'craftAndWorkshop', checked: true},
+    {name: 'Education', value: 'education', checked: true},
   ];
   _selectedType: any;
   constructor(private afService: AF, private GC: GeocodingService, private router: Router, private uploadService: UploadFileService) { }

@@ -194,7 +194,7 @@ export class AF {
     let key;
     console.log('project name is ' + project.name);
 
-    return this.af.list('projects').push(proj).then((p) => {
+    return this.af.list('projects').push(project).then((p) => {
       key = p.key;
 
       console.log('project deleted' + p.key);
@@ -228,7 +228,7 @@ export class AF {
   /**
    * this section of code is to handel projects
    */
-
+  //creates a request to the admins to approve or decline a new project
   sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng){
     const icontype = '../../images/' + projectType + '.jpg';
     const project = {
@@ -245,10 +245,10 @@ export class AF {
   }
 
   saveProjectID(uid) {
-    const pic = '/projects/' + uid + 'profilepic';
+    const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/project%2F' + uid + '%2Fprofilepic?alt=media&token=0cde88a';
     return this.af.object('projectRequests/' + uid).update( {
       id: uid,
-      picture: pic
+      image: pic
     } );
   }
   saveProjectInfoFromForm(projectName, projectDisc, projectSum, lat, lng) {

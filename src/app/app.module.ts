@@ -143,8 +143,9 @@ export const firebaseConfig = {
   databaseURL: "https://project--1058925460034076790.firebaseio.com",
   storageBucket: "project--1058925460034076790.appspot.com",
   messagingSenderId: "779470844821"
-}
- */
+};
+*/
+
 
 /////   DEV
 
@@ -156,7 +157,6 @@ export const firebaseConfig = {
   storageBucket: "project--5383574466381407389.appspot.com",
   messagingSenderId: "627281333849"
 }
-
 /*
 export const firebaseAuthConfig = {
   provider: AuthProviders.Password,
