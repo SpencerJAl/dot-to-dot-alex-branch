@@ -4,7 +4,8 @@ import { ChartModule} from 'primeng/primeng';
 import {PageEvent} from '@angular/material';
 import {AF} from '../providers/af';
 import {FirebaseListObservable} from 'angularfire2/database';
-
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 
 @Component({

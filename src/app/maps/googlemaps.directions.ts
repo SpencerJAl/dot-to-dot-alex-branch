@@ -12,14 +12,14 @@ export class DirectionsMapDirective {
   @Input() origin;
   @Input() destination;
   constructor (private gmapsApi: GoogleMapsAPIWrapper) {}
-  ngOnInit(){
+  ngOnInit() {
     //noinspection TypeScriptUnresolvedFunction
     this.gmapsApi.getNativeMap().then(map => {
 
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
 
-      console.log("test");
+      console.log('test');
       directionsDisplay.setMap(map);
       directionsService.route({
         origin: {lat: this.origin.latitude, lng: this.origin.longitude},

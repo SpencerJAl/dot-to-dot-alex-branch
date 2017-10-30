@@ -245,7 +245,8 @@ export class AF {
   }
 
   saveProjectID(uid) {
-    const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/project%2F' + uid + '%2Fprofilepic?alt=media&token=0cde88a';
+    //change this to live for when needed.
+    const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/projects%2F' + uid + '%2Fprofilepic?alt=media';
     return this.af.object('projectRequests/' + uid).update( {
       id: uid,
       image: pic

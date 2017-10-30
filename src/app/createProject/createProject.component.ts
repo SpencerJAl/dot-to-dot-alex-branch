@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AF} from '../providers/af';
 import {GeocodingService} from '../services/geocoding.service';
-import {FileUpload} from "../objects/file";
-import {UploadFileService} from "../services/uploadFile.servive";
+import {FileUpload} from '../objects/file';
+import {UploadFileService} from '../services/uploadFile.servive';
 
 @Component({
   selector: 'app-create-project',

@@ -30,7 +30,8 @@ export class MyProjectsComponent implements OnInit {
   joinProj;
 
 
-  constructor(private afService: AF, private afAuth: AngularFireAuth, private db: AngularFireDatabase, private router: Router, private route: ActivatedRoute) { /*searchs the database for information */
+  constructor(private afService: AF, private afAuth: AngularFireAuth, private db: AngularFireDatabase,
+              private router: Router, private route: ActivatedRoute) { /*searchs the database for information */
     this.user = db.list('registeredUsers/');
     /* this.ownedProjects = db.database.list('registeredUsers/joinedProjects/');*/
     this.ownedProjects = db.list('registeredUsers/id/ownedProjects/' + this.route.snapshot.params['id']);
@@ -43,8 +44,7 @@ export class MyProjectsComponent implements OnInit {
       this.joinProj = j;
     });
   }
-  ngOnInit()
-  {
+  ngOnInit() {
     console.log(this.afService.getUsers());
     this.id = this.route.snapshot.params['id'];
     console.log('Params are' + this.id);

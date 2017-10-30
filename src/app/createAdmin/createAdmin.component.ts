@@ -1,9 +1,9 @@
 /**
  * Created by James on 05/06/2017.
  */
-import {Component} from "@angular/core";
-import {AF} from "../providers/af";
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {AF} from '../providers/af';
+import {Router} from '@angular/router';
 /**
  * Created by James on 05/06/2017.
  */

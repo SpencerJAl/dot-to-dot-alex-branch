@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 
-import {FirebaseListObservable, AngularFireDatabase} from "angularfire2/database";
+import {FirebaseListObservable, AngularFireDatabase} from 'angularfire2/database';
 import { AppComponent} from '../app.component';
-import {AppRouting} from "../app.routing";
-import {Router} from "@angular/router";
-import {AF} from "../providers/af";
+import {AppRouting} from '../app.routing';
+import {Router} from '@angular/router';
+import {AF} from '../providers/af';
 
 @Component({
   selector: 'app-login',
@@ -17,14 +17,14 @@ import {AF} from "../providers/af";
 
 
 
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   public error: any;
-  user ={};
+  user = {};
   isAuth: boolean;
-  userType:string;
-  userStatus:string;
+  userType: string;
+  userStatus: string;
   ngOnInit() {
-    this.isAuth= this.afService.isAuth();
+    this.isAuth = this.afService.isAuth();
   }
 
   constructor(private afService: AF, private router: Router) {
@@ -37,31 +37,31 @@ export class LoginComponent implements OnInit{
    * @param email
    * @param password
      */
-  loginWithEmail(event, email, password){
+  loginWithEmail(event, email, password) {
     event.preventDefault();
     this.afService.loginWithEmail(email, password).then((success) => {
 
-      console.log("display name is"+ success.auth.displayName);
+      console.log('display name is' + success.auth.displayName);
 
 
 
-      this.afService.user.subscribe((u)=>{
-        this.userType=u.type;
-        this.userStatus=u.status;
-        if(u.status=='archived'){
+      this.afService.user.subscribe((u) => {
+        this.userType = u.type;
+        this.userStatus = u.status;
+        if (u.status === 'archived') {
 
           this.router.navigate(['/userStatus']);
           this.afService.logout();
         }
-        if(u.type=="admin"){
-          console.log("user is " + this.userType );
+        if (u.type === 'admin') {
+          console.log('user is ' + this.userType );
           this.router.navigate(['/adminDashboard']);
         }
-        else if (u.type=="user") {
+        else if (u.type === 'user') {
           this.router.navigate(['/dashboard']);
-          console.log("user is " + this.userType );
+          console.log('user is ' + this.userType );
         }
-      })
+      });
 
 
 
@@ -87,83 +87,83 @@ export class LoginComponent implements OnInit{
       this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
 
-      this.afService.user.subscribe((u)=>{
-        this.userType=u.type;
-        this.userStatus=u.status;
-        if(u.status=='archived'){
+      this.afService.user.subscribe((u) => {
+        this.userType = u.type;
+        this.userStatus = u.status;
+        if (u.status === 'archived') {
 
           this.router.navigate(['/userStatus']);
           this.afService.logout();
         }
-        if(u.type=="admin"){
-          console.log("user is " + this.userType );
+        if (u.type === 'admin') {
+          console.log('user is ' + this.userType );
           this.router.navigate(['/adminDashboard']);
         }
-        else if (u.type=="user") {
+        else if (u.type === 'user') {
           this.router.navigate(['/dashboard']);
-          console.log("user is " + this.userType );
+          console.log('user is ' + this.userType );
         }
-      })
+      });
 
-    })
+    });
   }
 
   /**
    * calls the angularfire request to log the user into the system using a twitter account
    */
-  loginWithTwitter(){
+  loginWithTwitter() {
     this.afService.loginWithTwitter().then((data) => {
       // Send them to the homepage if they are logged in
       console.log(data);
       this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
-      this.afService.user.subscribe((u)=>{
-        this.userType=u.type;
-        this.userStatus=u.status;
-        if(u.status=='archived'){
+      this.afService.user.subscribe((u) => {
+        this.userType = u.type;
+        this.userStatus = u.status;
+        if (u.status === 'archived') {
 
           this.router.navigate(['/userStatus']);
           this.afService.logout();
         }
-        if(u.type=="admin"){
-          console.log("user is " + this.userType );
+        if (u.type === 'admin') {
+          console.log('user is ' + this.userType );
           this.router.navigate(['/adminDashboard']);
         }
-        else if (u.type=="user") {
+        else if (u.type === 'user') {
           this.router.navigate(['/dashboard']);
-          console.log("user is " + this.userType );
+          console.log('user is ' + this.userType );
         }
-      })
-    })
+      });
+    });
   }
 
   /**
    * calls the angularefire request to log the user into the system using a facebook account
    */
-  loginWithFacebook(){
+  loginWithFacebook() {
     this.afService.loginWithFacebook().then((data) => {
       // Send them to the homepage if they are logged in
       console.log(data);
       this.user = this._getUserInfo(data);
       this.afService.addUserInfo();
-      this.afService.user.subscribe((u)=>{
-        this.userType=u.type;
-        this.userStatus=u.status;
-        if(u.status=='archived'){
+      this.afService.user.subscribe((u) => {
+        this.userType = u.type;
+        this.userStatus = u.status;
+        if (u.status === 'archived') {
 
           this.router.navigate(['/userStatus']);
           this.afService.logout();
         }
-        if(u.type=="admin"){
-          console.log("user is " + this.userType );
+        if (u.type === 'admin') {
+          console.log('user is ' + this.userType );
           this.router.navigate(['/adminDashboard']);
         }
-        else if (u.type=="user") {
+        else if (u.type === 'user') {
           this.router.navigate(['/dashboard']);
-          console.log("user is " + this.userType );
+          console.log('user is ' + this.userType );
         }
-      })
-    })
+      });
+    });
   }
 
   /**
@@ -171,7 +171,7 @@ export class LoginComponent implements OnInit{
    */
   logout() {
     this.afService.logout();
-    this.isAuth=false;
+    this.isAuth = false;
   }
 
   /**
@@ -181,7 +181,7 @@ export class LoginComponent implements OnInit{
    * @private
      */
   private _getUserInfo(user: any): any {
-    if(!user) {
+    if (!user) {
       return {};
     }
     let data = user.auth.providerData[0];

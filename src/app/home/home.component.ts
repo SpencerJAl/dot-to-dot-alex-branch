@@ -5,13 +5,13 @@ import { AgmCoreModule , GoogleMapsAPIWrapper,AgmMap} from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
 import{Ng2MapModule} from 'ng2-map';
 import {GeocodingService} from "../services/geocoding.service";
-import {GeolocationService} from "../services/geolocation.service";
-import {MapsService} from "../services/maps.service";
-import {ProjectService} from "../services/localProject.service";
-import {UserService} from "../services/localUser.service";
-import {FirebaseListObservable, AngularFireDatabase} from "angularfire2/database";
+import {GeolocationService} from '../services/geolocation.service';
+import {MapsService} from '../services/maps.service';
+import {ProjectService} from '../services/localProject.service';
+import {UserService} from '../services/localUser.service';
+import {FirebaseListObservable, AngularFireDatabase} from 'angularfire2/database';
 import * as FireBase from 'firebase/app';
-import {AF} from "../providers/af";
+import {AF} from '../providers/af';
 import {NotificationsComponent}from "../notifications/notifications.component";
 
 @Component({
@@ -54,12 +54,12 @@ export class HomeComponent implements OnInit {
 
 
   constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
-    this.zoom=18;
+    this.zoom = 18;
     this.markers = this.afService.projects;
-    this.peoples=this._userService.getUsers();
+    this.peoples = this._userService.getUsers();
     this.messages = this.afService.messages;
-    this.markerKeys=Object.keys(this.afService.projects);
-    console.log("marker key is"+this.markerKeys[4]);
+    this.markerKeys = Object.keys(this.afService.projects);
+    console.log('marker key is' + this.markerKeys[4]);
 
 
 
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
     } catch(err) { }
   }
 
-  sendMessage(){
+  sendMessage() {
     this.afService.sendMessage(this.newMessage);
     this.newMessage = '';
 
@@ -109,19 +109,19 @@ export class HomeComponent implements OnInit {
    */
 
 
-  profiles: people[]=[];
-  test(m){
-    var people=m;
+  profiles: people[] = [];
+  test(m) {
+    var people = m;
     console.log(m.id);
     this.afService.getProjectMessages(m.id);
-    this.messages=this.afService.messages;
-    //this.profiles=this.peoples;
-    this.messagething=m;
-    this.profiles=[];
+    this.messages = this.afService.messages;
+    //this.profiles = this.peoples;
+    this.messagething = m;
+    this.profiles = [];
     for (let i of m.members){
-      this.af.object('registeredUsers/'+i.id).subscribe((user)=>{
+      this.af.object('registeredUsers/' + i.id).subscribe((user)=>{
         this.profiles.push(user);
-      })
+      });
 
     }
 
@@ -135,7 +135,7 @@ export class HomeComponent implements OnInit {
       zoom: 16,
       style: mapStyle
     }
-    this.messagething={name:"general", id:3};
+    this.messagething = {name: 'general', id: 3};
 
 
     if (navigator.geolocation) {
@@ -144,8 +144,8 @@ export class HomeComponent implements OnInit {
         (position: Position) => {
           // New center object: triggers OnChanges.
           this.center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-          this.startLat=position.coords.latitude;
-          this.startLng=position.coords.longitude;
+          this.startLat = position.coords.latitude;
+          this.startLng = position.coords.longitude;
           this.zoom = 11;
         }
       ).then(() => console.log('Geolocation service: completed.')).catch(
@@ -397,31 +397,31 @@ export const mapStyle = [
 
 //marker
 interface marker{
-  name?:string;
+  name?: string;
   lat: number;
   lng: number;
-  draggable:boolean;
-  people:[{name:string}];
-  posts:[{
-    displayName:string,
-    email:string,
-    message:string,
-    timestamp:number
+  draggable: boolean;
+  people: [ {name: string} ];
+  posts: [ {
+    displayName: string,
+    email: string,
+    message: string,
+    timestamp: number
   }];
-  type:string;
+  type: string;
 }
 
 //people
-interface people{
-  name:string;
-  age:number;
-  hobbies:[{name:string}];
-  summary:string;
-  description:string;
+interface people {
+  name: string;
+  age: number;
+  hobbies: [{ name: string }];
+  summary: string;
+  description: string;
 }
-interface mess{
-  displayName:string;
-  email:string;
-  message:string;
-  timestamp:number;
+interface mess {
+  displayName: string;
+  email: string;
+  message: string;
+  timestamp: number;
 }

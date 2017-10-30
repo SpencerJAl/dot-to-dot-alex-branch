@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
-import {AF} from "../providers/af";
-import {FirebaseListObservable} from "angularfire2/database";
+import {AF} from '../providers/af';
+import {FirebaseListObservable} from 'angularfire2/database';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
    // } catch(err) { }
   }
 
-  sendMessage(){
+  sendMessage() {
     this.afService.sendMessage(this.newMessage);
     this.newMessage = '';
   }
