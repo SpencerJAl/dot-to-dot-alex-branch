@@ -11,11 +11,11 @@ export class AccountSetupComponent {
   interests= {};
 
   options = [
-    {name: 'Art', value: 'Art & Design', checked: true},
+    {name: 'Art', value: 'Art & Design', checked: false},
     {name: 'Science', value: 'Science', checked: false},
-    {name: 'Health', value: 'Health', checked: true},
-    {name: 'Craft', value: 'Craft & Workshop', checked: true},
-    {name: 'Education', value: 'Education', checked: true},
+    {name: 'Health', value: 'Health', checked: false},
+    {name: 'Craft', value: 'Craft & Workshop', checked: false},
+    {name: 'Education', value: 'Education', checked: false},
   ];
   constructor(private afService: AF, private router: Router) { }
 

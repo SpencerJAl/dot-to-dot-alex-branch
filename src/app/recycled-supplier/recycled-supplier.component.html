@@ -6,11 +6,21 @@
 
 <div class="modal-dialog"  >
   <div class="example-form" >
-    <h1>Add a new waste supplier</h1>
-
+    <h1>Add a new recycle supplier</h1>
 
     <form (submit)="createSupplier($event, supplierName.value, address.value, address2.value, supplierDescription.value, supplierSummary.value, location.value)" class="example-form">
       <div class = "form-group">
+        <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+          <div class="progress-bar progress-bar-info progress-bar-striped"
+               role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+               aria-valuemin="0" aria-valuemax="100"
+               [ngStyle]="{width:progress.percentage+'%'}">
+            {{progress.percentage}}%</div>
+        </div>
+
+        <label class="btn btn-default"> <input type="file"
+                                               (change)="selectFile($event)">
+        </label>
       <!---<div class = "form-group">
         <label for="supplierName" class="sr-only">Name</label>
         <input #supplierName type="text" id="supplierName" class="form-control" placeholder="Name" required="">
@@ -23,7 +33,7 @@
 
         <p>
           <md-input-container class="example-full-width">
-            <textarea #address1 mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+            <textarea #address1 mdInput placeholder="Address"></textarea>
           </md-input-container>
           <md-input-container class="example-full-width">
             <textarea #address2 mdInput placeholder="Address 2"></textarea>

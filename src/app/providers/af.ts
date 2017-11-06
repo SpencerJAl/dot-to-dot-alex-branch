@@ -45,6 +45,7 @@ export class AF {
           this.projects = this.af.list('projects');
         }
       });
+    this.supplierRequests = this.af.list('supplierRequests');
     this.projectRequests = this.af.list('projectRequests');
     this.messages = this.af.list('messages');
     this.users = this.af.list('users');
@@ -159,6 +160,7 @@ export class AF {
       description: userDescription,
       summary: userSummary,
       interests: userInterests,
+      type: 'user'
     });
   }
 
@@ -190,7 +192,7 @@ export class AF {
       owner: project.owner,
       lat: project.lat,
       lng: project.lng
-    }
+    };
     let key;
     console.log('project name is ' + project.name);
 
@@ -228,7 +230,7 @@ export class AF {
   /**
    * this section of code is to handel projects
    */
-  //creates a request to the admins to approve or decline a new project
+  // creates a request to the admins to approve or decline a new project
   sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng){
     const icontype = '../../images/' + projectType + '.jpg';
     const project = {
@@ -245,7 +247,7 @@ export class AF {
   }
 
   saveProjectID(uid) {
-    //change this to live for when needed.
+    // change this to live for when needed.
     const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/projects%2F' + uid + '%2Fprofilepic?alt=media';
     return this.af.object('projectRequests/' + uid).update( {
       id: uid,
@@ -309,7 +311,7 @@ export class AF {
 /////////////// Waste Suppliers//////////////////////////////////////////
 
 
-  sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng){
+  sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng) {
     const supplier = {
       name: supplierName,
       address: address,
@@ -326,7 +328,7 @@ export class AF {
   saveSupplierID(uid) {
     return this.af.object('supplierRequests/' + uid).update( {id: uid} );
   }
-  saveSupplierInfoFromForm(supplierName, supplierAddress, supplierAddress2, supplierDisc, supplierSum, lat, lng){
+  saveSupplierInfoFromForm(supplierName, supplierAddress, supplierAddress2, supplierDisc, supplierSum, lat, lng) {
     alert('thing passed is: ' + supplierName);
     const supplier = {
       name: supplierName,

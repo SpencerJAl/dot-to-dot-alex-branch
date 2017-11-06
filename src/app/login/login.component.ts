@@ -30,7 +30,29 @@ export class LoginComponent implements OnInit {
   constructor(private afService: AF, private router: Router) {
 
   }
+  //after user has loged in this will deicde what page to rout the user
+  loginRouter() {
+    this.afService.user.subscribe((u) => {
+      this.userType = u.type;
+      this.userStatus = u.status;
+      if (!u.type) {
+        this.router.navigate(['/accountSetup']);
+      }
+      if (u.status === 'archived') {
 
+        this.router.navigate(['/userStatus']);
+        this.afService.logout();
+      }
+      if (u.type === 'admin') {
+        console.log('user is ' + this.userType );
+        this.router.navigate(['/adminDashboard']);
+      }
+      if (u.type === 'user') {
+        this.router.navigate(['/']);
+        console.log('user is ' + this.userType );
+      }
+    });
+  }
   /**
    * calls the service to log the user into the system via there dotToDot Account
    * @param event
@@ -57,7 +79,7 @@ export class LoginComponent implements OnInit {
           console.log('user is ' + this.userType );
           this.router.navigate(['/adminDashboard']);
         }
-        else if (u.type === 'user') {
+        if (u.type === 'user') {
           this.router.navigate(['/dashboard']);
           console.log('user is ' + this.userType );
         }
@@ -85,26 +107,8 @@ export class LoginComponent implements OnInit {
 
       console.log(data);
       this.user = this._getUserInfo(data);
-      this.afService.addUserInfo();
-
-      this.afService.user.subscribe((u) => {
-        this.userType = u.type;
-        this.userStatus = u.status;
-        if (u.status === 'archived') {
-
-          this.router.navigate(['/userStatus']);
-          this.afService.logout();
-        }
-        if (u.type === 'admin') {
-          console.log('user is ' + this.userType );
-          this.router.navigate(['/adminDashboard']);
-        }
-        else if (u.type === 'user') {
-          this.router.navigate(['/dashboard']);
-          console.log('user is ' + this.userType );
-        }
-      });
-
+      // this.afService.addUserInfo();
+      this.loginRouter();
     });
   }
 
@@ -113,27 +117,7 @@ export class LoginComponent implements OnInit {
    */
   loginWithTwitter() {
     this.afService.loginWithTwitter().then((data) => {
-      // Send them to the homepage if they are logged in
-      console.log(data);
-      this.user = this._getUserInfo(data);
-      this.afService.addUserInfo();
-      this.afService.user.subscribe((u) => {
-        this.userType = u.type;
-        this.userStatus = u.status;
-        if (u.status === 'archived') {
-
-          this.router.navigate(['/userStatus']);
-          this.afService.logout();
-        }
-        if (u.type === 'admin') {
-          console.log('user is ' + this.userType );
-          this.router.navigate(['/adminDashboard']);
-        }
-        else if (u.type === 'user') {
-          this.router.navigate(['/dashboard']);
-          console.log('user is ' + this.userType );
-        }
-      });
+      this.loginRouter();
     });
   }
 
@@ -142,27 +126,7 @@ export class LoginComponent implements OnInit {
    */
   loginWithFacebook() {
     this.afService.loginWithFacebook().then((data) => {
-      // Send them to the homepage if they are logged in
-      console.log(data);
-      this.user = this._getUserInfo(data);
-      this.afService.addUserInfo();
-      this.afService.user.subscribe((u) => {
-        this.userType = u.type;
-        this.userStatus = u.status;
-        if (u.status === 'archived') {
-
-          this.router.navigate(['/userStatus']);
-          this.afService.logout();
-        }
-        if (u.type === 'admin') {
-          console.log('user is ' + this.userType );
-          this.router.navigate(['/adminDashboard']);
-        }
-        else if (u.type === 'user') {
-          this.router.navigate(['/dashboard']);
-          console.log('user is ' + this.userType );
-        }
-      });
+      this.loginRouter();
     });
   }
 
@@ -184,7 +148,7 @@ export class LoginComponent implements OnInit {
     if (!user) {
       return {};
     }
-    let data = user.auth.providerData[0];
+    const data = user.auth.providerData[0];
     return {
       name: data.name,
       avatar: data.photoURL,
