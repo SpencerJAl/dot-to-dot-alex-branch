@@ -285,7 +285,7 @@
 
 
 
-  </div>  --->
+  </div>
 <div class="panel">
   <button (click)="showPrevious = !showPrevious">{{showPrevious ? 'hide Previous Use' : 'show Previous Use'}}</button>
   <button (click)="showWaste = !showWaste">{{showWaste ? 'hide Materials Network' : 'show Materials Network'}}</button>
@@ -297,7 +297,7 @@
   <button (click)="filterArt = !filterArt">{{filterArt ? 'hide Art' : 'show Art'}}</button>
   <button (click)="filterHealth = !filterHealth">{{filterHealth ? 'hide Health' : 'show Health'}}</button>
   <button (click)="filterEdu = !filterEdu">{{filterEdu ? 'hide Education' : 'show Education'}}</button>
-</div>
+</div> --->
   <div class ="sebm-google-map-container"   >
 
 
@@ -305,11 +305,11 @@
      <!-- 'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'
      <agm-kml-layer [url]="'http://jbdemonte.github.io/angular-google-maps-native/assets/rungis-desc.kml'" [zIndex]="6"></agm-kml-layer>
      <agm-kml-layer [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="2"  ></agm-kml-layer>-->
-     <agm-kml-layer  *ngIf="showPrevious" [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'" [zIndex]="3" ></agm-kml-layer>
-     <agm-kml-layer  *ngIf="showWaste"  [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'" [zIndex]="4"></agm-kml-layer>
-     <agm-kml-layer  *ngIf="showFood"  [url]="'https://clydeelectronics.co.uk/kmlfiles/food.kml'" [zIndex]="5"></agm-kml-layer>
-     <agm-kml-layer  *ngIf="showEvent" [url]="'https://clydeelectronics.co.uk/kmlfiles/event.kml'" [zIndex]="6"></agm-kml-layer>
-     <agm-kml-layer *ngIf="showSites"  [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="7"></agm-kml-layer>
+     <agm-kml-layer  *ngIf="previousFlag" [url]="'https://clydeelectronics.co.uk/kmlfiles/previoususe.kml'" [zIndex]="3" ></agm-kml-layer>
+     <agm-kml-layer  *ngIf="supplierFlag"  [url]="'https://clydeelectronics.co.uk/kmlfiles/materialsnetwork.kml'" [zIndex]="4"></agm-kml-layer>
+     <agm-kml-layer  *ngIf="foodFlag"  [url]="'https://clydeelectronics.co.uk/kmlfiles/food.kml'" [zIndex]="5"></agm-kml-layer>
+     <agm-kml-layer  *ngIf="eventsFlag" [url]="'https://clydeelectronics.co.uk/kmlfiles/event.kml'" [zIndex]="6"></agm-kml-layer>
+     <agm-kml-layer *ngIf="sitesFlag"  [url]="'https://clydeelectronics.co.uk/kmlfiles/dvsites.kml'" [zIndex]="7"></agm-kml-layer>
      <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
 
@@ -400,7 +400,7 @@
       </agm-polyline>
 
 
-      <div    *ngIf="filterSci" >
+      <div    *ngIf="sciFlag" >
       <agm-marker
 
         *ngFor="let m of markers | async |search:'science'"
@@ -432,7 +432,7 @@
         </agm-info-window>
       </agm-marker>
       </div>
-     <div    *ngIf="filterCraft" >
+     <div    *ngIf="craftFlag" >
        <agm-marker
 
          *ngFor="let m of markers | async |search:'craft'"
@@ -462,10 +462,10 @@
              </md-card-content>
            </md-card>
          </agm-info-window>
-       </agm-marker>
+       </agm-marker>s
      </div>
 
-     <div    *ngIf="filterArt" >
+     <div    *ngIf="artFlag" >
        <agm-marker
 
          *ngFor="let m of markers | async |search:'artAndDesign'"
@@ -487,6 +487,8 @@
              </md-card-header>
 
              <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+
+
              <md-card-content>
 
 
@@ -499,7 +501,7 @@
      </div>
 
 
-     <div    *ngIf="filterHealth" >
+     <div    *ngIf="healthFlag" >
        <agm-marker
 
          *ngFor="let m of markers | async |search:'health'"
@@ -532,7 +534,7 @@
        </agm-marker>
      </div>
 
-     <div    *ngIf="filterEdu" >
+     <div    *ngIf="eduFlag" >
        <agm-marker
 
          *ngFor="let m of markers | async |search:'education'"

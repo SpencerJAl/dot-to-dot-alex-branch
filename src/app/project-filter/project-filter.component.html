@@ -2,29 +2,29 @@
 <div class="toggles ">
 <p></p>
   <div class="toggle-border">
-    <input type="checkbox" id="one" checked/>
+    <input [(ngModel)]="art"  (click)="changeArtFlag(!art)" type="checkbox" id="one" />
     <label for="one">
       <div class="artHandle"></div>
     </label>
   </div>
 <p></p>
   <div class="toggle-border">
-    <input type="checkbox" id="two" checked />
+    <input [(ngModel)]="craft"  (click)="changeCraftFlag(!craft)" type="checkbox" id="two" checked />
     <label for="two">
       <div class="craftHandle"></div>
     </label>
   </div>
 <p></p>
   <div class="toggle-border">
-    <input type="checkbox" id="three" checked />
+    <input [(ngModel)]="education"   (click)="changeEduFlag(!education)" type="checkbox" id="three" checked />
     <label for="three">
       <div class="eduHandle"></div>
-    </label>
+    </label>s
 
   </div>
 <p></p>
   <div class="toggle-border">
-    <input type="checkbox" id="four" checked />
+    <input [(ngModel)]="health"  (click)="changeHealthFlag(!health)" type="checkbox" id="four" checked />
     <label for="four">
       <div class="healthHandle"></div>
     </label>
@@ -32,14 +32,15 @@
 
 <p></p>
   <div class="toggle-border">
-    <input type="checkbox" id="five" checked />
+    <input [(ngModel)]="science" (click)="changeSciFlag(!science)" type="checkbox" id="five" checked />
     <label for="five">
       <div class="scienceHandle"></div>
     </label>
   </div>
 
 </div>
-
+<app-map-layers></app-map-layers>
+<p></p>
 <h3>Project Members</h3>
 
 <div *ngFor=" let p of profiles;">

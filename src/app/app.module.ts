@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import 'zone.js';
+import 'reflect-metadata';
 ///****************** FIREBASE **********************************//
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
@@ -99,6 +100,9 @@ import {GMapModule, ChartModule } from 'primeng/primeng';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { ScienceFilterPipe , SearchPipe } from './map/science-filter.pipe';
 import {UploadFileService} from "./services/uploadFile.servive";
+import {ProjectFilterDataService} from "./project-filter/project-filter-data.service";
+import { MapLayersComponent } from './map-layers/map-layers.component';
+import {MarkersService} from "./maps/markers.service";
 //import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -144,21 +148,23 @@ export const firebaseConfig = {
   storageBucket: "project--1058925460034076790.appspot.com",
   messagingSenderId: "779470844821"
 };
-*/
+
+ */
 
 
 /////   DEV
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo",
-  authDomain: "project--5383574466381407389.firebaseapp.com",
+apiKey: "AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo",
+ authDomain: "project--5383574466381407389.firebaseapp.com",
   databaseURL: "https://project--5383574466381407389.firebaseio.com",
   projectId: "project--5383574466381407389",
   storageBucket: "project--5383574466381407389.appspot.com",
-  messagingSenderId: "627281333849"
+  messagingSenderId: "6272813349"
 }
 /*
-export const firebaseAuthConfig = {
+/*
+export consrebaseAuthConfig = {
   provider: AuthProviders.Password,
   method:  AuthMethods.Password
 }
@@ -198,6 +204,7 @@ export const firebaseAuthConfig = {
     MyCompComponent,
     ScienceFilterPipe,
     SearchPipe,
+    MapLayersComponent,
     //FilterProjectPipe
   ],
   imports: [
@@ -242,6 +249,8 @@ export const firebaseAuthConfig = {
     ProjectService,
     UserService,
     UploadFileService,
+    ProjectFilterDataService,
+    MarkersService,
 
   ],
   bootstrap: [AppComponent]

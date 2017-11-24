@@ -24,12 +24,13 @@ import {NotificationsComponent}from "../notifications/notifications.component";
 
 
 export class HomeComponent implements OnInit {
-  zoom: number = 18;
-  lat: number = 55.8808026;
-  lng: number = -4.2745011;
-  label: string = 'STEAMpunks HQ';
+  // zoom: number = 18;
+  // lat: number = 55.8808026;
+  // lng: number = -4.2745011;
+  // label: string = 'STEAMpunks HQ';
+  showDiv:boolean;
 
-  options: any;
+  /*options: any;
   draggable: boolean;
   startLat: number   = -55.8808026;
 
@@ -42,34 +43,36 @@ export class HomeComponent implements OnInit {
   markers: FirebaseListObservable<any>;
   messagething:{};
   markerKeys;
-
+*/
 
 
   ////////////////////////message variables///////////////////////////
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-  public newMessage: string;
-  public messages: FirebaseListObservable<any>;
+  // @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  // public newMessage: string;
+  // public messages: FirebaseListObservable<any>;
 ///////////////////////////////////////////////////////////////////////
 
 
 
   constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
-    this.zoom = 18;
-    this.markers = this.afService.projects;
-    this.peoples = this._userService.getUsers();
-    this.messages = this.afService.messages;
-    this.markerKeys = Object.keys(this.afService.projects);
-    console.log('marker key is' + this.markerKeys[4]);
+    // this.zoom = 18;
+    // this.markers = this.afService.projects;
+    // this.peoples = this._userService.getUsers();
+    // this.messages = this.afService.messages;
+    // this.markerKeys = Object.keys(this.afService.projects);
+    // console.log('marker key is' + this.markerKeys[4]);
 
 
 
   }
 
-
+swipeDown(){
+    this.showDiv = !this.showDiv;
+}
 
 
 //////////////////////////dashboard component/////////////////////////////////////
-  ngAfterViewChecked() {
+  /*ngAfterViewChecked() {
     this.scrollToBottom();
   }
 
@@ -97,7 +100,7 @@ export class HomeComponent implements OnInit {
       return false;
     else
       return true;
-  }
+  }*/
   /////////////////////////////////////////////
 
 
@@ -109,7 +112,7 @@ export class HomeComponent implements OnInit {
    */
 
 
-  profiles: people[] = [];
+  /*profiles: people[] = [];
   test(m) {
     var people = m;
     console.log(m.id);
@@ -126,11 +129,14 @@ export class HomeComponent implements OnInit {
     }
 
 
-  }
+  }*/
 
 
-  ngOnInit() {
-    this.options = {
+  ngOnInit()
+{
+  this.showDiv=true;
+}
+    /*this.options = {
       center: {lat: 55.8808026, lng: -4.2745011},
       zoom: 16,
       style: mapStyle
@@ -174,11 +180,12 @@ export class HomeComponent implements OnInit {
 
 
 
-  }
+  }*/
 }
 
 
 
+/*
 export const mapStyle = [
   {
     "elementType": "geometry",
@@ -425,3 +432,4 @@ interface mess {
   message: string;
   timestamp: number;
 }
+*/

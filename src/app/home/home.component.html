@@ -2,27 +2,26 @@
   <div class="ui-grid-row">
 
 
-
     <!----- Map section ------>
-    <div class ="col-sm-12 sebm-google-map-container ">
+    <div class="col-sm-12 sebm-google-map-container ">
 
-      <!------------ section for project  notifications  ---------------->
-      <div id="floating-panel">
+      <!------------ section for project  notifications  id="floating-panel" ---------------->
+      <div show-gt-md flex id="floating-panel">
 
         <app-notifications></app-notifications>
       </div>
 
 
-      <!--------------------   filter section ---------------------------->
-        <div id="floating-panel2" >
-
+      <!--------------------   filter section --------  id="floating-panel2" -------------------->
+      <div show-gt-md flex id="floating-panel2">
+        <div md-swipe-down="swipeDown()"> Swipe down to show Filters</div>
+        <div *ngIf="showDiv">
           <app-project-filter></app-project-filter>
+
         </div>
+      </div>
 
       <div id="map">
-
-
-
 
 
         <googlemaps-root>
@@ -30,14 +29,9 @@
         </googlemaps-root>
       </div>
     </div>
-  </div>
+    <p> &nbsp;</p></div>
 
 
-
-
-
-<div class="ui-grid-row" ><p> &nbsp;</p></div>
-  <!--------------------   project summarys section ---------------------------->
   <div class="ui-grid-row">
       <app-project-summary></app-project-summary>
   </div>

@@ -3,6 +3,7 @@
  */
 import {GoogleMapsAPIWrapper} from '@agm/core/services/google-maps-api-wrapper';
 import { Directive,  Input} from '@angular/core';
+import {} from ''
 declare var google: any;
 
 @Directive({

@@ -11,10 +11,13 @@ import {MapsService} from '../services/maps.service';
 import {ProjectService} from '../services/localProject.service';
 import {UserService} from '../services/localUser.service';
 
+
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 import {AF} from '../providers/af';
 import {google} from '@agm/core/services/google-maps-types';
+import {Observable} from "rxjs/Observable";
+import{ProjectFilterDataService} from "../project-filter/project-filter-data.service";
 
 
 @Component({
@@ -28,7 +31,16 @@ export class GoogleMapsComponent implements OnInit {
   zoom: number = 18;
   lat: number = 55.8808026;
   lng: number = -4.2745011;
-  kmlFood: string = '../../images/dot.kml';
+  artFlag:boolean;
+  sciFlag:boolean;
+  healthFlag:boolean;
+  eduFlag:boolean;
+  craftFlag:boolean;
+  previousFlag:boolean;
+  supplierFlag:boolean;
+  eventsFlag:boolean;
+  foodFlag:boolean;
+  sitesFlag:boolean;
   myLayer: AgmKmlLayer ;
  // myLayerMan: KmlLayerManager = new KmlLayerManager(google, NgZone) ;
 
@@ -60,12 +72,13 @@ export class GoogleMapsComponent implements OnInit {
 
 
 
- constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
+ constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase, private projectFilterData:ProjectFilterDataService) {
    this.zoom=11;
    this.markers = this.afService.projects;
    this.peoples=this._userService.getUsers();
    this.messages = this.afService.messages;
    this.markerKeys=Object.keys(this.afService.projects);
+
 
    console.log('marker key is'+this.markerKeys[4]);
 
@@ -138,6 +151,17 @@ export class GoogleMapsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.projectFilterData.currentArt.subscribe(artFlag => this.artFlag = artFlag  );
+    this.projectFilterData.currentSci.subscribe( sciFlag => this.sciFlag = sciFlag)
+    this.projectFilterData.currentHealth.subscribe(healthFlag => this.healthFlag = healthFlag );
+    this.projectFilterData.currentEdu.subscribe( eduFlag => this.eduFlag = eduFlag);
+    this.projectFilterData.currentCraft.subscribe( craftFlag => this.craftFlag = craftFlag);
+    this.projectFilterData.currentPrevious.subscribe( previousFlag => this.previousFlag = previousFlag);
+    this.projectFilterData.currentFood.subscribe( foodFlag => this.foodFlag = foodFlag);
+    this.projectFilterData.currentEvent.subscribe( eventFlag => this.eventsFlag = eventFlag);
+    this.projectFilterData.currentVacant.subscribe( sitesFlag => this.sitesFlag = sitesFlag);
+    this.projectFilterData.currentSupplier.subscribe( supplierFlag => this.supplierFlag = supplierFlag);
+
     this.options = {
       center: {lat: 55.8808026, lng: -4.2745011},
       zoom: 16,
