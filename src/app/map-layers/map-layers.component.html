@@ -1,0 +1,34 @@
+<p>&nbsp;</p>
+<table>
+  <tr>
+    <td>
+      <input  class="css-checkbox" type="checkbox"  id="prev" [(ngModel)]="previousUse"  (click)="changePreviousFlag(!previousUse)"/>
+
+      <label class="css-label" for="prev"  >Historic Use &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input  type="checkbox"  id="2" [(ngModel)]="vacantSite" [(ngModel)]="vacantSite"  (click)="changeSitesFlag(!vacantSite)" class="css-checkbox" />
+      <label class="css-label" for="2">Vacant Sites&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    </td>
+  </tr>
+  <tr>
+     <td>
+      <input   class="css-checkbox" type="checkbox"  id="3" [(ngModel)]="supplierNetwork" [(ngModel)]="supplierNetwork"  (click)="changeSuppliersFlag(!supplierNetwork)">
+      <label class="css-label" for="3">Supplier Network</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input   class="css-checkbox" type="checkbox" id="4" [(ngModel)]="foodNetwork" [(ngModel)]="foodNetwork"  (click)="changeFoodFlag(!foodNetwork)">
+      <label class="css-label" for="4">Food Network&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input  class="css-checkbox" type="checkbox" id="5"  [(ngModel)]="events" [(ngModel)]="events"  (click)="changeEventsFlag(!events)"/>
+      <label class="css-label" for="5">Events&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    </td>
+  </tr>
+</table>

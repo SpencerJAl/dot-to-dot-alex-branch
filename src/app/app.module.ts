@@ -67,7 +67,9 @@ import {MdAutocompleteModule,
   MdTableModule,
   MdTabsModule,
   MdToolbarModule,
-  MdTooltipModule,} from '@angular/material';
+  MdTooltipModule,
+ } from '@angular/material';
+
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuard} from "./login/auth.guard";
@@ -110,7 +112,6 @@ export let MD_MODULES: any = [
   MdButtonModule,
   MdButtonToggleModule,
   MdCardModule,
-  MdCheckboxModule,
   MdChipsModule,
   //MdCoreModule,
   MdDatepickerModule,
@@ -149,7 +150,7 @@ export const firebaseConfig = {
   messagingSenderId: "779470844821"
 };
 
- */
+*/
 
 
 /////   DEV
@@ -162,6 +163,7 @@ apiKey: "AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo",
   storageBucket: "project--5383574466381407389.appspot.com",
   messagingSenderId: "6272813349"
 }
+
 /*
 /*
 export consrebaseAuthConfig = {
@@ -251,6 +253,7 @@ export consrebaseAuthConfig = {
     UploadFileService,
     ProjectFilterDataService,
     MarkersService,
+    [MD_MODULES],
 
   ],
   bootstrap: [AppComponent]

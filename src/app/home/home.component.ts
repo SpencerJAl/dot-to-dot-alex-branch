@@ -66,9 +66,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-swipeDown(){
-    this.showDiv = !this.showDiv;
-}
 
 
 //////////////////////////dashboard component/////////////////////////////////////
@@ -136,6 +133,11 @@ swipeDown(){
 {
   this.showDiv=true;
 }
+
+  swipeDown(){
+    this.showDiv = !this.showDiv;
+  }
+
     /*this.options = {
       center: {lat: 55.8808026, lng: -4.2745011},
       zoom: 16,

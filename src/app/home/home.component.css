@@ -6,6 +6,8 @@
  * element that contains the map. */
 #map {
   height: 100%;
+  width: 100%;
+  padding:0;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -13,10 +15,35 @@ html, body {
   margin: 0;
   padding: 0;
 }
-#floating-panel {
+#slideout {
   position: absolute;
+  top: 40px;
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#slideout_inner {
+  position: fixed;
+  top: 40px;
+  left: -250px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#slideout:hover {
+  left: 350px;
+}
+#slideout:hover #floating-panel {
+  left: 0;
+}
+
+#floating-panel {
+  position: fixed;
   top: 12%;
-  left: 10%;
+  left: -350px;
   z-index: 5;
   background-color: #fff;
   padding: 1px;
@@ -34,11 +61,11 @@ html, body {
 
 
   border: 0px solid #999;
-  left: 20px;
-  width: 330px;
+
+ width:330px;
   padding: 5px;
-  position: absolute;
-  top: 12%;
+  position: fixed;
+  top: 20%;
   z-index: 5;
   overflow-x:hidden;
 
@@ -47,24 +74,28 @@ html, body {
 #floating-panel2 {
   position: absolute;
   border-radius: 5px ;
-  top: 10%;
-  left: 80%;
+  top: 0;
+  right: calc(5% + 5px);
+
+  left: calc(80% - 240px) ;
+  min-width:240px;
+
   z-index: 5;
   background-color: #fff;
-  padding: 5px;
+  padding: 2px;
   border: 1px solid #999;
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 #floating-panel2 {
   background-color:  rgba(255, 255, 255, 0.40);
 
   border: 0px solid #999;
-  left: 85%;
-  padding: 5px;
+
+  padding: 2px;
   position: absolute;
-  top: 10%;
+  top: 0;
   z-index: 5;
 }

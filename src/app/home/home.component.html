@@ -6,15 +6,17 @@
     <div class="col-sm-12 sebm-google-map-container ">
 
       <!------------ section for project  notifications  id="floating-panel" ---------------->
-      <div show-gt-md flex id="floating-panel">
-
-        <app-notifications></app-notifications>
+      <div hide-xs hide-sm show-md flex id="slideout">
+        <img src = "../../images/messages.png"  alt="messages"/>
+        <div id="floating-panel">
+          <app-notifications></app-notifications>
+        </div>
       </div>
 
 
       <!--------------------   filter section --------  id="floating-panel2" -------------------->
-      <div show-gt-md flex id="floating-panel2">
-        <div md-swipe-down="swipeDown()"> Swipe down to show Filters</div>
+      <div  hide-sm hide-xs flex id="floating-panel2">
+        <!--<div  hide-sm md-swipe-down="swipeDown()"> Swipe down to show Filters</div>-->
         <div *ngIf="showDiv">
           <app-project-filter></app-project-filter>
 
