@@ -79,6 +79,7 @@ html, body {
 
   left: calc(80% - 240px) ;
   min-width:240px;
+  max-width: 240px;
 
   z-index: 5;
   background-color: #fff;
