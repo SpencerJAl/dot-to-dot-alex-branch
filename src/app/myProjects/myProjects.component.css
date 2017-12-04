@@ -1,0 +1,31 @@
+#my_project {
+  width: 45%;
+  float: left;
+  margin-left: 2.5%; }
+
+#joined_project {
+  width: 45%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 2.5%;
+  margin-top: -22px; }
+
+.projectlist {
+  background-color: yellow !important; }
+
+.education {
+  background: #31acff; }
+
+.science {
+  background: #ff0dda; }
+
+.artAndDesign {
+  background: #ffee0f; }
+
+.health {
+  background: #a6fc05; }
+
+.craftAndWorkshop {
+  background: #ed2d28; }
+
+/*# sourceMappingURL=myProjects.component.css.map */

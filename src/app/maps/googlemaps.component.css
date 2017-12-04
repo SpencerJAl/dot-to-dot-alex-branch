@@ -1,0 +1,61 @@
+.sebm-google-map-container {
+  height: 670px;
+  width: 100%;
+  zoom: 1;
+  margin: 0;
+  position: relative; }
+
+.example-card {
+  width: 200px;
+  background-color: #000000;
+  color: white; }
+
+.example-header-image {
+  background-image: url("../../images/tesco.jpg");
+  background-size: cover; }
+
+.dot-to-dot {
+  icon: url("../../images/dot-to-dot-marker.png");
+  color: yellow;
+  background-color: aqua; }
+
+.google-map-overlay {
+  width: 500px;
+  height: 380px;
+  background: white;
+  position: absolute;
+  opacity: 0.5;
+  /*add this*/
+  top: 0;
+  left: 0;
+  z-index: 99; }
+
+.education {
+  background: #31acff; }
+
+.science {
+  background: #ff0dda; }
+
+.artAndDesign {
+  background: #ffee0f; }
+
+.health {
+  background: #a6fc05; }
+
+.craftAndWorkshop {
+  background: #ed2d28; }
+
+.myImage {
+  width: 190px;
+  margin-right: 0;
+  margin-left: 0; }
+
+.myCard {
+  width: 200px;
+  font-size: small;
+  margin: auto;
+  padding: 2%;
+  display: inline-block;
+  vertical-align: top; }
+
+/*# sourceMappingURL=googlemaps.component.css.map */

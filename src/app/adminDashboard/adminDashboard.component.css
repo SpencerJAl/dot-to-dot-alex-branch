@@ -1,0 +1,22 @@
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 16px;
+  border: 1px solid #1A237E; }
+
+.education {
+  background: #31acff; }
+
+.science {
+  background: #ff0dda; }
+
+.artAndDesign {
+  background: #ffee0f; }
+
+.health {
+  background: #a6fc05; }
+
+.craftAndWorkshop {
+  background: #ed2d28; }
+
+/*# sourceMappingURL=adminDashboard.component.css.map */
