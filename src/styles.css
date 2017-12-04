@@ -1,35 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
-body{
+@import url(~@angular/material/prebuilt-themes/indigo-pink.css);
+body {
   font-family: Calibri, sans-serif;
-  color:black;;
-}
+  color: black; }
+
 .bar {
   background-color: white;
-  align-content: center;
-}
+  align-content: center; }
 
-.bar nav{
-  background-color: yellow;
+.bar nav {
+  background-color: yellow; }
 
-}
-.bar nav a:hover{
+.bar nav a:hover {
   background-color: lightgoldenrodyellow;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-.myfooter{
-
+.myfooter {
   background-color: #FFFF00;
   font-size: x-small;
-  colour:black;
-}
+  colour: #000000; }
 
-.centerImage
-{
-  text-align:center;
-  display:block;
+.centerImage {
+  text-align: center;
+  display: block;
   margin-left: auto;
-  margin-right: auto
-}
+  margin-right: auto; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -15,7 +15,7 @@ import {AppComponent} from "../app.component";
 import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
 
 import {AF} from "../providers/af";
-
+import {MarkersService} from "../maps/markers.service";
 
 @Component({
   selector: 'app-notifications',
@@ -31,6 +31,7 @@ export class NotificationsComponent implements OnInit {
   messagething:{};
   markerKeys;
   public isLogin:boolean;
+  projectID:string;
 
 
 
@@ -43,7 +44,7 @@ export class NotificationsComponent implements OnInit {
 
 
 
-    constructor(public afService:AF, private appCom:AppComponent, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
+    constructor(public afService:AF, private markerService :MarkersService, private appCom:AppComponent, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
 
       this.markers = this.afService.projects;
       this.peoples=this._userService.getUsers();
@@ -126,7 +127,9 @@ export class NotificationsComponent implements OnInit {
 
 
       }
-      this.messagething={name:"general", id:3};
+      this.markerService.currentProjectID.subscribe(projectID => this.projectID= projectID  );
+      this.messagething={name:"general", id:this.projectID};
+
 
 
 

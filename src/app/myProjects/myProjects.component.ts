@@ -34,7 +34,7 @@ export class MyProjectsComponent implements OnInit {
               private router: Router, private route: ActivatedRoute) { /*searchs the database for information */
     this.user = db.list('registeredUsers/');
     /* this.ownedProjects = db.database.list('registeredUsers/joinedProjects/');*/
-    this.ownedProjects = db.list('registeredUsers/id/ownedProjects/' + this.route.snapshot.params['id']);
+    this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
     this.ownedProjects.subscribe((p) => {
       this.myProj = p;
 

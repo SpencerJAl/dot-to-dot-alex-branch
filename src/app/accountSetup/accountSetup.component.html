@@ -1,18 +1,19 @@
 <md-card>
 <h1> please set up your account</h1>
-<form (submit)="register($event, pDescription.value, pSummary.value)"class="form-signin">
+<form (submit)="register($event, pDescription.value, pSummary.value)" class="form-signin">
 
   <label >About Yourself</label>
-          <textarea
-            #pDescription
-            type="text"
-            class="form-control"
-            rows = "5"
-            cols = "80"></textarea>
+  <label for="#pDescription">
+<textarea
+  id="#pDescription"
+  type="text"
+  class="form-control"
+  rows="5"
+  cols="80"></textarea>
+    Summarize Yourself</label>
 
-  <label > Summarize Yourself</label>
-          <textarea
-            #pSummary
+  <label for="#pSummary"></label><textarea
+            id="#pSummary"
             type="text"
             class="form-control"
             rows = "3"

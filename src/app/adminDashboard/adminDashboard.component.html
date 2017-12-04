@@ -1,4 +1,4 @@
-<h1>Admin ashboard</h1>
+<h1>Admin Dashboard</h1>
 
 
 <div class="col-sm-3">
@@ -7,8 +7,9 @@
 
     <label>Search: <input ng-model="searchText"></label>
     <div *ngFor=" let u of users |async|search:searchText">
-      <md-card>
+      <md-card class="">
         <div>
+          <img src= "{{u.avatar}}" class="avatar"/>
           <p class="member">{{u.name}}</p>
           <a href="#" [routerLink]="['/userProfile',u.name]">view profile</a>
           <button (click)="remove(u.id)">Delete</button>
@@ -25,7 +26,7 @@
   <h2>project requests</h2>
   <md-card>
     <div *ngFor=" let pr of projectRequests |async">
-      <md-card>
+      <md-card class="{{pr.type}}">
         <div>
           <p class="member">{{pr.name}}</p>
           <p>{{pr.summary}}</p>

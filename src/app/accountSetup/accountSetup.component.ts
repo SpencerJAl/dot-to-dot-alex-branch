@@ -7,10 +7,17 @@ import {AF} from '../providers/af';
   styleUrls: ['./accountSetup.component.scss']
 })
 export class AccountSetupComponent {
+  get options(): ({name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean})[] {
+    return this._options;
+  }
+
+  set options(value: ({name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean}|{name: string; value: string; checked: boolean})[]) {
+    this._options = value;
+  }
   error: any;
   interests= {};
 
-  options = [
+  private _options = [
     {name: 'Art', value: 'Art & Design', checked: false},
     {name: 'Science', value: 'Science', checked: false},
     {name: 'Health', value: 'Health', checked: false},
@@ -23,7 +30,7 @@ export class AccountSetupComponent {
 
 
   get selectedOptions() { // right now: ['1','3']
-    return this.options
+    return this._options
       .filter(opt => opt.checked)
       .map(opt => opt.value);
   }

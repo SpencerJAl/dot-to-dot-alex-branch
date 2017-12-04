@@ -18,7 +18,7 @@ import {AF} from '../providers/af';
 import {google} from '@agm/core/services/google-maps-types';
 import {Observable} from "rxjs/Observable";
 import{ProjectFilterDataService} from "../project-filter/project-filter-data.service";
-
+import{MarkersService} from "./markers.service";
 
 @Component({
   selector: 'googlemaps-root',
@@ -28,6 +28,7 @@ import{ProjectFilterDataService} from "../project-filter/project-filter-data.ser
 
 
 export class GoogleMapsComponent implements OnInit {
+
   zoom: number = 18;
   lat: number = 55.8808026;
   lng: number = -4.2745011;
@@ -41,6 +42,7 @@ export class GoogleMapsComponent implements OnInit {
   eventsFlag:boolean;
   foodFlag:boolean;
   sitesFlag:boolean;
+  currentProjectID:string;
   myLayer: AgmKmlLayer ;
  // myLayerMan: KmlLayerManager = new KmlLayerManager(google, NgZone) ;
 
@@ -72,7 +74,7 @@ export class GoogleMapsComponent implements OnInit {
 
 
 
- constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase, private projectFilterData:ProjectFilterDataService) {
+ constructor(public afService:AF, private maps: MapsService, private markerService : MarkersService,private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase, private projectFilterData:ProjectFilterDataService) {
    this.zoom=11;
    this.markers = this.afService.projects;
    this.peoples=this._userService.getUsers();
@@ -133,7 +135,9 @@ export class GoogleMapsComponent implements OnInit {
   profiles: people[]=[];
   test(m){
     var people=m;
-    console.log(m.id);
+    console.log("marker id "+ m.id);
+    this.markerService.changeProjectID(m.id);
+    console.log("project ID " + m.id + " project key " +m)
     this.afService.getProjectMessages(m.id);
     this.messages=this.afService.messages;
     //this.profiles=this.peoples;

@@ -3,12 +3,9 @@
 .myCard{
   width: 18%;
   font-size: small;
-  margin: auto;
   padding: 2% ;
   display: inline-block;
-  margin-top: 10px;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 10px 5px auto;
   min-height: 500px;
   max-height: 500px;
   vertical-align: top;
@@ -17,7 +14,7 @@
 }
 
 .myCardList{
-  margin-top: 0%;
+  margin-top: 0;
   display: block;
 }
 

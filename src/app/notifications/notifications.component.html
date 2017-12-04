@@ -6,7 +6,7 @@
          <div class="messgageContent">
             <div class="loz science">
               <img src="../../images/sciIcon.png" alt="avatar" class="avatar swag">
-              <p>Come to our event on the 22nd?</p>
+              <p>Come to our event on the 22nd</p>
             </div>
             <div class="loz health">
               <img src="../../images/healthIcon.png" alt="avatar" class="avatar swag">
@@ -51,7 +51,9 @@
       </div>
 
       <figure class="highlight" >
-        <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        <label>
+          <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        </label>
         <a class="send-message" (click)="sendMessage()">SEND</a>
       </figure>
     </md-tab>

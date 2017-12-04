@@ -206,7 +206,7 @@ export class AF {
       }).then(() => {this.projectDecline(delID); });
     });
 
-    /*return this.af.list('projects/').push(project).then((p)=>{
+    /*return this.af.list('projects/').pusrdish(project).then((p)=>{
       console.log("attempting to push the id to the project");
       this.af.object('projects/'+p.uid).update({
         id :p.uid
@@ -232,7 +232,7 @@ export class AF {
    */
   // creates a request to the admins to approve or decline a new project
   sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng){
-    const icontype = '../../images/' + projectType + '.jpg';
+    const icontype = '../../images/' + projectType + '.png';
     const project = {
       name: projectName,
       description: projectDisc,
