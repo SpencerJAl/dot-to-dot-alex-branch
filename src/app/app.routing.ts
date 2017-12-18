@@ -28,6 +28,7 @@ import {MyProjectsComponent} from "./myProjects/myProjects.component";
 import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
 import {ProjectSummaryComponent} from "./project-summary/project-summary.component";
 import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
+import {SupplierRequestComponent} from './supplier-request/supplier-request.component';
 const appRoutes: Routes = [
   { path: '', component:HomeComponent,
 
@@ -142,6 +143,11 @@ const appRoutes: Routes = [
     component: RecycledSupplierComponent,
     data: {title: 'Waste Supplier'}
   },
+  {
+    path: 'supplierRequest/:id',
+    component: SupplierRequestComponent,
+    data: {title: 'Supplier Request'}
+  }
 
 
 ];

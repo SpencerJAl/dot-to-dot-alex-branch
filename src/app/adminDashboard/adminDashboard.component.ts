@@ -14,13 +14,14 @@ export class AdminDashboardComponent implements OnInit {
 
   users: FirebaseListObservable<any>;
   projectRequests: FirebaseListObservable<any>;
-
+  supplierRequests: FirebaseListObservable<any>;
   ngOnInit() {
     console.log(this.afService.getUsers());
   }
   constructor(private afService: AF, private router: Router, private af: AngularFireDatabase) {
     this.users = af.list('registeredUsers/');
     this.projectRequests = af.list('projectRequests/');
+    this.supplierRequests = af.list('supplierRequests/');
   }
   remove(id) {
     console.log('remove works');

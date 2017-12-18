@@ -1,0 +1,12 @@
+<h1 align="center" >{{(project | async)?.name}}</h1>
+
+
+<h2 align="center">Description</h2>
+<p align="center">{{(project | async)?.description}}</p>
+
+<h2 align="center">Summary</h2>
+<p align="center">{{(project | async)?.summary}}</p>
+
+<button (click)="approve() " align="center">approve</button>
+<button (click)="decline() " align="center">reject</button>
+<button (click)="test() " align="center">test</button>

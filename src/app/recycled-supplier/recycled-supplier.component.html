@@ -5,104 +5,68 @@
 </div>
 
 <div class="modal-dialog"  >
-  <div class="example-form" >
+  <div class="loginmodal-container" >
     <h1>Add a new recycle supplier</h1>
 
-    <form (submit)="createSupplier($event, supplierName.value, address.value, address2.value, supplierDescription.value, supplierSummary.value, location.value)" class="example-form">
-      <div class = "form-group">
-        <div *ngIf="currentFileUpload" class="progress" style="width:400px">
-          <div class="progress-bar progress-bar-info progress-bar-striped"
-               role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
-               aria-valuemin="0" aria-valuemax="100"
-               [ngStyle]="{width:progress.percentage+'%'}">
-            {{progress.percentage}}%</div>
-        </div>
+    <form (submit)="createSupplier($event, supplierName.value, address.value, address2.value, supplierDescription.value, supplierSummary.value, location.value )">
 
-        <label class="btn btn-default"> <input type="file"
-                                               (change)="selectFile($event)">
-        </label>
-      <!---<div class = "form-group">
-        <label for="supplierName" class="sr-only">Name</label>
-        <input #supplierName type="text" id="supplierName" class="form-control" placeholder="Name" required="">
-      </div>--->
+      <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+        <div
+          class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+          aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{width:progress.percentage+'%'}">
+          {{progress.percentage}}%
+        </div>
+      </div>
+
+      <label class="btn btn-default">
+        <input type="file" (change)="selectFile($event)">
+      </label>
+
       <md-input-container class="example-full-width">
-        <input  mdInput #supplierName id="supplierName" placeholder="Name or Company"  value="">
+        <input   #supplierName mdInput id="supplierName" placeholder="Name or Company"  >
       </md-input-container>
-        </div>
-      <div class = "form-group">
 
-        <p>
-          <md-input-container class="example-full-width">
-            <textarea #address1 mdInput placeholder="Address"></textarea>
-          </md-input-container>
-          <md-input-container class="example-full-width">
-            <textarea #address2 mdInput placeholder="Address 2"></textarea>
-          </md-input-container>
-        </p>
       <md-input-container class="example-full-width">
-        <input mdInput  #location id ="location" maxlength="7" placeholder="Postal Code" value="">
+        <input #address mdInput id="address" placeholder="Address">
+      </md-input-container>
+
+      <md-input-container class="example-full-width">
+        <input #address2 mdInput id="address2" placeholder="Address 2">
+      </md-input-container>
+
+      <md-input-container class="example-full-width">
+        <input #location mdInput id ="location" maxlength="7" placeholder="Postal Code" >
         <!---<md-hint align="end">enter your postcode</md-hint>--->
       </md-input-container>
-        </div>
-     <!--- <div class = "form-group">
-        <label for="location" class="sr-only">Postcode</label>
-        <input type="text" id ="location" class="form-control" placeholder="Postcode">
-      </div> --->
-      <div class = "form-group">
+
       <md-input-container class="example-full-width">
-           <textarea mdInput
-                     rows = "5"
-                       cols = "80"
-                       #supplierDescription
-                        placeholder="Supplier Description">
-
+           <textarea
+             #supplierDescription
+             mdInput
+             rows = "5"
+             cols = "80"
+             placeholder="Supplier Description"
+             id="supplierDescription"
+           >
            </textarea>
-
       </md-input-container>
-        </div>
-      <div class = "form-group">
+
       <md-input-container class="example-full-width">
-           <textarea   mdInput #supplierSummary
-                       rows = "3"
-                       cols = "80"
-
-                       placeholder="Supplies">
-
+           <textarea
+             #supplierSummary
+             mdInput
+             rows = "3"
+             cols = "80"
+             placeholder="Summary"
+             id="supplierSummary"
+           >
            </textarea>
-
       </md-input-container>
-      </div>
-        <!---
-      <div class = "form-group">
-        <label class="sr-only">Supplier Description</label>
-        <textarea
-          #supplierDescription
-          rows = "5"
-          cols = "80"
-          class="form-control"
-          placeholder="Profile Description"
-        ></textarea>
-      </div>
 
-      <div class = "form-group">
-        <label class="sr-only">Supplier Summary</label>
-        <textarea
-          #supplierSummary
-          rows = "3"
-          cols = "80"
-          class="form-control"
-          placeholder="Supplier Summary"
-        ></textarea>
-      </div>
-
-      <button  class="btn btn-md btn-primary btn-block md-raised-button" type="submit">Save Supplier</button>
-
-      <button  class="md-raised-button" type="submit">Save Supplier</button>    --->
-      <button md-raised-button type="submit">Save Supplier</button>
+      <button  class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
     </form>
-  <div>
-    <p>&nbsp;</p>
-  </div>
 
   </div>
 </div>

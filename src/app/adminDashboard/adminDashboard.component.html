@@ -37,3 +37,18 @@
   </md-card>
 </div>
 
+<div class="col-sm-3">
+  <h2>Supplier requests</h2>
+  <md-card>
+    <div *ngFor=" let pr of supplierRequests |async">
+      <md-card class="{{pr.type}}">
+        <div>
+          <p class="member">{{pr.name}}</p>
+          <p>{{pr.summary}}</p>
+          <a href="#" [routerLink]="['/supplierRequest',pr.id]">View Details</a>
+        </div>
+      </md-card>
+    </div>
+  </md-card>
+</div>
+

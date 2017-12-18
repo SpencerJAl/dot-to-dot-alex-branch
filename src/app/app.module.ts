@@ -105,6 +105,7 @@ import {UploadFileService} from "./services/uploadFile.servive";
 import {ProjectFilterDataService} from "./project-filter/project-filter-data.service";
 import { MapLayersComponent } from './map-layers/map-layers.component';
 import {MarkersService} from "./maps/markers.service";
+import { SupplierRequestComponent } from './supplier-request/supplier-request.component';
 //import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -207,6 +208,7 @@ export consrebaseAuthConfig = {
     ScienceFilterPipe,
     SearchPipe,
     MapLayersComponent,
+    SupplierRequestComponent,
     //FilterProjectPipe
   ],
   imports: [

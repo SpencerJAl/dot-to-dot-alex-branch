@@ -214,10 +214,41 @@ export class AF {
       ).then(()=>{this.projectDecline(p.uid);});
     }); */
   }
+  supplierApprove(project, delID) {
 
+
+
+    let key;
+    console.log('project name is ' + project.name);
+
+    return this.af.list('suppliers').push(project).then((p) => {
+      key = p.key;
+
+      console.log('project deleted' + p.key);
+
+      this.af.object('suppliers/' + p.uid).update({
+        id: key,
+      }).then(() => {this.supplierDecline(delID); });
+    });
+
+    /*return this.af.list('projects/').pusrdish(project).then((p)=>{
+      console.log("attempting to push the id to the project");
+      this.af.object('projects/'+p.uid).update({
+        id :p.uid
+      }
+      ).then(()=>{this.projectDecline(p.uid);});
+    }); */
+  }
   projectDecline(id) {
     console.log('project declined is' + id);
     return this.af.list('projectRequests/').remove(id).then(() => {
+      console.log('project deleted' + id);
+    });
+  }
+
+  supplierDecline(id) {
+    console.log('project declined is' + id);
+    return this.af.list('supplierRequests/').remove(id).then(() => {
       console.log('project deleted' + id);
     });
   }
