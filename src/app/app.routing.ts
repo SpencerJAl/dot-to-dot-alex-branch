@@ -29,6 +29,11 @@ import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
 import {ProjectSummaryComponent} from "./project-summary/project-summary.component";
 import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
 import {SupplierRequestComponent} from './supplier-request/supplier-request.component';
+import {WhatIsComponent} from "./what-is/what-is.component";
+import {AboutUsComponent} from "./about-us/about-us.component";
+import {FaqComponent} from "./faq/faq.component";
+import {PartnersComponent} from "./partners/partners.component";
+import {UsefulLinksComponent} from "./useful-links/useful-links.component";
 const appRoutes: Routes = [
   { path: '', component:HomeComponent,
 
@@ -147,7 +152,33 @@ const appRoutes: Routes = [
     path: 'supplierRequest/:id',
     component: SupplierRequestComponent,
     data: {title: 'Supplier Request'}
+  },
+  {
+    path: 'whatIs',
+    component: WhatIsComponent,
+    data: {title: 'What is Dot to Dot'}
+  },
+  {
+    path: 'aboutUs',
+    component: AboutUsComponent,
+    data: {title: 'What is Dot to Dot'}
+  },
+  {
+    path: 'partners',
+    component: PartnersComponent,
+    data: {title: 'Partners'}
+  },
+  {
+    path: 'faq',
+    component: FaqComponent,
+    data: {title: 'FAQs'}
+  },
+  {
+    path: 'usefulLink',
+    component: UsefulLinksComponent,
+    data: {title: 'Useful Links'}
   }
+
 
 
 ];

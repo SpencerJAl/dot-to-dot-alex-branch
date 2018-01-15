@@ -24,17 +24,29 @@
 
 <div class="col-sm-3">
   <h2>project requests</h2>
-  <md-card>
-    <div *ngFor=" let pr of projectRequests |async">
-      <md-card class="{{pr.type}}">
-        <div>
-          <p class="member">{{pr.name}}</p>
-          <p>{{pr.summary}}</p>
-          <a href="#" [routerLink]="['/projectRequest',pr.id]">View Details</a>
-        </div>
-      </md-card>
-    </div>
-  </md-card>
+
+     <div  *ngFor=" let pr of projectRequests |async">
+       <md-card class="myCard  {{pr.type}}">
+
+           <md-card-header>
+
+
+             <md-card-title href="#" [routerLink]="['/projects',pr.id]">
+               <p><img class="card-avatar" src="{{pr.icon}}" /><strong>&nbsp; &nbsp; {{pr.name}}</strong></p>
+             </md-card-title>
+
+           </md-card-header>
+
+         <md-card-content>
+            <p>
+              <img md-card-image  class="myImage"  src="{{pr.image}}" alt="Project Image" />
+            </p>
+           <p>{{pr.summary}}</p>
+           <a href="#" [routerLink]="['/projectRequest',pr.id]">View Details</a>
+         </md-card-content>
+       </md-card>
+     </div>
+
 </div>
 
 <div class="col-sm-3">

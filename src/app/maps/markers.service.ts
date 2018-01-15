@@ -5,13 +5,25 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 export class MarkersService {
  private ProjectID = new BehaviorSubject<string>("3");
  currentProjectID = this.ProjectID.asObservable();
-
+  private ProjectName = new BehaviorSubject<string>("General");
+  currentProjectName = this.ProjectName.asObservable();
+  private ProjectType = new BehaviorSubject<string>("general");
+  currentProjectType = this.ProjectName.asObservable();
   constructor() { }
-  changeProjectID( nextProjectID : string ){
-  this.ProjectID.next(nextProjectID);
-  console.log("Current Project ID "+ nextProjectID);
-}
 
+  changeProjectID( nextProjectID : string ) {
+    this.ProjectID.next(nextProjectID);
+    console.log("Current Project ID " + nextProjectID);
+  }
+
+  changeProjectName( nextProjectName : string ){
+      this.ProjectName.next(nextProjectName);
+      console.log("Current Project Name "+ nextProjectName);
+  }
+  changeProjectType( nextProjectType : string ){
+    this.ProjectType.next(nextProjectType);
+    console.log("Current Project Type "+ nextProjectType);
+  }
 
 
 }

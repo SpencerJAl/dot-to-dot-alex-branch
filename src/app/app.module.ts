@@ -70,6 +70,7 @@ import {MdAutocompleteModule,
   MdTooltipModule,
  } from '@angular/material';
 
+import {DirectionsMapDirective } from './maps/googlemaps.directions';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuard} from "./login/auth.guard";
@@ -106,6 +107,11 @@ import {ProjectFilterDataService} from "./project-filter/project-filter-data.ser
 import { MapLayersComponent } from './map-layers/map-layers.component';
 import {MarkersService} from "./maps/markers.service";
 import { SupplierRequestComponent } from './supplier-request/supplier-request.component';
+import { WhatIsComponent } from './what-is/what-is.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FaqComponent } from './faq/faq.component';
+import { PartnersComponent } from './partners/partners.component';
+import { UsefulLinksComponent } from './useful-links/useful-links.component';
 //import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -175,11 +181,14 @@ export consrebaseAuthConfig = {
 */
 
 //  GoogleMapsComponent,
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SafeUrlPipe,
+    DirectionsMapDirective,
     ProjectsComponent,
     UsersComponent,
     UsersProfilesComponent,
@@ -209,6 +218,11 @@ export consrebaseAuthConfig = {
     SearchPipe,
     MapLayersComponent,
     SupplierRequestComponent,
+    WhatIsComponent,
+    AboutUsComponent,
+    FaqComponent,
+    PartnersComponent,
+    UsefulLinksComponent,
     //FilterProjectPipe
   ],
   imports: [

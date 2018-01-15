@@ -93,35 +93,35 @@ export class GoogleMapsComponent implements OnInit {
 
 //////////////////////////dashboard component/////////////////////////////////////
   ngAfterViewChecked() {
-    this.scrollToBottom();
+  //  this.scrollToBottom();
   }
 
-  scrollToBottom(): void {
-    try {
-      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }
-  }
+  /*
+*  scrollToBottom(): void {
+ *   try {
+ *     this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+ *   } catch(err) { }
+ * }
+ * sendMessage(){
+ *   this.afService.sendMessage(this.newMessage);
+ *   this.newMessage = '';
+*
+* }
 
-  sendMessage(){
-    this.afService.sendMessage(this.newMessage);
-    this.newMessage = '';
-
-  }
-
-  isYou(email) {
-    if(email == this.afService.email)
-      return true;
-    else
-      return false;
-  }
-
-  isMe(email) {
-    if(email == this.afService.email)
-      return false;
-    else
-      return true;
-  }
-  /////////////////////////////////////////////
+*  isYou(email) {
+*    if(email == this.afService.email)
+*      return true;
+*    else
+*      return false;
+*  }
+*
+*  isMe(email) {
+ *   if(email == this.afService.email)
+ *     return false;
+*    else
+*      return true;
+*  }
+  */////////////////////////////////////////////
 
 
 
@@ -137,7 +137,9 @@ export class GoogleMapsComponent implements OnInit {
     var people=m;
     console.log("marker id "+ m.id);
     this.markerService.changeProjectID(m.id);
-    console.log("project ID " + m.id + " project key " +m)
+    this.markerService.changeProjectName(m.name);
+    this.markerService.changeProjectType(m.type);
+    console.log("project ID " + m.id + " project key: " +m + "project type: " + m.type);
     this.afService.getProjectMessages(m.id);
     this.messages=this.afService.messages;
     //this.profiles=this.peoples;

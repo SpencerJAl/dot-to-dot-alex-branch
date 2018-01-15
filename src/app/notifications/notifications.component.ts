@@ -32,6 +32,8 @@ export class NotificationsComponent implements OnInit {
   markerKeys;
   public isLogin:boolean;
   projectID:string;
+  projectName:string;
+  projectType:string;
 
 
 
@@ -71,7 +73,9 @@ export class NotificationsComponent implements OnInit {
   }
 
     sendMessage(){
+      console.log("new message = "+ this.newMessage);
       this.afService.sendMessage(this.newMessage);
+
       this.newMessage = '';
 
     }
@@ -128,8 +132,11 @@ export class NotificationsComponent implements OnInit {
 
       }
       this.markerService.currentProjectID.subscribe(projectID => this.projectID= projectID  );
-      this.messagething={name:"general", id:this.projectID};
+      this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
+      this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
+      this.messagething={name:this.projectName, id:this.projectID};
 
+      this.afService.getProjectMessages(this.projectID);
 
 
 

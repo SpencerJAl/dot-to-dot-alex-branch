@@ -2,7 +2,7 @@
   <div id="my_project" class="projectlist">
     <md-card>
       <h1>My Projects</h1>
-      <md-card>
+      <md-card class="myCard {{project.type}}"  *ngFor="let project of projects|async ">
         <div class="my_project">
           <h2>{{(project | async)?.name}} </h2>
           <h3>Summary</h3>

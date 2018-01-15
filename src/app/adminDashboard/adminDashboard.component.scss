@@ -1,3 +1,5 @@
+@import '../project-summary/project-summary.component.scss';
+
 .avatar{
   width:30px;
   height :30px;
@@ -6,35 +8,92 @@
   border: 1px solid #1A237E;
 }
 
-
+.myCard{
+  width:400px;
+  min-height: 100px;
+  max-height: 600px;
+  height:auto;
+}
 .education {
   background:  rgb(49,172,255);
-
+  border:  2px solid darkblue;
+  border-radius: 10px;
 }
 
 .science {
 
   background: rgb(255,13,218);
+  border:  2px solid purple;
+  border-radius: 10px;
+  color:white;
+}
 
-
+.science a{
+color:white;
+}
+.science a:hover{
+  color:lightyellow;
+  text-decoration: underline;
 }
 
 .artAndDesign {
 
   background:  rgb(255,238,15) ;
-
+  border:  2px solid darkorange;
+  border-radius: 10px;
 
 }
 .health {
 
   background: rgb(166,252,5);
 
-
+  border:  2px solid darkgreen;
+  border-radius: 10px;
 }
 
 .craftAndWorkshop {
 
   background: rgb(237,45,40);
+  border:  2px solid darkred;
+  border-radius: 10px;
+  color:white;
+  font-size: 16px;
 
 
+}
+
+.craftAndWorkshop  a{
+
+  color:white;
+  font-size: 16px;
+
+
+
+}
+
+.container {
+  height: 10em;
+  display: inline-block;
+
+
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.myImage{
+    max-width:300px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    border: 2px black solid;
+  margin-left: 50px;
+  margin-right:50px;
+  border-radius:5px  ;
+  align-items: center;
+  justify-content: center ;
+}
+.card-avatar{
+  height:37px;
+  width:37px;
+  border: solid 2px black;
+  border-radius:18px  ;
 }

@@ -2,17 +2,18 @@
 <h1> please set up your account</h1>
 <form (submit)="register($event, pDescription.value, pSummary.value)" class="form-signin">
 
-  <label >About Yourself</label>
+  <label >Biography</label>
   <label for="#pDescription">
 <textarea
   id="#pDescription"
   type="text"
   class="form-control"
-  rows="5"
-  cols="80"></textarea>
-    Summarize Yourself</label>
+  rows="3"
+  cols="80" maxlength="240"></textarea>
+  </label>
 
-  <label for="#pSummary"></label><textarea
+
+  <label for="#pSummary">Skills</label><textarea
             id="#pSummary"
             type="text"
             class="form-control"

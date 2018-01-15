@@ -37,11 +37,13 @@ export class MyProjectsComponent implements OnInit {
     this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
     this.ownedProjects.subscribe((p) => {
       this.myProj = p;
+      console.log(this.myProj);
 
     });
     this.joinedProjects = db.list('registeredUsers/id/joinedProjects/' + this.route.snapshot.params['id']);
     this.joinedProjects.subscribe((j) => {
       this.joinProj = j;
+      console.log(this.joinProj);
     });
   }
   ngOnInit() {
