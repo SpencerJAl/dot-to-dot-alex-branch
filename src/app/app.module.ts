@@ -112,6 +112,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
 import { PartnersComponent } from './partners/partners.component';
 import { UsefulLinksComponent } from './useful-links/useful-links.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 //import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -223,6 +224,7 @@ export consrebaseAuthConfig = {
     FaqComponent,
     PartnersComponent,
     UsefulLinksComponent,
+    EditProfileComponent,
     //FilterProjectPipe
   ],
   imports: [

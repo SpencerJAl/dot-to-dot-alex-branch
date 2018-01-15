@@ -15,7 +15,7 @@
       <button md-button  ><a routerLink="/" routerLinkActive="active">Home</a></button>
       <button md-button [md-menu-trigger-for]="aboutMenu" >About <i class="material-icons">&#xE5C5;</i> </button>
       <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="createMenu">Create  <i class="material-icons">&#xE5C5;</i> </button>
-      <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">User: {{afService.user.name}} <i class="material-icons">&#xE5C5;</i></button>
+      <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">User: {{username}} <i class="material-icons">&#xE5C5;</i></button>
       <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration <i class="material-icons">&#xE5C5;</i></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
@@ -24,7 +24,7 @@
 
 
     <md-menu xPosition="after" #userMenu="mdMenu" md-offset="0 2">
-      <button md-menu-item routerLink="/myProfile" routerLinkActive="active">My Profile </button>
+      <button md-menu-item routerLink="/myProfile" routerLinkActive="active">Edit Profile </button>
       <button md-menu-item routerLink="/myProjects" routerLinkActive="active">My Projects</button>
      <!-- <button md-menu-item routerLink="/dashboard" routerLinkActive="active">Dashboard</button>-->
       <button md-menu-item   routerLink="/login" routerLinkActive="active">Log Out</button>

@@ -53,7 +53,7 @@
   <h2>Supplier requests</h2>
   <md-card>
     <div *ngFor=" let pr of supplierRequests |async">
-      <md-card class="{{pr.type}}">
+      <md-card class="myCard supplier">
         <div>
           <p class="member">{{pr.name}}</p>
           <p>{{pr.summary}}</p>

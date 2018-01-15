@@ -160,7 +160,8 @@ export class AF {
       description: userDescription,
       summary: userSummary,
       interests: userInterests,
-      type: 'user'
+      type: 'user',
+      avatar: '../../images/avatar.png'
     });
   }
 

@@ -1,26 +1,45 @@
 
 <div class="col-sm-3">
-<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"/>
+  <input type="file" (change)="selectFile($event)" src="{{(user | async).avatar}}">
+
+<img type="file" (change)="selectFile($event)" src="{{(user | async).avatar}}"/>
 </div>
+
 <div class="col-sm-9">
-<h1 align="center">Your Profile</h1>
+<h1 align="center">Edit Profile</h1>
 </div>
-<div class = "card" style="width:75% " align="center">
-</div>
+
+<form (submit)="editProfile($event, name.value, biography.value, skills.value, facebook.value, twitter.value)">
 
 <div class = "card" style="width:75% " align="center">
-  <h2>Description</h2>
-  <p>{{(user | async)?.description}}</p>
 </div>
+
 <div class = "card" style="width:75% " align="center">
-  <h2>Summary</h2>
-  <p>{{(user | async).summary}}</p>
-</div>
-<div>interests</div>
-
-<div>
-  <h2 class = "card" style="width:75% " align="center">projects</h2>
+  <h2>Name</h2>
+  <input #name type="text" value = "{{(user | async).name}}">
 </div>
 
-<a href="#" [routerLink]="['/editProfile']" align="right">edit profile</a>
+<div class = "card" style="width:75% " align="center">
+  <h2>Biography</h2>
+  <input #biography type="text" value = "{{(user | async).description}}">
+</div>
 
+<div class = "card" style="width:75% " align="center">
+  <h2>Skills</h2>
+  <input #skills type="text" value = "{{(user | async).summary}}">
+</div>
+
+
+  <h2>Social media</h2>
+
+  <div class = "card" style="width:75% " align="center">
+    <label>Facebook</label>
+    <input #facebook type="text" value = "{{(user | async).summary}}">
+  </div>
+
+  <div class = "card" style="width:75% " align="center">
+    <label>Twitter</label>
+    <input #twitter type="text" value = "{{(user | async).summary}}">
+  </div>
+
+</form>

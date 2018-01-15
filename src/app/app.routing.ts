@@ -34,6 +34,7 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {FaqComponent} from "./faq/faq.component";
 import {PartnersComponent} from "./partners/partners.component";
 import {UsefulLinksComponent} from "./useful-links/useful-links.component";
+import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 const appRoutes: Routes = [
   { path: '', component:HomeComponent,
 
@@ -177,7 +178,8 @@ const appRoutes: Routes = [
     path: 'usefulLink',
     component: UsefulLinksComponent,
     data: {title: 'Useful Links'}
-  }
+  },
+
 
 
 

@@ -26,13 +26,14 @@ export class AppComponent {
   user = {};
   usertype;
   isadmin=false;
-
+  username;
   public  isLoggedIn: boolean;
 
   constructor(private afService: AF, private router: Router) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
     // This is just a small thing that Firebase does that makes it easy to use.
+
     this.afService.afAuth.authState.subscribe(
       (auth) => {
         if(auth == null) {
@@ -52,7 +53,7 @@ export class AppComponent {
           });
 
           this.user=afService.user;
-          afService.user.subscribe((u)=>{this.usertype=u.type})
+          afService.user.subscribe((u)=>{this.usertype=u.type; this.username = u.name; console.log("username is :" + u.name)});
           // Set the Display Name and Email so we can attribute messages to them
           /*
           if(authogle)
