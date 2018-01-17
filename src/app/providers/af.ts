@@ -263,7 +263,7 @@ export class AF {
    * this section of code is to handel projects
    */
   // creates a request to the admins to approve or decline a new project
-  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng){
+  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng) {
     const icontype = '../../images/' + projectType + '.png';
     const project = {
       name: projectName,

@@ -15,7 +15,7 @@
       <button md-button  ><a routerLink="/" routerLinkActive="active">Home</a></button>
       <button md-button [md-menu-trigger-for]="aboutMenu" >About <i class="material-icons">&#xE5C5;</i> </button>
       <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="createMenu">Create  <i class="material-icons">&#xE5C5;</i> </button>
-      <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">User: {{username}} <i class="material-icons">&#xE5C5;</i></button>
+      <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">{{username}} <i class="material-icons">&#xE5C5;</i></button>
       <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration <i class="material-icons">&#xE5C5;</i></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>

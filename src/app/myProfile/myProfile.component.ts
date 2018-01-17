@@ -2,8 +2,8 @@ import {OnInit, Component} from '@angular/core';
 import {FirebaseObjectObservable} from 'angularfire2/database';
 import {AF} from '../providers/af';
 import {Router} from '@angular/router';
-import {AngularFireDatabase} from "angularfire2/database/database";
-import {UploadFileService} from "../services/uploadFile.servive";
+import {AngularFireDatabase} from 'angularfire2/database/database';
+import {UploadFileService} from '../services/uploadFile.servive';
 import {FileUpload} from '../objects/file';
 /**
  * Created by James on 22/05/2017.
@@ -18,11 +18,11 @@ import {FileUpload} from '../objects/file';
 
 export class MyProfileComponent implements OnInit {
   options = [
-    {name: 'Art', value: 'artAndDesign', checked: true},
+    {name: 'Art', value: 'artAndDesign', checked: false},
     {name: 'Science', value: 'science', checked: false},
-    {name: 'Health', value: 'health', checked: true},
-    {name: 'Craft and workshop', value: 'craftAndWorkshop', checked: true},
-    {name: 'Education', value: 'education', checked: true},
+    {name: 'Health', value: 'health', checked: false},
+    {name: 'Craft and workshop', value: 'craftAndWorkshop', checked: false},
+    {name: 'Education', value: 'education', checked: false},
   ];
 
   get selectedOptions() { // right now: ['1','3']
@@ -31,6 +31,7 @@ export class MyProfileComponent implements OnInit {
       .map (opt => opt.value);
   }
 
+  error: any;
   user: FirebaseObjectObservable<any>;
 
   selectedFiles: FileList;
@@ -38,32 +39,41 @@ export class MyProfileComponent implements OnInit {
   progress: {percentage: number} = {percentage: 0};
 
 
+
+  constructor(private afService: AF, private router: Router, db: AngularFireDatabase, private uploadService: UploadFileService ) {
+    this.user = db.object('registeredUsers/' + afService.userID);
+  }
+  ngOnInit() {}
+
   //get selected file from the dom
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
 
-  constructor(private afService: AF, private router: Router, db: AngularFireDatabase, private uploadService: UploadFileService ) {
-    this.user=db.object('registeredUsers/'+ afService.userID);
-  }
-
   upload(id, name) {
     const file = this.selectedFiles.item(0);
     this.currentFileUpload = new FileUpload(file);
-    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress, '/projects', id, name);
+    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress, '/profile', id, name);
   }
 
-  editprofile(name, description, summary, facebook, twitter){
-
-    var edit = {
+  editprofile(event, name, description, summary, facebook, twitter) {
+    const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/profile%2F' + this.afService.userID + '%2Fprofilepic?alt=media';
+    const edit = {
+      avatar: pic,
       name: name,
       description: description,
       summary: summary,
       facebook: facebook,
       twitter: twitter,
-    }
-
+      interests: this.selectedOptions,
+    };
+    this.user.update(edit).then((profile) => {
+      if (this.selectedFiles != null) {
+        this.upload(this.afService.userID, 'profilepic');
+      }
+      else{console.log("image not changed");}
+    });
   }
 
-  ngOnInit() {}
+
 }
