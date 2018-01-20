@@ -34,11 +34,11 @@
          </div>
     </md-tab>
      <md-tab label="{{this.projectName}}">
-     <!-- <h2>Messages for <a href="#" [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>-->
+    <!-- <h2>Messages for <a href="#" [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>-->
       <div  class="bs-example" id="messages">
         <div *ngFor="let message of messages | async">
           <div class="bubble {{this.projectType}}" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
-            <img src="../../images/0ld%20icons/user.svg" class="avatar"/>
+            <img src="{{message.avatar}}" class="avatar"/>
             <p>{{ message.message }}</p>
             <div class="author">
               {{ message.displayName }}

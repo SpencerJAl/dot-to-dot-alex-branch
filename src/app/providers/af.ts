@@ -17,7 +17,7 @@ export class AF {
   public email: string;
   public userID: string;
   public projects: FirebaseListObservable<any>;
-
+  public joinedProjects:FirebaseListObservable<any>;
   public ownedSuppliers: FirebaseListObservable<any>;
   public ownedProjects: FirebaseListObservable<any>;
   public loggedIn: boolean = false;
@@ -38,7 +38,13 @@ export class AF {
         if (auth != null) {
           this.user = this.af.object('registeredUsers/' + auth.uid);
           this.userID = auth.uid ;
+
+            this.email = auth.email;
+
+
           this.ownedProjects = this.af.list('registeredUsers/' + auth.uid + '/ownedProjects');
+          this.joinedProjects= this.af.list('registeredUsers/' + auth.uid + '/joinedProjects');
+
           this.loggedIn = true;
         } else {
           this.loggedIn = false;
@@ -264,7 +270,13 @@ export class AF {
    */
   // creates a request to the admins to approve or decline a new project
   sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng) {
-    const icontype = '../../images/' + projectType + '.png';
+
+
+        //statements;
+      const icontype = '../../images/' + projectType + '.png';
+
+
+
     const project = {
       name: projectName,
       description: projectDisc,
@@ -276,6 +288,17 @@ export class AF {
       icon: icontype
     }
     return this.projectRequests.push(project);
+  }
+
+  getJoinedProjects()
+  {
+    console.log('registeredUsers/' + this.userID +'/joinedProjects');
+    return this.af.list('registeredUsers/' + this.userID +'/joinedProjects');
+  }
+  getOwnedProjects()
+  {
+    console.log('registeredUsers/' + this.userID +'/ownedProjects');
+    return this.af.list('registeredUsers/' + this.userID +'/ownedProjects');
   }
 
   saveProjectID(uid) {
@@ -316,6 +339,7 @@ export class AF {
 
   getProjectMessages(id) {
     this.messages = this.af.list('projects/' + id + '/messages');
+    console.log('get project messages  fired');
     return this.af.list('projects/' + id + '/messages');
   }
 
@@ -425,6 +449,7 @@ export class AF {
       email: this.email,
       timestamp: Date.now()
     };
+    console.log('this email'+ this.email);
     this.messages.push(message);
 
   }

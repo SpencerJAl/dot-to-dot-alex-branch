@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+
 
 @Injectable()
 export class MarkersService {
@@ -9,6 +11,8 @@ export class MarkersService {
   currentProjectName = this.ProjectName.asObservable();
   private ProjectType = new BehaviorSubject<string>("general");
   currentProjectType = this.ProjectName.asObservable();
+
+  marker: FirebaseListObservable<any>;
   constructor() { }
 
   changeProjectID( nextProjectID : string ) {

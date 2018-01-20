@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnChanges } from '@angular/core';
 
 import {DirectionsMapDirective} from "../maps/googlemaps.directions";
 
@@ -16,11 +16,15 @@ import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database
 
 import {AF} from "../providers/af";
 import {MarkersService} from "../maps/markers.service";
+import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.scss']
+  styleUrls: ['./notifications.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
+
 })
 export class NotificationsComponent implements OnInit {
   message:string;
@@ -46,7 +50,7 @@ export class NotificationsComponent implements OnInit {
 
 
 
-    constructor(public afService:AF, private markerService :MarkersService, private appCom:AppComponent, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
+    constructor(public afService:AF,private cd: ChangeDetectorRef, private markerService :MarkersService, private appCom:AppComponent, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
 
       this.markers = this.afService.projects;
       this.peoples=this._userService.getUsers();
@@ -131,16 +135,28 @@ export class NotificationsComponent implements OnInit {
 
 
       }
-      this.markerService.currentProjectID.subscribe(projectID => this.projectID= projectID  );
+
       this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
       this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
-      this.messagething={name:this.projectName, id:this.projectID};
+      this.markerService.currentProjectID.subscribe(projectID => {this.projectID= projectID;
+
+
+        this.messagething={name:this.projectName, id:this.projectID};
+
+        this.messages=this.afService.getProjectMessages(this.projectID);
+        this.cd.markForCheck();
+        console.log('subscriber for notifications fired' + this.projectName )    ;
+
+      }  );
+      //this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
+      //this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
+      //this.messagething={name:this.projectName, id:this.projectID};
+
+//      this.afService.getProjectMessages(this.projectID);
 
       this.afService.getProjectMessages(this.projectID);
-
-
-
-
+      this.cd.detectChanges();
+      console.log('OnInit for notifications fired')    ;
 
 
     }

@@ -2,15 +2,15 @@
   <div id="my_project" class="projectlist">
     <md-card>
       <h1>My Projects</h1>
-      <md-card class="myCard {{project.type}}"  *ngFor="let project of projects|async ">
+      <md-card class="myCard {{project.type}}"  *ngFor="let project of this.ownedProjects|async ">
         <div class="my_project">
-          <h2>{{(project | async)?.name}} </h2>
+          <h2>{{project.name}} </h2>
           <h3>Summary</h3>
-          <p class="summary">{{(project | async)?.summary}}</p>
-          <p class="percentage">{{(project | async)?.finical}}</p>
-          <p class="percentage">{{(project | async)?.personal}}</p>
-          <p class="percentage">{{(project | async)?.material}}</p>
-          <p class="hashtag">{{(project | async)?.hashtag}}</p>
+          <p class="summary">{{project.summary}}</p>
+          <p class="percentage">{{project.finical}}</p>
+          <p class="percentage">{{project.personal}}</p>
+          <p class="percentage">{{project.material}}</p>
+          <p class="hashtag">{{project.hashtag}}</p>
         </div>
       </md-card>
     </md-card>
@@ -18,20 +18,21 @@
   <hr>
 
   <div id="joined_project" class="projectlist">
-    <md-card>
-      <h1>Joined Projects</h1>
-      <md-card>
-        <div class="joinedproject">
-          <h2>{{(project | async)?.name}} </h2>
+    <h1>Joined Projects</h1>
+    <md-card  class="myCard {{project.type}}"  *ngFor="let project of this.joinProj|async ">
+
+
+        <div class="joined_project">
+          <h2>{{project.name}} </h2>
           <h3>Summary</h3>
-          <p>{{(project | async)?.summary}}</p>
-          <p class="percentage">{{(project | async)?.finical}}</p>
-          <p class="percentage">{{(project | async)?.personal}}</p>
-          <p class="percentage">{{(project | async)?.material}}</p>
-          <p class="hashtag">{{(project | async)?.hashtag}}</p>
+          <p>{{project.summary}}</p>
+          <p class="percentage">{{project.finical}}</p>
+          <p class="percentage">{{project.personal}}</p>
+          <p class="percentage">{{project.material}}</p>
+          <p class="hashtag">{{project.hashtag}}</p>
         </div>
-      </md-card>
+
     </md-card>
   </div>
 </div>
-
+<app-footer></app-footer>

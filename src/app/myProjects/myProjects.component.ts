@@ -2,6 +2,7 @@
 /**
  * Created by James on 11/07/2017.
  * Edited by Alexander on 27/07/2017
+ * Edited by Dave on 20/01/2018
  */
 import {OnInit, Component} from '@angular/core';
 import {AF} from '../providers/af';
@@ -10,6 +11,7 @@ import {AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable }
 import {AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {Router, ActivatedRoute} from '@angular/router';
 import {register} from 'ts-node/dist';
+import {forEach} from "@angular/router/src/utils/collection";
 /**
  * Created by James on 22/05/2017.
  */
@@ -27,7 +29,7 @@ export class MyProjectsComponent implements OnInit {
   user: FirebaseListObservable<any>;
   /*Tells af.ts which public exports are needed */
   myProj;
-  joinProj;
+  joinProj ;
 
 
   constructor(private afService: AF, private afAuth: AngularFireAuth, private db: AngularFireDatabase,
@@ -35,19 +37,31 @@ export class MyProjectsComponent implements OnInit {
     this.user = db.list('registeredUsers/');
     /* this.ownedProjects = db.database.list('registeredUsers/joinedProjects/');*/
     this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
+    this.ownedProjects = this.afService.getOwnedProjects();
     this.ownedProjects.subscribe((p) => {
-      this.myProj = p;
+      this.myProj = this.afService.getProject(p);
       console.log(this.myProj);
 
     });
     this.joinedProjects = db.list('registeredUsers/id/joinedProjects/' + this.route.snapshot.params['id']);
+    this.joinedProjects = this.afService.getJoinedProjects();
+
+    this.joinedProjects.forEach( item  => {
+      console.log(item);
+      console.log('getting projects for joined projects');
+         this.joinProj= this.afService.getProject(item.id);
+         console.log(this.joinProj);
+
+    });
+    /*--
     this.joinedProjects.subscribe((j) => {
       this.joinProj = j;
       console.log(this.joinProj);
-    });
+    });*/
   }
   ngOnInit() {
-    console.log(this.afService.getUsers());
+    console.log('User is'+ this.afService.getUsers());
+    this.joinedProjects = this.afService.joinedProjects;
     this.id = this.route.snapshot.params['id'];
     console.log('Params are' + this.id);
   }
