@@ -1,66 +1,80 @@
 <h1>Admin Dashboard</h1>
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Users</h2>
+      <md-card>
 
-<div class="col-sm-4">
-  <h2>Users</h2>
-  <md-card>
+        <label>Search: <input ng-model="searchText"></label>
+        <div *ngFor=" let u of users |async|search:searchText">
+          <md-card class="">
+            <div>
+              <div *ngIf="u.avatar!==undefined ;then content else other_content">here is ignored</div>
 
-    <label>Search: <input ng-model="searchText"></label>
-    <div *ngFor=" let u of users |async|search:searchText">
-      <md-card class="">
-        <div>
-          <img src= "{{u.avatar}}" class="avatar"/>
-          <p class="member">{{u.name}}</p>
-          <a href="#" [routerLink]="['/userProfile',u.name]">view profile</a>
-          <button (click)="remove(u.id)">Delete</button>
-          <button (click)="archive(u.id)">archive</button>
-          <button (click)="promote(u.id)" >promote</button>
+              <ng-template #content><img src= "{{u.avatar}}" class="avatar"/></ng-template>
+              <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
+
+              <p class="member">{{u.name}}</p>
+              <a href="#" [routerLink]="['/userProfile',u.name]">view profile</a>
+              <button (click)="remove(u.id)">Delete</button>
+              <button (click)="archive(u.id)">archive</button>
+              <button (click)="promote(u.id)" >promote</button>
+            </div>
+          </md-card>
         </div>
       </md-card>
     </div>
-  </md-card>
-</div>
 
 
-<div class="col-sm-4">
-  <h2>project requests</h2>
+    <div class="col-sm-4">
+      <h2>project requests</h2>
 
-     <div  *ngFor=" let pr of projectRequests |async">
-       <md-card class="myCard  {{pr.type}}">
+         <div  *ngFor=" let pr of projectRequests |async">
+           <md-card class="myCard  {{pr.type}}">
 
-           <md-card-header>
+               <md-card-header>
 
 
-             <md-card-title href="#" [routerLink]="['/projects',pr.id]">
-               <p><img class="card-avatar" src="{{pr.icon}}" /><strong>&nbsp; &nbsp; {{pr.name}}</strong></p>
-             </md-card-title>
+                 <md-card-title href="#" [routerLink]="['/projects',pr.id]">
+                   <p><img class="card-avatar" src="{{pr.icon}}" /><strong>&nbsp; &nbsp; {{pr.name}}</strong></p>
+                 </md-card-title>
 
-           </md-card-header>
+               </md-card-header>
 
-         <md-card-content>
-            <p>
-              <img md-card-image  class="myImage"  src="{{pr.image}}" alt="Project Image" />
-            </p>
-           <p>{{pr.summary}}</p>
-           <a href="#" [routerLink]="['/projectRequest',pr.id]">View Details</a>
-         </md-card-content>
-       </md-card>
-     </div>
+             <md-card-content>
+                <p>
+                  <img md-card-image  class="myImage"  src="{{pr.image}}" alt="Project Image" />
+                </p>
+               <p>{{pr.summary}}</p>
 
-</div>
+               <a href="#" [routerLink]="['/projectRequest',pr.id]">View Details</a>
+             </md-card-content>
+           </md-card>
+         </div>
 
-<div class="col-sm-4">
-  <h2>Supplier requests</h2>
-  <md-card>
-    <div *ngFor=" let pr of supplierRequests |async">
-      <md-card class="myCard supplier">
-        <div>
-          <p class="member">{{pr.name}}</p>
-          <p>{{pr.summary}}</p>
-          <a href="#" [routerLink]="['/supplierRequest',pr.id]">View Details</a>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Supplier requests</h2>
+      <md-card>
+        <div *ngFor=" let pr of supplierRequests |async">
+          <md-card class="myCard supplier">
+            <div>
+              <p class="member">{{pr.name}}</p>
+              <p>{{pr.summary}}</p>
+              <a href="#" [routerLink]="['/supplierRequest',pr.id]">View Details</a>
+            </div>
+          </md-card>
         </div>
       </md-card>
+      </div>
+  </div>
+  <div class="row">
+    <div class="ui-grid-col-12">
+      <app-footer></app-footer>
     </div>
-  </md-card>
+  </div>
+
 </div>
 

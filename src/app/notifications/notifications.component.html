@@ -38,7 +38,12 @@
       <div  class="bs-example" id="messages">
         <div *ngFor="let message of messages | async">
           <div class="bubble {{this.projectType}}" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
-            <img src="{{message.avatar}}" class="avatar"/>
+            <div *ngIf="message.avatar!==undefined ;then content else other_content">here is ignored</div>
+
+            <ng-template #content><img src= "{{message.avatar}}" class="avatar"/></ng-template>
+            <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
+
+
             <p>{{ message.message }}</p>
             <div class="author">
               {{ message.displayName }}
@@ -52,7 +57,7 @@
 
       <figure class="highlight" >
         <label>
-          <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+          <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" (return)="sendMessage()">
         </label>
         <a class="send-message" (click)="sendMessage()">SEND</a>
       </figure>

@@ -9,7 +9,7 @@
     <h1>Add a new recycle supplier</h1>
 
     <form (submit)="createSupplier($event, supplierName.value, address.value, address2.value, supplierDescription.value, supplierSummary.value, location.value )">
-
+      <h3>Upload Recycling Image</h3>
       <div *ngIf="currentFileUpload" class="progress" style="width:400px">
         <div
           class="progress-bar progress-bar-info progress-bar-striped"

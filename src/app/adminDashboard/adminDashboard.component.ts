@@ -22,6 +22,7 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private afService: AF, private router: Router, private af: AngularFireDatabase) {
     this.users = af.list('registeredUsers/');
     this.projectRequests = af.list('projectRequests/');
+    console.log(this.projectRequests);
     this.supplierRequests = af.list('supplierRequests/');
   }
   remove(id) {

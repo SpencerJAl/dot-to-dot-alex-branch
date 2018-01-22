@@ -26,7 +26,11 @@ export class MyProjectsComponent implements OnInit {
   id: string;
   ownedProjects: FirebaseListObservable<any>;
   joinedProjects: FirebaseListObservable<any>;
+  projects:FirebaseListObservable<any>;
+  myJoinProjects:FirebaseListObservable<any>;
+  projectRequests:FirebaseListObservable<any>;
   user: FirebaseListObservable<any>;
+  myuserId;
   /*Tells af.ts which public exports are needed */
   myProj;
   joinProj ;
@@ -35,24 +39,21 @@ export class MyProjectsComponent implements OnInit {
   constructor(private afService: AF, private afAuth: AngularFireAuth, private db: AngularFireDatabase,
               private router: Router, private route: ActivatedRoute) { /*searchs the database for information */
     this.user = db.list('registeredUsers/');
+     this.myuserId = this.afService.userID;
     /* this.ownedProjects = db.database.list('registeredUsers/joinedProjects/');*/
-    this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
+    //this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
     this.ownedProjects = this.afService.getOwnedProjects();
-    this.ownedProjects.subscribe((p) => {
+   /* this.ownedProjects.subscribe((p) => {
       this.myProj = this.afService.getProject(p);
       console.log(this.myProj);
 
     });
-    this.joinedProjects = db.list('registeredUsers/id/joinedProjects/' + this.route.snapshot.params['id']);
+*/
+    this.projectRequests = this.afService.getAllProjectRequests();
+    this.projects = this.afService.getAllProjects();
     this.joinedProjects = this.afService.getJoinedProjects();
 
-    this.joinedProjects.forEach( item  => {
-      console.log(item);
-      console.log('getting projects for joined projects');
-         this.joinProj= this.afService.getProject(item.id);
-         console.log(this.joinProj);
-
-    });
+    this.myJoinProjects = db.list('registeredUsers/id/joinedProjects/' + this.route.snapshot.params['id']);
     /*--
     this.joinedProjects.subscribe((j) => {
       this.joinProj = j;
