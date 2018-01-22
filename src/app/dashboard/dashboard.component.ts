@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   }
 
   sendMessage() {
-    this.afService.sendMessage(this.newMessage);
+    this.afService.sendMessage(this.newMessage,'../../images/avatar.png');
     this.newMessage = '';
   }
 

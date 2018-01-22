@@ -29,7 +29,7 @@ export class AF {
  // uid: string;
 
   /**
-   * constructure to initiate functionaly for this service
+   * constructor to initiate functionally for this service
    * @param af
      */
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
@@ -184,6 +184,12 @@ export class AF {
   /////////////////////////////////////////////////////////////////////////
 
   ////////////////////////admin stuff///////////////////////////
+
+  getAllProjectRequests(){
+
+    this.projectRequests = this.af.list('projectRequests/');
+    return this.projectRequests;
+  }
   getProjectRequests(id) {
     console.log('id is' + id);
     this.project = this.af.object('projectsRequests/' + id);
@@ -207,8 +213,8 @@ export class AF {
       key = p.key;
 
       console.log('project deleted' + p.key);
-
-      this.af.object('projects/' + p.uid).update({
+      console.log('Project key :'+p.key + ' project id:'+p.uid);
+      this.af.object('projects/' + p.key).update({
         id: key,
       }).then(() => {this.projectDecline(delID); });
     });
@@ -293,12 +299,28 @@ export class AF {
   getJoinedProjects()
   {
     console.log('registeredUsers/' + this.userID +'/joinedProjects');
-    return this.af.list('registeredUsers/' + this.userID +'/joinedProjects');
+    this.joinedProjects = this.af.list('registeredUsers/' + this.userID +'/joinedProjects');
+    //console.log(this.joinedProjects.id.toString);
+    return this.joinedProjects;
+     /*this.af.list('projects/',{
+      query: {
+        orderByChild: 'id',
+        equalTo:  this.joinedProjects.id.toString,
+      });
+   */
   }
   getOwnedProjects()
   {
     console.log('registeredUsers/' + this.userID +'/ownedProjects');
+
+
     return this.af.list('registeredUsers/' + this.userID +'/ownedProjects');
+    /*this.af.list('projects/',{
+    query: {
+      orderByChild: 'id',
+      equalTo:   this.af.list('registeredUsers/' + this.userID +'/ownedProjects'),
+    });
+    */
   }
 
   saveProjectID(uid) {
@@ -442,11 +464,12 @@ export class AF {
    * Saves a message to the Firebase Realtime Database
    * @param text
    */
-  sendMessage(text) {
+  sendMessage(text,avatar) {
     const message = {
       message: text,
       displayName: this.displayName,
       email: this.email,
+      avatar:avatar,
       timestamp: Date.now()
     };
     console.log('this email'+ this.email);

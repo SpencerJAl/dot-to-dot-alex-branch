@@ -38,7 +38,7 @@ export class NotificationsComponent implements OnInit {
   projectID:string;
   projectName:string;
   projectType:string;
-
+  currentUser:FirebaseListObservable<any>;
 
 
     ////////////////////////message variables///////////////////////////
@@ -58,8 +58,8 @@ export class NotificationsComponent implements OnInit {
       this.markerKeys=Object.keys(this.afService.projects);
       console.log("marker key is"+this.markerKeys[4]);
       this.isLogin=this.appCom.isLoggedIn;
-
-
+      this.currentUser = this.afService.getUser(this.afService.userID);
+     console.log(this.currentUser);
     }
 
 
@@ -78,8 +78,16 @@ export class NotificationsComponent implements OnInit {
 
     sendMessage(){
       console.log("new message = "+ this.newMessage);
-      this.afService.sendMessage(this.newMessage);
 
+      /*if(this.currentUser.avatar!=udefined) {
+        this.afService.sendMessage(this.newMessage, this.currentUser.avatar);
+      }
+      else
+        {*/
+      console.log(this.currentUser);
+        this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
+      //}
+      console.log("Message Sent")
       this.newMessage = '';
 
     }
@@ -145,7 +153,7 @@ export class NotificationsComponent implements OnInit {
 
         this.messages=this.afService.getProjectMessages(this.projectID);
         this.cd.markForCheck();
-        console.log('subscriber for notifications fired' + this.projectName )    ;
+        console.log('subscriber for notifications fired ' + this.projectName )    ;
 
       }  );
       //this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
