@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {AngularFireDatabase} from 'angularfire2/database/database';
 import {UploadFileService} from '../services/uploadFile.servive';
 import {FileUpload} from '../objects/file';
+import {FirebaseDataProvider} from '../providers/firebaseDataProvider';
 /**
  * Created by James on 22/05/2017.
  */
@@ -40,12 +41,12 @@ export class MyProfileComponent implements OnInit {
 
 
 
-  constructor(private afService: AF, private router: Router, db: AngularFireDatabase, private uploadService: UploadFileService ) {
+  constructor(private afService: AF, private router: Router, db: AngularFireDatabase, private uploadService: UploadFileService, public firebaseData: FirebaseDataProvider) {
     this.user = db.object('registeredUsers/' + afService.userID);
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
-  //get selected file from the dom
+  // get selected file from the dom
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
@@ -57,7 +58,8 @@ export class MyProfileComponent implements OnInit {
   }
 
   editprofile(event, name, description, summary, facebook, twitter) {
-    const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/profile%2F' + this.afService.userID + '%2Fprofilepic?alt=media';
+
+    const pic = this.firebaseData.data.profilePicture + this.afService.userID + '%2Fprofilepic?alt=media';
     const edit = {
       avatar: pic,
       name: name,
@@ -70,8 +72,7 @@ export class MyProfileComponent implements OnInit {
     this.user.update(edit).then((profile) => {
       if (this.selectedFiles != null) {
         this.upload(this.afService.userID, 'profilepic');
-      }
-      else{console.log("image not changed");}
+      } else {console.log('image not changed'); }
     });
   }
 

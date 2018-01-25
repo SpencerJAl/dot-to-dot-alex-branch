@@ -1,8 +1,8 @@
 /**
  * Created by davem on 13/02/2017.
  */
-import { NgModule }              from '@angular/core';
-import { ModuleWithProviders }  from '@angular/core';
+import { NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -12,41 +12,43 @@ import {ProjectsComponent} from './projects/projects.component';
 import {UsersComponent} from './users/users.component';
 import {UsersProfilesComponent} from './users-profiles/users-profiles.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {GoogleMapsComponent} from'./maps/googlemaps.component';
+import {GoogleMapsComponent} from './maps/googlemaps.component';
 
 
 import {AuthGuard} from './login/auth.guard';
-import {CreateProjectComponent} from "./createProject/createProject.component";
-import {AccountSetupComponent} from "./accountSetup/accountSetup.component";
-import {MyProfileComponent} from "./myProfile/myProfile.component";
-import {AdminDashboardComponent} from "./adminDashboard/adminDashboard.component";
-import {CreateAdminComponent} from "./createAdmin/createAdmin.component";
-import {ProjectRequestComponent} from "./projectRequest/projectRequest.component";
-import {AdminComponent} from "./admin/admin.component";
-import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
-import {MyProjectsComponent} from "./myProjects/myProjects.component";
-import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
-import {ProjectSummaryComponent} from "./project-summary/project-summary.component";
-import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
+import {CreateProjectComponent} from './createProject/createProject.component';
+import {AccountSetupComponent} from './accountSetup/accountSetup.component';
+import {MyProfileComponent} from './myProfile/myProfile.component';
+import {AdminDashboardComponent} from './adminDashboard/adminDashboard.component';
+import {CreateAdminComponent} from './createAdmin/createAdmin.component';
+import {ProjectRequestComponent} from './projectRequest/projectRequest.component';
+import {AdminComponent} from './admin/admin.component';
+import {ProfileEditComponent} from './profileEdit/profileEdit.component';
+import {MyProjectsComponent} from './myProjects/myProjects.component';
+import {AccountStatusComponent} from './accountStatus/accountStatus.component';
+import {ProjectSummaryComponent} from './project-summary/project-summary.component';
+import {RecycledSupplierComponent} from './recycled-supplier/recycled-supplier.component';
 import {SupplierRequestComponent} from './supplier-request/supplier-request.component';
-import {WhatIsComponent} from "./what-is/what-is.component";
-import {AboutUsComponent} from "./about-us/about-us.component";
-import {FaqComponent} from "./faq/faq.component";
-import {PartnersComponent} from "./partners/partners.component";
-import {UsefulLinksComponent} from "./useful-links/useful-links.component";
-import {EditProfileComponent} from "./edit-profile/edit-profile.component";
+import {WhatIsComponent} from './what-is/what-is.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {FaqComponent} from './faq/faq.component';
+import {PartnersComponent} from './partners/partners.component';
+import {UsefulLinksComponent} from './useful-links/useful-links.component';
+import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {MyProjectComponent} from './my-project/my-project.component';
 const appRoutes: Routes = [
-  { path: '', component:HomeComponent,
+  { path: '', component: HomeComponent,
 
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent,
     data: { title: 'Log In' }
   },
   {
-    path:'logout',
-    component:LoginComponent,
+    path: 'logout',
+    component: LoginComponent,
     data: { title: 'logout' }
   },
   {
@@ -56,30 +58,35 @@ const appRoutes: Routes = [
 
   },
   {
-    path:'register',
+    path: 'register',
     component: RegisterComponent,
     data: { title: 'Sign up' }
   },
   {
-    path:'accountSetup',
+    path: 'accountSetup',
     component: AccountSetupComponent,
     data: { title: 'Setup account' },
     canActivate: [AuthGuard],
 
   },
   {
-    path:'myProjects',
-    component:MyProjectsComponent,
+    path: 'myProjects',
+    component: MyProjectsComponent,
     data: {title: 'My Projects'}
   },
   {
-    path:'projects/:id',
+    path: 'myProject/:id',
+    component: MyProjectComponent,
+    data: {title: 'My Project'}
+  },
+  {
+    path: 'projects/:id',
     component: ProjectsComponent,
     canActivate: [AuthGuard],
     data: { title: 'Projects' }
   },
   {
-    path:'createProject',
+    path: 'createProject',
     component: CreateProjectComponent,
     canActivate: [AuthGuard],
 
@@ -92,33 +99,33 @@ const appRoutes: Routes = [
     data: {title: 'Users'}
   },
   {
-    path:'userProfile/:id',
-    component:UsersProfilesComponent,
+    path: 'userProfile/:id',
+    component: UsersProfilesComponent,
     canActivate: [AuthGuard],
     data: { title: 'Profile' }
   },
   {
-    path:'dashboard',
-    component:DashboardComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
 
     data: { title: 'Dashboard' }
   }
   ,
   {
-    path:'maps',
-    component:GoogleMapsComponent,
+    path: 'maps',
+    component: GoogleMapsComponent,
 
     data: { title: 'Home' }
   },
   {
-    path:'myProfile',
-    component:MyProfileComponent,
+    path: 'myProfile',
+    component: MyProfileComponent,
     canActivate: [AuthGuard],
     data: { title: 'My profile' }
   },
   {
-    path:'editProfile',
-    component:ProfileEditComponent,
+    path: 'editProfile',
+    component: ProfileEditComponent,
     canActivate: [AuthGuard],
     data: { title: 'My profile' }
   },
@@ -179,7 +186,11 @@ const appRoutes: Routes = [
     component: UsefulLinksComponent,
     data: {title: 'Useful Links'}
   },
-
+  {
+    path: 'resetPassword',
+    component: ResetPasswordComponent,
+    data: {title: 'Useful Links'}
+  },
 
 
 

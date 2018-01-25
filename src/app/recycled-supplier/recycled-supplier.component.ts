@@ -23,7 +23,7 @@ export class RecycledSupplierComponent implements OnInit {
 
   createSupplier(event, supplierName, address, address2, desc, sum, loc) {
     event.preventDefault();
-    //noinspection TypeScriptUnresolvedFunction
+    // noinspection TypeScriptUnresolvedFunction
     this.GC.codeAddress(loc).forEach((results: google.maps.GeocoderResult[]) => {
       this.center = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
       console.log('lat is : ' + this.center.lat());
@@ -35,7 +35,6 @@ export class RecycledSupplierComponent implements OnInit {
         this.afService.saveSupplierID(supplier.key);
         this.upload(supplier.key, 'profilepic');
         this.afService.saveSupplierToUser(supplier.key).then(() => {
-
           this.router.navigate(['']);
         })
           .catch((error) => {

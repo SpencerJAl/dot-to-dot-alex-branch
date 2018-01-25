@@ -26,9 +26,9 @@ export class MyProjectsComponent implements OnInit {
   id: string;
   ownedProjects: FirebaseListObservable<any>;
   joinedProjects: FirebaseListObservable<any>;
-  projects:FirebaseListObservable<any>;
-  myJoinProjects:FirebaseListObservable<any>;
-  projectRequests:FirebaseListObservable<any>;
+  projects: FirebaseListObservable<any>;
+  myJoinProjects: FirebaseListObservable<any>;
+  projectRequests: FirebaseListObservable<any>;
   user: FirebaseListObservable<any>;
   myuserId;
   /*Tells af.ts which public exports are needed */
@@ -41,7 +41,7 @@ export class MyProjectsComponent implements OnInit {
     this.user = db.list('registeredUsers/');
      this.myuserId = this.afService.userID;
     /* this.ownedProjects = db.database.list('registeredUsers/joinedProjects/');*/
-    //this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
+    // this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
     this.ownedProjects = this.afService.getOwnedProjects();
    /* this.ownedProjects.subscribe((p) => {
       this.myProj = this.afService.getProject(p);
@@ -61,7 +61,7 @@ export class MyProjectsComponent implements OnInit {
     });*/
   }
   ngOnInit() {
-    console.log('User is'+ this.afService.getUsers());
+    console.log('User is' + this.afService.getUsers());
     this.joinedProjects = this.afService.joinedProjects;
     this.id = this.route.snapshot.params['id'];
     console.log('Params are' + this.id);

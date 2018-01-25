@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import {FirebaseDataProvider} from './firebaseDataProvider';
 
 @Injectable()
 export class AF {
@@ -17,7 +18,7 @@ export class AF {
   public email: string;
   public userID: string;
   public projects: FirebaseListObservable<any>;
-  public joinedProjects:FirebaseListObservable<any>;
+  public joinedProjects: FirebaseListObservable<any>;
   public ownedSuppliers: FirebaseListObservable<any>;
   public ownedProjects: FirebaseListObservable<any>;
   public loggedIn: boolean = false;
@@ -32,7 +33,7 @@ export class AF {
    * constructor to initiate functionally for this service
    * @param af
      */
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, public firebaseData: FirebaseDataProvider) {
     this.afAuth.authState.subscribe(
       (auth) => {
         if (auth != null) {
@@ -43,7 +44,7 @@ export class AF {
 
 
           this.ownedProjects = this.af.list('registeredUsers/' + auth.uid + '/ownedProjects');
-          this.joinedProjects= this.af.list('registeredUsers/' + auth.uid + '/joinedProjects');
+          this.joinedProjects = this.af.list('registeredUsers/' + auth.uid + '/joinedProjects');
 
           this.loggedIn = true;
         } else {
@@ -185,7 +186,7 @@ export class AF {
 
   ////////////////////////admin stuff///////////////////////////
 
-  getAllProjectRequests(){
+  getAllProjectRequests() {
 
     this.projectRequests = this.af.list('projectRequests/');
     return this.projectRequests;
@@ -196,8 +197,6 @@ export class AF {
     return this.project;
   }
   projectApprove(project, delID) {
-
-
     const proj = {
       name: project.name,
       description: project.description,
@@ -213,10 +212,12 @@ export class AF {
       key = p.key;
 
       console.log('project deleted' + p.key);
-      console.log('Project key :'+p.key + ' project id:'+p.uid);
+      console.log('Project key :' + p.key + ' project id:' + p.uid);
       this.af.object('projects/' + p.key).update({
         id: key,
-      }).then(() => {this.projectDecline(delID); });
+      }).then(() => {this.projectDecline(delID).then((d) => {
+        this.af.object('/registeredUsers/' + this.userID + '/ownedProjects/' + delID).update({name: key});
+      }); });
     });
 
     /*return this.af.list('projects/').pusrdish(project).then((p)=>{
@@ -278,8 +279,8 @@ export class AF {
   sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng) {
 
 
-        //statements;
-      const icontype = '../../images/' + projectType + '.png';
+    // statements;
+    const icontype = '../../images/' + projectType + '.png';
 
 
 
@@ -292,29 +293,35 @@ export class AF {
       lat: lat,
       lng: lng,
       icon: icontype
-    }
+    };
     return this.projectRequests.push(project);
   }
 
-  getJoinedProjects()
-  {
-    console.log('registeredUsers/' + this.userID +'/joinedProjects');
-    this.joinedProjects = this.af.list('registeredUsers/' + this.userID +'/joinedProjects');
-    //console.log(this.joinedProjects.id.toString);
-    return this.joinedProjects;
-     /*this.af.list('projects/',{
-      query: {
-        orderByChild: 'id',
-        equalTo:  this.joinedProjects.id.toString,
-      });
-   */
+  postProjectNotification(text, avatar, id, title) {
+    const notification = {
+      title: title,
+      message: text,
+      // displayName: this.displayName,
+      // email: this.email,
+      avatar: avatar,
+      timestamp: Date.now()
+    };
+
+    console.log('this email' + this.email);
+    this.af.list('projects/' + id + '/notifications').push(notification);
+
   }
-  getOwnedProjects()
-  {
-    console.log('registeredUsers/' + this.userID +'/ownedProjects');
+
+  getJoinedProjects() {
+    console.log('registeredUsers/' + this.userID + '/joinedProjects');
+    return this.af.list('registeredUsers/' + this.userID + '/joinedProjects');
+
+  }
+  getOwnedProjects() {
+    console.log('registeredUsers/' + this.userID + '/ownedProjects');
 
 
-    return this.af.list('registeredUsers/' + this.userID +'/ownedProjects');
+    return this.af.list('registeredUsers/' + this.userID + '/ownedProjects');
     /*this.af.list('projects/',{
     query: {
       orderByChild: 'id',
@@ -325,10 +332,10 @@ export class AF {
 
   saveProjectID(uid) {
     // change this to live for when needed.
-    //live
-    //const pic = 'https://firebasestorage.googleapis.com/v0/b/project--1058925460034076790.appspot.com/o/projects%2F' + uid + '%2Fprofilepic?alt=media';
+    // live
+    // const pic = 'https://firebasestorage.googleapis.com/v0/b/project--1058925460034076790.appspot.com/o/projects%2F' + uid + '%2Fprofilepic?alt=media';
     // dev
-    const pic = 'https://firebasestorage.googleapis.com/v0/b/project--5383574466381407389.appspot.com/o/projects%2F' + uid + '%2Fprofilepic?alt=media';
+    const pic = this.firebaseData.data.projectPicture + uid + '%2Fprofilepic?alt=media';
     return this.af.object('projectRequests/' + uid).update( {
       id: uid,
       image: pic
@@ -344,7 +351,7 @@ export class AF {
       owner: this.userID,
       lat: lat,
       lng: lng
-    }
+    };
     return this.projects.push(project);
     /*return this.af.object('projects/'+projectName).set({
      name: projectName,
@@ -355,8 +362,8 @@ export class AF {
   saveProjectToUser(projectID) {
     const thing = {
       name: projectID
-    }
-    return this.ownedProjects.push(thing);
+    };
+    return this.af.object('registeredUsers/' + this.userID + '/ownedProjects/' + projectID).update(thing);
   }
 
   getProjectMessages(id) {
@@ -402,12 +409,16 @@ export class AF {
       owner: this.userID,
       lat: lat,
       lng: lng
-    }
+    };
     return this.supplierRequests.push(supplier);
   }
 
   saveSupplierID(uid) {
-    return this.af.object('supplierRequests/' + uid).update( {id: uid} );
+    const picture = this.firebaseData.data.supplierPicture + uid + '%2Fprofilepic?alt=media';
+    return this.af.object('supplierRequests/' + uid).update( {
+      id: uid,
+      image: picture
+    } );
   }
   saveSupplierInfoFromForm(supplierName, supplierAddress, supplierAddress2, supplierDisc, supplierSum, lat, lng) {
     alert('thing passed is: ' + supplierName);
@@ -428,10 +439,10 @@ export class AF {
      });*/
   }
 
-  saveSupplierToUser(supplierID){
+  saveSupplierToUser(supplierID) {
     const thing = {
       name: supplierID
-    }
+    };
     return this.ownedSuppliers.push(thing);
   }
 
@@ -447,7 +458,7 @@ export class AF {
     console.log('id is' + id);
     this.supplier = this.af.object('suppliers/' + id);
     return this.supplier;
-  }
+  };
 
   /**
    *creates a user profile in the database
@@ -464,15 +475,15 @@ export class AF {
    * Saves a message to the Firebase Realtime Database
    * @param text
    */
-  sendMessage(text,avatar) {
+  sendMessage(text, avatar) {
     const message = {
       message: text,
       displayName: this.displayName,
       email: this.email,
-      avatar:avatar,
+      avatar: avatar,
       timestamp: Date.now()
     };
-    console.log('this email'+ this.email);
+    console.log('this email' + this.email);
     this.messages.push(message);
 
   }

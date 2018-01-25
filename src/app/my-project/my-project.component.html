@@ -1,0 +1,47 @@
+<div>
+  <md-card>
+    <h1 align="center">{{(project | async)?.name}}</h1>
+    <h2 align="center">Description</h2>
+    <p align="center">{{(project | async)?.description}}</p>
+
+    <h2 align="center">Summary</h2>
+    <p align="center">{{(project | async)?.summary}}</p>
+
+    <h2>news and events</h2>
+
+
+      <div *ngFor=" let n of notifications|async">
+        <p align="center" >{{n.title}}</p>
+        <p>{{n.message}}</p>
+        <p>{{n.timestamp}}</p>
+
+      </div>
+
+
+
+  </md-card>
+</div>
+
+<div>
+  <form (submit)="postUpdate($event, title.value, message.value)" class="form-signin">
+
+    <div class = "form-group">
+      <label for="title" class="sr-only">Title</label>
+      <input #title type="text" id="title" class="form-control" placeholder="Title" required="">
+    </div>
+
+    <div class = "form-group">
+      <label class="sr-only">Message</label>
+      <textarea
+        #message
+        rows = "5"
+        cols = "80"
+        class="form-control"
+        placeholder="Profile Description"
+      ></textarea>
+    </div>
+
+    <button  class="btn btn-md btn-primary btn-block" type="submit">update</button>
+
+  </form>
+</div>

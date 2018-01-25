@@ -26,11 +26,11 @@ import { UsersComponent } from './users/users.component';
 import { UsersProfilesComponent } from './users-profiles/users-profiles.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-//import {GoogleMapsComponent} from './maps/googlemaps.component';
+// import {GoogleMapsComponent} from './maps/googlemaps.component';
 import {CoreModule} from './app.core.modules';
-import {AlertService} from'./services/alert.service';
+import {AlertService} from './services/alert.service';
 import { Ng2MapModule} from 'ng2-map';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'hammerjs';
 // MATERIAL DESIGN MODULES
@@ -43,7 +43,7 @@ import {MdAutocompleteModule,
   MdCardModule,
   MdCheckboxModule,
   MdChipsModule,
-  //MdCoreModule,
+  // MdCoreModule,
   MdDatepickerModule,
   MdDialogModule,
   MdExpansionModule,
@@ -73,39 +73,39 @@ import {MdAutocompleteModule,
 import {DirectionsMapDirective } from './maps/googlemaps.directions';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {AuthGuard} from "./login/auth.guard";
-import {MapsService} from "./services/maps.service";
-import {GeolocationService} from "./services/geolocation.service";
-import {GeocodingService} from "./services/geocoding.service";
-import {AF} from "./providers/af";
-import {CreateProjectComponent} from "./createProject/createProject.component";
-import {AccountSetupComponent} from "./accountSetup/accountSetup.component";
-import {ProjectService} from "./services/localProject.service";
-import {UserService} from "./services/localUser.service";
-import {GetProjects} from "./localStorage/projects";
-import {MyProfileComponent} from "./myProfile/myProfile.component";
-import {CreateAdminComponent} from "./createAdmin/createAdmin.component";
-import {AdminDashboardComponent} from "./adminDashboard/adminDashboard.component";
-import {ProjectRequestComponent} from "./projectRequest/projectRequest.component";
-import {AdminComponent} from "./admin/admin.component";
-import {ProfileEditComponent} from "./profileEdit/profileEdit.component";
-import {MyProjectsComponent} from "./myProjects/myProjects.component";
-import {AccountStatusComponent} from "./accountStatus/accountStatus.component";
+import {AuthGuard} from './login/auth.guard';
+import {MapsService} from './services/maps.service';
+import {GeolocationService} from './services/geolocation.service';
+import {GeocodingService} from './services/geocoding.service';
+import {AF} from './providers/af';
+import {CreateProjectComponent} from './createProject/createProject.component';
+import {AccountSetupComponent} from './accountSetup/accountSetup.component';
+import {ProjectService} from './services/localProject.service';
+import {UserService} from './services/localUser.service';
+import {GetProjects} from './localStorage/projects';
+import {MyProfileComponent} from './myProfile/myProfile.component';
+import {CreateAdminComponent} from './createAdmin/createAdmin.component';
+import {AdminDashboardComponent} from './adminDashboard/adminDashboard.component';
+import {ProjectRequestComponent} from './projectRequest/projectRequest.component';
+import {AdminComponent} from './admin/admin.component';
+import {ProfileEditComponent} from './profileEdit/profileEdit.component';
+import {MyProjectsComponent} from './myProjects/myProjects.component';
+import {AccountStatusComponent} from './accountStatus/accountStatus.component';
 import { MenuComponent } from './menu/menu.component';
-import {GoogleMapsComponent} from "./maps/googlemaps.component";
+import {GoogleMapsComponent} from './maps/googlemaps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProjectFilterComponent } from './project-filter/project-filter.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { ProjectSummaryComponent} from './project-summary/project-summary.component';
-import {RecycledSupplierComponent} from "./recycled-supplier/recycled-supplier.component"
+import {RecycledSupplierComponent} from './recycled-supplier/recycled-supplier.component';
 import {GMapModule, ChartModule } from 'primeng/primeng';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { ScienceFilterPipe , SearchPipe } from './map/science-filter.pipe';
-import {UploadFileService} from "./services/uploadFile.servive";
-import {ProjectFilterDataService} from "./project-filter/project-filter-data.service";
+import {UploadFileService} from './services/uploadFile.servive';
+import {ProjectFilterDataService} from './project-filter/project-filter-data.service';
 import { MapLayersComponent } from './map-layers/map-layers.component';
-import {MarkersService} from "./maps/markers.service";
+import {MarkersService} from './maps/markers.service';
 import { SupplierRequestComponent } from './supplier-request/supplier-request.component';
 import { WhatIsComponent } from './what-is/what-is.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -113,7 +113,10 @@ import { FaqComponent } from './faq/faq.component';
 import { PartnersComponent } from './partners/partners.component';
 import { UsefulLinksComponent } from './useful-links/useful-links.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-//import { FilterProjectPipe } from './filter-project.pipe';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { MyProjectComponent } from './my-project/my-project.component';
+import {FirebaseDataProvider} from './providers/firebaseDataProvider';
+// import { FilterProjectPipe } from './filter-project.pipe';
 
 
 export let MD_MODULES: any = [
@@ -121,7 +124,7 @@ export let MD_MODULES: any = [
   MdButtonToggleModule,
   MdCardModule,
   MdChipsModule,
-  //MdCoreModule,
+  // MdCoreModule,
   MdDatepickerModule,
   MdDialogModule,
   MdExpansionModule,
@@ -151,26 +154,25 @@ export let MD_MODULES: any = [
 /*  LIVE */
 /*
 export const firebaseConfig = {
-  apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",
-  authDomain: "project--1058925460034076790.firebaseapp.com",
-  databaseURL: "https://project--1058925460034076790.firebaseio.com",
-  storageBucket: "project--1058925460034076790.appspot.com",
-  messagingSenderId: "779470844821"
+  apiKey: 'AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc',
+  authDomain: 'project--1058925460034076790.firebaseapp.com',
+  databaseURL: 'https://project--1058925460034076790.firebaseio.com',
+  storageBucket: 'project--1058925460034076790.appspot.com',
+  messagingSenderId: '779470844821'
 };
 
 */
 
 
 /////   DEV
-
 export const firebaseConfig = {
-apiKey: "AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo",
- authDomain: "project--5383574466381407389.firebaseapp.com",
-  databaseURL: "https://project--5383574466381407389.firebaseio.com",
-  projectId: "project--5383574466381407389",
-  storageBucket: "project--5383574466381407389.appspot.com",
-  messagingSenderId: "6272813349"
-}
+  apiKey: 'AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo',
+  authDomain: 'project--5383574466381407389.firebaseapp.com',
+  databaseURL: 'https://project--5383574466381407389.firebaseio.com',
+  projectId: 'project--5383574466381407389',
+  storageBucket: 'project--5383574466381407389.appspot.com',
+  messagingSenderId: '6272813349'
+};
 
 /*
 /*
@@ -225,22 +227,24 @@ export consrebaseAuthConfig = {
     PartnersComponent,
     UsefulLinksComponent,
     EditProfileComponent,
-    //FilterProjectPipe
+    ResetPasswordComponent,
+    MyProjectComponent,
+    // FilterProjectPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     CoreModule,
-    //GMapModule,
+    // GMapModule,
     ChartModule,
     AppRouting,
     Ng2MapModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBJioRbIuJMQr14RqtvlIA587lm-HMHFD0' //google maps api key
+      apiKey: 'AIzaSyBJioRbIuJMQr14RqtvlIA587lm-HMHFD0' // google maps api key
 
-    }),//google maps
+    }), // google maps
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -259,9 +263,10 @@ export consrebaseAuthConfig = {
     */
   ],
   providers: [
-    //FIREBASE_PROVIDERS,
+    // FIREBASE_PROVIDERS,
     AF,
-    //AngularFire,
+    FirebaseDataProvider,
+    // AngularFire,
     AuthGuard,
     MapsService,
     GeolocationService,

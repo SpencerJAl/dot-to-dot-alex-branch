@@ -1,22 +1,23 @@
 import { Component, OnInit, ViewChild, ElementRef, OnChanges } from '@angular/core';
 
-import {DirectionsMapDirective} from "../maps/googlemaps.directions";
+import {DirectionsMapDirective} from '../maps/googlemaps.directions';
 
-import { AgmCoreModule , AgmMap, AgmMarker ,AgmInfoWindow, AgmKmlLayer, AgmDataLayer, MapTypeStyle } from '@agm/core';
+import { AgmCoreModule , AgmMap, AgmMarker , AgmInfoWindow, AgmKmlLayer, AgmDataLayer, MapTypeStyle } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
-import{Ng2MapModule} from 'ng2-map';
-import {GeocodingService} from "../services/geocoding.service";
-import {GeolocationService} from "../services/geolocation.service";
-import {MapsService} from "../services/maps.service";
-import {ProjectService} from "../services/localProject.service";
-import {UserService} from "../services/localUser.service";
-import {AppComponent} from "../app.component";
-import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
+import {Ng2MapModule} from 'ng2-map';
+import {GeocodingService} from '../services/geocoding.service';
+import {GeolocationService} from '../services/geolocation.service';
+import {MapsService} from '../services/maps.service';
+import {ProjectService} from '../services/localProject.service';
+import {UserService} from '../services/localUser.service';
+import {AppComponent} from '../app.component';
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 
-import {AF} from "../providers/af";
-import {MarkersService} from "../maps/markers.service";
+import {AF} from '../providers/af';
+import {MarkersService} from '../maps/markers.service';
 import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import {FirebaseObjectFactoryOpts} from 'angularfire2/interfaces';
 
 @Component({
   selector: 'app-notifications',
@@ -27,57 +28,67 @@ import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 
 })
 export class NotificationsComponent implements OnInit {
-  message:string;
-  warning:boolean;
-  examp:string;
+  message: string;
+  warning: boolean;
+  examp: string;
   peoples: people[];
   markers: FirebaseListObservable<any>;
-  messagething:{};
+  messagething: {};
   markerKeys;
-  public isLogin:boolean;
-  projectID:string;
-  projectName:string;
-  projectType:string;
-  currentUser:FirebaseListObservable<any>;
-
+  public isLogin: boolean;
+  projectID: string;
+  projectName: string;
+  projectType: string;
+  currentUser: FirebaseListObservable<any>;
+  projects: FirebaseListObservable<any>;
 
     ////////////////////////message variables///////////////////////////
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
   private options: {center: {lat: number; lng: number}};
+  private joinedprojects: FirebaseListObservable<any>;
 ///////////////////////////////////////////////////////////////////////
-
-
-
-    constructor(public afService:AF,private cd: ChangeDetectorRef, private markerService :MarkersService, private appCom:AppComponent, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase) {
+  notifications: Array<any> = [{}];
+  constructor(public afService: AF, private cd: ChangeDetectorRef, private markerService: MarkersService, private appCom: AppComponent, private maps: MapsService,
+              private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
 
       this.markers = this.afService.projects;
-      this.peoples=this._userService.getUsers();
+      this.peoples = this._userService.getUsers();
       this.messages = this.afService.messages;
-      this.markerKeys=Object.keys(this.afService.projects);
-      console.log("marker key is"+this.markerKeys[4]);
-      this.isLogin=this.appCom.isLoggedIn;
+      this.markerKeys = Object.keys(this.afService.projects);
+      console.log('marker key is' + this.markerKeys[4]);
+      this.isLogin = this.appCom.isLoggedIn;
       this.currentUser = this.afService.getUser(this.afService.userID);
+      this.joinedprojects = this.afService.getJoinedProjects();
+      this.projects = this.afService.getAllProjects();
      console.log(this.currentUser);
     }
 
 
+    addNotifications(id) {
+    this.af.list('projects/' + id + '/notifications').subscribe((n)=>{
+      for (let note of n){
+        console.log('message is: ' + note.message);
+        this.notifications.push(note);
+      }
+    });
+    }
 
 
 //////////////////////////dashboard component/////////////////////////////////////
-    ngAfterViewChecked() {
+    ngAfterViewChecked () {
       this.scrollToBottom();
     }
 
     scrollToBottom(): void {
       try {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-  } catch(err) { }
+  } catch (err) { }
   }
 
-    sendMessage(){
-      console.log("new message = "+ this.newMessage);
+    sendMessage() {
+      console.log('new message = ' + this.newMessage);
 
       /*if(this.currentUser.avatar!=udefined) {
         this.afService.sendMessage(this.newMessage, this.currentUser.avatar);
@@ -86,8 +97,8 @@ export class NotificationsComponent implements OnInit {
         {*/
       console.log(this.currentUser);
         this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
-      //}
-      console.log("Message Sent")
+      // }
+      console.log('Message Sent');
       this.newMessage = '';
 
     }
@@ -116,19 +127,19 @@ export class NotificationsComponent implements OnInit {
      */
 
 
-    profiles: people[]=[];
-    test(m){
-      var people=m;
+    profiles: people[] = [];
+    test(m) {
+      var people = m;
       console.log(m.id);
       this.afService.getProjectMessages(m.id);
-      this.messages=this.afService.messages;
-      //this.profiles=this.peoples;
-      this.messagething=m;
-      this.profiles=[];
+      this.messages = this.afService.messages;
+      // this.profiles=this.peoples;
+      this.messagething = m;
+      this.profiles = [];
       for (let i of m.members){
-        this.af.object('registeredUsers/'+i.id).subscribe((user)=>{
+        this.af.object('registeredUsers/' + i.id).subscribe((user) => {
           this.profiles.push(user);
-        })
+        });
 
       }
 
@@ -142,23 +153,23 @@ export class NotificationsComponent implements OnInit {
 
 
 
-      }
+      };
 
-      this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
-      this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
-      this.markerService.currentProjectID.subscribe(projectID => {this.projectID= projectID;
+      this.markerService.currentProjectName.subscribe(projectName => this.projectName = projectName );
+      this.markerService.currentProjectType.subscribe(projectType => this.projectType = projectType );
+      this.markerService.currentProjectID.subscribe(projectID => {this.projectID = projectID;
 
 
-        this.messagething={name:this.projectName, id:this.projectID};
+        this.messagething = {name: this.projectName, id: this.projectID};
 
-        this.messages=this.afService.getProjectMessages(this.projectID);
+        this.messages = this.afService.getProjectMessages(this.projectID);
         this.cd.markForCheck();
         console.log('subscriber for notifications fired ' + this.projectName )    ;
 
       }  );
-      //this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
-      //this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
-      //this.messagething={name:this.projectName, id:this.projectID};
+      // this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
+      // this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
+      // this.messagething={name:this.projectName, id:this.projectID};
 
 //      this.afService.getProjectMessages(this.projectID);
 
@@ -171,35 +182,35 @@ export class NotificationsComponent implements OnInit {
 
 
   }
-//marker
-interface marker{
-  name?:string;
+// marker
+interface marker {
+  name?: string;
   lat: number;
   lng: number;
-  draggable:boolean;
-  people:[{name:string}];
-  posts:[{
-    displayName:string,
-    email:string,
-    message:string,
-    timestamp:number
+  draggable: boolean;
+  people: [{name: string}];
+  posts: [{
+    displayName: string,
+    email: string,
+    message: string,
+    timestamp: number
   }];
-  type:string;
+  type: string;
 }
 
-//people
-interface people{
-  name:string;
-  age:number;
-  hobbies:[{name:string}];
-  summary:string;
-  description:string;
+// people
+interface people {
+  name: string;
+  age: number;
+  hobbies: [{name: string}];
+  summary: string;
+  description: string;
 }
-interface mess{
-  displayName:string;
-  email:string;
-  message:string;
-  timestamp:number;
+interface mess {
+  displayName: string;
+  email: string;
+  message: string;
+  timestamp: number;
 }
 
 
