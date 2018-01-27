@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 import {DirectionsMapDirective} from './googlemaps.directions';
 
-import { AgmCoreModule , AgmMap, AgmMarker ,AgmInfoWindow, AgmKmlLayer,KmlLayerManager, AgmDataLayer, MapTypeStyle} from '@agm/core';
+import { AgmCoreModule , AgmMap, AgmMarker , AgmInfoWindow, AgmKmlLayer, KmlLayerManager, AgmDataLayer, MapTypeStyle} from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
-import{Ng2MapModule} from 'ng2-map';
+import {Ng2MapModule} from 'ng2-map';
 import {GeocodingService} from '../services/geocoding.service';
 import {GeolocationService} from '../services/geolocation.service';
 import {MapsService} from '../services/maps.service';
@@ -16,9 +16,9 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 
 import {AF} from '../providers/af';
 import {google} from '@agm/core/services/google-maps-types';
-import {Observable} from "rxjs/Observable";
-import{ProjectFilterDataService} from "../project-filter/project-filter-data.service";
-import{MarkersService} from "./markers.service";
+import {Observable} from 'rxjs/Observable';
+import{ProjectFilterDataService} from '../project-filter/project-filter-data.service';
+import{MarkersService} from './markers.service';
 
 @Component({
   selector: 'googlemaps-root',
@@ -32,17 +32,17 @@ export class GoogleMapsComponent implements OnInit {
   zoom: number = 18;
   lat: number = 55.8808026;
   lng: number = -4.2745011;
-  artFlag:boolean;
-  sciFlag:boolean;
-  healthFlag:boolean;
-  eduFlag:boolean;
-  craftFlag:boolean;
-  previousFlag:boolean;
-  supplierFlag:boolean;
-  eventsFlag:boolean;
-  foodFlag:boolean;
-  sitesFlag:boolean;
-  currentProjectID:string;
+  artFlag: boolean;
+  sciFlag: boolean;
+  healthFlag: boolean;
+  eduFlag: boolean;
+  craftFlag: boolean;
+  previousFlag: boolean;
+  supplierFlag: boolean;
+  eventsFlag: boolean;
+  foodFlag: boolean;
+  sitesFlag: boolean;
+  currentProjectID: string;
   myLayer: AgmKmlLayer ;
  // myLayerMan: KmlLayerManager = new KmlLayerManager(google, NgZone) ;
 
@@ -51,15 +51,15 @@ export class GoogleMapsComponent implements OnInit {
 
   options: any;
   draggable: boolean;
-  startLat: number= 55.8808026;
+  startLat: number = 55.8808026;
   startLng: number = -4.2745011;
-  center:any;
-  message:string;
-  warning:boolean;
-  examp:string;
+  center: any;
+  message: string;
+  warning: boolean;
+  examp: string;
   peoples: people[];
   markers: FirebaseListObservable<any>;
-  messagething:{};
+  messagething: {};
   markerKeys;
   style: any = laura;
 
@@ -74,15 +74,16 @@ export class GoogleMapsComponent implements OnInit {
 
 
 
- constructor(public afService:AF, private maps: MapsService, private markerService : MarkersService,private geolocation: GeolocationService, private _userService: UserService, public af:AngularFireDatabase, private projectFilterData:ProjectFilterDataService) {
-   this.zoom=11;
+ constructor(public afService: AF, private maps: MapsService, private markerService: MarkersService, private geolocation: GeolocationService, private _userService: UserService,
+             public af: AngularFireDatabase, private projectFilterData: ProjectFilterDataService) {
+   this.zoom = 11;
    this.markers = this.afService.projects;
-   this.peoples=this._userService.getUsers();
+   this.peoples = this._userService.getUsers();
    this.messages = this.afService.messages;
-   this.markerKeys=Object.keys(this.afService.projects);
+   this.markerKeys = Object.keys(this.afService.projects);
 
 
-   console.log('marker key is'+this.markerKeys[4]);
+   console.log('marker key is' + this.markerKeys[4]);
 
 
 
@@ -131,24 +132,25 @@ export class GoogleMapsComponent implements OnInit {
    *
    */
 
-
-  profiles: people[]=[];
-  test(m){
-    var people=m;
-    console.log("marker id "+ m.id);
+  enableProfiles = false;
+  profiles: people[] = [];
+  test(m) {
+    var people = m;
+    console.log('marker id ' + m.id);
     this.markerService.changeProjectID(m.id);
     this.markerService.changeProjectName(m.name);
     this.markerService.changeProjectType(m.type);
-    console.log("project ID " + m.id + " project key: " +m + "project type: " + m.type);
+    console.log('project ID ' + m.id + ' project key: ' + m + 'project type: ' + m.type);
     this.afService.getProjectMessages(m.id);
-    this.messages=this.afService.messages;
-    //this.profiles=this.peoples;
-    this.messagething=m;
-    this.profiles=[];
+    this.messages = this.afService.messages;
+    // this.profiles=this.peoples;
+    this.messagething = m;
+    this.profiles = [];
     for (let i of m.members){
-      this.af.object('registeredUsers/'+i.id).subscribe((user)=>{
+      this.af.object('registeredUsers/' + i.id).subscribe((user) => {
         this.profiles.push(user);
-      })
+        this.enableProfiles = true;
+      });
 
     }
 
@@ -158,7 +160,7 @@ export class GoogleMapsComponent implements OnInit {
 
   ngOnInit() {
     this.projectFilterData.currentArt.subscribe(artFlag => this.artFlag = artFlag  );
-    this.projectFilterData.currentSci.subscribe( sciFlag => this.sciFlag = sciFlag)
+    this.projectFilterData.currentSci.subscribe( sciFlag => this.sciFlag = sciFlag);
     this.projectFilterData.currentHealth.subscribe(healthFlag => this.healthFlag = healthFlag );
     this.projectFilterData.currentEdu.subscribe( eduFlag => this.eduFlag = eduFlag);
     this.projectFilterData.currentCraft.subscribe( craftFlag => this.craftFlag = craftFlag);
@@ -173,8 +175,8 @@ export class GoogleMapsComponent implements OnInit {
       zoom: 16,
       style: mapStyle.silver,
 
-    }
-    this.messagething={name:'general', id:3};
+    };
+    this.messagething = {name: 'general', id: 3};
 
 
     if (navigator.geolocation) {
@@ -183,8 +185,8 @@ export class GoogleMapsComponent implements OnInit {
         (position: Position) => {
             // New center object: triggers OnChanges.
             this.center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            this.startLat=position.coords.latitude;
-            this.startLng=position.coords.longitude;
+            this.startLat = position.coords.latitude;
+            this.startLng = position.coords.longitude;
             this.zoom = 11;
         }
       ).then(() => console.log('Geolocation service: completed.')).catch(
@@ -514,7 +516,7 @@ export const mapStyle = {
 
 
 
-export const laura=[
+export const laura = [
   {
     'elementType': 'geometry',
     'stylers': [
@@ -736,34 +738,34 @@ export const laura=[
 ];
 
 
-//marker
-interface marker{
-  name?:string;
+// marker
+interface marker {
+  name?: string;
   lat: number;
   lng: number;
-  draggable:boolean;
-  icon:string;
-  people:[{name:string}];
-  posts:[{
-    displayName:string,
-    email:string,
-    message:string,rve
-    timestamp:number
+  draggable: boolean;
+  icon: string;
+  people: [{name: string}];
+  posts: [{
+    displayName: string,
+    email: string,
+    message: string, rve
+    timestamp: number
   }];
-  type:string;
+  type: string;
 }
 
-//people
-interface people{
-  name:string;
-  age:number;
-  hobbies:[{name:string}];
-  summary:string;
-  description:string;
+// people
+interface people {
+  name: string;
+  age: number;
+  hobbies: [{name: string}];
+  summary: string;
+  description: string;
 }
-interface mess{
-  displayName:string;
-  email:string;
-  message:string;
-  timestamp:number;
+interface mess {
+  displayName: string;
+  email: string;
+  message: string;
+  timestamp: number;
 }

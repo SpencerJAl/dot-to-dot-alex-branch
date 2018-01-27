@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 
 
-import { AgmCoreModule , GoogleMapsAPIWrapper,AgmMap} from '@agm/core';
+import { AgmCoreModule , GoogleMapsAPIWrapper, AgmMap} from '@agm/core';
 import {GMapModule, Message} from 'primeng/primeng';
-import{Ng2MapModule} from 'ng2-map';
-import {GeocodingService} from "../services/geocoding.service";
+import {Ng2MapModule} from 'ng2-map';
+import {GeocodingService} from '../services/geocoding.service';
 import {GeolocationService} from '../services/geolocation.service';
 import {MapsService} from '../services/maps.service';
 import {ProjectService} from '../services/localProject.service';
@@ -12,7 +12,7 @@ import {UserService} from '../services/localUser.service';
 import {FirebaseListObservable, AngularFireDatabase} from 'angularfire2/database';
 import * as FireBase from 'firebase/app';
 import {AF} from '../providers/af';
-import {NotificationsComponent}from "../notifications/notifications.component";
+import {NotificationsComponent} from '../notifications/notifications.component';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   // lat: number = 55.8808026;
   // lng: number = -4.2745011;
   // label: string = 'STEAMpunks HQ';
-  showDiv:boolean;
+  showDiv: boolean;
 
   /*options: any;
   draggable: boolean;
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(public afService:AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
+  constructor(public afService: AF, private maps: MapsService, private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
     // this.zoom = 18;
     // this.markers = this.afService.projects;
     // this.peoples = this._userService.getUsers();
@@ -129,12 +129,11 @@ export class HomeComponent implements OnInit {
   }*/
 
 
-  ngOnInit()
-{
-  this.showDiv=true;
-}
+  ngOnInit() {
+    this.showDiv = true;
+  }
 
-  swipeDown(){
+  swipeDown() {
     this.showDiv = !this.showDiv;
   }
 

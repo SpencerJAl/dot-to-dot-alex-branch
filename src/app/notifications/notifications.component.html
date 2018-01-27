@@ -34,13 +34,7 @@
            <p>Join us  for  a nature  walk along the  canal 28th </p>
          </div>
 
-         <div *ngFor="let myJoined of joinedprojects|async">
-           <div *ngFor="let project of projects| async">
-             <div class = "" *ngIf = "project.id === myJoined.id" >
-               {{addNotifications(project.id)}}
-             </div>
-           </div>
-         </div>
+
 
          <div *ngFor="let n of notifications">
            <h2>{{n.title}}</h2>

@@ -577,6 +577,17 @@
 
    </agm-map>
   </div>
+
+<div *ngIf="enableProfiles === true">
+<div *ngFor=" let p of profiles;">
+
+  <div>
+    <p class="member">{{p.name}}</p>
+    <p *ngFor="let j of p.hobbies" class="{{j.name}}"></p>
+    <a href="#" [routerLink]="['/userProfile',p.name]">profile</a>
+  </div>
+</div>
+</div>
 <!--
 
   <div class="col-sm-2 " >

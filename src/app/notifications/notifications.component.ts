@@ -63,7 +63,17 @@ export class NotificationsComponent implements OnInit {
       this.joinedprojects = this.afService.getJoinedProjects();
       this.projects = this.afService.getAllProjects();
      console.log(this.currentUser);
-    }
+     this.joinedprojects.subscribe((joined) => {
+       this.projects.subscribe((projects) => {
+         for (const j of joined) {
+           for (const p of projects) {
+           if (p.id === j.id) {this.addNotifications(j.id); }
+         }
+         }
+       });
+
+     });
+  }
 
 
     addNotifications(id) {
@@ -77,7 +87,7 @@ export class NotificationsComponent implements OnInit {
 
 
 //////////////////////////dashboard component/////////////////////////////////////
-    ngAfterViewChecked () {
+    ngAfterViewChecked() {
       this.scrollToBottom();
     }
 
@@ -150,34 +160,27 @@ export class NotificationsComponent implements OnInit {
     ngOnInit() {
       this.options = {
         center: {lat: 55.8808026, lng: -4.2745011},
-
-
-
       };
 
       this.markerService.currentProjectName.subscribe(projectName => this.projectName = projectName );
       this.markerService.currentProjectType.subscribe(projectType => this.projectType = projectType );
-      this.markerService.currentProjectID.subscribe(projectID => {this.projectID = projectID;
-
+      this.markerService.currentProjectID.subscribe(projectID => {
+        this.projectID = projectID;
 
         this.messagething = {name: this.projectName, id: this.projectID};
 
         this.messages = this.afService.getProjectMessages(this.projectID);
         this.cd.markForCheck();
-        console.log('subscriber for notifications fired ' + this.projectName )    ;
-
-      }  );
+        console.log('subscriber for notifications fired ' + this.projectName );
+      });
       // this.markerService.currentProjectName.subscribe(projectName => this.projectName= projectName );
       // this.markerService.currentProjectType.subscribe(projectType => this.projectType= projectType );
       // this.messagething={name:this.projectName, id:this.projectID};
-
-//      this.afService.getProjectMessages(this.projectID);
+      // this.afService.getProjectMessages(this.projectID);
 
       this.afService.getProjectMessages(this.projectID);
       this.cd.detectChanges();
-      console.log('OnInit for notifications fired')    ;
-
-
+      console.log('OnInit for notifications fired');
     }
 
 
