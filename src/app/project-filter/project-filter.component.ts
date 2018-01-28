@@ -18,6 +18,7 @@ export class ProjectFilterComponent implements OnInit {
   science:boolean;
 
 
+
   constructor( private projectFilterData:ProjectFilterDataService) {
 
   }
