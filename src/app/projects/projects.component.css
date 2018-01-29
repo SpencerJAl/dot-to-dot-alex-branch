@@ -9,10 +9,11 @@
 }
 
 .myCard{
-  width:1000px;
+  width:90%;
   min-height: 100px;
   max-height: 600px;
   height:auto;
+  align:center;
 }
 .education {
   background:  rgb(49,172,255);

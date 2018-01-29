@@ -1,5 +1,9 @@
 p {
   font-family: "Calibri", Tahoma, sans-serif;
-  font-size: medium; }
+  font-size: medium;
+  margin: 5%; }
+
+h1 {
+  margin: 3%; }
 
 /*# sourceMappingURL=partners.component.css.map */
