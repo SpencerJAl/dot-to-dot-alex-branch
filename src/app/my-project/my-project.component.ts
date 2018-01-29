@@ -18,6 +18,7 @@ export class MyProjectComponent implements OnInit {
   projects: FirebaseListObservable<any>;
   projectData: {};
   notifications: FirebaseListObservable<any>;
+  donations: FirebaseListObservable<any>;
   userID;
 
 
@@ -28,6 +29,7 @@ export class MyProjectComponent implements OnInit {
     this.project.subscribe((p) => {
       this.projectData = p;
       this.id = p.id;
+      this.donations = p.donations;
     });
     this.userID = afService.userID;
   }

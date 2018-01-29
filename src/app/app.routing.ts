@@ -37,6 +37,7 @@ import {UsefulLinksComponent} from './useful-links/useful-links.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {MyProjectComponent} from './my-project/my-project.component';
+import {DonationsComponent} from './donations/donations.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent,
 
@@ -190,6 +191,11 @@ const appRoutes: Routes = [
     path: 'resetPassword',
     component: ResetPasswordComponent,
     data: {title: 'Useful Links'}
+  },
+  {
+    path: 'donations/:id',
+    component: DonationsComponent,
+    data: {title: 'donations'}
   },
 
 

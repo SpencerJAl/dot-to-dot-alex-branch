@@ -1,39 +1,65 @@
-<md-card>
-<h1> Add information to your profile</h1>
-<form (submit)="register($event, pDescription.value, pSummary.value)" class="form-signin">
+<div class="col-sm-12">
+  <h1 align="center">Add information to your profile</h1>
+</div>
 
-  <label >Biography</label>
-  <label for="#pDescription">
-<textarea
-  id="#pDescription"
-  type="text"
-  class="form-control"
-  rows="3"
-  cols="80" maxlength="240"></textarea>
-  </label>
+<form (submit)="editprofile($event, name.value, biography.value, skills.value, facebook.value, twitter.value)">
+  <div class="col-sm-3">
+    <div class = "card" style="width:75% " align="left">
+      <h2>Profile picture</h2>
+      <img type="file" class="profilepic" height="75%" width ="75%" (change)="selectFile($event)" src="{{(user | async).avatar}}"/>
+      <input type="file" (change)="selectFile($event)" src="{{(user | async).avatar}}">
+      <h2>Social media</h2>
+      <label>Facebook</label>
+      <input #facebook type="text" value = "{{(user | async).facebook}}">
 
+      <label>Twitter</label>
+      <input #twitter type="text" value = "{{(user | async).twitter}}">
 
-  <label for="#pSummary">Summary</label><textarea
-            id="#pSummary"
-            type="text"
-            class="form-control"
-            rows = "3"
-            cols = "80"></textarea>
+      <div class="form-group">
 
+        <label>Type of Project </label>
 
-  <div class="form-group">
-    <label>Interests </label>
-    <div *ngFor="let option of options">
-      <label>
-        <input type="checkbox"
-               name="options"
-               value="{{option.value}}"
-               [(ngModel)]="option.checked"/>
-        {{option.name}}
-      </label>
+        <div *ngFor="let option of options">
+
+          <label>
+            <input type="checkbox"
+                   name="options"
+                   value="{{option.value}}"
+                   [(ngModel)]="option.checked"/>
+            {{option.name}}
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 
-  <button type="submit" class="btn btn-md btn-primary btn-block">Register</button>
+  <div class="col-sm-9">
+    <div class = "card" style="width:75% " align="center">
+
+
+
+
+      <div class = "card" style="width:75% " align="center">
+        <h2>Name</h2>
+        <input #name type="text" value = "{{(user | async).name}}">
+      </div>
+
+      <div class = "card" style="width:75% " align="center">
+        <h2>Biography</h2>
+        <textarea #biography type="text" value = "{{(user | async).description}}"></textarea>
+      </div>
+
+      <div class = "card" style="width:75% " align="center">
+        <h2>Skills</h2>
+        <textarea #skills type="text" value = "{{(user | async).summary}}"></textarea>
+      </div>
+      <br>
+      <br>
+      <div align="right">
+        <button  md-raised-button="">Cancel</button>
+        <button type="submit" md-raised-button="">Save</button>
+      </div>
+
+    </div>
+  </div>
 </form>
-</md-card>

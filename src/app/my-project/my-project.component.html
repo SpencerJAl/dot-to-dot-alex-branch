@@ -14,7 +14,6 @@
         <p align="center" >{{n.title}}</p>
         <p>{{n.message}}</p>
         <p>{{n.timestamp}}</p>
-
       </div>
 
 
@@ -22,7 +21,9 @@
   </md-card>
 </div>
 
-<div>
+
+
+<md-card>
   <form (submit)="postUpdate($event, title.value, message.value)" class="form-signin">
 
     <div class = "form-group">
@@ -41,7 +42,8 @@
       ></textarea>
     </div>
 
+
     <button  class="btn btn-md btn-primary btn-block" type="submit">update</button>
 
   </form>
-</div>
+</md-card>

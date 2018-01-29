@@ -116,6 +116,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MyProjectComponent } from './my-project/my-project.component';
 import {FirebaseDataProvider} from './providers/firebaseDataProvider';
+import { DonationsComponent } from './donations/donations.component';
 // import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -165,6 +166,7 @@ export const firebaseConfig = {
 
 
 /////   DEV
+
 export const firebaseConfig = {
   apiKey: 'AIzaSyBw-rY-khKozG8qeSqdO7iO6fdyc5bt5Qo',
   authDomain: 'project--5383574466381407389.firebaseapp.com',
@@ -229,6 +231,7 @@ export consrebaseAuthConfig = {
     EditProfileComponent,
     ResetPasswordComponent,
     MyProjectComponent,
+    DonationsComponent,
     // FilterProjectPipe
   ],
   imports: [
