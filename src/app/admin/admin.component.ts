@@ -7,7 +7,8 @@ import {OnInit, Component} from "@angular/core";
  */
 @Component({
   selector: 'admin-root',
-  templateUrl: 'admin.component.html',
+  template:``,
+  //templateUrl: 'admin.component.html',
   styleUrls: ['admin.component.scss']
 })
 

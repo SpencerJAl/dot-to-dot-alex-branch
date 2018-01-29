@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FirebaseListObservable, AngularFireDatabase} from 'angularfire2/database';
 import {Router} from '@angular/router';
 import {AF} from '../providers/af';
-
+import{Project }from '../providers/project';
+import {User} from '../providers/user';
+import {Supplier} from '../providers/supplier';
 /**
  * Created by James on 05/06/2017.
  */
@@ -13,9 +15,9 @@ import {AF} from '../providers/af';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  users: FirebaseListObservable<any>;
-  projectRequests: FirebaseListObservable<any>;
-  supplierRequests: FirebaseListObservable<any>;
+  users: FirebaseListObservable<User[]>;
+  projectRequests: FirebaseListObservable<Project[]>;
+  supplierRequests: FirebaseListObservable<Supplier[]>;
   ngOnInit() {
     console.log(this.afService.getUsers());
   }

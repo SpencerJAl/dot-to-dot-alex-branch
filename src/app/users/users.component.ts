@@ -4,6 +4,7 @@ import {AppRouting} from "../app.routing";
 import {AF} from "../providers/af";
 import {FirebaseListObservable, FirebaseObjectObservable} from "angularfire2/database";
 import {GeocodingService} from "../services/geocoding.service";
+import {User} from  '../providers/user';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +13,8 @@ import {GeocodingService} from "../services/geocoding.service";
 })
 export class UsersComponent implements OnInit {
 
-  user:FirebaseObjectObservable<any>
+  user:FirebaseObjectObservable<User>;
+  name:string;
 
   constructor(private afService: AF ) {
 

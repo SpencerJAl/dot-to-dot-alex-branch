@@ -7,26 +7,29 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} 
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {FirebaseDataProvider} from './firebaseDataProvider';
+import {Message, Project, Member} from  './project';
+import {User} from'./user';
+import {Supplier} from './supplier';
 
 @Injectable()
 export class AF {
 
   public user: FirebaseObjectObservable<any>;
-  public messages: FirebaseListObservable<any>;
-  public users: FirebaseListObservable<any>;
+  public messages: FirebaseListObservable<Message[]>;
+  public users: FirebaseListObservable<User[]>;
   public displayName: string;
   public email: string;
   public userID: string;
-  public projects: FirebaseListObservable<any>;
-  public joinedProjects: FirebaseListObservable<any>;
-  public ownedSuppliers: FirebaseListObservable<any>;
-  public ownedProjects: FirebaseListObservable<any>;
+  public projects: FirebaseListObservable<Project[]>;
+  public joinedProjects: FirebaseListObservable<Project[]>;
+  public ownedSuppliers: FirebaseListObservable<string[]>;
+  public ownedProjects: FirebaseListObservable<string[]>;
   public loggedIn: boolean = false;
-  public project: FirebaseObjectObservable<any>;
-  public projectRequests: FirebaseListObservable<any>;
-  public suppliers: FirebaseListObservable<any>;
-  public supplier: FirebaseObjectObservable<any>;
-  public supplierRequests: FirebaseListObservable<any>;
+  public project: FirebaseObjectObservable<Project>;
+  public projectRequests: FirebaseListObservable<Project[]>;
+  public suppliers: FirebaseListObservable<Supplier[]>;
+  public supplier: FirebaseObjectObservable<Supplier>;
+  public supplierRequests: FirebaseListObservable<Supplier[]>;
  // uid: string;
 
   /**
@@ -189,6 +192,7 @@ export class AF {
   getAllProjectRequests() {
 
     this.projectRequests = this.af.list('projectRequests/');
+
     return this.projectRequests;
   }
   getProjectRequests(id) {

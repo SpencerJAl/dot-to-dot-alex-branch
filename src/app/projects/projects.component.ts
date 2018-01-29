@@ -4,8 +4,10 @@ import {AppRouting} from '../app.routing';
 import {AF} from '../providers/af';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFireModule} from 'angularfire2';
+import {Member,Project,Message} from '../providers/project';
 import {AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import {AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
 /* Updated by Alexander for angular 4 */
 
 @Component({
@@ -16,15 +18,16 @@ import {AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 export class ProjectsComponent implements OnInit {
 
   error: any;
-  project: FirebaseObjectObservable<any>;
+  project: FirebaseObjectObservable<Project>;
   id: string;
   isMember: boolean;
 
   // this is currently a work around because of problems subscribing for some reason, will be fixed later
-  projects: FirebaseListObservable<any>;
+  projects: FirebaseListObservable<Project[]>;
   projectData: {};
-  messages: FirebaseListObservable<any>;
-  userID;
+  messages: FirebaseListObservable<Message[]>;
+  userID:string;
+  owner:string;
 
   constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule, private db: AngularFireDatabase, private route: ActivatedRoute ){
     this.project = db.object('projects/' + this.route.snapshot.params['id']);

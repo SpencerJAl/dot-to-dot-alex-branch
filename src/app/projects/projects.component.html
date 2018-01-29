@@ -1,6 +1,12 @@
 <div>
-  <md-card>
-    <h1 align="center">{{(project | async)?.name}}</h1>
+  <md-card class ="myCard {{(project|async)?.type}}">
+    <md-card-title >
+      <p><img class="card-avatar" src="{{(project|async)?.icon}}" /><strong>&nbsp; &nbsp; {{(project|async)?.name}}</strong></p>
+    </md-card-title>
+    <md-card-content>
+      <p>
+        <img md-card-image  class="myImage"  src="{{(project|async)?.image}}" alt="Project Image" />
+      </p>
     <h2 align="center">Description</h2>
     <p align="center">{{(project | async)?.description}}</p>
 
@@ -22,6 +28,7 @@
     </div>
 
     <button (click)="join()" align="center" style="font-size: medium">Join project</button>
+    </md-card-content>
   </md-card>
 </div>
 
