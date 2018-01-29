@@ -29,6 +29,7 @@ export class CreateProjectComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: {percentage: number} = {percentage: 0};
 
+  items= [];
 
   options = [
     {name: 'Art', value: 'artAndDesign', checked: true},
@@ -59,7 +60,7 @@ export class CreateProjectComponent implements OnInit {
       console.log('lat is : ' + this.center.lat());
       console.log('long is : ' + this.center.lng());
     }).then(() => {
-      this.afService.sendProjectRequest(projectName, desc, sum, this._selectedType, this.center.lat(), this.center.lng()).then((project) => {
+      this.afService.sendProjectRequest(projectName, desc, sum, this._selectedType, this.center.lat(), this.center.lng(), this.items).then((project) => {
         console.log('project id is' + project.key);
         this.afService.saveProjectID(project.key);
         this.afService.saveProjectToUser(project.key).then(() => {
@@ -83,6 +84,15 @@ export class CreateProjectComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  addItem(event, itemName, itemDescription, itemAmount) {
+    this.items.push({
+      name: itemName,
+      description: itemDescription,
+      amountRequired : itemAmount,
+      currentAmount: 0
+    });
   }
 
   selectFile(event) {

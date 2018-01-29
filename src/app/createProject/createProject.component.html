@@ -86,6 +86,8 @@ json ={
     <span class="sr-only">Error:</span>
     {{error}}
   </div>
+
+
 <div class="modal-dialog"  >
 <div class="loginmodal-container" >
   <h1>Start a new project</h1>
@@ -155,6 +157,36 @@ json ={
   <label class="btn btn-default"> <input type="file"
                                          (change)="selectFile($event)">
   </label>
+
+  <md-card>
+  <md-card>
+    <h2> Supplies wanted</h2>
+    <div class = "form-group">
+      <label for="itemName" class="sr-only">item name</label>
+      <input #itemName type="text" id ="itemName" class="form-control" placeholder="Item Name">
+      <label for="itemDescription" class="sr-only">item description</label>
+      <input #itemDescription type="text" id ="itemDescription" class="form-control" placeholder="Description">
+      <label for="itemAmount" class="sr-only">item amount</label>
+      <input #itemAmount type="text" id ="itemAmount" class="form-control" placeholder="Quantity">
+      <button (click)="addItem($event, itemName.value, itemDescription.value, itemAmount.value )">Add</button>
+    </div>
+  </md-card>
+
+  <md-card>
+    <h2>Name  Description   Summary </h2>
+    <div class = "form-group">
+
+      <label class="sr-only"></label>
+
+      <div *ngFor="let i of items">
+        <p>{{i.name}} {{i.description}} {{i.amountRequired}}</p>
+      </div>
+
+    </div>
+
+  </md-card>
+  </md-card>
+
   <button  class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
 
 </form>

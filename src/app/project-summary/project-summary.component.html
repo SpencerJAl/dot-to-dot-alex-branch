@@ -121,6 +121,8 @@
             <md-card-content>
               {{project.summary}}
             </md-card-content>
+
+            <a href="#" [routerLink]="['/donations',project.id]">donate</a>
           </md-card>
             <md-paginator (page)="1" [pageSize]="5" >
             </md-paginator>

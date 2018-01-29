@@ -280,7 +280,7 @@ export class AF {
    * this section of code is to handel projects
    */
   // creates a request to the admins to approve or decline a new project
-  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng) {
+  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng, items) {
 
 
     // statements;
@@ -296,7 +296,8 @@ export class AF {
       type: projectType,
       lat: lat,
       lng: lng,
-      icon: icontype
+      icon: icontype,
+      itemsWanted: items
     };
     return this.projectRequests.push(project);
   }

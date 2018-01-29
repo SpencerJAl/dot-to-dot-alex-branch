@@ -1,0 +1,17 @@
+
+<h1>Donations for {{(project | async).name}}</h1>
+<p>item needed amount needed, amount donating</p>
+<div *ngFor=" let i = 'index'; let d of (project | async).itemsWanted; ">
+  <h2>{{d.name}}</h2>
+  <h2>{{d.description}}</h2>
+  <h2>{{d.amountRequired}}</h2>
+  <h2>{{d.currentAmount}}</h2>
+  <h2> {{i}}</h2>
+  <form (submit)="donateItem($event, amount.value, details.value, i)" class="form-signin">
+    <label for="amount" class="sr-only">how much of this item would you like to donate?</label>
+    <input #amount type="text" id ="amount" class="form-control" placeholder="Quantity">
+    <label for="details" class="sr-only">delivery details</label>
+    <input #details type="text" id ="details" class="form-control" placeholder="Delivery Details">
+    <button type="submit">donate</button>
+  </form>
+</div>
