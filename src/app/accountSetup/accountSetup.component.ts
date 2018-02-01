@@ -6,6 +6,8 @@ import {UploadFileService} from '../services/uploadFile.servive';
 import {FirebaseDataProvider} from '../providers/firebaseDataProvider';
 import {FirebaseObjectObservable} from 'angularfire2/database';
 import {AngularFireDatabase} from 'angularfire2/database/database';
+import {FormControl, FormGroup} from '@angular/forms';
+import {FileTypeValidatorDirective} from '../directives/file-type-validator.directive';
 @Component({
   selector: 'app-accountSetup',
   templateUrl: './accountSetup.component.html',
@@ -14,7 +16,7 @@ import {AngularFireDatabase} from 'angularfire2/database/database';
 export class AccountSetupComponent {
   error: any;
   interests= {};
-
+  form;
   user: FirebaseObjectObservable<any>;
   selectedFiles: FileList;
   currentFileUpload: FileUpload;
@@ -28,6 +30,9 @@ export class AccountSetupComponent {
   ];
   constructor(private afService: AF, private router: Router, private uploadService: UploadFileService, private firebaseData: FirebaseDataProvider, db: AngularFireDatabase) {
     this.user = db.object('registeredUsers/' + afService.userID);
+    this.form = new FormGroup({
+      file: new FormControl('',    [FileTypeValidatorDirective.validate])
+    });
   }
   // get selected file from the dom
   selectFile(event) {
@@ -59,6 +64,7 @@ export class AccountSetupComponent {
   }
 
   editprofile(event, name, description, summary, facebook, twitter) {
+
 
     const pic = this.firebaseData.data.profilePicture + this.afService.userID + '%2Fprofilepic?alt=media';
     const edit = {

@@ -3,15 +3,29 @@
 <p>item needed amount needed, amount donating</p>
 <div *ngFor=" let i = 'index'; let d of (project | async).itemsWanted; ">
   <h2>{{d.name}}</h2>
-  <h2>{{d.description}}</h2>
-  <h2>{{d.amountRequired}}</h2>
-  <h2>{{d.currentAmount}}</h2>
-  <h2> {{i}}</h2>
+  <p>{{d.description}}</p>
+  <h3>amount needed</h3>
+  <p>{{d.amountRequired}}</p>
+  <h3>amount received</h3>
+  <p>{{d.currentAmount}}</p>
   <form (submit)="donateItem($event, amount.value, details.value, i)" class="form-signin">
     <label for="amount" class="sr-only">how much of this item would you like to donate?</label>
     <input #amount type="text" id ="amount" class="form-control" placeholder="Quantity">
     <label for="details" class="sr-only">delivery details</label>
     <input #details type="text" id ="details" class="form-control" placeholder="Delivery Details">
+    <button type="submit">donate</button>
+  </form>
+</div>
+<div *ngIf="(project| async).hours>0">
+  <h2>
+    Work hours needed
+  </h2>
+  {{(project| async).hours}}
+  <form (submit)="addWorkHours($event, hours.value, details.value, i)" class="form-signin">
+    <label>hours donating</label>
+    <input #hours type="text" >
+    <label for="details" class="sr-only">delivery details</label>
+    <input #details type="text" id ="d" class="form-control" placeholder="Delivery Details">
     <button type="submit">donate</button>
   </form>
 </div>

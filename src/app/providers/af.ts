@@ -271,7 +271,7 @@ export class AF {
     });
   }
   deleteUser() {}
-  archiveUsers() {}
+  archiveUsers() { }
   getUsers() {
     return this.users;
   }
@@ -280,14 +280,12 @@ export class AF {
    * this section of code is to handel projects
    */
   // creates a request to the admins to approve or decline a new project
-  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng, items) {
+  sendProjectRequest(projectName, projectDisc, projectSum, projectType, lat, lng, items, money, hours, date) {
 
 
     // statements;
     const icontype = '../../images/' + projectType + '.png';
-
-
-
+    const today = new Date();
     const project = {
       name: projectName,
       description: projectDisc,
@@ -297,7 +295,13 @@ export class AF {
       lat: lat,
       lng: lng,
       icon: icontype,
-      itemsWanted: items
+      itemsWanted: items,
+      money: money,
+      currentMoney: 0,
+      hours: hours,
+      currentHours: 0,
+      startDate: today.getDate() ,
+      endDate: date
     };
     return this.projectRequests.push(project);
   }

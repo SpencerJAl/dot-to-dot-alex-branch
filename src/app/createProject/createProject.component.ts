@@ -7,7 +7,8 @@ import {AF} from '../providers/af';
 import {GeocodingService} from '../services/geocoding.service';
 import {FileUpload} from '../objects/file';
 import {UploadFileService} from '../services/uploadFile.servive';
-
+import {FormControl, FormGroup} from '@angular/forms';
+import {FileTypeValidatorDirective} from '../directives/file-type-validator.directive';
 @Component({
   selector: 'app-create-project',
   templateUrl: './createProject.component.html',
@@ -30,7 +31,7 @@ export class CreateProjectComponent implements OnInit {
   progress: {percentage: number} = {percentage: 0};
 
   items= [];
-
+  form;
   options = [
     {name: 'Art', value: 'artAndDesign', checked: true},
     {name: 'Science', value: 'science', checked: false},
@@ -39,7 +40,11 @@ export class CreateProjectComponent implements OnInit {
     {name: 'Education', value: 'education', checked: true},
   ];
   _selectedType: any;
-  constructor(private afService: AF, private GC: GeocodingService, private router: Router, private uploadService: UploadFileService) { }
+  constructor(private afService: AF, private GC: GeocodingService, private router: Router, private uploadService: UploadFileService) {
+    this.form = new FormGroup({
+      file: new FormControl('',    [FileTypeValidatorDirective.validate])
+    });
+  }
 
   get selectedOptions() { // right now: ['1','3']
     return this.options
@@ -51,7 +56,8 @@ export class CreateProjectComponent implements OnInit {
   protected interestHandler(event: any) {
     this._selectedType = event.target.value;
   }
-  createProject(event, projectName, desc, sum, loc) {
+  createProject(event, projectName, desc, sum, loc, money, hours, date) {
+    console.log('date is' + date);
     console.log('interest is ' + this._selectedType);
     event.preventDefault();
     //noinspection TypeScriptUnresolvedFunction
@@ -60,7 +66,7 @@ export class CreateProjectComponent implements OnInit {
       console.log('lat is : ' + this.center.lat());
       console.log('long is : ' + this.center.lng());
     }).then(() => {
-      this.afService.sendProjectRequest(projectName, desc, sum, this._selectedType, this.center.lat(), this.center.lng(), this.items).then((project) => {
+      this.afService.sendProjectRequest(projectName, desc, sum, this._selectedType, this.center.lat(), this.center.lng(), this.items, money, hours, date).then((project) => {
         console.log('project id is' + project.key);
         this.afService.saveProjectID(project.key);
         this.afService.saveProjectToUser(project.key).then(() => {

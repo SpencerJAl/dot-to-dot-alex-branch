@@ -25,7 +25,7 @@ export class AppComponent {
   authColor = 'warn';
   user = {};
   usertype;
-  isadmin=false;
+  isadmin = false;
   username;
   public  isLoggedIn: boolean;
 

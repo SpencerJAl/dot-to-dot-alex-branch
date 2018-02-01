@@ -1,5 +1,7 @@
 @import '../project-summary/project-summary.component.scss';
 
+@import '../notifications/notifications.component.scss';
+
 .avatar{
   width:30px;
   height :30px;

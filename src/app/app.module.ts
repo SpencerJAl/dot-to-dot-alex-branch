@@ -117,6 +117,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { MyProjectComponent } from './my-project/my-project.component';
 import {FirebaseDataProvider} from './providers/firebaseDataProvider';
 import { DonationsComponent } from './donations/donations.component';
+import { FileTypeValidatorDirective } from './directives/file-type-validator.directive';
 // import { FilterProjectPipe } from './filter-project.pipe';
 
 
@@ -176,6 +177,7 @@ export const firebaseConfig = {
   messagingSenderId: '6272813349'
 };
 
+
 /*
 /*
 export consrebaseAuthConfig = {
@@ -232,6 +234,7 @@ export consrebaseAuthConfig = {
     ResetPasswordComponent,
     MyProjectComponent,
     DonationsComponent,
+    FileTypeValidatorDirective,
     // FilterProjectPipe
   ],
   imports: [

@@ -91,7 +91,7 @@ json ={
 <div class="modal-dialog"  >
 <div class="loginmodal-container" >
   <h1>Start a new project</h1>
-<form (submit)="createProject($event, projectName.value, projectDescription.value, projectSummary.value, location.value)" class="form-signin">
+<form (submit)="createProject($event, projectName.value, projectDescription.value, projectSummary.value, location.value, money.value, hours.value, date.valueAsDate)" class="form-signin">
 
 
 
@@ -157,8 +157,15 @@ json ={
   <label class="btn btn-default"> <input type="file"
                                          (change)="selectFile($event)">
   </label>
+  <h3>amount of money wanted</h3>
+  <input #money type="text">
+  <h3>amount of volentery hours wanted</h3>
+  <input #hours type="text">
+  <h3>Project end Date</h3>
+  <input #date type="date">
 
   <md-card>
+
   <md-card>
     <h2> Supplies wanted</h2>
     <div class = "form-group">

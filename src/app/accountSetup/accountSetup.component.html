@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-<md-card>
-<h1> Add information to your profile</h1>
-<form (submit)="register($event, description.value, pSummary.value)" class="form-signin">
-
-  <label >Biography</label>
-  <label for="#description">
-<textarea
-  id="#description"
-  type="text"
-  class="form-control"
-  rows="3"
-  cols="80" maxlength="240"></textarea>
-  </label>
-
-
-  <label for="#pSummary">Summary</label><textarea
-            id="#pSummary"
-            type="text"
-            class="form-control"
-            rows = "3"
-            cols = "80"></textarea>
-
-
-  <div class="form-group">
-    <label>Interests </label>
-    <div *ngFor="let option of options">
-      <label>
-        <input type="checkbox"
-               name="options"
-               value="{{option.value}}"
-               [(ngModel)]="option.checked"/>
-        {{option.name}}
-      </label>
-=======
 <div class="col-sm-12">
   <h1 align="center">Add information to your profile</h1>
 </div>
@@ -65,7 +30,6 @@
           </label>
         </div>
       </div>
->>>>>>> 6746fae0ccf581270619ac998b6b64e3666d7eed
     </div>
   </div>
 

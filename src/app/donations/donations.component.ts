@@ -27,6 +27,15 @@ export class DonationsComponent implements OnInit {
       user: this.afService.userID
     });
   }
+  addWorkHours(event, hours, details, key) {
+    this.db.list('projects/' + this.route.snapshot.params['id'] + '/workingHours').push({
+      itemID: key,
+      hours: hours,
+      details: details,
+      accepted: false,
+      user: this.afService.userID
+    });
+  }
   ngOnInit() {
   }
 
