@@ -31,6 +31,7 @@ import {CoreModule} from './app.core.modules';
 import {AlertService} from './services/alert.service';
 import { Ng2MapModule} from 'ng2-map';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FacebookModule } from 'ngx-facebook';
 
 import 'hammerjs';
 // MATERIAL DESIGN MODULES
@@ -254,6 +255,7 @@ export consrebaseAuthConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    FacebookModule.forRoot(),
    /* AngularFireModule.initializeApp(
       {
         apiKey: "AIzaSyBN2oxnV4Seen_IxxrNzPeTMZOH1eWb2oc",

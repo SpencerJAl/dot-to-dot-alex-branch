@@ -9,8 +9,8 @@ import {AF} from "./providers/af";
 import {Router} from "@angular/router";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {SearchComponent} from "./search/search.component"
-
+import {SearchComponent} from './search/search.component';
+import {FacebookService, InitParams} from 'ngx-facebook';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,11 +29,17 @@ export class AppComponent {
   username;
   public  isLoggedIn: boolean;
 
-  constructor(private afService: AF, private router: Router) {
+  constructor(private afService: AF, private router: Router, private fb: FacebookService) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
     // This is just a small thing that Firebase does that makes it easy to use.
+    let initParams: InitParams = {
+      appId: '1601932213156995',
+      xfbml: true,
+      version: 'v2.8'
+    };
 
+    fb.init(initParams);
     this.afService.afAuth.authState.subscribe(
       (auth) => {
         if(auth == null) {
