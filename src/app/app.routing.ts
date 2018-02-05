@@ -38,6 +38,7 @@ import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {MyProjectComponent} from './my-project/my-project.component';
 import {DonationsComponent} from './donations/donations.component';
+import {FacebookPostsComponent} from "./facebook-posts/facebook-posts.component";
 const appRoutes: Routes = [
   { path: '', component: HomeComponent,
 
@@ -197,7 +198,12 @@ const appRoutes: Routes = [
     component: DonationsComponent,
     data: {title: 'donations'}
   },
+  {
+    path: 'facebookPosts',
+    component: FacebookPostsComponent,
+    data: {title: 'Facebook Posts'}
 
+  }
 
 
 ];

@@ -7,12 +7,13 @@ import {AngularFireModule} from 'angularfire2';
 import {Member,Project,Message} from '../providers/project';
 import {AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import {AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-
+import {FacebookModule,FacebookService, InitParams} from 'ngx-facebook';
+import {MD_PROVIDERS} from '../app.material.providers';
 /* Updated by Alexander for angular 4 */
 
 @Component({
   selector: 'app-projects',
-  templateUrl: './projects.component.html',
+  templateUrl: './index.html',
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
@@ -27,24 +28,50 @@ export class ProjectsComponent implements OnInit {
   projects: FirebaseListObservable<Project[]>;
   projectData: {};
   messages: FirebaseListObservable<Message[]>;
+  posts: any;
   userID: string;
   owner: string;
+  projectID: string;
+  currentProject: Project;
+  facebookMessage: string;
   notifications: FirebaseListObservable<any>;
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
-  constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule, private db: AngularFireDatabase, private route: ActivatedRoute ){
+
+  constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule, private db: AngularFireDatabase, private route: ActivatedRoute, private fb: FacebookService) {
+
+
     this.project = db.object('projects/' + this.route.snapshot.params['id']);
     this.messages = db.list('projects/' + this.route.snapshot.params['id'] + 'messages');
     this.notifications = this.afService.getProjectMessages(this.route.snapshot.params['id']);
     this.currentUser = this.afService.getUser(this.afService.userID);
+    this.projectID = this.route.snapshot.params['id'];
     this.project.subscribe((p) => {
       this.projectData = p;
       // for (m in p.members){
       // console.log (m.id)
       // }
     });
+    console.log(this.project);
+    //this.currentProject= <Project>this.project;
+    //this.facebookMessage= "View this great project on DOT to DOT <b>"+this.currentProject.name+"</b> <br/> <h2>summary </h2><br/>"+ this.currentProject.summary;
+
     this.userID = afService.userID;
+    let initParams: InitParams = {
+      appId: '1601932213156995',
+      xfbml: true,
+      version: 'v2.8'
+
+    };
+
+
+    fb.init(initParams);
+
   }
+
+
+
+
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -66,14 +93,15 @@ export class ProjectsComponent implements OnInit {
   sendMessage() {
     console.log('new message = ' + this.newMessage);
 
-    /*if(this.currentUser.avatar!=udefined) {
-      this.afService.sendMessage(this.newMessage, this.currentUser.avatar);
+   /* if(this.currentUser!=udefined) {
+      this.afService.sendMessage(this.newMessage, this.currentUser);
     }
     else
       {*/
     console.log(this.currentUser);
+
     this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
-    // }
+     //}
     console.log('Message Sent');
     this.newMessage = '';
 
@@ -92,5 +120,8 @@ export class ProjectsComponent implements OnInit {
     else
       return true;
   }
+
+
+
 }
 

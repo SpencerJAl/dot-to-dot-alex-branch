@@ -1,0 +1,21 @@
+.profilepic {
+  height: 100%;
+  width: 100%;
+  margin: 10px 5px auto;
+  display: inline-block; }
+
+textarea {
+  resize: none;
+  height: 100px; }
+
+button {
+  background-color: yellow; }
+
+.card {
+  font-size: small;
+  padding: 2%;
+  display: inline-block;
+  margin: 10px 5px auto;
+  vertical-align: top; }
+
+/*# sourceMappingURL=users-profiles.component.css.map */

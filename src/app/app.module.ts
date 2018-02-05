@@ -119,9 +119,10 @@ import { MyProjectComponent } from './my-project/my-project.component';
 import {FirebaseDataProvider} from './providers/firebaseDataProvider';
 import { DonationsComponent } from './donations/donations.component';
 import { FileTypeValidatorDirective } from './directives/file-type-validator.directive';
+import { FacebookPostsComponent } from './facebook-posts/facebook-posts.component';
 // import { FilterProjectPipe } from './filter-project.pipe';
-
-
+import {FaceBookPostsService}from './providers/facebook-graph-service.service'
+import {PostsList}from './facebook-posts/facebook-posts-list';
 export let MD_MODULES: any = [
   MdButtonModule,
   MdButtonToggleModule,
@@ -236,6 +237,8 @@ export consrebaseAuthConfig = {
     MyProjectComponent,
     DonationsComponent,
     FileTypeValidatorDirective,
+    FacebookPostsComponent,
+    PostsList
     // FilterProjectPipe
   ],
   imports: [
@@ -272,6 +275,7 @@ export consrebaseAuthConfig = {
   ],
   providers: [
     // FIREBASE_PROVIDERS,
+    FaceBookPostsService,
     AF,
     FirebaseDataProvider,
     // AngularFire,
