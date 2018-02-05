@@ -6,28 +6,28 @@ export class Project {
   description: string;
   icon: string;
   id: string;
-  image:string;
-  lat:number;
-  lng:number;
+  image: string;
+  lat: number;
+  lng: number;
   members: Member[];
-  messages:Message[];
+  messages: Message[];
   name: string;
-  owner:string;
+  owner: string;
   summary: string;
   type: string;
 
 }
 
-export class Member{
-  key:string;
-  id:string;
+export class Member {
+  key: string;
+  id: string;
 }
 
-export class Message{
-  key:string;
+export class Message {
+  key: string;
   displayName: string;
   email: string;
-  message:string;
+  message: string;
   timestamp: number;
 
 }

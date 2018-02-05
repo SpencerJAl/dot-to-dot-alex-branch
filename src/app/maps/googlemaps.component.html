@@ -542,6 +542,7 @@
      </div>
 
      <div    *ngIf="eduFlag" >
+
        <agm-marker
 
          *ngFor="let m of markers | async |search:'education'"
@@ -550,8 +551,8 @@
          [latitude]="m.lat"
          [longitude]="m.lng"
          [iconUrl]="m.icon"
-
        >
+
          <agm-info-window>
            <md-card class="myCard {{m.type}}" >
              <md-card-header>

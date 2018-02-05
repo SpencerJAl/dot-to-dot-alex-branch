@@ -271,7 +271,7 @@ export class AF {
     });
   }
   deleteUser() {}
-  archiveUsers() { }
+  archiveUsers() {  }
   getUsers() {
     return this.users;
   }
@@ -380,6 +380,11 @@ export class AF {
     console.log('get project messages  fired');
     return this.af.list('projects/' + id + '/messages');
   }
+  getProjectMembers(id) {
+    this.messages = this.af.list('projects/' + id + '/members');
+    console.log('get project messages  fired');
+    return this.af.list('projects/' + id + '/members');
+  }
 
   getAllProjects() {
     return this.projects;
@@ -390,7 +395,7 @@ export class AF {
     return this.project;
   }
   getUser(id) {
-    return this.af.list('registeredUsers/' + id);
+    return this.af.object('registeredUsers/' + id);
   }
   join(id) {
     console.log('users id is ' + this.userID);
@@ -404,8 +409,9 @@ export class AF {
       }
     );
   }
+
   ////////////////////////////////////////////////////////////////////////
-/////////////// Waste Suppliers//////////////////////////////////////////
+  /////////////// Waste Suppliers//////////////////////////////////////////
 
 
   sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng) {

@@ -1,6 +1,32 @@
-<h1>{{person.name}}'s profile</h1>
-<h2>Description</h2>
-<p>{{person.description}}</p>
+<div class="col-sm-12">
+  <h1 align="center">{{(user | async).name}}'s Profile</h1>
+</div>
 
-<h2>interests</h2>
 
+
+<div class="col-sm-3">
+  <div class = "card" style="width:75% " align="left">
+    <img type="file" class="profilepic" height="75%" width ="75%" src="{{(user | async).avatar}}"/>
+    <h2>Social media</h2>
+    <label>Facebook</label>
+    <p>{{(user | async).facebook}}</p>
+
+    <label>Twitter</label>
+    <p>{{(user | async).twitter}}</p>
+
+    </div>
+  </div>
+
+<md-card class="col-sm-8">
+  <md-card style="width:75% " align="center">
+    <h2>Skills</h2>
+    <p>{{(user | async).summary}}</p>
+  </md-card>
+
+      <md-card style="width:75% " align="center">
+        <h2>Biography</h2>
+        <p>{{(user | async).description}}</p>
+      </md-card>
+
+</md-card>
+<app-footer class ="col-sm-12"></app-footer>

@@ -50,7 +50,7 @@
      <div  class="bs-example" id="messages">
        <div *ngFor="let message of messages | async">
          <div class="bubble {{this.projectType}}" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
-           <div *ngIf="message.avatar!==undefined ;then content else other_content">here is ignored</div>
+           <div *ngIf="message.avatar!==undefined; then content else other_content">here is ignored</div>
            <ng-template #content><img src= "{{message.avatar}}" class="avatar"/></ng-template>
            <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
            <p>{{ message.message }}</p>

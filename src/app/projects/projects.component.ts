@@ -17,7 +17,7 @@ import {AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 })
 export class ProjectsComponent implements OnInit {
 
-  currentUser: FirebaseListObservable<any>;
+  currentUser: FirebaseObjectObservable<any>;
   error: any;
   project: FirebaseObjectObservable<Project>;
   id: string;

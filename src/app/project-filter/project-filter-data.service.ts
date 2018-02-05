@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ProjectFilterDataService {
@@ -29,49 +29,36 @@ export class ProjectFilterDataService {
   private vacantSource = new BehaviorSubject<boolean>(true);
   currentVacant = this.vacantSource.asObservable();
 
-  constructor() { }
+  constructor() {}
 
   changeVacant(Flag: boolean) {
     this.vacantSource.next(Flag);
-
   }
-
   changeFood(Flag: boolean) {
     this.foodSource.next(Flag);
-
   }
   changePrevious(Flag: boolean) {
     this.previousSource.next(Flag);
-
   }
   changeEvent(Flag: boolean) {
     this.eventSource.next(Flag);
-
   }
   changeSupplier(Flag: boolean) {
     this.supplierSource.next(Flag);
-
   }
-
   changeCraft(craftFlag: boolean) {
     this.craftSource.next(craftFlag);
-
   }
-
   changeEdu(eduFlag: boolean) {
     this.eduSource.next(eduFlag);
-
   }
   changeArt(artFlag: boolean) {
     this.artSource.next(artFlag);
-
   }
-  changeScience(sciFlag: boolean){
+  changeScience(sciFlag: boolean) {
     this.scienceSource.next(sciFlag);
-
   }
-  changeHealth(healthFlag: boolean){
+  changeHealth(healthFlag: boolean) {
     this.healthSource.next(healthFlag);
-
   }
 }

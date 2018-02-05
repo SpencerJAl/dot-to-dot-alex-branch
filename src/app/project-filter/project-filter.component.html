@@ -53,8 +53,6 @@
         </label>
       </div>
       </span>
-
-
     </div>
     <app-map-layers></app-map-layers>
 
@@ -67,13 +65,13 @@
     </md-panel-title>
   </md-expansion-panel-header>
 
-  <div *ngFor=" let p of profiles">
+  <div *ngFor=" let m of members">
 
-    <div>
-      <p class="member">{{p.name}}</p>
-      <p *ngFor="let j of p.hobbies" class="{{j.name}}"></p>
-      <a href="#" [routerLink]="['/userProfile',p.name]">profile</a>
-    </div>
+    <md-card>
+      <img src="{{m.avatar}}" style= "width:50px;height:50px;" align="left">
+      <h3>{{m.name}}</h3>
+      <a href="#" [routerLink]="['/userProfile',m.id]">profile</a>
+    </md-card>
 
   </div>
 

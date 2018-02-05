@@ -39,16 +39,15 @@ export class NotificationsComponent implements OnInit {
   projectID: string;
   projectName: string;
   projectType: string;
-  currentUser: FirebaseListObservable<any>;
+  currentUser: FirebaseObjectObservable<any>;
   projects: FirebaseListObservable<any>;
-
-    ////////////////////////message variables///////////////////////////
+  ////////////////////////message variables///////////////////////////
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
   private options: {center: {lat: number; lng: number}};
   private joinedprojects: FirebaseListObservable<any>;
-///////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////
   notifications: Array<any> = [{}];
   constructor(public afService: AF, private cd: ChangeDetectorRef, private markerService: MarkersService, private appCom: AppComponent, private maps: MapsService,
               private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
@@ -77,7 +76,7 @@ export class NotificationsComponent implements OnInit {
 
 
     addNotifications(id) {
-    this.af.list('projects/' + id + '/notifications').subscribe((n)=>{
+    this.af.list('projects/' + id + '/notifications').subscribe((n) => {
       for (let note of n){
         console.log('message is: ' + note.message);
         this.notifications.push(note);
@@ -87,9 +86,9 @@ export class NotificationsComponent implements OnInit {
 
 
 //////////////////////////dashboard component/////////////////////////////////////
-    ngAfterViewChecked() {
+  ngAfterViewChecked() {
       this.scrollToBottom();
-    }
+  }
 
     scrollToBottom(): void {
       try {
@@ -114,14 +113,14 @@ export class NotificationsComponent implements OnInit {
     }
 
     isYou(email) {
-      if(email == this.afService.email)
+      if (email == this.afService.email)
         return true;
       else
         return false;
     }
 
     isMe(email) {
-      if(email == this.afService.email)
+      if (email == this.afService.email)
         return false;
       else
         return true;

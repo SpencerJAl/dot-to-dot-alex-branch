@@ -1,24 +1,24 @@
 /**
  * Created by davem on 28/01/2018.
  */
-export class Supplier{
+export class Supplier {
 
-  address:string;
-    address2:string;
+  address: string;
+    address2: string;
 
-  description:string;
+  description: string;
 
-  id:string;
+  id: string;
 
-  lat:number;
+  lat: number;
 
-  lng:number;
+  lng: number;
 
-  name:string;
+  name: string;
 
-  owner:string;
+  owner: string;
 
-  summary:string;
+  summary: string;
 
 
 }
