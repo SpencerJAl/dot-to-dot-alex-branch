@@ -286,6 +286,10 @@ export class AF {
     // statements;
     const icontype = '../../images/' + projectType + '.png';
     const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth() + 1; //January is 0!
+    const yyyy = today.getFullYear();
+    const todayf = mm + '/' + dd + '/' + yyyy;
     const project = {
       name: projectName,
       description: projectDisc,
@@ -300,8 +304,8 @@ export class AF {
       currentMoney: 0,
       hours: hours,
       currentHours: 0,
-      startDate: today.getDate() ,
-      endDate: date
+      startDate: todayf ,
+      endDate: date.toLocaleString()
     };
     return this.projectRequests.push(project);
   }

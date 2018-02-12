@@ -1,0 +1,50 @@
+@import '../adminDashboard/adminDashboard.component.scss';
+#my_project{
+  width:45%;
+  float:left;
+  margin-left: 2.5%;
+}
+#joined_project {
+  width:45%;
+  float:left;
+  margin-left: 5%;
+  margin-right:2.5%;
+  margin-top:-22px;
+}
+
+.projectlist{
+  background-color: yellow !important;
+}
+
+
+.education {
+  background:  rgb(49,172,255);
+
+}
+
+.science {
+
+  background: rgb(255,13,218);
+
+
+}
+
+.artAndDesign {
+
+  background:  rgb(255,238,15) ;
+
+
+}
+.health {
+
+  background: rgb(166,252,5);
+
+
+}
+
+.craftAndWorkshop {
+
+  background: rgb(237,45,40);
+
+
+}

@@ -118,6 +118,8 @@
 
             <md-card-content>
               {{project.summary}}
+              {{today | date:'dd/MM/yyyy'}}
+              {{project?.endDate| date:'dd/MM/yyyy'}}
             </md-card-content>
 
             <a href="#" [routerLink]="['/donations',project.id]">donate</a>
@@ -129,6 +131,7 @@
 
 
         </md-tab>
+
         <md-tab label="Archived Projects">
 
           <md-card class="myCard">
@@ -148,6 +151,38 @@
           </md-card>
 
         </md-tab>
-      </md-tab-group>
 
+        <md-tab label=" new Live Projects">
+
+          <div class='md-padding' layout="row" layout-wrap>
+
+            <div *ngFor="let project of projects|async">
+            <md-card class="myCard {{project.type}}"    *ngIf="project?.endDate >  today ">
+              <div  class="myCard {{project?.type}}"  >
+              <img md-card-image src="{{project.image}}" alt="Project Image" />
+
+              <md-card-title href="#" [routerLink]="['/projects',project.id]">
+                {{project.name}}
+              </md-card-title>
+
+              <md-card-content>
+                {{project.summary}}
+                {{today | date:'dd/MM/yyyy'}}
+              </md-card-content>
+
+              <a href="#" [routerLink]="['/donations',project.id]">donate</a>
+            </div>
+            </md-card>
+            </div>
+            <md-paginator (page)="1" [pageSize]="5" >
+            </md-paginator>
+          </div>
+
+
+
+        </md-tab>
+
+
+
+      </md-tab-group>
 </div>

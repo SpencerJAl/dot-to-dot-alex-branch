@@ -16,6 +16,7 @@ import 'firebase/storage';
 
 
 export class ProjectSummaryComponent implements OnInit {
+  today = Date.now();
   donut: DonutChart;
   pageEvent: PageEvent;
   projects: FirebaseListObservable<any>;

@@ -1,13 +1,37 @@
-<div>
-  <md-card>
-    <h1 align="center">{{(project | async)?.name}}</h1>
-    <h2 align="center">Description</h2>
-    <p align="center">{{(project | async)?.description}}</p>
 
-    <h2 align="center">Summary</h2>
-    <p align="center">{{(project | async)?.summary}}</p>
+<div class="col-sm-8">
+  <md-card class ="myCard {{(project|async)?.type}}">
+    <md-card-title >
+      <p><img class="card-avatar" src="{{(project|async)?.icon}}" /><strong>&nbsp; &nbsp; {{(project|async)?.name}}</strong></p>
+    </md-card-title>
+    <md-card-content>
+      <p>
+        <img md-card-image  class="myImage"  src="{{(project|async)?.image}}" alt="Project Image" />
+      </p>
 
-    <h2>news and events</h2>
+
+      <h2 align="center">Summary</h2>
+      <p align="center">{{(project | async)?.summary}}</p>
+      <h2 align="center">Further Details</h2>
+      <p align="center">{{(project | async)?.description}}</p>
+
+      <h2>news and events</h2>
+      <p> Comming Soon...</p>
+      <p>https://dev.dots.scot/projects/{{(project|async)?.id}}</p>
+      <fb-share href ="https://dev.dots.scot/projects/{{(project|async)?.id}}"  layout="button" size="large"></fb-share>
+      <button (click)="join()" align="center" style="font-size: medium">Join project</button>
+    </md-card-content>
+  </md-card>
+</div>
+
+<md-card class = "col-sm-4" >
+
+  <div>
+
+    <md-card>
+
+
+      <h2>news and events</h2>
 
 
       <div *ngFor=" let n of notifications|async">
@@ -18,12 +42,9 @@
 
 
 
-  </md-card>
-</div>
+    </md-card>
+  </div>
 
-
-
-<md-card >
   <form (submit)="postUpdate($event, title.value, message.value)" class="form-signin">
 
     <div class = "form-group">
@@ -47,4 +68,16 @@
 
   </form>
 </md-card>
+
+<div class = "col-sm-4">
+  <h2>donations</h2>
+  <div *ngFor="let donation of donations | async">
+    <p>{{donation.accepted}}</p>
+    <p>sadasdasdas</p>
+  </div>
+</div>
+
+
+
+
 <app-footer></app-footer>
