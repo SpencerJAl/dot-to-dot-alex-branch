@@ -156,7 +156,12 @@ const appRoutes: Routes = [
   {
     path: 'supplier',
     component: RecycledSupplierComponent,
-    data: {title: 'Waste Supplier'}
+    data: {title: 'Recycling Supplier'}
+  },
+  {
+    path: 'suppliers:/:id',
+    component: RecycledSupplierComponent,
+    data: {title: 'Recycling Supplier'}
   },
   {
     path: 'supplierRequest/:id',

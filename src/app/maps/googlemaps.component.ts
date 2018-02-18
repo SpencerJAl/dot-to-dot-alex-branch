@@ -37,6 +37,7 @@ export class GoogleMapsComponent implements OnInit {
   healthFlag: boolean;
   eduFlag: boolean;
   craftFlag: boolean;
+  recyclingFlag:boolean;
   previousFlag: boolean;
   supplierFlag: boolean;
   eventsFlag: boolean;
@@ -62,6 +63,8 @@ export class GoogleMapsComponent implements OnInit {
   messagething: {};
   markerKeys;
   style: any = laura;
+  recycleMarkers: FirebaseListObservable<any>;
+  recyclingKeys;
 
 
 
@@ -81,6 +84,10 @@ export class GoogleMapsComponent implements OnInit {
    this.peoples = this._userService.getUsers();
    this.messages = this.afService.messages;
    this.markerKeys = Object.keys(this.afService.projects);
+   this.recycleMarkers = this.afService.suppliers;
+   console.log("our suppliers:" );
+   console.log( this.recycleMarkers);
+   this.recyclingKeys = Object.keys(this.afService.suppliers);
 
 
    console.log('marker key is' + this.markerKeys[4]);
@@ -169,11 +176,11 @@ export class GoogleMapsComponent implements OnInit {
     this.projectFilterData.currentEvent.subscribe( eventFlag => this.eventsFlag = eventFlag);
     this.projectFilterData.currentVacant.subscribe( sitesFlag => this.sitesFlag = sitesFlag);
     this.projectFilterData.currentSupplier.subscribe( supplierFlag => this.supplierFlag = supplierFlag);
-
+    this.projectFilterData.currentRecycling.subscribe(recyclingFlag => this.recyclingFlag = recyclingFlag);
     this.options = {
       center: {lat: 55.8808026, lng: -4.2745011},
       zoom: 16,
-      style: mapStyle.silver,
+      style: mapStyle.night,
 
     };
     this.messagething = {name: 'general', id: 3};

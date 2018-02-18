@@ -20,6 +20,7 @@ export class ProjectFilterComponent implements OnInit {
   education: boolean;
   health: boolean;
   science: boolean;
+  recycling:boolean;
   projectName: string;
   projectType: string;
   projectID: string;
@@ -42,7 +43,8 @@ export class ProjectFilterComponent implements OnInit {
     this.projectFilterData.currentCraft.subscribe(craft => this.craft = craft);
     this.changeCraftFlag(false);
     console.log('Art and Design is ' + this.art);
-
+    this.projectFilterData.currentRecycling.subscribe(recycling => this.recycling = recycling);
+    this.changeRecycling(false);
 
 
     this.markerService.currentProjectName.subscribe(projectName => this.projectName = projectName );
@@ -65,6 +67,11 @@ export class ProjectFilterComponent implements OnInit {
       });
     }
     this.cd.detectChanges();
+  }
+
+  changeRecycling( currentRecylcing: boolean){
+    this.projectFilterData.changeRecycling(currentRecylcing);
+    console.log("the recycling  flag is : " +currentRecylcing)
   }
   changeArtFlag(currentArtFlag: boolean) {
     this.projectFilterData.changeArt(currentArtFlag);

@@ -5,7 +5,12 @@
     "projects": {
       ".read": true,
       ".write": "auth != null"
+    },
+    "suppliers": {
+      ".read": true,
+      ".write": "auth != null"
     }
+
 
   }
 }

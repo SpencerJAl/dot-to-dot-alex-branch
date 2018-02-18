@@ -60,6 +60,9 @@ export class AF {
     this.messages = this.af.list('messages');
     this.users = this.af.list('users');
     this.projects = this.af.list('projects');
+    this.suppliers = this.af.list('suppliers');
+    console.log("our recycling  suppliers");
+    console.log(this.suppliers);
   }
 
   ////////////////////////register functionality//////////////////

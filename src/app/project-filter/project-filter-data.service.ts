@@ -16,6 +16,9 @@ export class ProjectFilterDataService {
   currentCraft = this.craftSource.asObservable();
 
 
+  currentRecycling = this.craftSource.asObservable();
+  private recyclingSource = new BehaviorSubject<boolean>(true);
+
   private previousSource = new BehaviorSubject<boolean>(true);
   currentPrevious = this.previousSource.asObservable();
 
@@ -30,6 +33,10 @@ export class ProjectFilterDataService {
   currentVacant = this.vacantSource.asObservable();
 
   constructor() {}
+
+  changeRecycling(Flag: boolean) {
+    this.recyclingSource.next(Flag);
+  }
 
   changeVacant(Flag: boolean) {
     this.vacantSource.next(Flag);

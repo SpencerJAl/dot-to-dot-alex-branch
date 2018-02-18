@@ -53,7 +53,18 @@
         </label>
       </div>
       </span>
+
+    <p></p>
+    <span mdTooltip="Recycling">
+      <div class="toggle-border">
+        <input [(ngModel)]="recycling" (click)="changeRecycling(!recycling)" type="checkbox" id="six" checked />
+        <label for="six">
+         <div class="recyclingHandle"></div>
+        </label>
+      </div>
+      </span>
     </div>
+
     <app-map-layers></app-map-layers>
 
   </md-expansion-panel>

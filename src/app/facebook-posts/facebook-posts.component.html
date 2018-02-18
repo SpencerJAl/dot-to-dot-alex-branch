@@ -1,7 +1,11 @@
 
   <h1>Our Facebook Posts</h1>
-  <div  *ngFor="let post of  results; let i=index">
-    {{post.permalink_url}}
+
+  <div  *ngFor="let post of  results?.data; let i=index">
+
+    <a href ="{{post.permalink_url}}"> Post Number {{i +1}}</a>
+    <fb-post  href="{{post.permalink_url}}" ></fb-post>
 
   </div>
-  <fb-post    *ngFor="let post of  results"   href="{{pos.permalink_url}}" ></fb-post>
+
+  <fb-post    *ngFor="let post of  results?.data"   href="{{post.permalink_url}}" ></fb-post>

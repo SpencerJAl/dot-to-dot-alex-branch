@@ -316,83 +316,92 @@
      <!--<agm-map-directions  [origin]="origin" [destination]="destination" #test></agm-map-directions>-->
      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'../../images/dot-to-dot-marker.png'"  [title]="label"></agm-marker>
 
+     <!--
+        /// 55.8954916, -4.3114119
+    <!--<agm-marker [latitude]="55.8954916" [longitude]="-4.3114119" [iconUrl]="'../../images/waste.png'"  [title]="Dawsholm">
+          <agm-info-window>
+            <md-card class="example-card" >
+              <md-card-header>
+                <div md-card-avatar class=""></div>
+                <md-card-title>Dawsholm Recycling Centre</md-card-title>
+                <md-card-subtitle>Contact the manager</md-card-subtitle>
+              </md-card-header>
+              <img md-card-image src="../../images/e_waste_rc.jpg">
+              <md-card-content>
+                <p><u>Supplies</u></p>
+                <p>e-Waste</p>
+              </md-card-content>
 
-     /// 55.8954916, -4.3114119
-     <!--<agm-marker [latitude]="55.8954916" [longitude]="-4.3114119" [iconUrl]="'../../images/waste.png'"  [title]="Dawsholm">
+            </md-card>
+          </agm-info-window>
+
+        </agm-marker>
+        //55.8337278, -4.2460441
+        <agm-marker [latitude]="55.8337278" [longitude]="-4.2460441" [iconUrl]="'../../images/waste.png'"  [title]="Polmadie">
+          <agm-info-window>
+
+            <md-card class="example-card">
+              <md-card-header>
+                <div md-card-avatar class=""></div>
+                <md-card-title>Polmadie  Recycling Centre</md-card-title>
+                <md-card-subtitle>Contact the manager</md-card-subtitle>
+              </md-card-header>
+              <img md-card-image src="../../images/e_waste_rc.jpg">
+              <md-card-content>
+                <p><u>Supplies</u></p>
+                <p>e-Waste</p>
+              </md-card-content>
+             </md-card>
+          </agm-info-window>
+        </agm-marker>
+        //55.887076, -4.2863025
+
+
+        <agm-marker [latitude]="55.887076" [longitude]="-4.2863025" [iconUrl]="'../../images/waste.png'"  [title]="Tesco">
+          <agm-info-window>
+            <md-card class="example-card">
+              <md-card-header>
+                <div md-card-avatar class="example-header-image"></div>
+                <md-card-title>Tesco</md-card-title>
+                <md-card-subtitle>Contact the manager</md-card-subtitle>
+              </md-card-header>
+              <img md-card-image src="../../images/bags.jpg">
+              <md-card-content>
+                <p>
+                  Used plastic  bags
+                </p>
+              </md-card-content>
+             </md-card>
+          </agm-info-window>
+        </agm-marker>
+        //55.8761694, -4.2714038
+        --->
+     <div *ngIf="recylingFlag" >
+     <agm-marker  *ngFor="let m of recycleMarkers | async "
+                 [latitude]="m.lat"
+     [longitude]="m.lng" [iconUrl]="'../../images/waste.png'"  [title]='m.name'>
        <agm-info-window>
          <md-card class="example-card" >
-           <md-card-header>
-             <div md-card-avatar class=""></div>
-             <md-card-title>Dawsholm Recycling Centre</md-card-title>
-             <md-card-subtitle>Contact the manager</md-card-subtitle>
-           </md-card-header>
-           <img md-card-image src="../../images/e_waste_rc.jpg">
-           <md-card-content>
-             <p><u>Supplies</u></p>
-             <p>e-Waste</p>
-           </md-card-content>
+           <md-card-header >
+             <div md-card-avatar ><img  src="'../../images/waste.png'" /></div>
 
+             <md-card-title href="#" [routerLink]="['/suppliers',m.id]">
+               <p><strong>{{m.name}}</strong></p>
+             </md-card-title>
+           </md-card-header>
+
+           <img md-card-image  class="myImage"  src="{{m.image}}" alt="Supplier Image" />
+           <md-card-content>
+
+
+             <p><u>Summary</u></p>
+             <p>{{m.summary}}</p>
+             <p><a href="#" [routerLink]="['/suppliers',m.id]">More Details</a></p>
+           </md-card-content>
          </md-card>
-       </agm-info-window>
-
-     </agm-marker>
-     //55.8337278, -4.2460441
-     <agm-marker [latitude]="55.8337278" [longitude]="-4.2460441" [iconUrl]="'../../images/waste.png'"  [title]="Polmadie">
-       <agm-info-window>
-
-         <md-card class="example-card">
-           <md-card-header>
-             <div md-card-avatar class=""></div>
-             <md-card-title>Polmadie  Recycling Centre</md-card-title>
-             <md-card-subtitle>Contact the manager</md-card-subtitle>
-           </md-card-header>
-           <img md-card-image src="../../images/e_waste_rc.jpg">
-           <md-card-content>
-             <p><u>Supplies</u></p>
-             <p>e-Waste</p>
-           </md-card-content>
-          </md-card>
-       </agm-info-window>
-     </agm-marker>
-     //55.887076, -4.2863025
-
-
-     <agm-marker [latitude]="55.887076" [longitude]="-4.2863025" [iconUrl]="'../../images/waste.png'"  [title]="Tesco">
-       <agm-info-window>
-         <md-card class="example-card">
-           <md-card-header>
-             <div md-card-avatar class="example-header-image"></div>
-             <md-card-title>Tesco</md-card-title>
-             <md-card-subtitle>Contact the manager</md-card-subtitle>
-           </md-card-header>
-           <img md-card-image src="../../images/bags.jpg">
-           <md-card-content>
-             <p>
-               Used plastic  bags
-             </p>
-           </md-card-content>
-          </md-card>
-       </agm-info-window>
-     </agm-marker>
-     //55.8761694, -4.2714038
-     <agm-marker [latitude]="55.8761694" [longitude]="-4.2714038" [iconUrl]="'../../images/waste.png'"  [title]='Tesco'>
-       <agm-info-window>
-         <md-card class="example-card">
-           <md-card-header>
-             <div md-card-avatar class="example-header-image"></div>
-             <md-card-title>Tesco</md-card-title>
-             <md-card-subtitle>Contact the manager</md-card-subtitle>
-           </md-card-header>
-           <img md-card-image src="../../images/bags.jpg">
-           <md-card-content>
-             <p>
-              Used plastic  bags
-             </p>
-           </md-card-content>
-          </md-card>
         </agm-info-window>
      </agm-marker>
---->
+     </div>
      <agm-polyline  [title]="'DOT-to-DOT site'">
 
         <agm-polyline-point [latitude]="55.880921" [longitude]="-4.274801"> </agm-polyline-point>
