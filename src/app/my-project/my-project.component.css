@@ -1,3 +1,331 @@
+.content {
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #357ae8;
+  color: white;
+  margin-top: 10px;
+  width: 100%; }
 
+.content h1 {
+  font-size: medium;
+  font-weight: 200; }
+
+.bs-example {
+  position: relative;
+  padding: 15px 15px 15px;
+  margin: 0 -15px 0;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  background-color: #E1E2E3;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+  height: 440px;
+  overflow-y: scroll; }
+
+#messages {
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: transparent; }
+
+.author {
+  font-size: 12px; }
+
+.send-message {
+  color: #ffffff;
+  background-color: #4184f3;
+  text-decoration: none;
+  padding: 10px 20px 10px 20px;
+  display: inline-flex;
+  cursor: pointer; }
+
+.message-text {
+  display: block;
+  padding: 9px;
+  margin: 0 0 10px;
+  font-size: 10px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 90%; }
+
+p {
+  font-size: 12px; }
+
+.bubble {
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #B2B2B2;
+  display: inline-block;
+  padding: 10px 10px;
+  position: relative;
+  vertical-align: top; }
+
+.bubble::before {
+  background-color: #F2F2F2;
+  content: "\00a0";
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 11px;
+  transform: rotate(29deg) skew(-35deg);
+  -moz-transform: rotate(29deg) skew(-35deg);
+  -ms-transform: rotate(29deg) skew(-35deg);
+  -o-transform: rotate(29deg) skew(-35deg);
+  -webkit-transform: rotate(29deg) skew(-35deg);
+  width: 20px; }
+
+.me {
+  display: inherit;
+  margin: 5px 45px 5px 20px; }
+
+.me::before {
+  box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
+  left: -9px; }
+
+.you {
+  display: inherit;
+  margin: 5px 20px 5px 45px; }
+
+.you::before {
+  box-shadow: 2px -2px 2px 0 rgba(178, 178, 178, 0.4);
+  right: -9px; }
+
+.bs-example + .highlight, .bs-example + .zero-clipboard + .highlight {
+  margin: 0 -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0; }
+
+.highlight {
+  padding: 9px 14px;
+  margin: 2px;
+  background: transparent;
+  border: 0 solid #e1e1e8;
+  border-radius: 4px; }
+
+.mypadding {
+  margin: 7px auto; }
+
+.content {
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #357ae8;
+  color: white;
+  margin-top: 10px;
+  width: 300px;
+  font-size: medium; }
+
+.content h1 {
+  font-size: medium; }
+
+/**********************************************/
+/******** Messaging Style with avatars ********/
+/**********************************************/
+.container {
+  width: 100%;
+  height: 500px;
+  margin: 5px; }
+
+.messgageContent {
+  position: absolute;
+  margin: 10px auto;
+  width: 100%;
+  background: transparent;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 540px; }
+
+.far {
+  margin: 0 30px 0 0 !important; }
+
+.account p {
+  font-size: 16px;
+  text-shadow: none; }
+
+.avatar {
+  float: right;
+  width: 68px;
+  height: 68px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 4px 20px 0 4px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2); }
+
+.account {
+  line-height: 0;
+  color: #333;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+  top: 190px;
+  width: 300px;
+  height: 80px;
+  border-radius: 40px;
+  background: #eee;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4); }
+
+.loz {
+  padding: 0 0 0 30px;
+  float: left;
+  width: 245px;
+  max-width: 300px;
+  min-width: 30px;
+  height: auto;
+  border-radius: 40px;
+  color: #000;
+  box-shadow: 0 3px 0 0 #000;
+  margin: 0 auto 30px; }
+
+.education {
+  background: #31acff; }
+
+.science {
+  background: #ff0dda; }
+
+.artAndDesign {
+  background: #ffee0f; }
+
+.health {
+  background: #a6fc05; }
+
+.craftAndWorkshop {
+  background: #ed2d28; }
+
+.swag {
+  float: right;
+  margin: 4px 4px 0 0; }
+
+.swag2 {
+  float: right;
+  margin: 4px 4px 0 0;
+  opacity: 0.1; }
+
+.myCard {
+  width: 18%;
+  font-size: small;
+  padding: 2%;
+  display: inline-block;
+  margin: 10px 5px auto;
+  min-height: 500px;
+  max-height: 500px;
+  vertical-align: top; }
+
+.myCardList {
+  margin-top: 0;
+  display: block; }
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 16px;
+  border: 1px solid #1A237E; }
+
+.myCard {
+  width: 400px;
+  min-height: 100px;
+  max-height: 600px;
+  height: auto; }
+
+.education {
+  background: #31acff;
+  border: 2px solid darkblue;
+  border-radius: 10px; }
+
+.science {
+  background: #ff0dda;
+  border: 2px solid purple;
+  border-radius: 10px;
+  color: white; }
+
+.science a {
+  color: white; }
+
+.science a:hover {
+  color: lightyellow;
+  text-decoration: underline; }
+
+.artAndDesign {
+  background: #ffee0f;
+  border: 2px solid darkorange;
+  border-radius: 10px; }
+
+.health {
+  background: #a6fc05;
+  border: 2px solid darkgreen;
+  border-radius: 10px; }
+
+.craftAndWorkshop {
+  background: #ed2d28;
+  border: 2px solid darkred;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px; }
+
+.craftAndWorkshop a {
+  color: white;
+  font-size: 16px; }
+
+.supplier {
+  background: black;
+  font-size: 16px;
+  color: white; }
+
+.container {
+  height: 10em;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 30px; }
+
+.myImage {
+  max-width: 300px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  border: 2px black solid;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center; }
+
+.card-avatar {
+  height: 37px;
+  width: 37px;
+  border: solid 2px black;
+  border-radius: 18px; }
+
+#my_project {
+  width: 45%;
+  float: left;
+  margin-left: 2.5%; }
+
+#joined_project {
+  width: 45%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 2.5%;
+  margin-top: -22px; }
+
+.projectlist {
+  background-color: yellow !important; }
+
+.education {
+  background: #31acff; }
+
+.science {
+  background: #ff0dda; }
+
+.artAndDesign {
+  background: #ffee0f; }
+
+.health {
+  background: #a6fc05; }
+
+.craftAndWorkshop {
+  background: #ed2d28; }
 
 /*# sourceMappingURL=my-project.component.css.map */
