@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import 'zone.js';
 import 'reflect-metadata';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 ///****************** FIREBASE **********************************//
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
@@ -22,7 +23,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SafeUrlPipe } from './shared/security/safe-url.pipe';
 import { ProjectsComponent } from './projects/projects.component';
-import { UsersComponent } from './users/users.component';
+
 import { UsersProfilesComponent } from './users-profiles/users-profiles.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -199,7 +200,6 @@ export consrebaseAuthConfig = {
     SafeUrlPipe,
     DirectionsMapDirective,
     ProjectsComponent,
-    UsersComponent,
     UsersProfilesComponent,
     LoginComponent,
     RegisterComponent,
@@ -288,6 +288,7 @@ export consrebaseAuthConfig = {
     UploadFileService,
     ProjectFilterDataService,
     MarkersService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     [MD_MODULES],
 
   ],

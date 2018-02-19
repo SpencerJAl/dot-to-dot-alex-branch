@@ -1,11 +1,21 @@
 
   <h1>Our Facebook Posts</h1>
 
-  <div  *ngFor="let post of  results?.data; let i=index">
+  <div  *ngFor="let post of  results; let i=index">
 
-    <a href ="{{post.permalink_url}}"> Post Number {{i +1}}</a>
-    <fb-post  href="{{post.permalink_url}}" ></fb-post>
+    <a href ="{{post.permalink_url}}"> Post Number {{i +1}}</a> <br/>
+    <fb-post  [href]="post.permalink_url" ></fb-post> <br/>
 
   </div>
 
-  <fb-post    *ngFor="let post of  results?.data"   href="{{post.permalink_url}}" ></fb-post>
+  <fb-post    *ngFor="let post of  results"   [href]="post.permalink_url" ></fb-post>
+  <br/>
+ <fb-post href="https://www.facebook.com/D2DMARYHILL/posts/186832768584500/"></fb-post>
+  <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/videos/186802848587492/"></fb-post>   <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/posts/186819798585797/"></fb-post>  <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/videos/186806975253746/"></fb-post>  <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/posts/186792211921889"></fb-post>  <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/posts/185063938761383"></fb-post>  <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/posts/184617148806062"></fb-post>  <br/>
+  <fb-post href="https://www.facebook.com/D2DMARYHILL/posts/184614585472985"></fb-post>  <br/>

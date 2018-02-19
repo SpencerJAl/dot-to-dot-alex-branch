@@ -6,7 +6,7 @@ import { AppComponent} from '../app.component';
 import {AppRouting} from '../app.routing';
 import {Router} from '@angular/router';
 import {AF} from '../providers/af';
-
+import {User} from '../providers/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +19,7 @@ import {AF} from '../providers/af';
 
 export class LoginComponent implements OnInit {
   public error: any;
-  user = {};
+  user :User;
   isAuth: boolean;
   userType: string;
   userStatus: string;
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       if (!u.type) {
         this.router.navigate(['/accountSetup']);
       }
-      if (u.status === 'archived') {
+      if (u.status === 'archived' || u.status === 'deleted') {
 
         this.router.navigate(['/userStatus']);
         this.afService.logout();

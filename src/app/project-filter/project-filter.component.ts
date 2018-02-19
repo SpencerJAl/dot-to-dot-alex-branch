@@ -69,9 +69,9 @@ export class ProjectFilterComponent implements OnInit {
     this.cd.detectChanges();
   }
 
-  changeRecycling( currentRecylcing: boolean){
-    this.projectFilterData.changeRecycling(currentRecylcing);
-    console.log("the recycling  flag is : " +currentRecylcing)
+  changeRecycling( currentRecyling: boolean){
+    this.projectFilterData.changeRecycling(currentRecyling);
+    console.log("the recycling  flag is : " +currentRecyling)
   }
   changeArtFlag(currentArtFlag: boolean) {
     this.projectFilterData.changeArt(currentArtFlag);

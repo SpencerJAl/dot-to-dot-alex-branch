@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,CAAC;EACC,WAAW,EAAE,6BAA6B;EAC1C,SAAS,EAAE,MAAM;EACjB,MAAM,EAAC,EAAE",
+"mappings": "AAAA,CAAC;EACC,WAAW,EAAE,6BAA6B;EAC1C,SAAS,EAAE,MAAM;EACjB,MAAM,EAAC,EAAE;;AAEX,OAAO;EACL,MAAM,EAAC,EAAE",
 "sources": ["facebook-posts.component.scss"],
 "names": [],
 "file": "facebook-posts.component.css"

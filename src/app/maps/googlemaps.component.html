@@ -376,7 +376,7 @@
         </agm-marker>
         //55.8761694, -4.2714038
         --->
-     <div *ngIf="recylingFlag" >
+     <div *ngIf="recyclingFlag" >
      <agm-marker  *ngFor="let m of recycleMarkers | async "
                  [latitude]="m.lat"
      [longitude]="m.lng" [iconUrl]="'../../images/waste.png'"  [title]='m.name'>
@@ -390,7 +390,7 @@
              </md-card-title>
            </md-card-header>
 
-           <img md-card-image  class="myImage"  src="{{m.image}}" alt="Supplier Image" />
+           <img md-card-image  class="myImage"  src="{{m?.image}}" alt="Supplier Image" />
            <md-card-content>
 
 
@@ -426,14 +426,14 @@
         <agm-info-window>
           <md-card class="myCard {{m.type}}" >
             <md-card-header >
-              <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+              <div md-card-avatar ><img  src="{{m?.icon}}" /></div>
 
               <md-card-title href="#" [routerLink]="['/projects',m.id]">
                 <p><strong>{{m.name}}</strong></p>
               </md-card-title>
             </md-card-header>
 
-            <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+            <img md-card-image  class="myImage"  src="{{m?.image}}" alt="Project Image" />
             <md-card-content>
 
 
@@ -459,14 +459,14 @@
          <agm-info-window>
            <md-card class="myCard {{m.type}}" >
              <md-card-header>
-               <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+               <div md-card-avatar ><img  src="{{m?.icon}}" /></div>
 
                <md-card-title href="#" [routerLink]="['/projects',m.id]">
                  <p><strong>{{m.name}}</strong></p>
                </md-card-title>
              </md-card-header>
 
-             <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+             <img md-card-image  class="myImage"  src="{{m?.image}}" alt="Project Image" />
              <md-card-content>
 
 
@@ -492,14 +492,14 @@
          <agm-info-window>
            <md-card class="myCard {{m.type}}" >
              <md-card-header>
-               <div md-card-avatar ><img  src="{{m.icon}}" /></div>
+               <div md-card-avatar ><img  src="{{m?.icon}}" /></div>
 
                <md-card-title href="#" [routerLink]="['/projects',m.id]">
                  <p><strong>{{m.name}}</strong></p>
                </md-card-title>
              </md-card-header>
 
-             <img md-card-image  class="myImage"  src="{{m.image}}" alt="Project Image" />
+             <img md-card-image  class="myImage"  src="{{m?.image}}" alt="Project Image" />
 
 
              <md-card-content>

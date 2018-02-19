@@ -7,7 +7,7 @@
         <div *ngFor="let project of  projectRequests|async">
 
 
-          <md-card  class="myCard {{project?.type}}"  *ngIf="project.owner=== myuserId">
+          <md-card  class="myCard {{project?.type}}"  *ngIf="project?.owner=== myuserId">
 
             <md-card-header>
 
@@ -91,7 +91,7 @@
 
       <h1>Joined Projects</h1>
 
-      <div  *ngFor="let myProject of this.joinedProjects|async ">
+      <div  *ngFor="let myProject of joinedProjects|async ">
         <div *ngFor="let project of projects|async">
 
             <md-card  class="myCard {{project?.type}}" *ngIf="project?.id === myProject?.id" >

@@ -1,7 +1,7 @@
 /**
  * Created by davem on 28/01/2018.
  */
-export class Project {
+export interface Project {
 
   description: string;
   icon: string;
@@ -9,10 +9,10 @@ export class Project {
   image:string;
   lat:number;
   lng:number;
-  members: Member[];
-  messages:Message[];
+  members?: Member[];
+  messages?:Message[];
   name: string;
-  owner:string;
+  owner?:string;
   summary: string;
   type: string;
 

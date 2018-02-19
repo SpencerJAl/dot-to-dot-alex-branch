@@ -18,7 +18,7 @@ export class FaceBookPostsService {
   getPosts()   {
     return this.http
       .get('https://graph.facebook.com/v2.12/D2DMARYHILL/posts?fields=permalink_url&access_token=EAAWw8uiEZCIMBAPACpsnJJyyiHFBKPPbeSicqukNy6gBtRwJhdtYINZBym88mpUMLSZC7NZBVYppIONA7AGBuHmopFbZCL4ZCbsdVYEKwyaCVWnYRC6j9wjBOEDgS4n1LvHGJCqHBHwKpNZC3nvJYmZBhh6bpw7VZAGGD1h3fd1L4vNoZAxbTmn7pO')
-      .map((res) => res.json())
+      .map((res) => res.json().data)
       ;
 
 

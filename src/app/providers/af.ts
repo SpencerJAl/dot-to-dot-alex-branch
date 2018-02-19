@@ -14,7 +14,7 @@ import {Supplier} from './supplier';
 @Injectable()
 export class AF {
 
-  public user: FirebaseObjectObservable<any>;
+  public user: FirebaseObjectObservable<User>;
   public messages: FirebaseListObservable<Message[]>;
   public users: FirebaseListObservable<User[]>;
   public displayName: string;
@@ -174,11 +174,12 @@ export class AF {
       summary: userSummary,
       interests: userInterests,
       type: 'user',
+      status:'user',
       avatar: '../../images/avatar.png'
     });
   }
 
-  myProfile() {
+  myProfile():FirebaseObjectObservable<User> {
     return this.user;
   }
   editProfile(userDescription, userSummary, userInterests) {
@@ -545,7 +546,7 @@ export interface project {
   description: string;
   summary: string;
   type: string;
-  owner: string;
+  owner?: string;
   lat: number;
   lng: number;
 

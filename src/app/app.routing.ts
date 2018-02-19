@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProjectsComponent} from './projects/projects.component';
-import {UsersComponent} from './users/users.component';
+
 import {UsersProfilesComponent} from './users-profiles/users-profiles.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {GoogleMapsComponent} from './maps/googlemaps.component';
@@ -93,12 +93,6 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
 
     data: { title: 'CreateProject' }
-  },
-  {
-    path: 'users',
-    component: UsersComponent,
-    canActivate: [AuthGuard],
-    data: {title: 'Users'}
   },
   {
     path: 'userProfile/:id',

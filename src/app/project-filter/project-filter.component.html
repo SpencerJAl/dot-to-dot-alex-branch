@@ -79,7 +79,7 @@
   <div *ngFor=" let m of members">
 
     <md-card>
-      <img src="{{m.avatar}}" style= "width:50px;height:50px;" align="left">
+      <img src="{{m?.avatar}}" style= "width:50px;height:50px;" align="left">
       <h3>{{m.name}}</h3>
       <a href="#" [routerLink]="['/userProfile',m.id]">profile</a>
     </md-card>

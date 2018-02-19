@@ -18,12 +18,12 @@
       <p> Comming Soon...</p>
       <p>https://dev.dots.scot/projects/{{(project|async)?.id}}</p>
 
-      <fb-share href ="https://dev.dots.scot/projects/{{(project|async)?.id}}"  layout="button" size="large" ></fb-share><button class="md-raised md-primary">Join project</button>
+      <fb-share href ="https://dev.dots.scot/#/projects/{{(project|async)?.id}}"  layout="button" size="large" ></fb-share><button class="md-raised md-primary">Join project</button>
     </md-card-content>
   </md-card>
 </div>
 
-<div *ngIf="userID==project.owner">
+<div *ngIf="userID==(project|async)?.owner">
 <form (submit)="postUpdate($event, title.value, datePosted.value, message.value, type.value)" class="form-signin">
   <div class = "form-group">
     <label for="title" class="sr-only">Title</label>

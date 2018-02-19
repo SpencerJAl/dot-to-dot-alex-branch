@@ -14,7 +14,7 @@ import {Supplier} from '../providers/supplier';
   styleUrls: ['./adminDashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
-
+  searchText:string;
   users: FirebaseListObservable<User[]>;
   projectRequests: FirebaseListObservable<Project[]>;
   supplierRequests: FirebaseListObservable<Supplier[]>;

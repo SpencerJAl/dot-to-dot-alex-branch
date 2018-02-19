@@ -9,7 +9,7 @@
    <div class="col-sm-3 "><app-search></app-search></div>
    </div>
    -->
-
+  <fb-follow href="https://www.facebook.com/D2DMARYHILL"></fb-follow>
   <div  [ngSwitch]="isLoggedIn" class="primary" >
 
     <md-toolbar color="primary">
@@ -23,8 +23,11 @@
       <button md-button style="alignment: right"><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
 
       &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      <fb-follow href="https://www.facebook.com/D2DMARYHILL"></fb-follow>
+
+      &nbsp;&nbsp;&nbsp;
       <fb-like href="https://www.facebook.com/D2DMARYHILL/" > </fb-like>
+      &nbsp;&nbsp;&nbsp;
+      <fb-follow href="https://www.facebook.com/D2DMARYHILL"></fb-follow>
     </md-toolbar>
 
 

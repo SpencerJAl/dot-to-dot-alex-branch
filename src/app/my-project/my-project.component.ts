@@ -34,6 +34,15 @@ export class MyProjectComponent implements OnInit {
     this.userID = afService.userID;
   }
 
+  join() {
+    this.afService.join(this.route.snapshot.params['id']).then(() => {
+      this.router.navigate(['/']);
+    }).catch((error) => {
+      this.error = error;
+      console.log(this.error);
+    });
+  }
+
   postUpdate($event, title, message) {
     alert(message);
     alert(title);

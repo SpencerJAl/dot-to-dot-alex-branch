@@ -38,7 +38,7 @@ export class FacebookPostsComponent implements OnInit {
   }
   ngOnInit() {
     this.fbPost.getPosts().subscribe(
-      data => { this.results = data;
+      data => { this.results = <Post[]>data;
       console.log(this.results);
         for (let i of data){
 
