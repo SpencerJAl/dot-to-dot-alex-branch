@@ -1,0 +1,17 @@
+// Styled by Alexander Spencer on 23/02/2018
+// Styling to be confirmed by others
+button{
+  background: #FFEB3B;
+  color: #FFFFFF;
+  border:none;
+  display:inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  &:hover{
+    border: 2px  solid #FFEB3B;
+  }
+}
+input{
+  width:35%;
+}
