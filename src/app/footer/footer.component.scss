@@ -1,0 +1,15 @@
+p {
+  font-family: "Calibri", Tahoma, sans-serif;
+  font-size: small;
+  margin:5;
+  text-align: center;
+}
+img{
+  width:90%;
+}
+@media screen and (max-width: 1024px) {
+  img{
+    width:40%;
+
+  }
+}

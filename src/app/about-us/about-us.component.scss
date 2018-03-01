@@ -7,4 +7,12 @@ h1, h2{
   margin:2%
 }
 
+#clyde{
+  width: 20%;
+}
+@media screen and (max-width: 1024px) {
+  #clyde {
+    width:90%;
+  }
+}
 

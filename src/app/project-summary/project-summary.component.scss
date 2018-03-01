@@ -13,8 +13,27 @@
 
 }
 
+
 .myCardList{
   margin-top: 0;
   display: block;
 }
+
+@media screen and (max-width: 1024px) {
+  .myCard {
+    width:80%;
+
+    font-size: small;
+    padding: 2% ;
+    display: inline-block;
+    margin: 10px 5px auto;
+    min-height: 500px;
+    max-height: 500px;
+    vertical-align: top;
+  }
+  .myCard img {
+
+  }
+}
+
 
