@@ -7,9 +7,21 @@ p {
 img{
   width:90%;
 }
+.mobile{
+  display:none;
+}
 @media screen and (max-width: 1024px) {
   img{
     width:40%;
 
+  }
+  .desktop{
+    display:none;
+  }
+  .mobile{
+    display:block;
+  }
+  .title{
+    display:block;
   }
 }
