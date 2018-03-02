@@ -58,3 +58,14 @@ li.dropdown {
   display: block;
 }
 
+@media screen and (max-width: 767px) {
+  .mobile{
+    display:none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mobile{
+    margin-left:-100px;
+  }
+}
+

@@ -20,14 +20,11 @@
       <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration <i class="material-icons">&#xE5C5;</i></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
-      <button md-button style="alignment: right"><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
-
-      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-
-      &nbsp;&nbsp;&nbsp;
+      <span class="mobile">
+      <button md-button><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
       <fb-like href="https://www.facebook.com/D2DMARYHILL/" > </fb-like>
-      &nbsp;&nbsp;&nbsp;
       <fb-follow href="https://www.facebook.com/D2DMARYHILL"></fb-follow>
+      </span>
     </md-toolbar>
 
 
