@@ -21,18 +21,41 @@
 
 @media screen and (max-width: 1024px) {
   .myCard {
-    width:80%;
+    width:30%;
 
     font-size: small;
     padding: 2% ;
     display: inline-block;
-    margin: 10px 5px auto;
+    margin: 10px auto auto;
     min-height: 500px;
     max-height: 500px;
     vertical-align: top;
   }
   .myCard img {
+    width:80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:15px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .myCard {
+    width:80%;
 
+    font-size: medium;
+    padding: 2% ;
+    display: inline-block;
+    margin: 10px auto auto;
+    min-height: 500px;
+    max-height: 500px;
+    vertical-align: top;
+  }
+  .myCard img {
+width:80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
