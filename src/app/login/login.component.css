@@ -34,6 +34,12 @@
   width: 350px;
   margin: 10px 0;
 }
+#login{
+  color: black !important;
+}
+#login:hover{
+ color: white !important;
+}
 
 :host button img {
   vertical-align: middle;
@@ -46,13 +52,14 @@
 .button {
   background-color: lightyellow; /* Light yellow */
   border: none;
-  color: white;
+  color: black;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
 }
+
 
 .sebm-google-map-container {
   height: 560px;
