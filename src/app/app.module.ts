@@ -288,6 +288,7 @@ export consrebaseAuthConfig = {
     UploadFileService,
     ProjectFilterDataService,
     MarkersService,
+    ProjectService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     [MD_MODULES],
 

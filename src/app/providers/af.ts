@@ -7,8 +7,8 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} 
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {FirebaseDataProvider} from './firebaseDataProvider';
-import {Message, Project, Member} from  './project';
-import {User} from'./user';
+import {Message, Project, Member} from './project';
+import {User} from './user';
 import {Supplier} from './supplier';
 
 @Injectable()
@@ -30,8 +30,12 @@ export class AF {
   public suppliers: FirebaseListObservable<Supplier[]>;
   public supplier: FirebaseObjectObservable<Supplier>;
   public supplierRequests: FirebaseListObservable<Supplier[]>;
+  public userMessages: FirebaseListObservable<Message[]>;
  // uid: string;
 
+
+
+  public userContacts: FirebaseListObservable<any>;
   /**
    * constructor to initiate functionally for this service
    * @param af
@@ -42,9 +46,9 @@ export class AF {
         if (auth != null) {
           this.user = this.af.object('registeredUsers/' + auth.uid);
           this.userID = auth.uid ;
+          this.userContacts = this.af.list('registeredUsers/' + auth.uid + '/contacts/');
 
             this.email = auth.email;
-
 
           this.ownedProjects = this.af.list('registeredUsers/' + auth.uid + '/ownedProjects');
           this.joinedProjects = this.af.list('registeredUsers/' + auth.uid + '/joinedProjects');
@@ -61,7 +65,7 @@ export class AF {
     this.users = this.af.list('users');
     this.projects = this.af.list('projects');
     this.suppliers = this.af.list('suppliers');
-    console.log("our recycling  suppliers");
+    console.log('our recycling  suppliers');
     console.log(this.suppliers);
   }
 
@@ -174,12 +178,12 @@ export class AF {
       summary: userSummary,
       interests: userInterests,
       type: 'user',
-      status:'user',
+      status: 'user',
       avatar: '../../images/avatar.png'
     });
   }
 
-  myProfile():FirebaseObjectObservable<User> {
+  myProfile(): FirebaseObjectObservable<User> {
     return this.user;
   }
   editProfile(userDescription, userSummary, userInterests) {
@@ -291,7 +295,7 @@ export class AF {
     const icontype = '../../images/' + projectType + '.png';
     const today = new Date();
     const dd = today.getDate();
-    const mm = today.getMonth() + 1; //January is 0!
+    const mm = today.getMonth() + 1; // January is 0!
     const yyyy = today.getFullYear();
     const todayf = mm + '/' + dd + '/' + yyyy;
     const project = {
@@ -383,6 +387,10 @@ export class AF {
     return this.af.object('registeredUsers/' + this.userID + '/ownedProjects/' + projectID).update(thing);
   }
 
+  setUserMessages(id) {
+    this.userMessages = this.af.list('privateMessages/' + id );
+  }
+
   getProjectMessages(id) {
     this.messages = this.af.list('projects/' + id + '/messages');
     console.log('get project messages  fired');
@@ -418,6 +426,12 @@ export class AF {
     );
   }
 
+  addContact(id, connectionID) {
+    const contacts = {id: connectionID};
+
+    this.af.list('registeredUsers/' + this.userID + '/contacts').push(contacts);
+    this.af.list('registeredUsers/' + id + '/contacts').push(connectionID);
+  }
   ////////////////////////////////////////////////////////////////////////
   /////////////// Waste Suppliers//////////////////////////////////////////
 
@@ -508,7 +522,22 @@ export class AF {
     };
     console.log('this email' + this.email);
     this.messages.push(message);
+  }
+  sendPrivateMessage(text, avatar, id ) {
+    const message = {
+      message: text,
+      displayName: this.displayName,
+      email: this.email,
+      avatar: avatar,
+      timestamp: Date.now()
+    };
 
+    this.af.list('privateMessages/' + id).push(message);
+  }
+  createUserLink(id) {
+    const  createNewContact = this.userID + id;
+    this.af.object('registeredUsers/' + id + '/contacts/' + this.userID).set({messages: createNewContact, userID: this.userID});
+    this.af.object('registeredUsers/' + this.userID + '/contacts/' + id).set({messages: createNewContact, userID: id});
   }
 
   private _getUserInfo(user: any): any {

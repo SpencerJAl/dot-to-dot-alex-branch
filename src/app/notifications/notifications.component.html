@@ -72,6 +72,32 @@
      </figure>
 
    </md-tab>
+
+   <md-tab *ngIf="this.userflag===true" label="{{this.messageUser.name}}">
+     <!-- <h2>Messages for <a href="#" [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>-->
+     <div  class="bs-example" id="messages">
+       <div *ngFor="let message of userMessages | async">
+         <div class="bubble {{this.projectType}}" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
+           <div *ngIf="message.avatar!==undefined; then content else other_content">here is ignored</div>
+           <ng-template #content><img src= "{{message.avatar}}" class="avatar"/></ng-template>
+           <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
+           <p>{{ message.message }}</p>
+           <div class="author">
+             {{ message.displayName }}
+           </div>
+           <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <figure class="highlight" >
+       <label>
+         <input type="textarea" class="message-text" [(ngModel)]="newUserMessage" (keyup.enter)="sendUserMessage()" (return)="sendMessage()">
+       </label>
+       <a class="send-message" (click)="sendUserMessage()">SEND</a>
+     </figure>
+   </md-tab>
+
  </md-tab-group>
-
-

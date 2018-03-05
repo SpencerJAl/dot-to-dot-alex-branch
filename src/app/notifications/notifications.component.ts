@@ -4,7 +4,7 @@ import {DirectionsMapDirective} from '../maps/googlemaps.directions';
 
 import { AgmCoreModule , AgmMap, AgmMarker , AgmInfoWindow, AgmKmlLayer, AgmDataLayer, MapTypeStyle } from '@agm/core';
 import { GoogleMapsAPIWrapper } from '@agm/core';
-import {GMapModule, Message} from 'primeng/primeng';
+import {GMapModule, Message, Messages} from 'primeng/primeng';
 import {Ng2MapModule} from 'ng2-map';
 import {GeocodingService} from '../services/geocoding.service';
 import {GeolocationService} from '../services/geolocation.service';
@@ -18,14 +18,14 @@ import {AF} from '../providers/af';
 import {MarkersService} from '../maps/markers.service';
 import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import {FirebaseObjectFactoryOpts} from 'angularfire2/interfaces';
+import {User} from '../providers/user';
+import {ProjectFilterDataService} from '../project-filter/project-filter-data.service';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-
-
 })
 export class NotificationsComponent implements OnInit {
   message: string;
@@ -35,24 +35,39 @@ export class NotificationsComponent implements OnInit {
   markers: FirebaseListObservable<any>;
   messagething: {};
   markerKeys;
+
+  user;
+
+
   public isLogin: boolean;
   projectID: string;
   projectName: string;
   projectType: string;
-  currentUser: FirebaseObjectObservable<any>;
+  currentUser: FirebaseObjectObservable<User>;
+  messageUser;
   projects: FirebaseListObservable<any>;
+  userflag: boolean = false;
+  userContacts;
+  //////////////////////////user message vatiables//////////////////////////////////////////
+  public newUserMessage: string;
+  public userMessages: FirebaseListObservable<any>;
   ////////////////////////message variables///////////////////////////
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
   private options: {center: {lat: number; lng: number}};
   private joinedprojects: FirebaseListObservable<any>;
+
+
+  private getC: FirebaseListObservable<any>;
   ///////////////////////////////////////////////////////////////////////
   notifications: Array<any> = [{}];
   constructor(public afService: AF, private cd: ChangeDetectorRef, private markerService: MarkersService, private appCom: AppComponent, private maps: MapsService,
-              private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase) {
+              private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase, public projectFilter: ProjectFilterDataService) {
+     //this.afService.userContacts.subscribe((e) => {alert('hello'); });
 
-      this.markers = this.afService.projects;
+    this.getC = this.afService.userContacts ;
+    this.markers = this.afService.projects;
       this.peoples = this._userService.getUsers();
       this.messages = this.afService.messages;
       this.markerKeys = Object.keys(this.afService.projects);
@@ -61,7 +76,11 @@ export class NotificationsComponent implements OnInit {
       this.currentUser = this.afService.getUser(this.afService.userID);
       this.joinedprojects = this.afService.getJoinedProjects();
       this.projects = this.afService.getAllProjects();
+      //this.us.subscribe((e) => { this.user = e.contacts; alert(e.length); alert(e); });
+      this.currentUser.subscribe((u) => {this.userContacts = u.contacts; } );
+      this.projectFilter.currentUser.subscribe((u) => {this.messageUser = u; if (u != null) {alert(u.name); this.userflag = true;  } } );
      console.log(this.currentUser);
+     this.getC.subscribe((e) => {alert('yo yo' + e.length); this.user ; } );
      this.joinedprojects.subscribe((joined) => {
        this.projects.subscribe((projects) => {
          for (const j of joined) {
@@ -72,10 +91,16 @@ export class NotificationsComponent implements OnInit {
        });
 
      });
+     if (this.user != null) {
+       for (const m of this.user) {
+         if (m.id === this.messageUser.id) {
+           this.userMessages = this.af.list('privateMessages/' + m.messages);
+           alert('userMessagesExist');
+         }
+       }
+     }
   }
-
-
-    addNotifications(id) {
+  addNotifications(id) {
     this.af.list('projects/' + id + '/notifications').subscribe((n) => {
       for (let note of n){
         console.log('message is: ' + note.message);
@@ -96,6 +121,46 @@ export class NotificationsComponent implements OnInit {
   } catch (err) { }
   }
 
+  userMessageflag = false;
+  messageLinkID;
+  createNewContact= '';
+  sendUserMessage() {
+   // alert(this.user);
+    //alert(this.messageUser.id);
+    //alert(this.user.length);
+    if (this.user != null) {
+      for (const m of this.user) {
+        alert('shit is looping');
+        alert('id is' + m.id);
+        alert(this.messageUser.id);
+        if (m.id === this.messageUser.id) {
+          this.userMessageflag = true;
+          this.messageLinkID = m.messages;
+          this.afService.setUserMessages(m.messages);
+        }
+      }
+    }
+    if (this.userMessageflag === true) {
+      this.createNewContact = this.afService.userID + this.messageUser.id;
+
+      alert('this werks');
+
+      this.afService.sendPrivateMessage(this.newUserMessage, '../../images/avatar.png', this.messageLinkID);
+      console.log('Message Sent');
+      this.newMessage = '';
+    }
+
+    if (this.userMessageflag === false ) {
+      alert('shit is false');
+      this.createNewContact = this.afService.userID + this.messageUser.id;
+
+      this.afService.createUserLink(this.messageUser.id);
+      this.afService.setUserMessages(this.createNewContact);
+      this.afService.sendPrivateMessage(this.newUserMessage, '../../images/avatar.png', this.createNewContact);
+      console.log('Message Sent');
+      this.newMessage = '';
+    }
+  };
     sendMessage() {
       console.log('new message = ' + this.newMessage);
 
@@ -160,6 +225,7 @@ export class NotificationsComponent implements OnInit {
       this.options = {
         center: {lat: 55.8808026, lng: -4.2745011},
       };
+      this.afService.userContacts.subscribe((e) => {alert('hello'); });
 
       this.markerService.currentProjectName.subscribe(projectName => this.projectName = projectName );
       this.markerService.currentProjectType.subscribe(projectType => this.projectType = projectType );

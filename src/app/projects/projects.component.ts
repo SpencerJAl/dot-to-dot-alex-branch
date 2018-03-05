@@ -53,8 +53,8 @@ export class ProjectsComponent implements OnInit {
       // }
     });
     console.log(this.project);
-    //this.currentProject= <Project>this.project;
-    //this.facebookMessage= "View this great project on DOT to DOT <b>"+this.currentProject.name+"</b> <br/> <h2>summary </h2><br/>"+ this.currentProject.summary;
+    // this.currentProject= <Project>this.project;
+    // this.facebookMessage= "View this great project on DOT to DOT <b>"+this.currentProject.name+"</b> <br/> <h2>summary </h2><br/>"+ this.currentProject.summary;
 
     this.userID = afService.userID;
     let initParams: InitParams = {

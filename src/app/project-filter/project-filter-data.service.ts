@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {User} from '../providers/user';
 
 @Injectable()
 export class ProjectFilterDataService {
@@ -32,6 +33,8 @@ export class ProjectFilterDataService {
   private vacantSource = new BehaviorSubject<boolean>(true);
   currentVacant = this.vacantSource.asObservable();
 
+  private user = new BehaviorSubject<User>(null);
+  currentUser= this.user.asObservable();
   constructor() {}
 
   changeRecycling(Flag: boolean) {
@@ -67,5 +70,9 @@ export class ProjectFilterDataService {
   }
   changeHealth(healthFlag: boolean) {
     this.healthSource.next(healthFlag);
+  }
+
+  changeUser(user: User) {
+    this.user.next(user);
   }
 }

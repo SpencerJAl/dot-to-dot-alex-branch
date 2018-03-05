@@ -17,6 +17,7 @@ export interface User {
   summary?: string;
   twitter?: string;
   type?: string;
+  contacts?;
 
 
 }

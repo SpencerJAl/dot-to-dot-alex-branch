@@ -20,7 +20,7 @@ export class ProjectFilterComponent implements OnInit {
   education: boolean;
   health: boolean;
   science: boolean;
-  recycling:boolean;
+  recycling: boolean;
   projectName: string;
   projectType: string;
   projectID: string;
@@ -69,9 +69,9 @@ export class ProjectFilterComponent implements OnInit {
     this.cd.detectChanges();
   }
 
-  changeRecycling( currentRecyling: boolean){
+  changeRecycling( currentRecyling: boolean) {
     this.projectFilterData.changeRecycling(currentRecyling);
-    console.log("the recycling  flag is : " +currentRecyling)
+    console.log('the recycling  flag is : ' + currentRecyling);
   }
   changeArtFlag(currentArtFlag: boolean) {
     this.projectFilterData.changeArt(currentArtFlag);
@@ -95,4 +95,7 @@ export class ProjectFilterComponent implements OnInit {
     // console.log("value in service for  currentArt " + this.projectFilterData.art);
   }
 
+  changeMember(member) {
+    this.projectFilterData.changeUser(member);
+  }
 }

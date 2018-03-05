@@ -24,7 +24,7 @@ export class MyProjectComponent implements OnInit {
 
   constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule, private db: AngularFireDatabase, private route: ActivatedRoute ) {
     this.project = db.object('projects/' + this.route.snapshot.params['id']);
-    this.donations = db.list('projects' + this.route.snapshot.params['id'] + '/donations');
+    this.donations = db.list('projects/' + this.route.snapshot.params['id'] + '/donations');
     this.notifications = db.list('projects/' + this.route.snapshot.params['id'] + '/notifications');
     this.project.subscribe((p) => {
       this.projectData = p;
@@ -32,6 +32,7 @@ export class MyProjectComponent implements OnInit {
 
     });
     this.userID = afService.userID;
+    alert(this.route.snapshot.params['id']);
   }
 
   join() {
@@ -53,4 +54,9 @@ export class MyProjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  acceptDonation(id) {}
+
+  declineDonation() {
+
+  }
 }
