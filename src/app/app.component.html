@@ -17,13 +17,20 @@
       <button md-button [md-menu-trigger-for]="aboutMenu" >About <i class="material-icons">&#xE5C5;</i> </button>
       <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="createMenu">Create  <i class="material-icons">&#xE5C5;</i> </button>
       <button *ngSwitchCase = "true" md-button [md-menu-trigger-for]="userMenu">{{username}} <i class="material-icons">&#xE5C5;</i></button>
+      <!-- span below removes the admin option to the user menu on mobile and then shifts its position in tablet mode -->
+      <span class="mobile" id="admin_tab">
       <button  *ngIf="isadmin"  md-button [md-menu-trigger-for]="addMenu">Administration <i class="material-icons">&#xE5C5;</i></button>
+      </span>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false" routerLink="/login" routerLinkActive="active" >Login</a></button>
       <button md-button style="alignment: right"><a *ngSwitchCase= "false"  routerLink="/register" routerLinkActive="active"   >Register</a></button>
+      <!-- span below removes the admin option to the user menu on mobile and then shifts its position in tablet mode -->
       <span class="mobile">
       <button md-button><a *ngSwitchCase= "true" routerLink="/login" routerLinkActive="active">Log Out</a></button>
+        <!-- span below removes facbook feature if user is an admin on tablet (Can't fit full options on tablet mode just yet) -->
+      <span *ngIf="isadmin" id="admin_fb">
       <fb-like href="https://www.facebook.com/D2DMARYHILL/" > </fb-like>
       <fb-follow href="https://www.facebook.com/D2DMARYHILL"></fb-follow>
+      </span>
       </span>
     </md-toolbar>
 
@@ -31,6 +38,11 @@
     <md-menu xPosition="after" #userMenu="mdMenu" md-offset="0 2">
       <button md-menu-item routerLink="/myProfile" routerLinkActive="active">Edit Profile </button>
       <button md-menu-item routerLink="/myProjects" routerLinkActive="active">My Projects</button>
+      <!-- adds in admin options if user is on mobile -->
+      <span class="mobile_admin">
+      <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>
+      <button md-menu-item *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</button>
+      </span>
      <!-- <button md-menu-item routerLink="/dashboard" routerLinkActive="active">Dashboard</button>-->
       <button md-menu-item   routerLink="/login" routerLinkActive="active">Log Out</button>
     </md-menu>
@@ -39,11 +51,13 @@
       <button md-menu-item  routerLink="/supplier" routerLinkActive="active">Add Recyling Supplier</button>
       <button md-menu-item  routerLink="/createProject" routerLinkActive="active">Start New Project</button>
     </md-menu>
-
+    <!-- span removes option if user is on mobile -->
+<span class="mobile">
     <md-menu #addMenu="mdMenu" md-offset="0 2">
       <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>
       <button md-menu-item *ngIf="isadmin" routerLink="/createAdmin" routerLinkActive="active">Create Admin</button>
     </md-menu>
+</span>
 
     <md-menu #aboutMenu="mdMenu" md-offset="0 2">
       <button  md-menu-item  routerLink="/whatIs" routerLinkActive="active">What is DOT TO DOT </button>
