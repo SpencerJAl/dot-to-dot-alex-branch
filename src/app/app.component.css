@@ -58,10 +58,28 @@ li.dropdown {
   display: block;
 }
 
+/* code for admin on tablets stylesheets */
+@media screen and (min-width:768px) and (max-width:1024px){
+  #admin_tab{
+    margin-left:5px;
+    margin-right:-75px;
+  }
+  #admin_fb{
+    display:none;
+  }
+}
+
+/* code for mobile stylesheets */
+@media screen and (min-width:768px){
+  .mobile_admin{
+    display:none;
+  }
+}
 @media screen and (max-width: 767px) {
   .mobile{
     display:none;
   }
+
 }
 @media screen and (max-width: 1024px) {
   .mobile{

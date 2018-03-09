@@ -24,7 +24,7 @@
           <input #password type="password" id="password" class="form-control" placeholder="Password" required="">
           </div>
 
-        <button class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-md btn-primary btn-block" type="submit" id="login">Sign in</button>
       </form>
       <hr>
 
@@ -40,8 +40,11 @@
         <img width="30" src="../../images/facebook-logo.png" />Login With Facebook
       </button>
       <hr>
+      <p>
       <a [routerLink]="['/register']" style="cursor: pointer;">Register Now</a>
+      |
       <a [routerLink]="['/resetPassword']" >Forgot passowrd?</a>
+      </p>
     </div>
   </div>
     </md-card>
