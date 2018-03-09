@@ -64,7 +64,7 @@ export class NotificationsComponent implements OnInit {
   notifications: Array<any> = [{}];
   constructor(public afService: AF, private cd: ChangeDetectorRef, private markerService: MarkersService, private appCom: AppComponent, private maps: MapsService,
               private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase, public projectFilter: ProjectFilterDataService) {
-     //this.afService.userContacts.subscribe((e) => {alert('hello'); });
+     // this.afService.userContacts.subscribe((e) => {alert('hello'); });
 
     this.getC = this.afService.userContacts ;
     this.markers = this.afService.projects;
@@ -76,11 +76,24 @@ export class NotificationsComponent implements OnInit {
       this.currentUser = this.afService.getUser(this.afService.userID);
       this.joinedprojects = this.afService.getJoinedProjects();
       this.projects = this.afService.getAllProjects();
-      //this.us.subscribe((e) => { this.user = e.contacts; alert(e.length); alert(e); });
-      this.currentUser.subscribe((u) => {this.userContacts = u.contacts; } );
-      this.projectFilter.currentUser.subscribe((u) => {this.messageUser = u; if (u != null) {alert(u.name); this.userflag = true;  } } );
+      // this.us.subscribe((e) => { this.user = e.contacts; alert(e.length); alert(e); });
+      // this.currentUser.subscribe((u) => {this.userContacts = u.contacts; } );
+    this.getC.subscribe((e) => { this.userContacts = e; } );
+      this.projectFilter.currentUser.subscribe((u) => {this.messageUser = u; if (u != null) { this.userflag = true;
+        if (this.userContacts != null) {
+         // alert('shit is looping');
+          for (const m of this.userContacts) {
+          //  alert('shit is looping');
+            if (m.userID === this.messageUser.id) {
+           //   alert('we got the right id its ' + m.messages);
+              this.userMessages = this.af.list('privateMessages/' + m.messages);
+              this.afService.setUserMessages(m.messages);
+            }
+          }
+        }
+      } } );
      console.log(this.currentUser);
-     this.getC.subscribe((e) => {alert('yo yo' + e.length); this.user ; } );
+
      this.joinedprojects.subscribe((joined) => {
        this.projects.subscribe((projects) => {
          for (const j of joined) {
@@ -91,11 +104,14 @@ export class NotificationsComponent implements OnInit {
        });
 
      });
-     if (this.user != null) {
-       for (const m of this.user) {
-         if (m.id === this.messageUser.id) {
+     if (this.userContacts != null) {
+     //  alert('message constructor works');
+       for (const m of this.userContacts) {
+     //    alert('mid' + m.userID);
+    //     alert('messageUserId' + this.messageUser.id);
+         if (m.userID === this.messageUser.id) {
            this.userMessages = this.af.list('privateMessages/' + m.messages);
-           alert('userMessagesExist');
+      //     alert('userMessagesExist');
          }
        }
      }
@@ -126,14 +142,18 @@ export class NotificationsComponent implements OnInit {
   createNewContact= '';
   sendUserMessage() {
    // alert(this.user);
-    //alert(this.messageUser.id);
-    //alert(this.user.length);
-    if (this.user != null) {
-      for (const m of this.user) {
-        alert('shit is looping');
-        alert('id is' + m.id);
-        alert(this.messageUser.id);
-        if (m.id === this.messageUser.id) {
+    // alert(this.messageUser.id);
+    // alert(this.user.length);
+  //  alert(this.userContacts.length);
+    if (this.userContacts != null) {
+   //   alert('shit is looping');
+      for (const m of this.userContacts) {
+     //   alert('shit is looping');
+     //   alert('id is' + m.userID);
+    //    alert(this.messageUser.id);
+        if (m.userID === this.messageUser.id) {
+      //    alert('mid' + m.userID);
+    //      alert('messageUserId' + this.messageUser.id);
           this.userMessageflag = true;
           this.messageLinkID = m.messages;
           this.afService.setUserMessages(m.messages);
@@ -143,7 +163,7 @@ export class NotificationsComponent implements OnInit {
     if (this.userMessageflag === true) {
       this.createNewContact = this.afService.userID + this.messageUser.id;
 
-      alert('this werks');
+    //  alert('this werks');
 
       this.afService.sendPrivateMessage(this.newUserMessage, '../../images/avatar.png', this.messageLinkID);
       console.log('Message Sent');
@@ -151,7 +171,7 @@ export class NotificationsComponent implements OnInit {
     }
 
     if (this.userMessageflag === false ) {
-      alert('shit is false');
+    //  alert('shit is false');
       this.createNewContact = this.afService.userID + this.messageUser.id;
 
       this.afService.createUserLink(this.messageUser.id);
@@ -225,7 +245,7 @@ export class NotificationsComponent implements OnInit {
       this.options = {
         center: {lat: 55.8808026, lng: -4.2745011},
       };
-      this.afService.userContacts.subscribe((e) => {alert('hello'); });
+      this.afService.userContacts.subscribe((e) => { });
 
       this.markerService.currentProjectName.subscribe(projectName => this.projectName = projectName );
       this.markerService.currentProjectType.subscribe(projectType => this.projectType = projectType );

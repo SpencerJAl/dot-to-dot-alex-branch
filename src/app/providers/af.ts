@@ -46,7 +46,7 @@ export class AF {
         if (auth != null) {
           this.user = this.af.object('registeredUsers/' + auth.uid);
           this.userID = auth.uid ;
-          this.userContacts = this.af.list('registeredUsers/' + auth.uid + '/contacts/');
+          this.userContacts = this.af.list('registeredUsers/' + auth.uid + '/contacts');
 
             this.email = auth.email;
 
