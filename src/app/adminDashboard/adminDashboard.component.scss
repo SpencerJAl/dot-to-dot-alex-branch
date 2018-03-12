@@ -74,7 +74,8 @@ color:white;
 .supplier {
   background: black;
   font-size: 16px;
-  color: white
+  color: white;
+  width:100%;
 }
 
 .container {
@@ -102,4 +103,15 @@ color:white;
   width:37px;
   border: solid 2px black;
   border-radius:18px  ;
+}
+#mobile{
+  display:none;
+}
+@media screen and (max-width: 767px){
+ #desktop{
+  display:none;
+ }
+ #mobile{
+  display:block;
+ }
 }
