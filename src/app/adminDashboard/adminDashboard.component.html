@@ -90,8 +90,26 @@
         Users
        </md-panel-title>
     </md-expansion-panel-header>
-Test
+      <md-card>
 
+        <label>Search: <input ng-model="searchText"></label>
+        <div *ngFor=" let u of users |async|search:searchText">
+          <md-card class="">
+            <div>
+              <div *ngIf="u.avatar!==undefined ;then content else other_content">here is ignored</div>
+
+              <ng-template #content><img src= "{{u.avatar}}" class="avatar"/></ng-template>
+              <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
+
+              <p class="member">{{u.name}}</p>
+              <a href="#" [routerLink]="['/userProfile',u.name]">view profile</a>
+              <button (click)="remove(u.id)">Delete</button>
+              <button (click)="archive(u.id)">archive</button>
+              <button (click)="promote(u.id)" >promote</button>
+            </div>
+          </md-card>
+        </div>
+      </md-card>
     </md-expansion-panel>
     <md-expansion-panel>
       <md-expansion-panel-header>
@@ -100,7 +118,28 @@ Test
        </md-panel-title>
     </md-expansion-panel-header>
       <!-- content of the dropdown menu -->
-    Test
+               <div  *ngFor=" let pr of projectRequests |async">
+           <md-card class="myCard  {{pr.type}}">
+
+               <md-card-header>
+
+
+                 <md-card-title href="#" [routerLink]="['/projects',pr.id]">
+                   <p><img class="card-avatar" src="{{pr.icon}}" /><strong>&nbsp; &nbsp; {{pr.name}}</strong></p>
+                 </md-card-title>
+
+               </md-card-header>
+
+             <md-card-content>
+                <p>
+                  <img md-card-image  class="myImage"  src="{{pr.image}}" alt="Project Image" />
+                </p>
+               <p>{{pr.summary}}</p>
+
+               <a href="#" [routerLink]="['/projectRequest',pr.id]">View Details</a>
+             </md-card-content>
+           </md-card>
+         </div>
     </md-expansion-panel>
 
     <md-expansion-panel>
@@ -110,7 +149,17 @@ Test
        </md-panel-title>
     </md-expansion-panel-header>
       <!-- content of the dropdown menu -->
-      test
+      <md-card>
+        <div *ngFor=" let pr of supplierRequests |async">
+          <md-card class="myCard supplier">
+            <div>
+              <p class="member">{{pr.name}}</p>
+              <p>{{pr.summary}}</p>
+              <a href="#" [routerLink]="['/supplierRequest',pr.id]">View Details</a>
+            </div>
+          </md-card>
+        </div>
+      </md-card>
     </md-expansion-panel>
     </md-accordion>
 </span>
