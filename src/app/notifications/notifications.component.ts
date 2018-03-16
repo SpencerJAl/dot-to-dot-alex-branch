@@ -66,7 +66,9 @@ export class NotificationsComponent implements OnInit {
               private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase, public projectFilter: ProjectFilterDataService) {
      // this.afService.userContacts.subscribe((e) => {alert('hello'); });
 
-    this.getC = this.afService.userContacts ;
+    if (this.afService.loggedIn === true) {
+      this.getC = this.afService.userContacts;
+    } else { this.getC = null; }
     this.markers = this.afService.projects;
       this.peoples = this._userService.getUsers();
       this.messages = this.afService.messages;
@@ -249,8 +251,10 @@ export class NotificationsComponent implements OnInit {
       this.options = {
         center: {lat: 55.8808026, lng: -4.2745011},
       };
-      this.afService.userContacts.subscribe((e) => { });
-
+     // if (this.afService.loggedIn === true) {
+       // this.afService.userContacts.subscribe((e) => {
+        // });
+      // }else { }
       this.markerService.currentProjectName.subscribe(projectName => this.projectName = projectName );
       this.markerService.currentProjectType.subscribe(projectType => this.projectType = projectType );
       this.markerService.currentProjectID.subscribe(projectID => {

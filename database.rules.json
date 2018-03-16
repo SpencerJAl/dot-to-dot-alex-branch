@@ -1,16 +1,6 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null",
-    "projects": {
-      ".read": true,
-      ".write": "auth != null"
-    },
-    "suppliers": {
-      ".read": true,
-      ".write": "auth != null"
-    }
-
-
+    ".read": true,
+    ".write": true
   }
 }
