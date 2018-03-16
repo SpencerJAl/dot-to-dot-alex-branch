@@ -3,6 +3,7 @@ import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} f
 import {AngularFireModule} from 'angularfire2';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AF} from '../providers/af';
+import {DonationsService} from '../services/donations.service';
 
 @Component({
   selector: 'app-my-project',
@@ -22,7 +23,8 @@ export class MyProjectComponent implements OnInit {
   userID;
 
 
-  constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule, private db: AngularFireDatabase, private route: ActivatedRoute ) {
+  constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule,
+              private db: AngularFireDatabase, private route: ActivatedRoute, private donationsService: DonationsService ) {
     this.project = db.object('projects/' + this.route.snapshot.params['id']);
     this.donations = db.list('projects/' + this.route.snapshot.params['id'] + '/donations');
     this.notifications = db.list('projects/' + this.route.snapshot.params['id'] + '/notifications');
@@ -54,9 +56,11 @@ export class MyProjectComponent implements OnInit {
   ngOnInit() {
   }
 
-  acceptDonation(id) {}
+  acceptDonation(amount , id, i) {
+    this.donationsService.setDonation(amount , this.id, id, i);
+    this.donationsService.acceptDonation();
+  }
 
   declineDonation() {
-
   }
 }

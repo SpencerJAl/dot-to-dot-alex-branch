@@ -72,12 +72,12 @@
 
 <md-card class = "col-sm-4">
   <h2>donations</h2>
-  <div *ngFor="let donation of donations | async">
+  <div *ngFor=" let i = 'index'; let donation of donations | async">
     <p> Amount: {{donation.amount}}</p>
     <p>details: {{donation.details}}</p>
-    <p>sadasdasdas</p>
+    <button (click)="acceptDonation(donation.amountRequired, donation.itemID, donation.id )">accept</button>
   </div>
-  <p>this works</p>
+
 </md-card>
 
 

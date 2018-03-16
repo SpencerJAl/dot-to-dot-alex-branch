@@ -78,7 +78,11 @@ export class NotificationsComponent implements OnInit {
       this.projects = this.afService.getAllProjects();
       // this.us.subscribe((e) => { this.user = e.contacts; alert(e.length); alert(e); });
       // this.currentUser.subscribe((u) => {this.userContacts = u.contacts; } );
-    this.getC.subscribe((e) => { this.userContacts = e; } );
+    if (this.getC != null) {
+      this.getC.subscribe((e) => {
+        this.userContacts = e;
+      });
+    }
       this.projectFilter.currentUser.subscribe((u) => {this.messageUser = u; if (u != null) { this.userflag = true;
         if (this.userContacts != null) {
          // alert('shit is looping');
