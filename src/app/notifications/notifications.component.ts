@@ -240,10 +240,7 @@ export class NotificationsComponent implements OnInit {
         this.af.object('registeredUsers/' + i.id).subscribe((user) => {
           this.profiles.push(user);
         });
-
       }
-
-
     }
 
 
