@@ -1,4 +1,4 @@
-
+<span id="content" style="margin-left:10px;">
 <h1>Donations for {{(project | async).name}}</h1>
 <p>Items needed for project</p>
 <div *ngFor=" let i = 'index'; let d of (project | async).itemsWanted; ">
@@ -29,3 +29,4 @@
     <button type="submit">Donate</button>
   </form>
 </div>
+</span>
