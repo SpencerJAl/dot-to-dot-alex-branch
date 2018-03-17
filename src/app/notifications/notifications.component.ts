@@ -90,10 +90,12 @@ export class NotificationsComponent implements OnInit {
          // alert('shit is looping');
           for (const m of this.userContacts) {
           //  alert('shit is looping');
-            if (m.userID === this.messageUser.id) {
-           //   alert('we got the right id its ' + m.messages);
-              this.userMessages = this.af.list('privateMessages/' + m.messages);
-              this.afService.setUserMessages(m.messages);
+            if (this.messageUser.id != null) {
+              if (m.userID === this.messageUser.id) {
+                //   alert('we got the right id its ' + m.messages);
+                this.userMessages = this.af.list('privateMessages/' + m.messages);
+                this.afService.setUserMessages(m.messages);
+              }
             }
           }
         }
@@ -115,10 +117,13 @@ export class NotificationsComponent implements OnInit {
        for (const m of this.userContacts) {
      //    alert('mid' + m.userID);
     //     alert('messageUserId' + this.messageUser.id);
-         if (m.userID === this.messageUser.id) {
-           this.userMessages = this.af.list('privateMessages/' + m.messages);
-      //     alert('userMessagesExist');
-         }
+
+
+           //if (m.userID === this.messageUser.id) {
+             this.userMessages = this.af.list('privateMessages/' + m.messages);
+             //     alert('userMessagesExist');
+           //}
+
        }
      }
   }

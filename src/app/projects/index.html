@@ -15,15 +15,32 @@
       <p align="center">{{(project | async)?.description}}</p>
 
       <h2>news and events</h2>
-      <p> Comming Soon...</p>
+
+      <div *ngFor=" let n of notifications|async">
+        <p align="center" >{{n.title}}</p>
+        <p>{{n.message}}</p>
+        <p>{{n.timestamp}}</p>
+      </div>
+
       <p>https://dev.dots.scot/projects/{{(project|async)?.id}}</p>
 
-      <fb-share href ="https://dev.dots.scot/#/projects/{{(project|async)?.id}}"  layout="button" size="large" ></fb-share><button class="md-raised md-primary">Join project</button>
+      <div align="right">
+        <h2>donations</h2>
+        <div *ngFor=" let i = 'index'; let donation of itemsWanted | async">
+          <p>{{donation.name}}</p>
+          <p>total: {{donation.currentAmount}}/{{donation.amountRequired}}</p>
+        </div>
+      </div>
+
+      <fb-share href ="https://dev.dots.scot/#/projects/{{(project|async)?.id}}"  layout="button" size="large" ></fb-share>
+      <div *ngIf="joined === false"><button class="md-raised md-primary" (click)="join()">Join project</button> </div>
+
     </md-card-content>
   </md-card>
 </div>
 
-<div *ngIf="userID==(project|async)?.owner">
+
+<!-- <div *ngIf="userID==(project|async)?.owner">
 <form (submit)="postUpdate($event, title.value, datePosted.value, message.value, type.value)" class="form-signin">
   <div class = "form-group">
     <label for="title" class="sr-only">Title</label>
@@ -48,13 +65,13 @@
   <button  class="btn btn-md btn-primary btn-block" type="submit">update</button>
 
 </form>
-</div>
+</div>-->
 <div class="col-sm-4">
 <div class = "myCard" md-cols="4">
   <h2>Messages for {{(project| async).name}}</h2>
   <!-- <h2>Messages for <a href="#" [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>-->
   <div  class="bs-example" id="messages">
-    <div *ngFor="let message of notifications | async">
+    <div *ngFor="let message of messages | async">
       <div class="bubble {{(project| async).projectType}}" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
         <div *ngIf="message.avatar!==undefined ;then content else other_content">here is ignored</div>
         <ng-template #content><img src= "{{message.avatar}}" class="avatar"/></ng-template>

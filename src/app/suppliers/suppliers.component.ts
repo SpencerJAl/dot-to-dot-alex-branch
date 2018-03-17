@@ -1,22 +1,17 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { AppComponent} from '../app.component';
-import {AppRouting} from '../app.routing';
+import {FacebookService, InitParams} from 'ngx-facebook';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Message, Project} from '../providers/project';
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import {AF} from '../providers/af';
-import {Router, ActivatedRoute} from '@angular/router';
 import {AngularFireModule} from 'angularfire2';
-import {Member,Project,Message} from '../providers/project';
-import {AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import {AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import {FacebookModule,FacebookService, InitParams} from 'ngx-facebook';
-import {MD_PROVIDERS} from '../app.material.providers';
-/* Updated by Alexander for angular 4 */
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './index.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-suppliers',
+  templateUrl: './suppliers.component.html',
+  styleUrls: ['./suppliers.component.scss']
 })
-export class ProjectsComponent implements OnInit {
+export class SuppliersComponent implements OnInit {
 
   currentUser: FirebaseObjectObservable<any>;
   error: any;
@@ -50,10 +45,10 @@ export class ProjectsComponent implements OnInit {
         if (mem.id === this.afService.userID) { this.joined = true; }
       }
     });
-    this.itemsWanted = db.list('projects/' + this.route.snapshot.params['id'] + '/itemsWanted');
-    this.project = db.object('projects/' + this.route.snapshot.params['id']);
-    this.messages = db.list('projects/' + this.route.snapshot.params['id'] + '/messages');
-    this.notifications = db.list('projects/' + this.route.snapshot.params['id'] + '/notifications');
+    this.itemsWanted = db.list('suppliers/' + this.route.snapshot.params['id'] + '/itemsWanted');
+    this.project = db.object('suppliers/' + this.route.snapshot.params['id']);
+    this.messages = db.list('suppliers/' + this.route.snapshot.params['id'] + '/messages');
+    this.notifications = db.list('suppliers/' + this.route.snapshot.params['id'] + '/notifications');
     this.currentUser = this.afService.getUser(this.afService.userID);
     this.projectID = this.route.snapshot.params['id'];
     this.project.subscribe((p) => {
@@ -104,15 +99,15 @@ export class ProjectsComponent implements OnInit {
   sendMessage() {
     console.log('new message = ' + this.newMessage);
 
-   /* if(this.currentUser!=udefined) {
-      this.afService.sendMessage(this.newMessage, this.currentUser);
-    }
-    else
-      {*/
+    /* if(this.currentUser!=udefined) {
+       this.afService.sendMessage(this.newMessage, this.currentUser);
+     }
+     else
+       {*/
     console.log(this.currentUser);
 
     this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
-     //}
+    //}
     console.log('Message Sent');
     this.newMessage = '';
 
@@ -132,7 +127,4 @@ export class ProjectsComponent implements OnInit {
       return true;
   }
 
-
-
 }
-

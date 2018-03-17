@@ -14,12 +14,14 @@
       <h2 align="center">Further Details</h2>
       <p align="center">{{(project | async)?.description}}</p>
       <h2>news and events</h2>
-      <p> Comming Soon...</p>
+      <p> omming Soon...</p>
      <h2> Items Donated to Project</h2>
       <p><a href="https://dev.dots.scot/#/projects/{{(project|async)?.id}}" >https://dev.dots.scot/#/projects/{{(project|async)?.id}}</a></p>
       <p>Share the project on Facebook<fb-share href ="https://dev.dots.scot/#/projects/{{(project|async)?.id}}"  layout="button" size="large"></fb-share></p>
-      &nbsp;
-      <p><button md-button="primary"  (click)="join()" align="center" style="font-size: medium; background-color:#FFEB3B;">Join project</button></p>
+
+      <div *ngIf="this.joined === false">
+        <p><button md-button="primary"  (click)="join();" align="center" style="font-size: medium; background-color:#FFEB3B;">oin project</button></p>
+      </div>      &nbsp;
       <p><button md-button="primary" href="#" [routerLink]="['/donations',project.ID]">Donate to the project</button></p>
     </md-card-content>
   </md-card>

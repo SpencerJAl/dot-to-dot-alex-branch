@@ -125,6 +125,8 @@ import { FacebookPostsComponent } from './facebook-posts/facebook-posts.componen
 import {FaceBookPostsService} from './providers/facebook-graph-service.service'
 import {PostsList} from './facebook-posts/facebook-posts-list';
 import {DonationsService} from './services/donations.service';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { MySuppliesComponent } from './my-supplies/my-supplies.component';
 export let MD_MODULES: any = [
   MdButtonModule,
   MdButtonToggleModule,
@@ -239,7 +241,9 @@ export consrebaseAuthConfig = {
     DonationsComponent,
     FileTypeValidatorDirective,
     FacebookPostsComponent,
-    PostsList
+    PostsList,
+    SuppliersComponent,
+    MySuppliesComponent
     // FilterProjectPipe
   ],
   imports: [

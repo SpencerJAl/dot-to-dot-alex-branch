@@ -34,7 +34,7 @@ export class MyProjectComponent implements OnInit {
 
     });
     this.userID = afService.userID;
-    alert(this.route.snapshot.params['id']);
+  //  alert(this.route.snapshot.params['id']);
   }
 
   join() {
@@ -47,8 +47,6 @@ export class MyProjectComponent implements OnInit {
   }
 
   postUpdate($event, title, message) {
-    alert(message);
-    alert(title);
     this.afService.postProjectNotification(message, '../../images/avatar.png', this.route.snapshot.params['id'], title );
     console.log('Message Sent');
   }

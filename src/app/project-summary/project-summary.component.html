@@ -1,106 +1,41 @@
 <div class="ui-grid">
 
       <md-tab-group>
-        <md-tab label="Latest Projects">
-        <div  ng-controller="">
-          <md-card class="myCard health">
+        <md-tab label="New Projects">
 
-            <img md-card-image src="../../images/A.png" alt="Project Title" />
-            <md-card-title>
-              Mobieland
-            </md-card-title>
-            <md-card-content>
-             <p>Mobile green and  art spaces created in vacant or under-utilised  glasgow land to enliven communities.</p>
-              <p-chart type="doughnut" ></p-chart>
-              <md-card-actions>Donate</md-card-actions>
-              <p> &nbsp;</p>
-            </md-card-content>
+          <div class='md-padding' layout="row" layout-wrap>
 
-          </md-card>
-          <md-card class="myCard education">
-            <img md-card-image src="../../images/B.png" alt="Project Image" />
-            <md-card-title>
-              Corner Garden
-            </md-card-title>
-            <md-card-content>
-            <p>The corner gardens design consists of  blah  blah .....</p>
-            <p> blah  blah .....</p>
-              <p-chart type="Doughnut" ></p-chart>
-              <md-card-actions>Donate</md-card-actions>
-              <p> &nbsp;</p>
+            <div *ngFor=" let i = 'index'; let project of newProjects ">
+              <div *ngIf="i < 5">
+                <md-card class="myCard {{project.type}}"  >
 
-            </md-card-content>
-            <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
-                          <md-card-actions>Donate</md-card-actions> -->
-          </md-card>
-          <md-card class="myCard craftAndWorkshop">
-            <img md-card-image src="../../images/C.png" alt="Project Image" />
-            <md-card-title>
-              REPLASTICO
-            </md-card-title>
-            <md-card-content>
-              REPLASTICO©  is a pioneering “local plastic workshop” that connects wearable craft design, plastic waste and network of makers at home. It transforms plastic waste into a social value where each product can be manufactured from any home locally. It is a creative solution for low income and low-skilled people.
-              ​​Team: Laura Petruskeviciute & Cristian Suau
+                  <img md-card-image src="{{project.image}}" alt="Project Image" />
 
-              <p-chart type="Doughnut" ></p-chart>
-              <md-card-actions>Donate</md-card-actions>
-              <p> &nbsp;</p>
-            </md-card-content>
-            <!--  <p-chart type="Doughnut" ></p-chart>
-                          <md-card-actions>Donate</md-card-actions> -->
-          </md-card>
-          <md-card class="myCard artAndDesign">
+                  <md-card-title href="#" [routerLink]="['/projects',project.id]">
+                    {{project.name}}
+                  </md-card-title>
 
-            <img md-card-image src="../../images/D.png" alt="Project Image" />
-            <md-card-title>
+                  <md-card-content>
+                    {{project.summary}}
+                    {{today | date:'dd/MM/yyyy'}}
+                    {{project?.endDate| date:'dd/MM/yyyy'}}
+                  </md-card-content>
 
-            </md-card-title>
-            <md-card-content>
+                  <a href="#" [routerLink]="['/donations',project.id]">donate</a>
 
-              <p-chart type="Doughnut" ></p-chart>
-              <md-card-actions>Donate</md-card-actions>
-              <p> &nbsp;</p>
-            </md-card-content>
-            <!--  <p-chart type="Doughnut" </p-chart>
-                          <md-card-actions>Donate</md-card-actions> -->
-          </md-card>
-        </div>
-          <md-paginator [length]="100">
-          </md-paginator>
-          <!--
-               <md-paginator>
-          <div *ngIf ="pageEvent">
-          <md-card class="myCard">
-
-            <img md-card-image src="../../images/1.png" alt="Project Image" />
-             <md-card-title>
-             </md-card-title>
-            <md-card-content>
-
-            </md-card-content>
-          <!--  <p-chart type="Doughnut" [data]="data"></p-chart>
-                        <md-card-actions>Donate</md-card-actions>
-          </md-card>
-
-          <md-card class="myCard">
-            <img md-card-image src="../../images/2.png" alt="Project Image" />
-
-          </md-card>
-
-          <md-card class="myCard">
-            <img md-card-image src="../../images/3.png" alt="Project Image" />
-
-          </md-card>
-
-          <md-card class="myCard">
-            <img md-card-image src="../../images/4.png" alt="Project Image" />
-
-          </md-card>
+                </md-card>
+              </div>
+            </div>
           </div>
+          <md-paginator (page)="1" [pageSize]="5" >
+          </md-paginator>
 
-        </md-paginator>
-       -->
+
+
+
         </md-tab>
+
+
 
 
 
@@ -152,36 +87,32 @@
 
         </md-tab>
 
-        <md-tab label=" new Live Projects">
+
+
+
+        <md-tab label="suppliers">
 
           <div class='md-padding' layout="row" layout-wrap>
 
-            <div *ngFor="let project of projects|async">
-            <md-card class="myCard {{project.type}}"    *ngIf="project?.endDate >  today ">
-              <div  class="myCard {{project?.type}}"  >
+            <md-card class="myCard supplier"  *ngFor="let project of suppliers|async ">
+
               <img md-card-image src="{{project.image}}" alt="Project Image" />
 
-              <md-card-title href="#" [routerLink]="['/projects',project.id]">
+              <md-card-title href="#" [routerLink]="['/suppliers',project.id]">
                 {{project.name}}
               </md-card-title>
 
               <md-card-content>
                 {{project.summary}}
-                {{today | date:'dd/MM/yyyy'}}
               </md-card-content>
 
-              <a href="#" [routerLink]="['/donations',project.id]">donate</a>
-            </div>
+              <a href="#" [routerLink]="['/suppliers',project.id]">collect</a>
             </md-card>
-            </div>
             <md-paginator (page)="1" [pageSize]="5" >
             </md-paginator>
           </div>
 
-
-
         </md-tab>
-
 
 
       </md-tab-group>

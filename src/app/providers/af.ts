@@ -44,6 +44,7 @@ export class AF {
     this.afAuth.authState.subscribe(
       (auth) => {
         if (auth != null) {
+          this.ownedSuppliers = this.af.list('registeredUsers/' + auth.uid + '/ownedSuppliers');
           this.user = this.af.object('registeredUsers/' + auth.uid);
           this.userID = auth.uid ;
           this.userContacts = this.af.list('registeredUsers/' + auth.uid + '/contacts');

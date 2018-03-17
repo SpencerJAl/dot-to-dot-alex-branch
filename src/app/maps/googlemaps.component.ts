@@ -152,13 +152,19 @@ export class GoogleMapsComponent implements OnInit {
     this.messages = this.afService.messages;
     // this.profiles=this.peoples;
     this.messagething = m;
-    this.profiles = [];
-    for (let i of m.members){
-      this.af.object('registeredUsers/' + i.id).subscribe((user) => {
-        this.profiles.push(user);
-        this.enableProfiles = true;
-      });
+    while (this.profiles.length > 0) {
+      this.profiles.pop();
+    }
+    if (m.members != null) {
+      this.profiles = [];
 
+      for (let i of m.members) {
+        this.af.object('registeredUsers/' + i.id).subscribe((user) => {
+          this.profiles.push(user);
+          this.enableProfiles = true;
+        });
+
+      }
     }
 
 

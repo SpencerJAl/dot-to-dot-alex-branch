@@ -18,7 +18,7 @@ export class DonationsService {
     });
   }
   acceptDonation() {
-    const currentAmount = this.d.currentAmoun + this.newAmmount;
+    const currentAmount = Number(this.d.currentAmount) + Number(this.newAmmount);
     this.donation.update({
       currentAmount: currentAmount,
     });

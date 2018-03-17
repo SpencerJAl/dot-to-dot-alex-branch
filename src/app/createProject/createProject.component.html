@@ -162,8 +162,8 @@ json ={
   <h3>amount of volentery hours wanted</h3>
   <input #hours type="text">
   <h3>Project end Date</h3>
-  <input #date type="date">
-
+  <input #date type="date" [mdDatepicker]="myDatepicker">
+  <md-datepicker #myDatepicker></md-datepicker>
   <md-card>
 
   <md-card>
@@ -175,7 +175,7 @@ json ={
       <input #itemDescription type="text" id ="itemDescription" class="form-control" placeholder="Description">
       <label for="itemAmount" class="sr-only">item amount</label>
       <input #itemAmount type="text" id ="itemAmount" class="form-control" placeholder="Quantity">
-      <button (click)="addItem($event, itemName.value, itemDescription.value, itemAmount.value )">Add</button>
+      <button type = "button" (click)="addItem($event, itemName.value, itemDescription.value, itemAmount.value )">Add</button>
     </div>
   </md-card>
 

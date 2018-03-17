@@ -1,0 +1,39 @@
+<div class="col-sm-8">
+  <md-card class ="myCard supplier">
+    <md-card-title >
+      <p><img class="card-avatar" src="{{(project|async)?.icon}}" /><strong>&nbsp; &nbsp; {{(project|async)?.name}}</strong></p>
+    </md-card-title>
+    <md-card-content>
+      <p>
+        <img md-card-image  class="myImage"  src="{{(project|async)?.image}}" alt="Project Image" />
+      </p>
+
+      <h2 align="center">{{(project | async)?.summary}}</h2>
+
+      <h2 align="center">Further Details</h2>
+      <p align="center">{{(project | async)?.description}}</p>
+
+      <h2>news and events</h2>
+
+      <div *ngFor=" let n of notifications|async">
+        <p align="center" >{{n.title}}</p>
+        <p>{{n.message}}</p>
+        <p>{{n.timestamp}}</p>
+      </div>
+
+      <p>https://dev.dots.scot/projects/{{(project|async)?.id}}</p>
+
+      <div align="right">
+        <h2>donations</h2>
+        <div *ngFor=" let i = 'index'; let donation of itemsWanted | async">
+          <p>{{donation.name}}</p>
+          <p>total: {{donation.currentAmount}}/{{donation.amountRequired}}</p>
+        </div>
+      </div>
+
+      <fb-share href ="https://dev.dots.scot/#/projects/{{(project|async)?.id}}"  layout="button" size="large" ></fb-share>
+      <div *ngIf="joined === false"><button class="md-raised md-primary" (click)="join()">Join project</button> </div>
+
+    </md-card-content>
+  </md-card>
+</div>
