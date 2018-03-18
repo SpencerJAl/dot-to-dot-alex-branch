@@ -51,6 +51,7 @@ export class ProjectFilterComponent implements OnInit {
     this.markerService.currentProjectType.subscribe(projectType => this.projectType = projectType );
     this.markerService.currentProjectID.subscribe(projectID => {
       this.afService.getProjectMembers(projectID).subscribe((mem) => {
+        this.members = [];
         for (const u of mem){
           const memb = this.afService.getUser(u.id);
           this.AF.object('registeredUsers/' + u.id).subscribe((us) => {

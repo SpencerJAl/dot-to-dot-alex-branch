@@ -127,6 +127,7 @@ import {PostsList} from './facebook-posts/facebook-posts-list';
 import {DonationsService} from './services/donations.service';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { MySuppliesComponent } from './my-supplies/my-supplies.component';
+import { CollectSuppliesComponent } from './collect-supplies/collect-supplies.component';
 export let MD_MODULES: any = [
   MdButtonModule,
   MdButtonToggleModule,
@@ -243,7 +244,8 @@ export consrebaseAuthConfig = {
     FacebookPostsComponent,
     PostsList,
     SuppliersComponent,
-    MySuppliesComponent
+    MySuppliesComponent,
+    CollectSuppliesComponent
     // FilterProjectPipe
   ],
   imports: [

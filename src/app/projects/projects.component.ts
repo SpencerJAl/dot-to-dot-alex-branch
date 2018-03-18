@@ -111,6 +111,7 @@ export class ProjectsComponent implements OnInit {
       {*/
     console.log(this.currentUser);
 
+    this.afService.getProjectMessages(this.route.snapshot.params['id']);
     this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
      //}
     console.log('Message Sent');

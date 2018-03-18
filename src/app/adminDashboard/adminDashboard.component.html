@@ -18,7 +18,7 @@
               <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
 
               <p class="member">{{u.name}}</p>
-              <a href="#" [routerLink]="['/userProfile',u.name]">view profile</a>
+              <a href="#" [routerLink]="['/userProfile',u.id]">view profile</a>
               <button (click)="remove(u.id)">Delete</button>
               <button (click)="archive(u.id)">archive</button>
               <button (click)="promote(u.id)" >promote</button>

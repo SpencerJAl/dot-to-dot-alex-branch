@@ -56,8 +56,7 @@ export class RecycledSupplierComponent implements OnInit {
     this.items.push({
       name: itemName,
       description: itemDescription,
-      amountRequired : itemAmount,
-      currentAmount: 0
+      currentAmount : itemAmount,
     });
   }
 

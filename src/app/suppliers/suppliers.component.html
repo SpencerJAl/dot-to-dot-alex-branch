@@ -35,10 +35,40 @@
 
     </md-card-content>
   </md-card>
+
 </div>
 
 
+<div class="col-sm-4">
+  <div class = "myCard" md-cols="4">
+    <h2>Messages for {{(supplier| async)?.name}}</h2>
+    <!-- <h2>Messages for <a href="#" [routerLink]="['/projects',messagething.id]">{{messagething.name}}</a></h2>-->
+    <div  class="bs-example" id="messages">
+      <div *ngFor="let message of notifications | async">
+        <div class="bubble {{(project| async).projectType}}" [class.you]="isYou(message.email)" [class.me]="isMe(message.email)" >
+          <div *ngIf="message.avatar!==undefined ;then content else other_content">here is ignored</div>
+          <ng-template #content><img src= "{{message.avatar}}" class="avatar"/></ng-template>
+          <ng-template #other_content><img src= "../../images/avatar.png" class="avatar"/></ng-template>
+          <p>{{ message.message }}</p>
+          <div class="author">
+            {{ message.displayName }}
+          </div>
+          <div class="author"> {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="highlight" >
+      <label>
+        <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" (return)="sendMessage()">
+      </label>
+      <a class="send-message" (click)="sendMessage()">SEND</a>
+    </figure>
+
+  </div>
+</div>
 
 
 

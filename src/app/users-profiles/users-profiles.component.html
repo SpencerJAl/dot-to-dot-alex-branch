@@ -1,18 +1,18 @@
 <div class="col-sm-12">
-  <h1 align="center">{{(user | async).name}}'s Profile</h1>
+  <h1 align="center">{{(user | async)?.name}}'s Profile</h1>
 </div>
 
 
 
 <div class="col-sm-3">
   <div class = "card" style="width:75% " align="left">
-    <img type="file" class="profilepic" height="75%" width ="75%" src="{{(user | async).avatar}}"/>
+    <img type="file" class="profilepic" height="75%" width ="75%" src="{{(user | async)?.avatar}}"/>
     <h2>Social media</h2>
     <label>Facebook</label>
-    <p>{{(user | async).facebook}}</p>
+    <p>{{(user | async)?.facebook}}</p>
 
     <label>Twitter</label>
-    <p>{{(user | async).twitter}}</p>
+    <p>{{(user | async)?.twitter}}</p>
 
     </div>
   </div>
@@ -20,12 +20,12 @@
 <md-card class="col-sm-8">
   <md-card style="width:75% " align="center">
     <h2>Skills</h2>
-    <p>{{(user | async).summary}}</p>
+    <p>{{(user | async)?.summary}}</p>
   </md-card>
 
       <md-card style="width:75% " align="center">
         <h2>Biography</h2>
-        <p>{{(user | async).description}}</p>
+        <p>{{(user | async)?.description}}</p>
       </md-card>
 
 </md-card>

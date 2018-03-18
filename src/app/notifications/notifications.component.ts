@@ -38,6 +38,7 @@ export class NotificationsComponent implements OnInit {
 
   user;
 
+  avatar;
 
   public isLogin: boolean;
   projectID: string;
@@ -66,6 +67,7 @@ export class NotificationsComponent implements OnInit {
               private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase, public projectFilter: ProjectFilterDataService) {
      // this.afService.userContacts.subscribe((e) => {alert('hello'); });
 
+    this.afService.user.subscribe((u) => {this.avatar = u.avatar; });
     if (this.afService.loggedIn === true) {
       this.getC = this.afService.userContacts;
     } else { this.getC = null; }
@@ -176,7 +178,7 @@ export class NotificationsComponent implements OnInit {
 
     //  alert('this werks');
 
-      this.afService.sendPrivateMessage(this.newUserMessage, '../../images/avatar.png', this.messageLinkID);
+      this.afService.sendPrivateMessage(this.newUserMessage, this.avatar, this.messageLinkID);
       console.log('Message Sent');
       this.newMessage = '';
     }
@@ -187,7 +189,7 @@ export class NotificationsComponent implements OnInit {
 
       this.afService.createUserLink(this.messageUser.id);
       this.afService.setUserMessages(this.createNewContact);
-      this.afService.sendPrivateMessage(this.newUserMessage, '../../images/avatar.png', this.createNewContact);
+      this.afService.sendPrivateMessage(this.newUserMessage, this.avatar, this.createNewContact);
       console.log('Message Sent');
       this.newMessage = '';
     }
@@ -201,7 +203,7 @@ export class NotificationsComponent implements OnInit {
       else
         {*/
       console.log(this.currentUser);
-        this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
+        this.afService.sendMessage(this.newMessage, this.avatar);
       // }
       console.log('Message Sent');
       this.newMessage = '';

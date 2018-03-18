@@ -48,7 +48,7 @@ export class SuppliersComponent implements OnInit {
    // this.itemsWanted = db.list('suppliers/' + this.route.snapshot.params['id'] + '/itemsWanted');
     this.supplier = db.object('suppliers/' + this.route.snapshot.params['id']);
     this.messages = db.list('suppliers/' + this.route.snapshot.params['id'] + '/messages');
-    this.notifications = db.list('suppliers/' + this.route.snapshot.params['id'] + '/notifications');
+    this.notifications = db.list('suppliers/' + this.route.snapshot.params['id'] + '/messages');
     this.currentUser = this.afService.getUser(this.afService.userID);
     this.projectID = this.route.snapshot.params['id'];
     this.supplier.subscribe((p) => {
@@ -87,10 +87,11 @@ export class SuppliersComponent implements OnInit {
       message: this.newMessage,
       displayName: this.afService.displayName,
       email: this.afService.email,
-      avatar: this.currentUser,
+      avatar: '',
       timestamp: Date.now()
 
     };
+    this.afService.serSupplierMessages(this.route.snapshot.params['id']);
     this.messages.push(message);
     /* if(this.currentUser!=udefined) {
        this.afService.sendMessage(this.newMessage, this.currentUser);

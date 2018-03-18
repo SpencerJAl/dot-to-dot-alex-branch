@@ -31,6 +31,7 @@ export class AF {
   public supplier: FirebaseObjectObservable<Supplier>;
   public supplierRequests: FirebaseListObservable<Supplier[]>;
   public userMessages: FirebaseListObservable<Message[]>;
+  public avatar;
  // uid: string;
 
 
@@ -68,6 +69,7 @@ export class AF {
     this.suppliers = this.af.list('suppliers');
     console.log('our recycling  suppliers');
     console.log(this.suppliers);
+
   }
 
   ////////////////////////register functionality//////////////////
@@ -391,6 +393,10 @@ export class AF {
     this.messages = this.af.list('projects/' + id + '/messages');
     console.log('get project messages  fired');
     return this.af.list('projects/' + id + '/messages');
+  }
+  serSupplierMessages(id) {
+    this.messages = this.af.list('suppliers/' + id + '/messages');
+    return this.af.list('suppliers/' + id + '/messages');
   }
   getProjectMembers(id) {
     this.messages = this.af.list('projects/' + id + '/members');
