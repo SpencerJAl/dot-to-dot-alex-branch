@@ -40,7 +40,7 @@ export class SupplierRequestComponent implements OnInit {
 
   decline() {
     alert('declined');
-    this.afService.projectDecline(this.id).then(() => {
+    this.afService.supplierDecline(this.id).then(() => {
       this.router.navigate(['/adminDashboard']);
     });
   }

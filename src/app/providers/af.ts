@@ -432,7 +432,7 @@ export class AF {
   /////////////// Waste Suppliers//////////////////////////////////////////
 
 
-  sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng) {
+  sendSupplierRequest(supplierName, address, address2, supplierDisc, supplierSum, lat, lng, items) {
     const supplier = {
       name: supplierName,
       address: address,
@@ -441,7 +441,8 @@ export class AF {
       summary: supplierSum,
       owner: this.userID,
       lat: lat,
-      lng: lng
+      lng: lng,
+      itemsSelling: items,
     };
     return this.supplierRequests.push(supplier);
   }

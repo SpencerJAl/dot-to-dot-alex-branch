@@ -65,6 +65,34 @@
            </textarea>
       </md-input-container>
 
+      <md-card>
+        <h2> Supplies wanted</h2>
+        <div class = "form-group">
+          <label for="itemName" class="sr-only">item name</label>
+          <input #itemName type="text" id ="itemName" class="form-control" placeholder="Item Name">
+          <label for="itemDescription" class="sr-only">item description</label>
+          <input #itemDescription type="text" id ="itemDescription" class="form-control" placeholder="Description">
+          <label for="itemAmountForGivaway" class="sr-only">item amount</label>
+          <input #itemAmountForGivaway type="text" id ="itemAmountForGivaway" class="form-control" placeholder="Quantity">
+          <button type = "button" (click)="addItem($event, itemName.value, itemDescription.value, itemAmountForGivaway.value )">Add</button>
+        </div>
+      </md-card>
+
+      <md-card>
+        <h2>Name  Description   Summary </h2>
+        <div class = "form-group">
+
+          <label class="sr-only"></label>
+
+          <div *ngFor="let i of items">
+            <p>{{i.name}} {{i.description}} {{i.amountForGivaway}}</p>
+          </div>
+
+        </div>
+
+      </md-card>
+
+
       <button  class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
     </form>
 

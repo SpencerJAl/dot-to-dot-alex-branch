@@ -19,6 +19,7 @@ export class RecycledSupplierComponent implements OnInit {
   // other variables
   error: any;
   center: google.maps.LatLng;
+  items= [];
   constructor(private afService: AF, private GC: GeocodingService, private router: Router, private uploadService: UploadFileService) { }
 
   createSupplier(event, supplierName, address, address2, desc, sum, loc) {
@@ -29,7 +30,7 @@ export class RecycledSupplierComponent implements OnInit {
       console.log('lat is : ' + this.center.lat());
       console.log('long is : ' + this.center.lng());
     }).then(() => {
-      this.afService.sendSupplierRequest(supplierName, address, address2, desc, sum, this.center.lat(), this.center.lng()).then((supplier) => {
+      this.afService.sendSupplierRequest(supplierName, address, address2, desc, sum, this.center.lat(), this.center.lng(), this.items).then((supplier) => {
         this.afService.saveSupplierID(supplier.key);
         this.upload(supplier.key, 'profilepic');
         this.afService.saveSupplierToUser(supplier.key).then(() => {
@@ -49,6 +50,15 @@ export class RecycledSupplierComponent implements OnInit {
           console.log('no results');
         }
       });
+  }
+
+  addItem(event, itemName, itemDescription, itemAmount) {
+    this.items.push({
+      name: itemName,
+      description: itemDescription,
+      amountRequired : itemAmount,
+      currentAmount: 0
+    });
   }
 
   selectFile(event) {
