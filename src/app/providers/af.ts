@@ -243,17 +243,12 @@ export class AF {
   }
   supplierApprove(project, delID) {
 
-
-
     let key;
     console.log('project name is ' + project.name);
 
-    return this.af.list('suppliers').push(project).then((p) => {
+    return this.af.list('suppliers/').push(project).then((p) => {
       key = p.key;
-
-      console.log('project deleted' + p.key);
-
-      this.af.object('suppliers/' + p.uid).update({
+      this.af.object('suppliers/' + p.key).update({
         id: key,
       }).then(() => {this.supplierDecline(delID); });
     });

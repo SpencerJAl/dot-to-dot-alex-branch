@@ -15,12 +15,12 @@ export class SuppliersComponent implements OnInit {
 
   currentUser: FirebaseObjectObservable<any>;
   error: any;
-  project: FirebaseObjectObservable<Project>;
+  supplier: FirebaseObjectObservable<Project>;
   id: string;
   isMember: boolean;
 
   // this is currently a work around because of problems subscribing for some reason, will be fixed later
-  projects: FirebaseListObservable<Project[]>;
+  projects: FirebaseListObservable<any>;
   projectData: {};
   messages: FirebaseListObservable<Message[]>;
   posts: any;
@@ -45,21 +45,15 @@ export class SuppliersComponent implements OnInit {
         if (mem.id === this.afService.userID) { this.joined = true; }
       }
     });
-    this.itemsWanted = db.list('suppliers/' + this.route.snapshot.params['id'] + '/itemsWanted');
-    this.project = db.object('suppliers/' + this.route.snapshot.params['id']);
+   // this.itemsWanted = db.list('suppliers/' + this.route.snapshot.params['id'] + '/itemsWanted');
+    this.supplier = db.object('suppliers/' + this.route.snapshot.params['id']);
     this.messages = db.list('suppliers/' + this.route.snapshot.params['id'] + '/messages');
     this.notifications = db.list('suppliers/' + this.route.snapshot.params['id'] + '/notifications');
     this.currentUser = this.afService.getUser(this.afService.userID);
     this.projectID = this.route.snapshot.params['id'];
-    this.project.subscribe((p) => {
+    this.supplier.subscribe((p) => {
       this.projectData = p;
-      // for (m in p.members){
-      // console.log (m.id)
-      // }
     });
-    console.log(this.project);
-    // this.currentProject= <Project>this.project;
-    // this.facebookMessage= "View this great project on DOT to DOT <b>"+this.currentProject.name+"</b> <br/> <h2>summary </h2><br/>"+ this.currentProject.summary;
 
     this.userID = afService.userID;
     let initParams: InitParams = {
@@ -68,6 +62,7 @@ export class SuppliersComponent implements OnInit {
       version: 'v2.8'
 
     };
+
 
 
     fb.init(initParams);
@@ -82,32 +77,30 @@ export class SuppliersComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     console.log('params are' + this.id);
   }
-
-  // FUNCTION CALL TO MAKE USER JOIN A PROJECT
-  join() {
-    alert('its doing something');
-    this.afService.join(this.route.snapshot.params['id']).then(() => {
-      this.router.navigate(['/']);
-    }).catch((error) => {
-      this.error = error;
-      console.log(this.error);
-    });
-  }
-
   postUpdate() {}
 
   sendMessage() {
     console.log('new message = ' + this.newMessage);
 
+
+    const message = {
+      message: this.newMessage,
+      displayName: this.afService.displayName,
+      email: this.afService.email,
+      avatar: this.currentUser,
+      timestamp: Date.now()
+
+    };
+    this.messages.push(message);
     /* if(this.currentUser!=udefined) {
        this.afService.sendMessage(this.newMessage, this.currentUser);
      }
      else
        {*/
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
 
-    this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
-    //}
+    // this.afService.sendMessage(this.newMessage, '../../images/avatar.png');
+    // }
     console.log('Message Sent');
     this.newMessage = '';
 

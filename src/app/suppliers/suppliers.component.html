@@ -1,17 +1,17 @@
 <div class="col-sm-8">
   <md-card class ="myCard supplier">
     <md-card-title >
-      <p><img class="card-avatar" src="{{(project|async)?.icon}}" /><strong>&nbsp; &nbsp; {{(project|async)?.name}}</strong></p>
+      <p><img class="card-avatar" src="{{(supplier|async)?.icon}}" /><strong>&nbsp; &nbsp; {{(project|async)?.name}}</strong></p>
     </md-card-title>
     <md-card-content>
       <p>
-        <img md-card-image  class="myImage"  src="{{(project|async)?.image}}" alt="Project Image" />
+        <img md-card-image  class="myImage"  src="{{(supplier|async)?.image}}" alt="Project Image" />
       </p>
 
-      <h2 align="center">{{(project | async)?.summary}}</h2>
+      <h2 align="center">{{(supplier | async)?.summary}}</h2>
 
       <h2 align="center">Further Details</h2>
-      <p align="center">{{(project | async)?.description}}</p>
+      <p align="center">{{(supplier | async)?.description}}</p>
 
       <h2>news and events</h2>
 
@@ -24,16 +24,21 @@
       <p>https://dev.dots.scot/projects/{{(project|async)?.id}}</p>
 
       <div align="right">
-        <h2>donations</h2>
+
         <div *ngFor=" let i = 'index'; let donation of itemsWanted | async">
           <p>{{donation.name}}</p>
           <p>total: {{donation.currentAmount}}/{{donation.amountRequired}}</p>
         </div>
       </div>
 
-      <fb-share href ="https://dev.dots.scot/#/projects/{{(project|async)?.id}}"  layout="button" size="large" ></fb-share>
-      <div *ngIf="joined === false"><button class="md-raised md-primary" (click)="join()">Join project</button> </div>
+      <fb-share href ="https://dev.dots.scot/#/projects/{{(supplier|async)?.id}}"  layout="button" size="large" ></fb-share>
 
     </md-card-content>
   </md-card>
 </div>
+
+
+
+
+
+

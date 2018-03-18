@@ -40,6 +40,7 @@ import {MyProjectComponent} from './my-project/my-project.component';
 import {DonationsComponent} from './donations/donations.component';
 import {FacebookPostsComponent} from "./facebook-posts/facebook-posts.component";
 import {SuppliersComponent} from './suppliers/suppliers.component';
+import {MySuppliesComponent} from './my-supplies/my-supplies.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent,
 
@@ -93,6 +94,12 @@ const appRoutes: Routes = [
     component: SuppliersComponent,
     canActivate: [AuthGuard],
     data: { title: 'suppliers' }
+  },
+  {
+    path: 'mySuppliers',
+    component: MySuppliesComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'my suppliers' }
   }
   , {
     path: 'createProject',

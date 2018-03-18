@@ -38,6 +38,7 @@
     <md-menu xPosition="after" #userMenu="mdMenu" md-offset="0 2">
       <button md-menu-item routerLink="/myProfile" routerLinkActive="active">Edit Profile </button>
       <button md-menu-item routerLink="/myProjects" routerLinkActive="active">My Projects</button>
+      <button md-menu-item routerLink="/mySuppliers" routerLinkActive="active">My supplies</button>
       <!-- adds in admin options if user is on mobile -->
       <span class="mobile_admin">
       <button md-menu-item *ngIf="isadmin" routerLink="/adminDashboard" routerLinkActive="active">Admin Dashboard</button>

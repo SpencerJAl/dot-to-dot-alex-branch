@@ -1,6 +1,6 @@
  <md-tab-group>
 
-   <md-tab label="Recent Activity" >
+   <md-tab label="Notifications" >
      <div class="container mypadding ">
        <div class="messgageContent">
 
@@ -36,7 +36,7 @@
 
 
 
-         <div *ngFor="let n of notifications">
+         <div class = "loz {{this.projectType}}" *ngFor="let n of notifications">
            <h2>{{n.title}}</h2>
            <p>{{n.message}}</p>
          </div>

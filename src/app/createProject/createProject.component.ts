@@ -67,7 +67,6 @@ export class CreateProjectComponent implements OnInit {
       console.log('long is : ' + this.center.lng());
     }).then(() => {
       this.afService.sendProjectRequest(projectName, desc, sum, this._selectedType, this.center.lat(), this.center.lng(), this.items, money, hours, date).then((project) => {
-        console.log('project id is' + project.key);
         this.afService.saveProjectID(project.key);
         this.afService.saveProjectToUser(project.key).then(() => {
           this.upload(project.key, 'profilepic');

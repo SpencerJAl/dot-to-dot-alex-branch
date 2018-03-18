@@ -1,3 +1,38 @@
-<p>
-  my-supplies works!
-</p>
+<md-card>
+
+  <h1>My Supplies</h1>
+
+  <div  *ngFor="let myProject of ownedProjects|async ">
+    <div *ngFor="let project of projects|async">
+
+      <md-card  class="myCard {{project?.type}}" *ngIf="project?.id === myProject?.name && (project.id!==undefined && myProject.name!==undefined)" >
+
+        <md-card-header>
+
+          <md-card-title href="#" [routerLink]="['/suppliers',project.id]">
+            <p><img class="card-avatar" src="{{project?.icon}}" /><strong>&nbsp; &nbsp; {{project?.name}}</strong></p>
+          </md-card-title>
+
+        </md-card-header>
+
+        <md-card-content>
+
+          <p>
+            <img md-card-image  class="myImage"  src="{{project?.image}}" alt="Project Image" />
+          </p>
+          <p>{{project?.summary}}</p>
+          <p class="percentage">{{project?.finical}}</p>
+          <p class="percentage">{{project?.personal}}</p>
+          <p class="percentage">{{project?.material}}</p>
+          <p class="hashtag">{{project?.hashtag}}</p>
+          <a href="#" [routerLink]="['/myProject',project.id]">View Details</a>
+
+        </md-card-content>
+
+      </md-card>
+
+    </div>
+
+  </div>
+
+</md-card>
