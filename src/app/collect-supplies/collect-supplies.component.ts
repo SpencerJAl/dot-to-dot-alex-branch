@@ -14,28 +14,18 @@ export class CollectSuppliesComponent implements OnInit {
   project: FirebaseObjectObservable<any>;
   constructor(private afService: AF, private afAuth: AngularFireAuth, private db: AngularFireDatabase,
               private router: Router, private route: ActivatedRoute) {
-    this.project = db.object('projects/' + this.route.snapshot.params['id']);
+    this.project = db.object('suppliers/' + this.route.snapshot.params['id']);
 
   }
   donateItem($event, amount, details, key) {
-    alert('id is ' + key);
-    this.db.list('supplies/' + this.route.snapshot.params['id'] + '/donations').push({
+    this.db.list('suppliers/' + this.route.snapshot.params['id'] + '/collectors').push({
       itemID: key,
       amount: amount,
       details: details,
       accepted: false,
       user: this.afService.userID
     }).then((e) => {
-      this.db.object('projects/' + this.route.snapshot.params['id'] + '/donations/' + e.key).update({id: e.key});
-    });
-  }
-  addWorkHours(event, hours, details, key) {
-    this.db.list('projects/' + this.route.snapshot.params['id'] + '/workingHours').push({
-      itemID: key,
-      hours: hours,
-      details: details,
-      accepted: false,
-      user: this.afService.userID
+      this.db.object('suppliers/' + this.route.snapshot.params['id'] + '/collectors/' + e.key).update({id: e.key});
     });
   }
   ngOnInit() {

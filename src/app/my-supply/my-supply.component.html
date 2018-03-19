@@ -1,0 +1,88 @@
+
+<div class="col-sm-8">
+  <md-card class ="myCard supplier">
+    <md-card-title >
+      <p><img class="card-avatar" src="{{(project|async)?.image}}" /><strong>&nbsp; &nbsp; {{(project|async)?.name}}</strong></p>
+    </md-card-title>
+    <md-card-content>
+      <p>
+        <img md-card-image  class="myImage"  src="{{(project|async)?.image}}" alt="Project Image" />
+      </p>
+
+
+      <h2 align="center">Summary</h2>
+      <p align="center">{{(project | async)?.summary}}</p>
+      <h2 align="center">Further Details</h2>
+      <p align="center">{{(project | async)?.description}}</p>
+
+      <h2>news and events</h2>
+      <p> Comming Soon...</p>
+      <p>https://dev.dots.scot/projects/{{(project|async)?.id}}</p>
+      <fb-share href ="https://dev.dots.scot/projects/{{(project|async)?.id}}"  layout="button" size="large"></fb-share>
+      &nbsp;
+      <button md-button (click)="join()" align="center" style="font-size: medium">Join project</button>
+    </md-card-content>
+  </md-card>
+</div>
+
+<md-card class = "col-sm-4" >
+
+  <div>
+
+    <md-card>
+
+
+      <h2>news and events</h2>
+
+
+      <div *ngFor=" let n of notifications|async">
+        <p align="center" >{{n.title}}</p>
+        <p>{{n.message}}</p>
+        <p>{{n.timestamp}}</p>
+      </div>
+
+
+
+    </md-card>
+  </div>
+
+  <form (submit)="postUpdate($event, title.value, message.value)" class="form-signin">
+
+    <div class = "form-group">
+      <label for="title" class="sr-only">Title</label>
+      <input #title type="text" id="title" class="form-control" placeholder="Title" required="">
+    </div>
+
+    <div class = "form-group">
+      <label class="sr-only">Message</label>
+      <textarea
+        #message
+        rows = "5"
+        cols = "80"
+        class="form-control"
+        placeholder="Profile Description"
+      ></textarea>
+    </div>
+
+
+    <button  class="btn btn-md btn-primary btn-block" type="submit">update</button>
+
+  </form>
+</md-card>
+
+<md-card class = "col-sm-4">
+  <h2>Collectors</h2>
+  <div *ngFor=" let i = 'index'; let donation of donations | async">
+    <div *ngIf="donation.accepted === false">
+      <p> Amount: {{donation.amount}}</p>
+      <p>details: {{donation.details}}</p>
+      <button (click)="acceptDonation(donation.amount, donation.itemID, donation.id )">accept</button>
+    </div>
+  </div>
+
+</md-card>
+
+
+
+
+<app-footer></app-footer>

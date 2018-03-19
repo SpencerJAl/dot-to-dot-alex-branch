@@ -41,6 +41,8 @@ import {DonationsComponent} from './donations/donations.component';
 import {FacebookPostsComponent} from "./facebook-posts/facebook-posts.component";
 import {SuppliersComponent} from './suppliers/suppliers.component';
 import {MySuppliesComponent} from './my-supplies/my-supplies.component';
+import {CollectSuppliesComponent} from './collect-supplies/collect-supplies.component';
+import {MySupplyComponent} from './my-supply/my-supply.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent,
 
@@ -94,6 +96,18 @@ const appRoutes: Routes = [
     component: SuppliersComponent,
     canActivate: [AuthGuard],
     data: { title: 'suppliers' }
+  },
+  {
+    path: 'mySupply/:id',
+    component: MySupplyComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'suppliers' }
+  },
+  {
+    path: 'collectSupplies/:id',
+    component: CollectSuppliesComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'collect supplies' }
   },
   {
     path: 'mySuppliers',

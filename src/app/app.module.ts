@@ -122,12 +122,13 @@ import { DonationsComponent } from './donations/donations.component';
 import { FileTypeValidatorDirective } from './directives/file-type-validator.directive';
 import { FacebookPostsComponent } from './facebook-posts/facebook-posts.component';
 // import { FilterProjectPipe } from './filter-project.pipe';
-import {FaceBookPostsService} from './providers/facebook-graph-service.service'
+import {FaceBookPostsService} from './providers/facebook-graph-service.service';
 import {PostsList} from './facebook-posts/facebook-posts-list';
 import {DonationsService} from './services/donations.service';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { MySuppliesComponent } from './my-supplies/my-supplies.component';
 import { CollectSuppliesComponent } from './collect-supplies/collect-supplies.component';
+import { MySupplyComponent } from './my-supply/my-supply.component';
 export let MD_MODULES: any = [
   MdButtonModule,
   MdButtonToggleModule,
@@ -245,7 +246,8 @@ export consrebaseAuthConfig = {
     PostsList,
     SuppliersComponent,
     MySuppliesComponent,
-    CollectSuppliesComponent
+    CollectSuppliesComponent,
+    MySupplyComponent
     // FilterProjectPipe
   ],
   imports: [

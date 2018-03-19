@@ -30,7 +30,7 @@ export class MySuppliesComponent implements OnInit {
     this.myuserId = this.afService.userID;
     /* this.ownedProjects = db.database.list('registeredUsers/joinedProjects/');*/
     // this.ownedProjects = db.list(`registeredUsers/id/ownedProjects/${this.route.snapshot.params['name']}`);
-    this.ownedProjects = this.afService.ownedSuppliers;
+    this.ownedProjects = this.afService.getOwnedSupplies();
     /* this.ownedProjects.subscribe((p) => {
        this.myProj = this.afService.getProject(p);
        console.log(this.myProj);

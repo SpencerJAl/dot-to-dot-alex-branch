@@ -9,7 +9,7 @@
 
         <md-card-header>
 
-          <md-card-title href="#" [routerLink]="['/suppliers',project.id]">
+          <md-card-title href="#" [routerLink]="['/mySupply',project.id]">
             <p><img class="card-avatar" src="{{project?.icon}}" /><strong>&nbsp; &nbsp; {{project?.name}}</strong></p>
           </md-card-title>
 
@@ -25,7 +25,7 @@
           <p class="percentage">{{project?.personal}}</p>
           <p class="percentage">{{project?.material}}</p>
           <p class="hashtag">{{project?.hashtag}}</p>
-          <a href="#" [routerLink]="['/myProject',project.id]">View Details</a>
+          <a href="#" [routerLink]="['/mySupply',project.id]">View Details</a>
 
         </md-card-content>
 

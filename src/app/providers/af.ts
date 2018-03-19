@@ -253,6 +253,7 @@ export class AF {
       this.af.object('suppliers/' + p.key).update({
         id: key,
       }).then(() => {this.supplierDecline(delID); });
+      this.af.list('registeredUsers/' + project.owner + '/ownedSuppliers').push({name: p.key});
     });
 
     /*return this.af.list('projects/').pusrdish(project).then((p)=>{
@@ -348,6 +349,9 @@ export class AF {
     });
     */
   }
+  getOwnedSupplies() {
+    return this.af.list('registeredUsers/' + this.userID + '/ownedSuppliers');
+  }
 
   saveProjectID(uid) {
     // change this to live for when needed.
@@ -407,6 +411,9 @@ export class AF {
   getAllProjects() {
     return this.projects;
   }
+  getAllSuppliers() {
+    return this.suppliers;
+  }
   getProject(id) {
     console.log('id is' + id);
     this.project = this.af.object('projects/' + id);
@@ -448,7 +455,7 @@ export class AF {
       owner: this.userID,
       lat: lat,
       lng: lng,
-      itemsSelling: items,
+      supplies: items,
     };
     return this.supplierRequests.push(supplier);
   }
@@ -489,10 +496,6 @@ export class AF {
   getSupplierMessages(id) {
     this.messages = this.af.list('suppliers/' + id + '/messages');
     return this.af.list('suppliers/' + id + '/messages');
-  }
-
-  getAllSuppliers() {
-    return this.suppliers;
   }
   getSupplier(id) {
     console.log('id is' + id);
@@ -539,8 +542,8 @@ export class AF {
   }
   createUserLink(id) {
     const  createNewContact = this.userID + id;
-    this.af.object('registeredUsers/' + id + '/contacts/' + this.userID).set({messages: createNewContact, userID: this.userID});
-    this.af.object('registeredUsers/' + this.userID + '/contacts/' + id).set({messages: createNewContact, userID: id});
+    this.af.object('registeredUsers/' + id + '/contacts/' + this.userID).update({messages: createNewContact, userID: this.userID});
+    this.af.object('registeredUsers/' + this.userID + '/contacts/' + id).update({messages: createNewContact, userID: id});
   }
 
   private _getUserInfo(user: any): any {
