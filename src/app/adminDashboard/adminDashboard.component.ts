@@ -47,4 +47,9 @@ export class AdminDashboardComponent implements OnInit {
       type: 'admin'
     });
   }
+ // suspend(id) {
+   // this.af.object('registeredUsers/' + id).set({
+     // status: 'suspended'
+   // });
+  // }
 }
