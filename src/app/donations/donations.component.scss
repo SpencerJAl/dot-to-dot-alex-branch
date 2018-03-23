@@ -13,6 +13,7 @@ button{
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+  margin-bottom: 5 px;
   &:hover{
     border: 2px  solid #FFEB3B;
   }
@@ -29,4 +30,7 @@ h1 h2 h3 h4 {
 }
 p{
   font-size:medium;
+}
+md-card{
+  margin-bottom:5px;
 }

@@ -1,6 +1,7 @@
-<span id="content" style="margin-left:10px;">
+<md-card>
 <h1>Donations for {{(project | async).name}}</h1>
 <p>Items needed for project</p>
+<md-card>
 <div *ngFor=" let i = 'index'; let d of (project | async).itemsWanted; ">
   <h2>{{d.name}}</h2>
   <p>{{d.description}}</p>
@@ -16,6 +17,8 @@
     <button type="submit">Donate</button>
   </form>
 </div>
+</md-card>
+  <md-card>
 <div *ngIf="(project| async).hours>0">
   <h2>
     Work hours needed for project
@@ -29,4 +32,5 @@
     <button type="submit">Donate</button>
   </form>
 </div>
-</span>
+</md-card>
+</md-card>
