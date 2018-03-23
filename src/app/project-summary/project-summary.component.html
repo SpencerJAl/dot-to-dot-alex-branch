@@ -17,8 +17,8 @@
 
                   <md-card-content>
                     {{project.summary}}
-                    {{today | date:'dd/MM/yyyy'}}
-                    {{project?.endDate| date:'dd/MM/yyyy'}}
+                    <!-- {{today | date:'dd/MM/yyyy'}}
+                    {{project?.endDate| date:'dd/MM/yyyy'}} -->
                   </md-card-content>
 
                   <a href="#" [routerLink]="['/donations',project.id]">donate</a>
@@ -53,8 +53,8 @@
 
             <md-card-content>
               {{project.summary}}
-              {{today | date:'dd/MM/yyyy'}}
-              {{project?.endDate| date:'dd/MM/yyyy'}}
+              <!--{{today | date:'dd/MM/yyyy'}}
+              {{project?.endDate| date:'dd/MM/yyyy'}}-->
             </md-card-content>
 
             <a href="#" [routerLink]="['/donations',project.id]">donate</a>

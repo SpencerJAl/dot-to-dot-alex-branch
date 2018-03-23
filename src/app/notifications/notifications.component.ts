@@ -67,7 +67,11 @@ export class NotificationsComponent implements OnInit {
               private geolocation: GeolocationService, private _userService: UserService, public af: AngularFireDatabase, public projectFilter: ProjectFilterDataService) {
      // this.afService.userContacts.subscribe((e) => {alert('hello'); });
 
-    this.afService.user.subscribe((u) => {this.avatar = u.avatar; });
+    if (this.afService.user != null) {
+      this.afService.user.subscribe((u) => {
+        this.avatar = u.avatar;
+      });
+    }
     if (this.afService.loggedIn === true) {
       this.getC = this.afService.userContacts;
     } else { this.getC = null; }
