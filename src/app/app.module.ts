@@ -129,6 +129,7 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
 import { MySuppliesComponent } from './my-supplies/my-supplies.component';
 import { CollectSuppliesComponent } from './collect-supplies/collect-supplies.component';
 import { MySupplyComponent } from './my-supply/my-supply.component';
+import {ChartsModule} from 'ng2-charts';
 export let MD_MODULES: any = [
   MdButtonModule,
   MdButtonToggleModule,
@@ -256,7 +257,7 @@ export consrebaseAuthConfig = {
     HttpModule,
     CoreModule,
     // GMapModule,
-    ChartModule,
+    ChartsModule,
     AppRouting,
     Ng2MapModule,
     BrowserAnimationsModule,

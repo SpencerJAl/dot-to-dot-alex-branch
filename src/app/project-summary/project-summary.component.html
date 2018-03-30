@@ -5,7 +5,7 @@
 
           <div class='md-padding' layout="row" layout-wrap>
 
-            <div *ngFor=" let i = 'index'; let project of newProjects ">
+           <div *ngFor=" let i = 'index'; let project of newProjects ">
               <div *ngIf="i < 5">
                 <md-card class="myCard {{project.type}}"  >
 
@@ -20,12 +20,24 @@
                     <!-- {{today | date:'dd/MM/yyyy'}}
                     {{project?.endDate| date:'dd/MM/yyyy'}} -->
                   </md-card-content>
+                  <p>Donation Total</p>
+                  <div style="display: block">
+                    <canvas baseChart
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [chartType]="doughnutChartType"
+                          [colors]="doughnutColors"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)">
 
-                  <a href="#" [routerLink]="['/donations',project.id]">donate</a>
+                    </canvas>
+                  </div>
+
+                  <a href="#" [routerLink]="['/donations',project.id]">Donate</a>
 
                 </md-card>
-              </div>
             </div>
+           </div>
           </div>
           <md-paginator (page)="1" [pageSize]="5" >
           </md-paginator>
@@ -56,8 +68,19 @@
               <!--{{today | date:'dd/MM/yyyy'}}
               {{project?.endDate| date:'dd/MM/yyyy'}}-->
             </md-card-content>
+            <p>Donation Total</p>
+            <div style="display: block">
+              <canvas baseChart
+                      [data]="doughnutChartData"
+                      [labels]="doughnutChartLabels"
+                      [chartType]="doughnutChartType"
+                      [colors]="doughnutColors"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)">
 
-            <a href="#" [routerLink]="['/donations',project.id]">donate</a>
+              </canvas>
+            </div>
+            <a href="#" [routerLink]="['/donations',project.id]">Donate</a>
           </md-card>
             <md-paginator (page)="1" [pageSize]="5" >
             </md-paginator>
