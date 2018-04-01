@@ -1,4 +1,5 @@
-
+<md-tab-group>
+  <md-tab label ="Project">
 <div class="col-sm-8">
   <md-card class ="myCard {{(project|async)?.type}}">
     <md-card-title >
@@ -69,7 +70,9 @@
 
   </form>
 </md-card>
+  </md-tab>
 
+<md-tab label="Donations">
 <md-card class = "col-sm-4">
   <h2>donations</h2>
   <div *ngFor=" let i = 'index'; let donation of donations | async">
@@ -79,10 +82,18 @@
     <button (click)="acceptDonation(donation.amount, donation.itemID, donation.id )">accept</button>
     </div>
     </div>
-
 </md-card>
 
-
-
-
+<md-card class = "col-sm-4">
+  <h2>Hours Worked</h2>
+  <div *ngFor=" let i = 'index'; let hour of hoursDonations | async">
+    <div *ngIf="hour.accepted === false">
+      <p> Amount: {{hour.hours}}</p>
+      <p>details: {{hour.details}}</p>
+      <button (click)="acceptHours(hours.hours, donation.itemID, hours.id )">accept</button>
+    </div>
+  </div>
+</md-card>
+</md-tab>
+</md-tab-group>
 <app-footer></app-footer>

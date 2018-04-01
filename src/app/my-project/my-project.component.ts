@@ -21,12 +21,13 @@ export class MyProjectComponent implements OnInit {
   notifications: FirebaseListObservable<any>;
   donations: FirebaseListObservable<any>;
   userID;
-
+  hoursDonations;
 
   constructor(private afService: AF, private router: Router, private afAuth: AngularFireModule,
               private db: AngularFireDatabase, private route: ActivatedRoute, private donationsService: DonationsService ) {
     this.project = db.object('projects/' + this.route.snapshot.params['id']);
     this.donations = db.list('projects/' + this.route.snapshot.params['id'] + '/donations');
+    this.hoursDonations =  db.list('projects/' + this.route.snapshot.params['id'] + '/workingHours');
     this.notifications = db.list('projects/' + this.route.snapshot.params['id'] + '/notifications');
     this.project.subscribe((p) => {
       this.projectData = p;
@@ -59,6 +60,10 @@ export class MyProjectComponent implements OnInit {
     this.donationsService.acceptDonation();
   }
 
+  acceptHours(hours, id, i ) {
+    this.donationsService.setWorkingTime(hours, this.id, id, i);
+    this.donationsService.acceptWorkingTime();
+  }
   declineDonation() {
   }
 }

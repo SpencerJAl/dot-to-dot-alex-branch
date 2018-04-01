@@ -24,7 +24,7 @@
     Work hours needed for project
   </h2>
   <h4>{{(project| async).hours}}</h4>
-  <form (submit)="addWorkHours($event, hours.value, details.value, i)" class="form-signin">
+  <form (submit)="addWorkHours($event, hours.value, details.value)" class="form-signin">
     <label class="sr-only">Hours donating</label>
     <input #hours type="text" placeholder="Hours being Donated">
     <label for="details" class="sr-only">Delivery details</label>
