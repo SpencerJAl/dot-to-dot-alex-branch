@@ -5,7 +5,10 @@ import {Injectable} from '@angular/core';
 export class DonationsService {
   donation: FirebaseObjectObservable<any>;
   d;
+  hours: FirebaseObjectObservable<any>;
+  h;
   newAmmount;
+  newWorkingAmmount;
   constructor(private af: AngularFireDatabase) {}
   setDonation(amount, project, id, did) {
     this.newAmmount = amount;
@@ -23,5 +26,21 @@ export class DonationsService {
       currentAmount: currentAmount,
     });
   }
+  setWorkingTime(amount, project, id, did) {
+    this.newWorkingAmmount = amount;
+    this.hours = this.af.object('projects/' + project);
+    this.hours.subscribe((e) => {
+      this.h = e.currentHours;
+    });
+    this.af.object('projects/' + project + '/workingHours/' + did).update({
+      accepted: true
+    });
+  }
 
+  acceptWorkingTime() {
+    const currentHours = Number(this.h.currentHours) + Number(this.newWorkingAmmount);
+    this.hours.update({
+      currentHours: currentHours
+    });
+  }
 }

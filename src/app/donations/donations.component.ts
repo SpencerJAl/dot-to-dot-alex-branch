@@ -29,9 +29,8 @@ export class DonationsComponent implements OnInit {
       this.db.object('projects/' + this.route.snapshot.params['id'] + '/donations/' + e.key).update({id: e.key});
     });
   }
-  addWorkHours(event, hours, details, key) {
+  addWorkHours($event, hours, details) {
     this.db.list('projects/' + this.route.snapshot.params['id'] + '/workingHours').push({
-      itemID: key,
       hours: hours,
       details: details,
       accepted: false,

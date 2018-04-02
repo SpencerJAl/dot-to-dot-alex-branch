@@ -439,6 +439,7 @@
 
               <p><u>Summary</u></p>
               <p>{{m.summary}}</p>
+              <p><a href="#" [routerLink]="['/donations',project.id]">Click here to donate</a></p>
               <p><a href="#" [routerLink]="['/projects',m.id]">More Details</a></p>
             </md-card-content>
           </md-card>
@@ -470,8 +471,10 @@
              <md-card-content>
 
 
-               <p><u>Summary</u></p>
+               <p><a href=""><u>Summary</u></a></p>
                <p>{{m.summary}}</p>
+               <p><a href="#" [routerLink]="['/donations',project.id]">Click here to donate</a></p>
+
              </md-card-content>
            </md-card>
          </agm-info-window>
@@ -507,6 +510,7 @@
 
                <p><u>Summary</u></p>
                <p>{{m.summary}}</p>
+               <p><a href="#" [routerLink]="['/donations',m.id]">Click here to donate</a></p>
              </md-card-content>
            </md-card>
          </agm-info-window>
@@ -542,9 +546,9 @@
 
 
 
-               <p><u>Summary</u></p>
-               <p>{{m.summary}}
-                <p  [routerLink]="['/projects',m.id]"><a>More Details</a></p>
+               <p><a href=""><u>Summary</u></a></p>
+               <p>{{m.summary}}</p>
+               <p><a href="#" [routerLink]="['/donations',project.id]">Click here to donate</a></p>
              </md-card-content>
            </md-card>
          </agm-info-window>
@@ -578,8 +582,9 @@
              <md-card-content>
 
 
-               <p><u>Summary</u></p>
+               <p><a href=""><u>Summary</u></a></p>
                <p>{{m.summary}}</p>
+               <p><a href="#" [routerLink]="['/donations',project.id]">Click here to donate</a></p>
              </md-card-content>
            </md-card>
          </agm-info-window>
